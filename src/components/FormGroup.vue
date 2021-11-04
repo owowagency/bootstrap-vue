@@ -1,0 +1,102 @@
+<template>
+    <div>
+        <label
+            v-if="label || description"
+            class="form-label"
+            :for="id"
+        >
+            {{ label }}
+
+            <div
+                v-if="!!description"
+                class="form-text"
+            >
+                {{ description }}
+            </div>
+        </label>
+
+        <slot>
+            <FormControl
+                v-bind="propsFormControl"
+                :id="id"
+                :class="validityClass"
+            />
+        </slot>
+
+        <div
+            v-if="isInvalid"
+            class="invalid-feedback"
+        >
+            {{ invalidFeedback }}
+        </div>
+
+        <div
+            v-if="isValid"
+            class="valid-feedback"
+        >
+            {{ validFeedback }}
+        </div>
+
+        <div
+            v-if="helpText"
+            class="form-text"
+        >
+            {{ helpText }}
+        </div>
+    </div>
+</template>
+
+<script lang="ts" setup>
+import {computed, defineProps} from 'vue';
+import FormControl from '@/components/FormControl.vue';
+import {formControlProps} from '@/composables/useFormControl';
+import {idProps} from '@/composables/useId';
+
+const props = defineProps({
+    description: {
+        type: String,
+        required: false,
+        default: undefined,
+    },
+    helpText: {
+        type: String,
+        required: false,
+        default: undefined,
+    },
+    ...idProps,
+    ...formControlProps,
+    invalidFeedback: {
+        type: String,
+        required: false,
+        default: undefined,
+    },
+    label: {
+        type: String,
+        required: false,
+        default: undefined,
+    },
+    validFeedback: {
+        type: String,
+        required: false,
+        default: undefined,
+    },
+});
+
+const propsFormControl = computed(() => {
+    const properties = {};
+
+    Object.keys(formControlProps)
+        .forEach(k => properties[k] = props[k]);
+
+    return properties;
+});
+
+const isInvalid = computed(() => !!props.invalidFeedback);
+
+const isValid = computed(() => !!props.validFeedback);
+
+const validityClass = computed(() => [
+    isInvalid.value ? 'is-invalid' : undefined,
+    isValid.value ? 'is-valid' : undefined,
+]);
+</script>
