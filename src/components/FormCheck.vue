@@ -53,7 +53,7 @@ const props = defineProps({
     type: {
         type: String as PropType<Type>,
         default: 'checkbox',
-        validation: (t: string): Boolean => types.includes(t),
+        validator: (t: string): Boolean => types.includes(t),
     },
     value: {
         type: [String, Number],

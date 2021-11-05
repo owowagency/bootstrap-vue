@@ -1,5 +1,5 @@
 import {PropType} from 'vue';
-import useStringTemplate from '@/composables/useStringTemplate';
+import useStringTemplate from '../useStringTemplate';
 
 export const sizes = ['sm', 'md', 'lg'] as const;
 
@@ -15,6 +15,6 @@ export const sizeProps = {
     size: {
         type: String as PropType<Size>,
         default: 'md',
-        validation: (v: Size) => sizes.includes(v),
+        validator: (v: Size) => sizes.includes(v),
     },
 };

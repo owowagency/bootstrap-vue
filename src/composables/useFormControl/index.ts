@@ -1,6 +1,6 @@
 import {PropType} from 'vue';
-import {disabledProps} from '@/composables/useDisabled';
-import {sizeProps} from '@/composables/useSize';
+import {disabledProps} from '../useDisabled';
+import {sizeProps} from '../useSize';
 
 export const types = ['date', 'email', 'number', 'password', 'text'] as const;
 
@@ -28,6 +28,6 @@ export const formControlProps = {
     type: {
         type: String as PropType<Type>,
         default: 'text',
-        validation: (v: Type) => types.includes(v),
+        validator: (v: Type) => types.includes(v),
     },
 };

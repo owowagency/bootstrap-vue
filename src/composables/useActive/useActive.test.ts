@@ -1,15 +1,17 @@
 import useActive from '.';
 
-describe('activeClass', () => {
-    it('is active', () => {
-        const {activeClass} = useActive(true);
+describe('useActive', () => {
+    describe('activeClass', () => {
+        it('is active', () => {
+            const {activeClass} = useActive(true);
 
-        expect(activeClass.value).toBe('active');
-    });
+            expect(activeClass.value).toBe('active');
+        });
 
-    it('is undefined', () => {
-        const {activeClass} = useActive(false);
+        it('is undefined', () => {
+            const {activeClass} = useActive(false);
 
-        expect(activeClass.value).toBeUndefined();
+            expect(activeClass.value).toBeUndefined();
+        });
     });
 });

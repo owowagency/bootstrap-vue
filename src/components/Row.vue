@@ -33,7 +33,7 @@ const props = defineProps({
     align: {
         type: String as PropType<Align>,
         default: undefined,
-        validation: (a: Align) => aligns.includes(a),
+        validator: (a: Align) => aligns.includes(a),
     },
     cols: colProp,
     ...breakpointProps(colProp, 'cols-{0}') as Record<`cols${Capitalize<Breakpoint>}`, typeof colProp>,
@@ -46,7 +46,7 @@ const props = defineProps({
     justify: {
         type: String as PropType<Justify>,
         default: undefined,
-        validation: (j: Justify) => justifies.includes(j),
+        validator: (j: Justify) => justifies.includes(j),
     },
 });
 

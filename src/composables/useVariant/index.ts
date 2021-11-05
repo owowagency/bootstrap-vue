@@ -1,5 +1,5 @@
 import {PropType} from 'vue';
-import useStringTemplate from '@/composables/useStringTemplate';
+import useStringTemplate from '../useStringTemplate';
 
 export const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'link'] as const;
 
@@ -15,6 +15,6 @@ export const variantProps = {
     variant: {
         type: String as PropType<Variant>,
         default: 'primary',
-        validation: (v: Variant) => variants.includes(v),
+        validator: (v: Variant) => variants.includes(v),
     },
 };

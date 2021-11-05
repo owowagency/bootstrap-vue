@@ -1,5 +1,5 @@
 import {computed} from 'vue';
-import useStringTemplate from '@/composables/useStringTemplate';
+import useStringTemplate from '../useStringTemplate';
 
 export default (flush: boolean, classTemplate: string) => {
     const {templatedString} = useStringTemplate(classTemplate, 'flush');
