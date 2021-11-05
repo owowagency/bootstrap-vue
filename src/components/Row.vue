@@ -24,10 +24,10 @@ const gutterProp: Prop<number | string> = {
 
 <script lang="ts" setup>
 import {Prop, PropType, defineProps} from 'vue';
-import useBreakpoints, {Breakpoint, breakpointProps} from '@/composables/useBreakpoints';
-import {colProp} from '@/composables/useCol';
-import useClasses from '@/composables/useClasses';
-import useStringTemplate from '@/composables/useStringTemplate';
+import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
+import {colProp} from '../../composables/useCol';
+import useClasses from '../../composables/useClasses';
+import useStringTemplate from '../../composables/useStringTemplate';
 
 const props = defineProps({
     align: {

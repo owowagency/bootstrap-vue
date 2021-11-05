@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `
+"<div class=\\"dropdown\\">
+  <anonymous-stub disabled=\\"false\\" outline=\\"false\\" size=\\"md\\" variant=\\"primary\\" class=\\"dropdown-toggle\\" data-bs-toggle=\\"dropdown\\"></anonymous-stub>
+  <anonymous-stub items=\\"[object Object],[object Object],[object Object]\\"></anonymous-stub>
+</div>"
+`;

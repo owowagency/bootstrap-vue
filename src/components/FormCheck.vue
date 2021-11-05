@@ -28,8 +28,8 @@ export type Type = typeof types[number];
 
 <script lang="ts" setup>
 import {PropType, computed, defineEmits, defineProps} from 'vue';
-import {disabledProps} from '@/composables/useDisabled';
-import {idProps} from '@/composables/useId';
+import {disabledProps} from '../../composables/useDisabled';
+import {idProps} from '../../composables/useId';
 
 const props = defineProps({
     ...disabledProps,

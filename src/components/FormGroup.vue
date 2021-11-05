@@ -49,8 +49,8 @@
 <script lang="ts" setup>
 import {computed, defineProps} from 'vue';
 import FormControl from '@/components/FormControl.vue';
-import {formControlProps} from '@/composables/useFormControl';
-import {idProps} from '@/composables/useId';
+import {formControlProps} from '../../composables/useFormControl';
+import {idProps} from '../../composables/useId';
 
 const props = defineProps({
     description: {

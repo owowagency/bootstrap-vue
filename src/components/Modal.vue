@@ -48,7 +48,7 @@
 <script lang="ts" setup>
 import * as bootstrap from 'bootstrap';
 import {defineProps, onBeforeUnmount, onMounted, ref} from 'vue';
-import {idProps} from '@/composables/useId';
+import {idProps} from '../composables/useId';
 
 defineProps({
     ...idProps,

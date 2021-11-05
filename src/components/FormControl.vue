@@ -12,10 +12,10 @@
 
 <script lang="ts" setup>
 import {computed, defineProps} from 'vue';
-import {formControlProps} from '@/composables/useFormControl';
-import useClasses from '@/composables/useClasses';
-import useDisabled from '@/composables/useDisabled';
-import useSize from '@/composables/useSize';
+import {formControlProps} from '../../composables/useFormControl';
+import useClasses from '../../composables/useClasses';
+import useDisabled from '../../composables/useDisabled';
+import useSize from '../../composables/useSize';
 
 const props = defineProps(formControlProps);
 

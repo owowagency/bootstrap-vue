@@ -15,10 +15,10 @@
 </template>
 
 <script lang="ts" setup>
-import useDisabled, {disabledProps} from '@/composables/useDisabled';
-import useSize, {sizeProps} from '@/composables/useSize';
+import useDisabled, {disabledProps} from '../../composables/useDisabled';
+import useSize, {sizeProps} from '../../composables/useSize';
 import {PropType} from 'vue';
-import useClasses from '@/composables/useClasses';
+import useClasses from '../../composables/useClasses';
 
 interface Item {
     label?: string;

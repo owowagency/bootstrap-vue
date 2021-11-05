@@ -1,6 +1,7 @@
 import {PropType} from 'vue';
 
 export interface Item {
+    active?: boolean;
     label?: string;
     divider?: boolean;
     header?: boolean;

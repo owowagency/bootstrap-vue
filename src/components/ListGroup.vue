@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
 import {computed, defineProps} from 'vue';
-import useFlush, {flushProps} from '@/composables/useFlush';
-import useClasses from '@/composables/useClasses';
+import useFlush, {flushProps} from '../../composables/useFlush';
+import useClasses from '../../composables/useClasses';
 
 const props = defineProps({
     ...flushProps,
