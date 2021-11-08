@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, defineProps} from 'vue';
+import {computed} from 'vue';
 import {formControlProps} from '../../composables/useFormControl';
 import useClasses from '../../composables/useClasses';
 import useDisabled from '../../composables/useDisabled';
