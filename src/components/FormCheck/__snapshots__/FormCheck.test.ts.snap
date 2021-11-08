@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `
+"<div class=\\"form-check\\"><input id=\\"dont-change-please\\" class=\\"form-check-input\\" type=\\"checkbox\\">
+  <!--v-if-->
+</div>"
+`;
+
+exports[`template renders label 1`] = `"<div class=\\"form-check\\"><input id=\\"dont-change-please\\" class=\\"form-check-input\\" type=\\"checkbox\\"><label class=\\"form-check-label\\" for=\\"dont-change-please\\">I am a label</label></div>"`;

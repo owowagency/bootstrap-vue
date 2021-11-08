@@ -12,6 +12,7 @@
         >
 
         <label
+            v-if="label"
             class="form-check-label"
             :for="id"
         >
@@ -40,7 +41,7 @@ const props = defineProps({
     },
     label: {
         type: String,
-        required: true,
+        default: undefined,
     },
     modelValue: {
         type: [Boolean, String, Number],
