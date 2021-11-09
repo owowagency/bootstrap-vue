@@ -1,0 +1,72 @@
+<template>
+    <Dropdown
+        class="form-dropdown"
+        v-bind="propsDropdown"
+        @click:item="emit('update:modelValue', $event)"
+    >
+        <template #dropdownToggle>
+            <div
+                class="form-select"
+                data-bs-toggle="dropdown"
+                :class="classes"
+            >
+                {{ label }}
+            </div>
+        </template>
+    </Dropdown>
+</template>
+
+<script lang="ts">
+import {formSelectProps} from '../../composables/useFormSelect';
+
+const {disabled: disabledProp, size: sizeProp} = formSelectProps;
+</script>
+
+<script lang="ts" setup>
+import Dropdown from '../Dropdown';
+import {computed} from 'vue';
+import {dropdownProps} from '../../composables/useDropdown';
+import useFormSelect from '../../composables/useFormSelect';
+
+const props = defineProps({
+    ...dropdownProps,
+    disabled: disabledProp,
+    labelKey: {
+        type: String,
+        default: 'label',
+    },
+    menuClass: {
+        type: String,
+        default: 'w-100',
+    },
+    modelValue: {
+        default: undefined,
+    },
+    placeholder: {
+        type: String,
+        default: 'Select',
+    },
+    size: sizeProp,
+});
+
+const emit = defineEmits(['update:modelValue']);
+
+const propsDropdown = computed(() => {
+    const properties = {};
+
+    Object.keys(dropdownProps)
+        .forEach(k => properties[k] = props[k]);
+
+    return properties;
+});
+
+const label = computed(() => {
+    if (!props.modelValue) {
+        return props.placeholder;
+    }
+
+    return props.modelValue[props.labelKey];
+});
+
+const {classes} = useFormSelect(props);
+</script>

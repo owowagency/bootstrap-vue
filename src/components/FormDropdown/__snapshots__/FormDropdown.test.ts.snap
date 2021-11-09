@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `
+"<div class=\\"dropdown form-dropdown\\">
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">Select</div>
+  <ul class=\\"dropdown-menu w-100\\"></ul>
+</div>"
+`;

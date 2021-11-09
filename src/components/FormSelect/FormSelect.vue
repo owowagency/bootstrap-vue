@@ -16,28 +16,9 @@
 </template>
 
 <script lang="ts" setup>
-import useDisabled, {disabledProps} from '../../composables/useDisabled';
-import useSize, {sizeProps} from '../../composables/useSize';
-import {PropType} from 'vue';
-import useClasses from '../../composables/useClasses';
+import useFormSelect, {formSelectProps} from '../../composables/useFormSelect';
 
-interface Item {
-    label?: string;
-    selected?: boolean;
-    value: string | number | undefined;
-}
+const props = defineProps(formSelectProps);
 
-const props = defineProps({
-    ...disabledProps,
-    items: {
-        type: Array as PropType<Item[]>,
-        default: () => [],
-    },
-    ...sizeProps,
-});
-
-const {classes} = useClasses([
-    useDisabled(props.disabled).disabledClass.value,
-    useSize(props.size, 'form-select-{0}').sizeClass.value,
-]);
+const {classes} = useFormSelect(props);
 </script>
