@@ -51,24 +51,13 @@ const value = ref('');
 const clearValue = () => value.value = '';
 
 const items = computed({
-    get: () => {
-        console.log('I changed');
-        return props.modelValue;
-    },
-    set: (v: string[]) => {
-        emit('update:modelValue', v);
-    },
+    get: () => props.modelValue,
+    set: (v: string[]) => emit('update:modelValue', v),
 });
 
 const addItem = (item: string) => items.value.push(item);
 
-const removeItem = (index: number) => {
-    const itemsCopy = [...props.modelValue];
-
-    itemsCopy.splice(index, 1);
-
-    emit('update:modelValue', itemsCopy)
-};
+const removeItem = (index: number) => items.value.splice(index, 1);
 
 const addValue = () => {
     const newValue = value.value.replace(/[\s|\n]+/, '');
