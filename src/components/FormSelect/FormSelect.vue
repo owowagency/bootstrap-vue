@@ -8,6 +8,7 @@
             v-for="item in items"
             :key="item.value"
             :selected="item.selected"
+            :value="item.value"
         >
             {{ item.label || item.value }}
         </option>
@@ -36,7 +37,7 @@ const props = defineProps({
 });
 
 const {classes} = useClasses([
-    useSize(props.size, 'form-select-{0}').sizeClass.value,
     useDisabled(props.disabled).disabledClass.value,
+    useSize(props.size, 'form-select-{0}').sizeClass.value,
 ]);
 </script>

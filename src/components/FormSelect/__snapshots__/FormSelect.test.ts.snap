@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `
+"<select class=\\"form-select form-select-md\\">
+  <option>Item 1</option>
+  <option>Item 2</option>
+  <option value=\\"Item 3\\">Item three</option>
+</select>"
+`;
