@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `
+"<div>
+  <!--v-if-->
+  <anonymous-stub disabled=\\"false\\" modelvalue=\\"\\" placeholder=\\"\\" plaintext=\\"false\\" size=\\"md\\" type=\\"text\\" id=\\"dont-change-please\\" class=\\"\\"></anonymous-stub>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
