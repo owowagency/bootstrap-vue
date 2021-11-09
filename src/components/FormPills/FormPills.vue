@@ -1,39 +1,48 @@
 <template>
-    <ul class="form-control list-unstyled d-flex align-content-start flex-wrap">
-        <li
-            v-for="(item, i) in modelValue"
-            :key="i"
-            class="form-pill d-inline-flex align-items-center mw-100 px-2 badge bg-primary"
-        >
-            <div class="text-truncate">
-                {{ item }}
-            </div>
-
-            <div @click="removeItem(i)">
-                x
-            </div>
-        </li>
-
-        <li class="bg-info mw-100">
-            <div class="h-0 overflow-hidden">
-                {{ value }}
-            </div>
-
-            <input
-                v-model="value"
-                class="border-0 w-100 outline-0 p-0"
-                type="text"
-                @keydown="keydown"
-                @paste="paste"
+    <label
+        class="form-control"
+        :for="id"
+    >
+        <ul class="list-unstyled d-flex align-content-start flex-wrap mb-0">
+            <li
+                v-for="(item, i) in modelValue"
+                :key="i"
+                class="form-pill d-inline-flex align-items-center mw-100 px-2 badge bg-primary"
             >
-        </li>
-    </ul>
+                <div class="text-truncate">
+                    {{ item }}
+                </div>
+
+                <div
+                    class="form-pill-remove"
+                    @click="removeItem(i)"
+                />
+            </li>
+
+            <li class="mw-100">
+                <div class="h-0 overflow-hidden">
+                    {{ value }}
+                </div>
+
+                <input
+                    v-model="value"
+                    :id="id"
+                    class="border-0 w-100 outline-0 p-0"
+                    type="text"
+                    @keydown="keydown"
+                    @paste="paste"
+                >
+            </li>
+        </ul>
+    </label>
 </template>
 
 <script lang="ts" setup>
 import {PropType, computed, ref} from 'vue';
+import {idProps} from '../../composables/useId';
 
 const props = defineProps({
+    ...idProps,
     modelValue: {
         type: Array as PropType<string[]>,
         default: () => [],
@@ -102,10 +111,23 @@ const paste = (event: ClipboardEvent) => {
 
 
 <style scoped>
+/* TODO: Should be put in global styling */
+
 .form-pill {
     /* TODO: Should come from variables */
     margin: 2px 6px 2px 0;
 }
+
+.form-pill-remove {
+    padding: 4.2px 8px;
+    margin: -4.2px -8px -4.2px 0;
+    cursor: pointer;
+}
+
+.form-pill-remove::after {
+    content: 'x';
+}
+
 .h-0 {
     height: 0 !important;
 }
