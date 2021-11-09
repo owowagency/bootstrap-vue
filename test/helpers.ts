@@ -1,7 +1,7 @@
 import {mount, shallowMount} from '@vue/test-utils';
 
-export const componentRenderTest = (component: any, options = {}, shallow = true, name = 'renders default') => {
-    it(name, () => {
+export const componentRenderTest = (component: any, options = {}, shallow = true, testName = 'renders default') => {
+    it(testName, () => {
         const mounter = shallow ? shallowMount : mount;
 
         const wrapper = mounter(component, options);
@@ -30,8 +30,8 @@ export const componentSlotRenderTest = (component: any, slot: string = 'default'
 
 global.componentSlotRenderTest = componentSlotRenderTest;
 
-export const componentWrapperClassTest = (component: any, props = {}, classname: string) => {
-    it(`adds ${classname} class to the wrapper`, () => {
+export const componentWrapperClassTest = (component: any, props = {}, classname: string, testName?: string) => {
+    it(testName || `adds ${classname} class to the wrapper`, () => {
         const wrapper = shallowMount(component, {props});
 
         expect(wrapper.classes()).toContain(classname);

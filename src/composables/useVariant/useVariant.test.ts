@@ -10,6 +10,12 @@ describe('variantProps', () => {
             });
         });
 
+        it('passes validation with empty value', () => {
+            const result = variantProps.variant.validator(undefined);
+
+            expect(result).toBe(true);
+        });
+
         it(`passes validation with a non variant`, () => {
             const result = variantProps.variant.validator('non-variant');
 

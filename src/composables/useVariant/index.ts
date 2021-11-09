@@ -15,6 +15,6 @@ export const variantProps = {
     variant: {
         type: String as PropType<Variant>,
         default: 'primary',
-        validator: (v: Variant) => variants.includes(v),
+        validator: (v?: Variant) => v ? variants.includes(v) : true,
     },
 };

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `"<li class=\\"list-group-item list-group-item-\\"></li>"`;

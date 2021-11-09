@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, defineProps} from 'vue';
+import {computed} from 'vue';
 import useActive, {activeProps} from '../../composables/useActive';
 import useDisabled, {disabledProps} from '../../composables/useDisabled';
 import useVariant, {variantProps} from '../../composables/useVariant';
