@@ -1,33 +1,33 @@
 <template>
     <div class="dropdown">
-        <Btn
-            class="dropdown-toggle"
-            data-bs-toggle="dropdown"
-            :size="size"
-            :variant="variant"
-        >
-            <slot />
-        </Btn>
+        <slot name="dropdownToggle">
+            <Btn
+                class="dropdown-toggle"
+                data-bs-toggle="dropdown"
+                :size="size"
+                :variant="variant"
+            >
+                <slot>
+                    Select
+                </slot>
+            </Btn>
+        </slot>
 
         <DropdownMenu
             :items="items"
+            :class="menuClass"
             @click:item="clickItem($event)"
         />
     </div>
 </template>
 
 <script lang="ts" setup>
-import {Item, dropdownItemsProps} from '../../composables/useDropdownItems';
+import {Item} from '../../composables/useDropdownItems';
 import Btn from '../Button';
 import DropdownMenu from '../DropdownMenu';
-import {sizeProps} from '../../composables/useSize';
-import {variantProps} from '../../composables/useVariant';
+import {dropdownProps} from '../../composables/useDropdown';
 
-defineProps({
-    ...dropdownItemsProps,
-    ...sizeProps,
-    ...variantProps,
-});
+defineProps(dropdownProps);
 
 const emit = defineEmits(['click:item']);
 

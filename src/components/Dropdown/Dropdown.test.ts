@@ -13,6 +13,19 @@ describe('template', () => {
 
     componentSlotRenderTest(Dropdown);
 
+    it('adds menu class to DropdownMenu', () => {
+        const wrapper = shallowMount(Dropdown, {
+            props: {
+                menuClass: 'hello-there',
+                items,
+            },
+        });
+
+        const dropdownMenu = wrapper.findComponent(DropdownMenu);
+
+        expect(dropdownMenu.attributes('class')).toBe('hello-there');
+    });
+
     it('emits event on click dropdown menu item', async () => {
         const wrapper = shallowMount(DropdownMenu);
 

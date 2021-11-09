@@ -4,6 +4,7 @@
             v-for="(item, index) of items"
             :key="`item-${index}`"
             v-bind="item"
+            @click="clickItem(item)"
         />
     </ul>
 </template>
