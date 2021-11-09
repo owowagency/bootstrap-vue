@@ -23,7 +23,7 @@ const gutterProp: Prop<number | string> = {
 </script>
 
 <script lang="ts" setup>
-import {Prop, PropType, defineProps} from 'vue';
+import {Prop, PropType} from 'vue';
 import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
 import {colProp} from '../../composables/useCol';
 import useClasses from '../../composables/useClasses';
@@ -108,7 +108,6 @@ const {classes} = useClasses([
     ...guttersXClasses.value,
     guttersYClass.value,
     ...guttersYClasses.value,
-    useStringTemplate('g-{0}', props.gutters).templatedString.value,
     useStringTemplate('justify-content-{0}', props.justify).templatedString.value,
 ]);
 </script>
