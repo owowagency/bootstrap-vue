@@ -1,32 +1,16 @@
 <template>
-    <ul class="form-control list-unstyled d-flex flex-wrap">
-        <li class="d-inline-flex mw-100 bg-primary">
+    <ul class="form-control list-unstyled d-flex align-content-start flex-wrap">
+        <li
+            v-for="item in items"
+            :key="item"
+            class="form-pill d-inline-flex align-items-center mw-100 px-2 badge bg-primary"
+        >
             <div class="text-truncate">
-                Some pill
+                {{ item }}
             </div>
 
             <div>
-                X
-            </div>
-        </li>
-
-        <li class="d-inline-flex mw-100 bg-danger">
-            <div class="text-truncate">
-                Some pill
-            </div>
-
-            <div>
-                X
-            </div>
-        </li>
-
-        <li class="d-inline-flex mw-100 bg-warning">
-            <div class="text-truncate">
-                A very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long pill
-            </div>
-
-            <div>
-                X
+                x
             </div>
         </li>
 
@@ -39,6 +23,8 @@
                 v-model="value"
                 class="border-0 w-100 outline-0 p-0"
                 type="text"
+                @keydown="keydown"
+                @paste="paste"
             >
         </li>
     </ul>
@@ -48,21 +34,68 @@
 import {ref} from 'vue';
 
 const value = ref('');
+
+const clearValue = () => value.value = '';
+
+const items = ref([
+    'Some pill',
+    'Another pill',
+    'A very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long pill',
+]);
+
+const addItem = (item: string) => items.value.push(item);
+
+const addValue = () => {
+    const newValue = value.value.replace(/[\s|\n]+/, '');
+
+    if (newValue === '') {
+        return;
+    }
+
+    addItem(newValue);
+
+    clearValue();
+};
+
+const keydown = (event: KeyboardEvent) => {
+    switch (event.code) {
+        case 'Enter':
+        case 'Space':
+        case 'Tab':
+            addValue();
+            break;
+
+        case 'Backspace':
+            if (value.value === '') {
+                items.value.pop();
+            }
+            break;
+    }
+};
+
+const paste = (event: ClipboardEvent) => {
+    const pasteValue = event.clipboardData.getData('text');
+
+    if (!pasteValue) {
+        return;
+    }
+
+    event.preventDefault();
+
+    items.value = [
+        ...items.value,
+        ...pasteValue.split(/[\s\n]+/)
+            .filter(v => v !== ''),
+    ];
+};
 </script>
 
 
 <style scoped>
 .form-pill {
-    /* TODO: Should come from input variables */
-    margin-right: 6px;
+    /* TODO: Should come from variables */
+    margin: 2px 6px 2px 0;
 }
-
-.form-pill .btn-close {
-    height: .5em;
-    width: .5em;
-    color: inherit;
-}
-
 .h-0 {
     height: 0 !important;
 }
