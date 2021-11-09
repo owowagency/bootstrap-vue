@@ -1,6 +1,7 @@
 {
-    "name": "bootstrap-vue",
+    "name": "@owowagency/bootstrap-vue",
     "version": "0.0.1",
+    "main": "src/index.ts",
     "scripts": {
         "test": "jest",
         "storybook": "start-storybook -p 6006",
