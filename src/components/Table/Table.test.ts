@@ -10,10 +10,27 @@ const props = {
     ],
 };
 
+const fields = [
+    {label: 'ajdie', key: 'id'},
+    {label: 'neem', key: 'name'},
+];
+
 describe('template', () => {
     componentRenderTest(Table);
 
     componentRenderTest(Table, {props}, true, 'renders with items');
+
+    componentRenderTest(
+        Table,
+        {
+            props: {
+                ...props,
+                fields,
+            },
+        },
+        true,
+        'renders with fields and items',
+    );
 
     componentSlotRenderTest(Table, 'header-id', {props});
 
@@ -37,11 +54,6 @@ describe('headers', () => {
     });
 
     it('uses fields when given', () => {
-        const fields = [
-            {label: 'ajdie', key: 'id'},
-            {label: 'neem', key: 'name'},
-        ];
-
         const wrapper = shallowMount(Table, {
             props: {fields},
         });
