@@ -9,10 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-import {computed} from 'vue';
 import useActive, {activeProps} from '../../composables/useActive';
 import useDisabled, {disabledProps} from '../../composables/useDisabled';
 import useVariant, {variantProps} from '../../composables/useVariant';
+import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
 
 const props = defineProps({

@@ -20,5 +20,5 @@
 
 <script lang="ts" setup>
 import Btn from '../Button';
-import Modal from '../Modal.vue';
+import Modal from '../Modal';
 </script>

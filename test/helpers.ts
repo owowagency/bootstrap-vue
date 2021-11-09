@@ -39,3 +39,15 @@ export const componentWrapperClassTest = (component: any, props = {}, classname:
 };
 
 global.componentWrapperClassTest = componentWrapperClassTest;
+
+export const componentWrapperTagTest = (component: any, options: Record<string, any>) => {
+    const tag = options.props?.tag || 'div';
+
+    it(`wrapper has ${tag} as tag`, () => {
+        const wrapper = shallowMount(component, options);
+
+        expect((wrapper.element as HTMLElement).tagName).toBe(tag.toLocaleUpperCase());
+    });
+};
+
+global.componentWrapperTagTest = componentWrapperTagTest;

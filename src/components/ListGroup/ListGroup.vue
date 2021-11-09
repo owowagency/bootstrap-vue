@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, defineProps} from 'vue';
 import useFlush, {flushProps} from '../../composables/useFlush';
+import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
 
 const props = defineProps({

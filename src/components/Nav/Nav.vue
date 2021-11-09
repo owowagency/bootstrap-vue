@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, defineProps} from 'vue';
+import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
 
 const props = defineProps({

@@ -26,11 +26,11 @@
                 </div>
 
                 <div
-                    v-if="$slots.default || text"
+                    v-if="$slots.default || body"
                     :class="{'modal-body': !noBody}"
                 >
                     <slot>
-                        {{ text }}
+                        {{ body }}
                     </slot>
                 </div>
 
@@ -47,18 +47,18 @@
 
 <script lang="ts" setup>
 import * as bootstrap from 'bootstrap';
-import {defineProps, onBeforeUnmount, onMounted, ref} from 'vue';
-import {idProps} from '../composables/useId';
+import {onBeforeUnmount, onMounted, ref} from 'vue';
+import {idProps} from '../../composables/useId';
 
 defineProps({
+    body: {
+        type: String,
+        default: undefined,
+    },
     ...idProps,
     noBody: {
         type: Boolean,
         default: false,
-    },
-    text: {
-        type: String,
-        default: undefined,
     },
     title: {
         type: String,

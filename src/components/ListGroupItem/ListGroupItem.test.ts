@@ -1,8 +1,9 @@
 import ListGroupItem from '.';
-import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
     componentRenderTest(ListGroupItem);
+
+    componentSlotRenderTest(ListGroupItem);
 
     componentWrapperClassTest(
         ListGroupItem,
@@ -22,11 +23,5 @@ describe('template', () => {
 
     componentWrapperClassTest(ListGroupItem, {variant: 'danger'}, 'list-group-item-danger');
 
-    it('uses given tag', () => {
-        const wrapper = shallowMount(ListGroupItem, {
-            props: {tag: 'table'},
-        });
-
-        expect((wrapper.element as HTMLElement).tagName).toBe('TABLE');
-    });
+    componentWrapperTagTest(ListGroupItem, {props: {tag: 'table'}});
 });
