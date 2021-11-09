@@ -4,8 +4,9 @@
             <tr>
                 <slot
                     v-for="header in headers"
+                    :key="`header-${header.key}`"
                     :header="header"
-                    :name="`header-${header}`"
+                    :name="`header-${header.key}`"
                 >
                     <th :key="header.key">
                         {{ header.label || header.key }}
@@ -21,6 +22,7 @@
             >
                 <slot
                     v-for="header in headers"
+                    :key="header.key"
                     :name="header.key"
                     :item="item"
                 >
@@ -34,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType, computed, defineProps} from 'vue';
+import {PropType, computed} from 'vue';
 
 export interface Field {
     key: string;

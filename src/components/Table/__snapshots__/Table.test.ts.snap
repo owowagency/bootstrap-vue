@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `
+"<table class=\\"table\\">
+  <!--v-if-->
+  <tbody></tbody>
+</table>"
+`;
+
+exports[`template renders with items 1`] = `
+"<table class=\\"table\\">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Word</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Press</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>ISDABEST</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>#prank</td>
+    </tr>
+  </tbody>
+</table>"
+`;

@@ -17,6 +17,7 @@ export const componentSlotRenderTest = (component: any, slot: string = 'default'
         const id = `i-am-the-${slot}-slot`;
 
         const wrapper = shallowMount(component, {
+            ...options,
             global: {
                 renderStubDefaultSlot: true,
             },
