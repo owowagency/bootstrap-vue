@@ -1,15 +1,15 @@
 <template>
     <ul class="form-control list-unstyled d-flex align-content-start flex-wrap">
         <li
-            v-for="item in items"
-            :key="item"
+            v-for="(item, i) in modelValue"
+            :key="i"
             class="form-pill d-inline-flex align-items-center mw-100 px-2 badge bg-primary"
         >
             <div class="text-truncate">
                 {{ item }}
             </div>
 
-            <div>
+            <div @click="removeItem(i)">
                 x
             </div>
         </li>
@@ -31,19 +31,44 @@
 </template>
 
 <script lang="ts" setup>
-import {ref} from 'vue';
+import {PropType, computed, ref} from 'vue';
+
+const props = defineProps({
+    modelValue: {
+        type: Array as PropType<string[]>,
+        default: () => [],
+    },
+    separatorKeys: {
+        type: Array as PropType<string[]>,
+        default: () => ['Enter', 'Space', 'Tab'],
+    },
+});
+
+const emit = defineEmits(['update:modelValue']);
 
 const value = ref('');
 
 const clearValue = () => value.value = '';
 
-const items = ref([
-    'Some pill',
-    'Another pill',
-    'A very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long pill',
-]);
+const items = computed({
+    get: () => {
+        console.log('I changed');
+        return props.modelValue;
+    },
+    set: (v: string[]) => {
+        emit('update:modelValue', v);
+    },
+});
 
 const addItem = (item: string) => items.value.push(item);
+
+const removeItem = (index: number) => {
+    const itemsCopy = [...props.modelValue];
+
+    itemsCopy.splice(index, 1);
+
+    emit('update:modelValue', itemsCopy)
+};
 
 const addValue = () => {
     const newValue = value.value.replace(/[\s|\n]+/, '');
@@ -58,29 +83,25 @@ const addValue = () => {
 };
 
 const keydown = (event: KeyboardEvent) => {
-    switch (event.code) {
-        case 'Enter':
-        case 'Space':
-        case 'Tab':
-            addValue();
-            break;
+    if (props.separatorKeys.includes(event.code)) {
+        addValue();
 
-        case 'Backspace':
-            if (value.value === '') {
-                items.value.pop();
-            }
-            break;
+        event.preventDefault();
+    } else if (event.code === 'Backspace') {
+        if (value.value === '') {
+            removeItem(items.value.length - 1);
+        }
     }
 };
 
 const paste = (event: ClipboardEvent) => {
+    event.preventDefault();
+
     const pasteValue = event.clipboardData.getData('text');
 
     if (!pasteValue) {
         return;
     }
-
-    event.preventDefault();
 
     items.value = [
         ...items.value,

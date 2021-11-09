@@ -8,8 +8,8 @@ export default {
 
 const template = (args) => ({
     components: {FormPills},
-    setup: () => ({args}),
-    template: '<FormPills v-bind="args" />',
+    setup: () => ({args, value: []}),
+    template: '<FormPills v-model="value" v-bind="args" />',
 });
 
 export const Default = template.bind({});
