@@ -1,5 +1,5 @@
-import FormGroup from '.';
 import FormControl from '../FormControl';
+import FormGroup from '.';
 
 export default {
     title: 'Forms/Form group',

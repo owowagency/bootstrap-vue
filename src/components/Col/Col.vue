@@ -4,20 +4,28 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
 import {colProp} from '../../composables/useCol';
 import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
 import useStringTemplate from '../../composables/useStringTemplate';
 
+const propsCol = breakpointProps(colProp) as Record<Breakpoint, typeof colProp>;
+
+const propsOffset = breakpointProps(colProp, 'offset-{0}') as Record<`offset${Capitalize<Breakpoint>}`, typeof colProp>;
+
+const propsOrder = breakpointProps(colProp, 'order-{0}') as Record<`order${Capitalize<Breakpoint>}`, typeof colProp>;
+</script>
+
+<script lang="ts" setup>
 const props = defineProps({
     cols: colProp,
-    ...breakpointProps(colProp) as Record<Breakpoint, typeof colProp>,
+    ...propsCol,
     offset: colProp,
-    ...breakpointProps(colProp, 'offset-{0}') as Record<`offset${Capitalize<Breakpoint>}`, typeof colProp>,
+    ...propsOffset,
     order: colProp,
-    ...breakpointProps(colProp, 'order-{0}') as Record<`order${Capitalize<Breakpoint>}`, typeof colProp>,
+    ...propsOrder,
 });
 
 const colProps = {

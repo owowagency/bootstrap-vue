@@ -5,9 +5,11 @@
     />
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import {disabledProps} from '../../composables/useDisabled';
+</script>
 
+<script lang="ts" setup>
 defineProps({
     ...disabledProps,
 });

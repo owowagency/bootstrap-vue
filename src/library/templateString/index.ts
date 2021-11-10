@@ -16,4 +16,4 @@ export default (template: string, value: Value | Value[]): string | undefined =>
     }
 
     return result;
-}
+};

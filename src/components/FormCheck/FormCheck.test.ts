@@ -1,4 +1,4 @@
-    import FormCheck from '.';
+import FormCheck from '.';
 import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
@@ -32,7 +32,7 @@ describe('template', () => {
 
     componentWrapperClassTest(FormCheck, {inline: true}, 'form-check-inline');
 
-    it('emits on checked change', async () => {
+    it('emits on checked change', async() => {
         const wrapper = shallowMount(FormCheck);
 
         const input = wrapper.find('input').setValue(true);

@@ -2,7 +2,7 @@ import {mount, shallowMount} from '@vue/test-utils';
 import Dropdown from '../Dropdown';
 import FormDropdown from '.';
 
-// const 
+// const
 
 describe('template', () => {
     componentRenderTest(FormDropdown, {}, false);
@@ -12,7 +12,7 @@ describe('template', () => {
 
         wrapper.findComponent(Dropdown).vm.$emit('click:item', 'yooo');
 
-        expect(wrapper.emitted('update:modelValue')[0]).toEqual(['yooo'])
+        expect(wrapper.emitted('update:modelValue')[0]).toEqual(['yooo']);
     });
 
     it('adds disabled class to .form-select', () => {

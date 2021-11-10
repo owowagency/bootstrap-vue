@@ -22,16 +22,16 @@
 </template>
 
 <script lang="ts">
+import {PropType, computed} from 'vue';
+import {disabledProps} from '../../composables/useDisabled';
+import {idProps} from '../../composables/useId';
+
 export const types = ['checkbox', 'radio'] as const;
 
 export type Type = typeof types[number];
 </script>
 
 <script lang="ts" setup>
-import {PropType, computed} from 'vue';
-import {disabledProps} from '../../composables/useDisabled';
-import {idProps} from '../../composables/useId';
-
 const props = defineProps({
     ...disabledProps,
     ...idProps,

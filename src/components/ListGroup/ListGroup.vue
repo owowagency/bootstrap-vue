@@ -8,11 +8,13 @@
     </component>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import useFlush, {flushProps} from '../../composables/useFlush';
 import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
+</script>
 
+<script lang="ts" setup>
 const props = defineProps({
     ...flushProps,
     horizontal: {

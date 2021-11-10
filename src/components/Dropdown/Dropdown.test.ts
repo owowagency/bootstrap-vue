@@ -26,7 +26,7 @@ describe('template', () => {
         expect(dropdownMenu.attributes('class')).toBe('hello-there');
     });
 
-    it('emits event on click dropdown menu item', async () => {
+    it('emits event on click dropdown menu item', async() => {
         const wrapper = shallowMount(DropdownMenu);
 
         wrapper.findComponent(DropdownMenu).vm.$emit('click:item', items[0]);

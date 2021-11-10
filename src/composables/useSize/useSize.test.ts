@@ -10,7 +10,7 @@ describe('sizeProps', () => {
             });
         });
 
-        it(`passes validation with a non size`, () => {
+        it('passes validation with a non size', () => {
             const result = sizeProps.size.validator('non-size');
 
             expect(result).toBe(false);

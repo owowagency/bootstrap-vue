@@ -1,7 +1,7 @@
 <template>
     <Modal
         title="Confirm"
-        text="You are about to do something that requires confirmation. Do you wish to continue?"
+        body="You are about to do something that requires confirmation. Do you wish to continue?"
     >
         <template #footer>
             <Btn

@@ -9,10 +9,12 @@
     </ul>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import {Item, dropdownItemsProps} from '../../composables/useDropdownItems';
 import DropdownMenuItem from '../DropdownMenuItem';
+</script>
 
+<script lang="ts" setup>
 defineProps(dropdownItemsProps);
 
 const emit = defineEmits(['click:item']);
