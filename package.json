@@ -2,6 +2,7 @@
     "name": "@owowagency/bootstrap-vue",
     "version": "0.0.1",
     "main": "src/index.ts",
+    "license": "MIT",
     "scripts": {
         "test": "jest",
         "storybook": "start-storybook -p 6006",
