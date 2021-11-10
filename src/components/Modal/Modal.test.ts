@@ -38,7 +38,7 @@ describe('template', () => {
 });
 
 describe('onMounted', () => {
-    it('sets bsModal', async () => {
+    it('sets bsModal', async() => {
         const wrapper = await shallowMount(Modal);
 
         expect(bootstrap.Modal.getInstance).toBeCalledWith(wrapper.vm.$refs.modal);

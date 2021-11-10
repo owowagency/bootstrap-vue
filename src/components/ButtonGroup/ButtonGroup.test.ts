@@ -1,5 +1,4 @@
 import ButtonGroup from '.';
-import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
     componentRenderTest(ButtonGroup);
