@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType, computed, ref} from 'vue';
+import {PropType, computed, ref, watch} from 'vue';
 import {idProps} from '../../composables/useId';
 
 const props = defineProps({
@@ -47,9 +47,13 @@ const props = defineProps({
         type: Array as PropType<string[]>,
         default: () => [],
     },
-    separatorKeys: {
+    separator: {
+        type: [String, RegExp],
+        default: /[\s\n]+/,
+    },
+    submitKeys: {
         type: Array as PropType<string[]>,
-        default: () => ['Enter', 'Space', 'Tab'],
+        default: () => ['Enter'],
     },
 });
 
@@ -64,25 +68,36 @@ const items = computed({
     set: (v: string[]) => emit('update:modelValue', v),
 });
 
-const addItem = (item: string) => items.value.push(item);
+const splitItem = (item: string) => item.split(props.separator);
 
 const removeItem = (index: number) => items.value.splice(index, 1);
 
-const addValue = () => {
-    const newValue = value.value.replace(/[\s|\n]+/, '');
+const addItem = (item: string) => {
+    const newItems = splitItem(item);
 
-    if (newValue === '') {
-        return;
+    if (newItems.length === 0) {
+        return false;
     }
 
-    addItem(newValue);
+    items.value = [
+        ...items.value,
+        ...newItems.filter(v => v !== ''),
+    ];
 
-    clearValue();
+    return true;
 };
 
+watch(value, (v) => {
+    if (splitItem(v).length > 1 && addItem(v)) {
+        clearValue();
+    }
+});
+
 const keydown = (event: KeyboardEvent) => {
-    if (props.separatorKeys.includes(event.code)) {
-        addValue();
+    if (props.submitKeys.includes(event.code)) {
+        if (addItem(value.value)) {
+            clearValue();
+        }
 
         event.preventDefault();
     } else if (event.code === 'Backspace') {
@@ -103,7 +118,7 @@ const paste = (event: ClipboardEvent) => {
 
     items.value = [
         ...items.value,
-        ...pasteValue.split(/[\s\n]+/)
+        ...pasteValue.split(props.separator)
             .filter(v => v !== ''),
     ];
 };
