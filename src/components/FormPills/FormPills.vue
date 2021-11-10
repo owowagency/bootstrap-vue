@@ -7,9 +7,9 @@
             <li
                 v-for="(item, i) in modelValue"
                 :key="i"
-                class="form-pill d-inline-flex align-items-center mw-100 px-2 badge bg-primary"
+                class="form-pill d-inline-flex align-items-center mw-100"
             >
-                <div class="text-truncate">
+                <div class="form-pill-text">
                     {{ item }}
                 </div>
 
@@ -19,15 +19,15 @@
                 />
             </li>
 
-            <li class="mw-100">
-                <div class="h-0 overflow-hidden">
+            <li class="form-pill-input-item">
+                <div class="form-pill-input-sizer overflow-hidden">
                     {{ value }}
                 </div>
 
                 <input
                     v-model="value"
                     :id="id"
-                    class="border-0 w-100 outline-0 p-0"
+                    class="form-pill-input w-100"
                     type="text"
                     @keydown="keydown($event)"
                     @paste="paste($event)"
@@ -119,31 +119,3 @@ const paste = (event: ClipboardEvent) => {
     );
 };
 </script>
-
-
-<style scoped>
-/* TODO: Should be put in global styling */
-
-.form-pill {
-    /* TODO: Should come from variables */
-    margin: 2px 6px 2px 0;
-}
-
-.form-pill-remove {
-    padding: 4.2px 8px;
-    margin: -4.2px -8px -4.2px 0;
-    cursor: pointer;
-}
-
-.form-pill-remove::after {
-    content: 'x';
-}
-
-.h-0 {
-    height: 0 !important;
-}
-
-.outline-0 {
-    outline: 0;
-}
-</style>
