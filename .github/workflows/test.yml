@@ -17,9 +17,8 @@ jobs:
     - name: Yarn
       run: yarn
 
-    # TODO:
-    # - name: Lint
-    #   run: yarn lint --no-fix
+    - name: Lint
+      run: yarn lint --no-fix
 
     - name: Test
       run: yarn test
