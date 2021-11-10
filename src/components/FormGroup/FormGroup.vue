@@ -20,7 +20,7 @@
                 v-bind="propsFormControl"
                 :id="id"
                 :class="validityClass"
-                @update:modelValue="emit('update:modelValue', $event)"
+                @update:model-value="emit('update:modelValue', $event)"
             />
         </slot>
 
@@ -47,11 +47,14 @@
     </div>
 </template>
 
+<script lang="ts">
+import {formControlProps} from '../../composables/useFormControl';
+import {idProps} from '../../composables/useId';
+</script>
+
 <script lang="ts" setup>
 import FormControl from '../FormControl';
 import {computed} from 'vue';
-import {formControlProps} from '../../composables/useFormControl';
-import {idProps} from '../../composables/useId';
 
 const props = defineProps({
     description: {

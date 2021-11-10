@@ -21,11 +21,14 @@
     </div>
 </template>
 
+<script lang="ts">
+import {dropdownProps} from '../../composables/useDropdown';
+</script>
+
 <script lang="ts" setup>
 import {Item} from '../../composables/useDropdownItems';
 import Btn from '../Button';
 import DropdownMenu from '../DropdownMenu';
-import {dropdownProps} from '../../composables/useDropdown';
 
 defineProps(dropdownProps);
 

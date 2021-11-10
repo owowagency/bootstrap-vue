@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts">
+import {dropdownProps} from '../../composables/useDropdown';
 import {formSelectProps} from '../../composables/useFormSelect';
 
 const {disabled: disabledProp, size: sizeProp} = formSelectProps;
@@ -25,7 +26,6 @@ const {disabled: disabledProp, size: sizeProp} = formSelectProps;
 <script lang="ts" setup>
 import Dropdown from '../Dropdown';
 import {computed} from 'vue';
-import {dropdownProps} from '../../composables/useDropdown';
 import useFormSelect from '../../composables/useFormSelect';
 
 const props = defineProps({
@@ -40,6 +40,7 @@ const props = defineProps({
         default: 'w-100',
     },
     modelValue: {
+        type: Object,
         default: undefined,
     },
     placeholder: {

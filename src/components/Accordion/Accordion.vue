@@ -9,9 +9,13 @@
 </template>
 
 <script lang="ts" setup>
-import useFlush, {flushProps} from '../../composables/useFlush';
+import {flushProps} from '../../composables/useFlush';
 import {idProps} from '../../composables/useId';
+</script>
+
+<script lang="ts" setup>
 import useClasses from '../../composables/useClasses';
+import useFlush from '../../composables/useFlush';
 
 const props = defineProps({
     ...flushProps,

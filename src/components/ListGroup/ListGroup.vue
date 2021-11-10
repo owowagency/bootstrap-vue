@@ -8,10 +8,14 @@
     </component>
 </template>
 
+<script lang="ts">
+import {flushProps} from '../../composables/useFlush';
+</script>
+
 <script lang="ts" setup>
-import useFlush, {flushProps} from '../../composables/useFlush';
 import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
+import useFlush from '../../composables/useFlush';
 
 const props = defineProps({
     ...flushProps,

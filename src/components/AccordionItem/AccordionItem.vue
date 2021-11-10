@@ -26,7 +26,9 @@
 
 <script lang="ts" setup>
 import {idProps} from '../../composables/useId';
+</script>
 
+<script lang="ts" setup>
 defineProps({
     header: {
         type: String,

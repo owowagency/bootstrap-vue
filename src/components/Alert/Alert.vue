@@ -7,9 +7,13 @@
     </div>
 </template>
 
+<script lang="ts">
+import {variantProps} from '../../composables/useVariant';
+</script>
+
 <script lang="ts" setup>
-import useVariant, {variantProps} from '../../composables/useVariant';
 import useClasses from '../../composables/useClasses';
+import useVariant from '../../composables/useVariant';
 
 const props = defineProps(variantProps);
 

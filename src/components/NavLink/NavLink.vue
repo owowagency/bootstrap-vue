@@ -8,9 +8,14 @@
     </a>
 </template>
 
+<script lang="ts">
+import {activeProps} from '../../composables/useActive';
+import {disabledProps} from '../../composables/useDisabled';
+</script>
+
 <script lang="ts" setup>
-import useActive, {activeProps} from '../../composables/useActive';
-import useDisabled, {disabledProps} from '../../composables/useDisabled';
+import useActive from '../../composables/useActive';
+import useDisabled from '../../composables/useDisabled';
 import useClasses from '../../composables/useClasses';
 
 const props = defineProps({

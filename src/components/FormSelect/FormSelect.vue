@@ -14,9 +14,12 @@
         </option>
     </select>
 </template>
+<script lang="ts">
+import {formSelectProps} from '../../composables/useFormSelect';
+</script>
 
 <script lang="ts" setup>
-import useFormSelect, {formSelectProps} from '../../composables/useFormSelect';
+import useFormSelect from '../../composables/useFormSelect';
 
 const props = defineProps(formSelectProps);
 

@@ -8,11 +8,22 @@
     </component>
 </template>
 
+<script lang="ts">
+import {activeProps} from '../../composables/useActive';
+import {disabledProps} from '../../composables/useDisabled';
+import {variantProps} from '../../composables/useVariant';
+
+const variantProp = {
+    ...variantProps.variant,
+    default: '',
+};
+</script>
+
 <script lang="ts" setup>
-import useActive, {activeProps} from '../../composables/useActive';
-import useDisabled, {disabledProps} from '../../composables/useDisabled';
-import useVariant, {variantProps} from '../../composables/useVariant';
 import {computed} from 'vue';
+import useActive from '../../composables/useActive';
+import useDisabled from '../../composables/useDisabled';
+import useVariant from '../../composables/useVariant';
 import useClasses from '../../composables/useClasses';
 
 const props = defineProps({
@@ -22,10 +33,7 @@ const props = defineProps({
         type: String,
         default: 'li',
     },
-    variant: {
-        ...variantProps.variant,
-        default: '',
-    },
+    variant: variantProp,
 });
 
 
