@@ -46,12 +46,12 @@
 </template>
 
 <script lang="ts">
+import * as bootstrap from 'bootstrap';
+import {onBeforeUnmount, onMounted, ref} from 'vue';
 import {idProps} from '../../composables/useId';
 </script>
 
 <script lang="ts" setup>
-import * as bootstrap from 'bootstrap';
-import {onBeforeUnmount, onMounted, ref} from 'vue';
 
 defineProps({
     body: {

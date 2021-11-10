@@ -8,8 +8,11 @@
 </template>
 
 <script lang="ts">
-import {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
+import {Prop, PropType} from 'vue';
+import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
 import {colProp} from '../../composables/useCol';
+import useClasses from '../../composables/useClasses';
+import useStringTemplate from '../../composables/useStringTemplate';
 
 export const aligns = ['center', 'end', 'start'] as const;
 
@@ -34,11 +37,6 @@ const propsGuttersY = breakpointProps(gutterProp, 'gutters-y-{0}') as Record<`gu
 </script>
 
 <script lang="ts" setup>
-import {Prop, PropType} from 'vue';
-import useBreakpoints from '../../composables/useBreakpoints';
-import useClasses from '../../composables/useClasses';
-import useStringTemplate from '../../composables/useStringTemplate';
-
 const props = defineProps({
     align: {
         type: String as PropType<Align>,

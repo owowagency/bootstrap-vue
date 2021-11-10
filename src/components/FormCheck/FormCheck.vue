@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts">
+import {PropType, computed} from 'vue';
 import {disabledProps} from '../../composables/useDisabled';
 import {idProps} from '../../composables/useId';
 
@@ -31,8 +32,6 @@ export type Type = typeof types[number];
 </script>
 
 <script lang="ts" setup>
-import {PropType, computed} from 'vue';
-
 const props = defineProps({
     ...disabledProps,
     ...idProps,

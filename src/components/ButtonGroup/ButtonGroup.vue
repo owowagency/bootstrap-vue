@@ -5,14 +5,12 @@
 </template>
 
 <script lang="ts">
-import {sizeProps} from '../../composables/useSize';
+import useSize, {sizeProps} from '../../composables/useSize';
+import {computed} from 'vue';
+import useClasses from '../../composables/useClasses';
 </script>
 
 <script lang="ts" setup>
-import {computed} from 'vue';
-import useClasses from '../../composables/useClasses';
-import useSize from '../../composables/useSize';
-
 const props = defineProps({
     ...sizeProps,
     vertical: {

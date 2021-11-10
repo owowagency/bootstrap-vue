@@ -11,15 +11,14 @@
 </template>
 
 <script lang="ts">
-import {formControlProps} from '../../composables/useFormControl';
-</script>
-
-<script lang="ts" setup>
 import {computed} from 'vue';
+import {formControlProps} from '../../composables/useFormControl';
 import useClasses from '../../composables/useClasses';
 import useDisabled from '../../composables/useDisabled';
 import useSize from '../../composables/useSize';
+</script>
 
+<script lang="ts" setup>
 const props = defineProps(formControlProps);
 
 const {classes} = useClasses([

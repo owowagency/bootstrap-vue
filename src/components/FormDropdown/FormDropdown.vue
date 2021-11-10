@@ -17,17 +17,15 @@
 </template>
 
 <script lang="ts">
+import useFormSelect, {formSelectProps} from '../../composables/useFormSelect';
+import Dropdown from '../Dropdown';
+import {computed} from 'vue';
 import {dropdownProps} from '../../composables/useDropdown';
-import {formSelectProps} from '../../composables/useFormSelect';
 
 const {disabled: disabledProp, size: sizeProp} = formSelectProps;
 </script>
 
 <script lang="ts" setup>
-import Dropdown from '../Dropdown';
-import {computed} from 'vue';
-import useFormSelect from '../../composables/useFormSelect';
-
 const props = defineProps({
     ...dropdownProps,
     disabled: disabledProp,

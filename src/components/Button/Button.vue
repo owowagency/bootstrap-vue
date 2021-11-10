@@ -9,18 +9,14 @@
 </template>
 
 <script lang="ts">
-import {disabledProps} from '../../composables/useDisabled';
-import {sizeProps} from '../../composables/useSize';
-import {variantProps} from '../../composables/useVariant';
+import useDisabled, {disabledProps} from '../../composables/useDisabled';
+import useSize, {sizeProps} from '../../composables/useSize';
+import useVariant, {variantProps} from '../../composables/useVariant';
+import {computed} from 'vue';
+import useClasses from '../../composables/useClasses';
 </script>
 
 <script lang="ts" setup>
-import {computed} from 'vue';
-import useClasses from '../../composables/useClasses';
-import useDisabled from '../../composables/useDisabled';
-import useSize from '../../composables/useSize';
-import useVariant from '../../composables/useVariant';
-
 const props = defineProps({
     ...disabledProps,
     outline: {

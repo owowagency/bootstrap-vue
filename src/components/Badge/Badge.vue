@@ -8,14 +8,12 @@
 </template>
 
 <script lang="ts">
-import {variantProps} from '../../composables/useVariant';
+import useVariant, {variantProps} from '../../composables/useVariant';
+import {computed} from 'vue';
+import useClasses from '../../composables/useClasses';
 </script>
 
 <script lang="ts" setup>
-import {computed} from 'vue';
-import useClasses from '../../composables/useClasses';
-import useVariant from '../../composables/useVariant';
-
 const props = defineProps({
     pill: {
         type: Boolean,

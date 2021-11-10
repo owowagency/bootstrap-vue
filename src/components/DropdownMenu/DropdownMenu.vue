@@ -10,13 +10,11 @@
 </template>
 
 <script lang="ts">
-import {dropdownItemsProps} from '../../composables/useDropdownItems';
+import {Item, dropdownItemsProps} from '../../composables/useDropdownItems';
+import DropdownMenuItem from '../DropdownMenuItem';
 </script>
 
 <script lang="ts" setup>
-import {Item} from '../../composables/useDropdownItems';
-import DropdownMenuItem from '../DropdownMenuItem';
-
 defineProps(dropdownItemsProps);
 
 const emit = defineEmits(['click:item']);
