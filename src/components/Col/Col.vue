@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+import {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
 import {colProp} from '../../composables/useCol';
 
 const propsCol = breakpointProps(colProp) as Record<Breakpoint, typeof colProp>;
@@ -15,9 +16,9 @@ const propsOrder = breakpointProps(colProp, 'order-{0}') as Record<`order${Capit
 </script>
 
 <script lang="ts" setup>
-import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
 import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
+import useBreakpoints from '../../composables/useBreakpoints';
 import useStringTemplate from '../../composables/useStringTemplate';
 
 const props = defineProps({
