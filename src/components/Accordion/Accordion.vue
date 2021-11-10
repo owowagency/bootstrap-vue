@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import {flushProps} from '../../composables/useFlush';
 import {idProps} from '../../composables/useId';
 </script>
