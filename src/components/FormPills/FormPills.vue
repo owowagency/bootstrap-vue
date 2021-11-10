@@ -29,8 +29,8 @@
                     :id="id"
                     class="border-0 w-100 outline-0 p-0"
                     type="text"
-                    @keydown="keydown"
-                    @paste="paste"
+                    @keydown="keydown($event)"
+                    @paste="paste($event)"
                 >
             </li>
         </ul>
@@ -73,16 +73,13 @@ const splitItem = (item: string) => item.split(props.separator);
 const removeItem = (index: number) => items.value.splice(index, 1);
 
 const addItem = (item: string) => {
-    const newItems = splitItem(item);
+    const newItems = splitItem(item).filter(v => v !== '');
 
     if (newItems.length === 0) {
         return false;
     }
 
-    items.value = [
-        ...items.value,
-        ...newItems.filter(v => v !== ''),
-    ];
+    items.value = items.value.concat(newItems);
 
     return true;
 };
@@ -116,11 +113,10 @@ const paste = (event: ClipboardEvent) => {
         return;
     }
 
-    items.value = [
-        ...items.value,
-        ...pasteValue.split(props.separator)
+    items.value = items.value.concat(
+        pasteValue.split(props.separator)
             .filter(v => v !== ''),
-    ];
+    );
 };
 </script>
 

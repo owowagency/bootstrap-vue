@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `
+"<label class=\\"form-control\\" for=\\"dont-change-please\\">
+  <ul class=\\"list-unstyled d-flex align-content-start flex-wrap mb-0\\">
+    <li class=\\"form-pill d-inline-flex align-items-center mw-100 px-2 badge bg-primary\\">
+      <div class=\\"text-truncate\\">aa</div>
+      <div class=\\"form-pill-remove\\"></div>
+    </li>
+    <li class=\\"form-pill d-inline-flex align-items-center mw-100 px-2 badge bg-primary\\">
+      <div class=\\"text-truncate\\">bb</div>
+      <div class=\\"form-pill-remove\\"></div>
+    </li>
+    <li class=\\"form-pill d-inline-flex align-items-center mw-100 px-2 badge bg-primary\\">
+      <div class=\\"text-truncate\\">cc</div>
+      <div class=\\"form-pill-remove\\"></div>
+    </li>
+    <li class=\\"mw-100\\">
+      <div class=\\"h-0 overflow-hidden\\"></div><input id=\\"dont-change-please\\" class=\\"border-0 w-100 outline-0 p-0\\" type=\\"text\\">
+    </li>
+  </ul>
+</label>"
+`;
