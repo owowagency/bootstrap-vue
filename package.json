@@ -1,9 +1,19 @@
 {
     "name": "@owowagency/bootstrap-vue",
+    "files": ["dist"],
     "version": "0.0.1",
-    "main": "src/index.ts",
+    "main": "./dist/bundle.umd.js",
+    "module": "./dist/bundle.es.js",
+    "exports": {
+        ".": {
+            "import": "./dist/bundle.es.js",
+            "require": "./dist/bundle.umd.js"
+        }
+    },
     "license": "MIT",
     "scripts": {
+        "build": "vite build",
+        "build:watch": "vite build -w",
         "build-storybook": "build-storybook",
         "lint": "eslint src/**/*.{vue,ts}",
         "storybook": "start-storybook -p 6006",
@@ -26,6 +36,7 @@
         "@types/jest": "^27.0.2",
         "@typescript-eslint/eslint-plugin": "^5.3.1",
         "@typescript-eslint/parser": "^5.3.1",
+        "@vitejs/plugin-vue": "^1.9.4",
         "@vue/eslint-config-typescript": "^9.0.1",
         "@vue/test-utils": "^2.0.0-rc.16",
         "@vue/vue3-jest": "^27.0.0-alpha.3",
@@ -38,7 +49,9 @@
         "jest": "^27.3.1",
         "ts-jest": "^27.0.7",
         "typescript": "^4.4.4",
+        "vite": "^2.6.14",
         "vue-eslint-parser": "^8.0.1",
-        "vue-loader": "^16.8.3"
+        "vue-loader": "^16.8.3",
+        "vue-tsc": "^0.29.4"
     }
 }
