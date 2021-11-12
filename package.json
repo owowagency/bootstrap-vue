@@ -1,13 +1,14 @@
 {
     "name": "@owowagency/bootstrap-vue",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "license": "MIT",
     "main": "dist/bootstrap-vue.cjs",
     "module": "dist/bootstrap-vue.mjs",
     "browser": "dist/bootstrap-vue.js",
     "unpkg": "dist/bootstrap-vue.js",
     "files": [
-        "dist"
+        "dist",
+        "src"
     ],
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",
