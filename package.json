@@ -6,6 +6,9 @@
     "module": "dist/bootstrap-vue.mjs",
     "browser": "dist/bootstrap-vue.js",
     "unpkg": "dist/bootstrap-vue.js",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",
         "build-storybook": "build-storybook",
@@ -43,7 +46,7 @@
         "vue-eslint-parser": "^8.0.1",
         "vue-loader": "^16.8.3"
     },
-    "dependencies": {
+    "peerDependencies": {
         "@popperjs/core": "^2.10.2",
         "bootstrap": "^5.1.3",
         "uuid": "^8.3.2",
