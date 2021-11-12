@@ -8,7 +8,7 @@
     "unpkg": "dist/bootstrap-vue.js",
     "files": [
         "dist",
-        "src"
+        "src/**/*.stories.ts"
     ],
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",
