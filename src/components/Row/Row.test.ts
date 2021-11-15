@@ -5,6 +5,8 @@ describe('template', () => {
 
     componentSlotRenderTest(Row);
 
+    componentWrapperTagTest(Row, {props: {tag: 'ul'}});
+
     componentWrapperClassTest(Row, {align: 'center'}, 'align-items-center');
 
     componentWrapperClassTest(Row, {cols: 1}, 'row-cols-1');

@@ -1,16 +1,18 @@
 <template>
-    <div
+    <component
+        :is="tag"
         class="row"
         :class="classes"
     >
         <slot />
-    </div>
+    </component>
 </template>
 
 <script lang="ts">
 import {Prop, PropType} from 'vue';
 import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
 import {colProp} from '../../composables/useCol';
+import {tagProps} from '../../composables/useTag';
 import useClasses from '../../composables/useClasses';
 import useStringTemplate from '../../composables/useStringTemplate';
 
@@ -56,6 +58,7 @@ const props = defineProps({
         default: undefined,
         validator: (j: Justify) => justifies.includes(j),
     },
+    ...tagProps,
 });
 
 const colProps = {

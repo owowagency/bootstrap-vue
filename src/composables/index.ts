@@ -16,5 +16,6 @@ export * from './useSize';
 export {default as useSize} from './useSize';
 export * from './useStringTemplate';
 export {default as useStringTemplate} from './useStringTemplate';
+export * from './useTag';
 export * from './useVariant';
 export {default as useVariant} from './useVariant';
