@@ -3,18 +3,18 @@
 </template>
 
 <script lang="ts">
-export const types = ['border', 'grow'] as const;
-
-type Type = typeof types[number];
-</script>
-
-<script lang="ts" setup>
 import useSize, {sizeProps} from '../../composables/useSize';
 import useVariant, {variantProps} from '../../composables/useVariant';
 import {PropType} from 'vue';
 import useClasses from '../../composables/useClasses';
 import useStringTemplate from '../../composables/useStringTemplate';
 
+export const types = ['border', 'grow'] as const;
+
+type Type = typeof types[number];
+</script>
+
+<script lang="ts" setup>
 const props = defineProps({
     ...sizeProps,
     type: {
