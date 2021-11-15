@@ -1,17 +1,21 @@
 {
     "name": "@owowagency/bootstrap-vue",
-    "version": "0.0.1",
-    "main": "src/index.ts",
+    "version": "0.0.5",
+    "license": "MIT",
+    "main": "dist/bootstrap-vue.cjs",
+    "module": "dist/bootstrap-vue.mjs",
+    "browser": "dist/bootstrap-vue.js",
+    "unpkg": "dist/bootstrap-vue.js",
+    "files": [
+        "dist",
+        "src/**/*.stories.ts"
+    ],
     "scripts": {
-        "test": "jest",
+        "build": "yarn rollup -c rollup.config.js",
+        "build-storybook": "build-storybook",
+        "lint": "eslint src/**/*.{vue,ts}",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
-    },
-    "dependencies": {
-        "@popperjs/core": "^2.10.2",
-        "bootstrap": "^5.1.3",
-        "uuid": "^8.3.2",
-        "vue": "^3.2.21"
+        "test": "jest"
     },
     "devDependencies": {
         "@babel/core": "^7.16.0",
@@ -23,16 +27,33 @@
         "@storybook/preset-scss": "^1.0.3",
         "@storybook/vue3": "^6.3.12",
         "@types/jest": "^27.0.2",
+        "@typescript-eslint/eslint-plugin": "^5.3.1",
+        "@typescript-eslint/parser": "^5.3.1",
+        "@vue/eslint-config-typescript": "^9.0.1",
         "@vue/test-utils": "^2.0.0-rc.16",
         "@vue/vue3-jest": "^27.0.0-alpha.3",
         "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^27.3.1",
         "babel-loader": "^8.2.3",
+        "eslint": "^8.2.0",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "eslint-plugin-vue": "^8.0.3",
         "jest": "^27.3.1",
+        "rollup": "^2.60.0",
+        "rollup-plugin-typescript": "^1.0.1",
+        "rollup-plugin-typescript2": "^0.30.0",
+        "rollup-plugin-vue": "^6.0.0",
         "sass": "^1.43.4",
         "sass-loader": "10.1.1",
         "ts-jest": "^27.0.7",
         "typescript": "^4.4.4",
+        "vue-eslint-parser": "^8.0.1",
         "vue-loader": "^16.8.3"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.10.2",
+        "bootstrap": "^5.1.3",
+        "uuid": "^8.3.2",
+        "vue": "^3.2.20"
     }
 }

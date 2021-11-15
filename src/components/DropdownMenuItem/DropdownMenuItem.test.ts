@@ -1,5 +1,4 @@
 import DropdownMenuItem from '../DropdownMenuItem';
-import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
     componentRenderTest(

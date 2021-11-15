@@ -8,13 +8,20 @@
     </component>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import useActive, {activeProps} from '../../composables/useActive';
 import useDisabled, {disabledProps} from '../../composables/useDisabled';
 import useVariant, {variantProps} from '../../composables/useVariant';
 import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
 
+const variantProp = {
+    ...variantProps.variant,
+    default: '',
+};
+</script>
+
+<script lang="ts" setup>
 const props = defineProps({
     ...activeProps,
     ...disabledProps,
@@ -22,10 +29,7 @@ const props = defineProps({
         type: String,
         default: 'li',
     },
-    variant: {
-        ...variantProps.variant,
-        default: '',
-    },
+    variant: variantProp,
 });
 
 
@@ -33,6 +37,6 @@ const {classes} = useClasses([
     computed(() => ['a', 'button'].includes(props.tag) ? 'list-group-item-action' : undefined).value,
     useActive(props.active).activeClass.value,
     useDisabled(props.disabled).disabledClass.value,
-    useVariant(props.variant, 'list-group-item-{0}').variantClass.value
+    useVariant(props.variant, 'list-group-item-{0}').variantClass.value,
 ]);
 </script>

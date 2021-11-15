@@ -7,11 +7,13 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import useVariant, {variantProps} from '../../composables/useVariant';
 import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
+</script>
 
+<script lang="ts" setup>
 const props = defineProps({
     pill: {
         type: Boolean,

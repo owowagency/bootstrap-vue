@@ -4,11 +4,13 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import useSize, {sizeProps} from '../../composables/useSize';
 import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
+</script>
 
+<script lang="ts" setup>
 const props = defineProps({
     ...sizeProps,
     vertical: {

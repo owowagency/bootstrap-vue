@@ -17,8 +17,11 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import {idProps} from '../../composables/useId';
+</script>
+
+<script lang="ts" setup>
 
 defineProps({
     ...idProps,

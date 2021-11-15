@@ -15,7 +15,7 @@ describe('template', () => {
         const wrapper = shallowMount(AccordionItem, {
             props: {header: 'find-me'},
         });
-        
+
         expect(wrapper.text()).toContain('find-me');
     });
 
@@ -23,7 +23,7 @@ describe('template', () => {
         const wrapper = shallowMount(AccordionItem, {
             props: {parentId: 'i-am-your-father'},
         });
-        
+
         expect(wrapper.find('.accordion-collapse').attributes('data-bs-parent')).toBe('#i-am-your-father');
     });
 });

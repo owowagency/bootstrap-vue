@@ -16,7 +16,7 @@ describe('variantProps', () => {
             expect(result).toBe(true);
         });
 
-        it(`passes validation with a non variant`, () => {
+        it('passes validation with a non variant', () => {
             const result = variantProps.variant.validator('non-variant');
 
             expect(result).toBe(false);

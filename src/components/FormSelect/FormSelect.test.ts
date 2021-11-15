@@ -8,7 +8,7 @@ describe('template', () => {
                 {value: 'Item 1'},
                 {selected: true, value: 'Item 2'},
                 {label: 'Item three', value: 'Item 3'},
-            ], 
+            ],
         },
     });
 

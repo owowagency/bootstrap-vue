@@ -7,10 +7,10 @@ export default {
     component: Btn,
     argTypes: {
         disabled: {
-            control: {type: 'boolean'}
+            control: {type: 'boolean'},
         },
         outline: {
-            control: {type: 'boolean'}
+            control: {type: 'boolean'},
         },
         text: {
             control: {type: 'text'},

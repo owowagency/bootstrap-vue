@@ -21,12 +21,14 @@
     </div>
 </template>
 
-<script lang="ts" setup>
-import {Item} from '../../composables/useDropdownItems';
+<script lang="ts">
 import Btn from '../Button';
 import DropdownMenu from '../DropdownMenu';
+import {Item} from '../../composables/useDropdownItems';
 import {dropdownProps} from '../../composables/useDropdown';
+</script>
 
+<script lang="ts" setup>
 defineProps(dropdownProps);
 
 const emit = defineEmits(['click:item']);

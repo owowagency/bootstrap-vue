@@ -8,11 +8,13 @@
     </a>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import useActive, {activeProps} from '../../composables/useActive';
 import useDisabled, {disabledProps} from '../../composables/useDisabled';
 import useClasses from '../../composables/useClasses';
+</script>
 
+<script lang="ts" setup>
 const props = defineProps({
     ...activeProps,
     ...disabledProps,

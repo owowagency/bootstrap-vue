@@ -9,7 +9,7 @@ describe('formControlProps', () => {
                 expect(result).toBe(true);
             });
         });
-        
+
         it('fails validation with submit', () => {
             const result = formControlProps.type.validator('submit');
 

@@ -22,7 +22,7 @@ describe('template', () => {
 
         expect(label.text()).toBe('I am a label');
 
-        expect(label.attributes('for')).toBe('some-id')
+        expect(label.attributes('for')).toBe('some-id');
     });
 
     it('renders description when given', () => {

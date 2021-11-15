@@ -35,13 +35,15 @@
     </table>
 </template>
 
-<script lang="ts" setup>
-import {PropType, computed} from 'vue';
-
+<script lang="ts">
 export interface Field {
     key: string;
     label?: string;
 };
+</script>
+
+<script lang="ts" setup>
+import {PropType, computed} from 'vue';
 
 const props = defineProps({
     fields: {

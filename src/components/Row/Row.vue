@@ -8,6 +8,12 @@
 </template>
 
 <script lang="ts">
+import {Prop, PropType} from 'vue';
+import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
+import {colProp} from '../../composables/useCol';
+import useClasses from '../../composables/useClasses';
+import useStringTemplate from '../../composables/useStringTemplate';
+
 export const aligns = ['center', 'end', 'start'] as const;
 
 export type Align = typeof justifies[number];
@@ -20,15 +26,17 @@ const gutterProp: Prop<number | string> = {
     type: [Number, String],
     default: undefined,
 };
+
+const propsCol = breakpointProps(colProp, 'cols-{0}') as Record<`cols${Capitalize<Breakpoint>}`, typeof colProp>;
+
+const propsGutters = breakpointProps(gutterProp, 'gutters-{0}') as Record<`gutters${Capitalize<Breakpoint>}`, typeof gutterProp>;
+
+const propsGuttersX = breakpointProps(gutterProp, 'gutters-x-{0}') as Record<`guttersX${Capitalize<Breakpoint>}`, typeof gutterProp>;
+
+const propsGuttersY = breakpointProps(gutterProp, 'gutters-y-{0}') as Record<`guttersY${Capitalize<Breakpoint>}`, typeof gutterProp>;
 </script>
 
 <script lang="ts" setup>
-import {Prop, PropType} from 'vue';
-import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
-import {colProp} from '../../composables/useCol';
-import useClasses from '../../composables/useClasses';
-import useStringTemplate from '../../composables/useStringTemplate';
-
 const props = defineProps({
     align: {
         type: String as PropType<Align>,
@@ -36,13 +44,13 @@ const props = defineProps({
         validator: (a: Align) => aligns.includes(a),
     },
     cols: colProp,
-    ...breakpointProps(colProp, 'cols-{0}') as Record<`cols${Capitalize<Breakpoint>}`, typeof colProp>,
+    ...propsCol,
     gutters: gutterProp,
-    ...breakpointProps(gutterProp, 'gutters-{0}') as Record<`gutters${Capitalize<Breakpoint>}`, typeof gutterProp>,
+    ...propsGutters,
     guttersX: gutterProp,
-    ...breakpointProps(gutterProp, 'gutters-x-{0}') as Record<`guttersX${Capitalize<Breakpoint>}`, typeof gutterProp>,
+    ...propsGuttersX,
     guttersY: gutterProp,
-    ...breakpointProps(gutterProp, 'gutters-y-{0}') as Record<`guttersY${Capitalize<Breakpoint>}`, typeof gutterProp>,
+    ...propsGuttersY,
     justify: {
         type: String as PropType<Justify>,
         default: undefined,
