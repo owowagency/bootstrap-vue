@@ -25,8 +25,8 @@
                 </div>
 
                 <input
-                    v-model="value"
                     :id="id"
+                    v-model="value"
                     class="form-pill-input w-100"
                     type="text"
                     @keydown="keydown($event)"
@@ -37,10 +37,12 @@
     </label>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import {PropType, computed, ref, watch} from 'vue';
 import {idProps} from '../../composables/useId';
+</script>
 
+<script lang="ts" setup>
 const props = defineProps({
     ...idProps,
     modelValue: {
@@ -49,6 +51,8 @@ const props = defineProps({
     },
     separator: {
         type: [String, RegExp],
+        // For some reason it does not allow RegExp to be used as default value.
+        // eslint-disable-next-line vue/require-valid-default-prop
         default: /[\s\n]+/,
     },
     submitKeys: {

@@ -11,7 +11,7 @@ describe('template', () => {
         },
     });
 
-    it('removes an item on click', async () => {
+    it('removes an item on click', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
         wrapper.vm.removeItem = jest.fn();
@@ -21,7 +21,7 @@ describe('template', () => {
         expect(wrapper.vm.removeItem).toBeCalledWith(0);
     });
 
-    it('tries to add item on keydown', async () => {
+    it('tries to add item on keydown', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
         wrapper.vm.keydown = jest.fn();
@@ -35,7 +35,7 @@ describe('template', () => {
         );
     });
 
-    it('tries to add item on paste', async () => {
+    it('tries to add item on paste', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
         wrapper.vm.paste = jest.fn();
@@ -90,7 +90,7 @@ describe('splitItem', () => {
     it('splits spaces and newlines by default', () => {
         const wrapper = shallowMount(FormPills);
 
-        expect(wrapper.vm.splitItem("a a\na")).toEqual(['a', 'a', 'a']);
+        expect(wrapper.vm.splitItem('a a\na')).toEqual(['a', 'a', 'a']);
     });
 
     it('splits with custom separator', () => {
@@ -109,9 +109,9 @@ describe('removeItem', () => {
 
         const wrapper = shallowMount(FormPills, {props: {modelValue}});
 
-        wrapper.vm.removeItem(0);
+        wrapper.vm.removeItem(1);
 
-        expect(modelValue.splice).toBeCalledWith(0, 1);
+        expect(modelValue.splice).toBeCalledWith(1, 1);
     });
 });
 
@@ -138,7 +138,7 @@ describe('addItem', () => {
 
 describe('value', () => {
     describe('watch', () => {
-        it('adds item and clears itself', async () => {
+        it('adds item and clears itself', async() => {
             const wrapper = shallowMount(FormPills);
 
             // TODO: Unable to mock child method calls. Applies on more than
@@ -149,10 +149,10 @@ describe('value', () => {
 
             await nextTick();
 
-           expect(wrapper.vm.value).toBe('');
+            expect(wrapper.vm.value).toBe('');
         });
 
-        it('does not add item when no items to be added', async () => {
+        it('does not add item when no items to be added', async() => {
             const wrapper = shallowMount(FormPills);
 
             // Trigger the watcher.
@@ -160,7 +160,7 @@ describe('value', () => {
 
             await nextTick();
 
-           expect(wrapper.vm.value).toBe('a');
+            expect(wrapper.vm.value).toBe('a');
         });
     });
 });
