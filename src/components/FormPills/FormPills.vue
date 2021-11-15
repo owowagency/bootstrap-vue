@@ -29,8 +29,8 @@
                     v-model="value"
                     class="form-pill-input w-100"
                     type="text"
-                    @keydown="keydown($event)"
-                    @paste="paste($event)"
+                    @keydown="keydown"
+                    @paste="paste"
                 >
             </li>
         </ul>
