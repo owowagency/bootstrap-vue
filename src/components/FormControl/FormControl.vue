@@ -6,7 +6,8 @@
         :placeholder="placeholder"
         :readonly="readonly"
         :type="type"
-        :value="modelValue"
+        :model-value="modelValue"
+        @input="emit('update:modelValue', $event.target.value)"
     >
 </template>
 
@@ -20,6 +21,8 @@ import useSize from '../../composables/useSize';
 
 <script lang="ts" setup>
 const props = defineProps(formControlProps);
+
+const emit = defineEmits(['update:modelValue']);
 
 const {classes} = useClasses([
     useDisabled(props.disabled).disabledClass.value,

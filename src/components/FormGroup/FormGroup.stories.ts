@@ -1,5 +1,6 @@
 import FormControl from '../FormControl';
 import FormGroup from '.';
+import {ref} from 'vue';
 
 export default {
     title: 'Forms/Form group',
@@ -26,9 +27,9 @@ const template = (args) => ({
     setup() {
         args.label = args.label || 'I am a form group';
 
-        return {args};
+        return {args, value: ref('')};
     },
-    template: '<FormGroup v-bind="args" />',
+    template: '<FormGroup v-model="value" v-bind="args" />',
 });
 
 export const Default = template.bind({});

@@ -1,4 +1,5 @@
 import FormControl from '.';
+import {ref} from 'vue';
 import {sizes} from '../../composables/useSize';
 import {types} from '../../composables/useFormControl';
 
@@ -32,9 +33,9 @@ export default {
 const template = (args) => ({
     components: {FormControl},
     setup() {
-        return {args};
+        return {args, value: ref('')};
     },
-    template: '<FormControl v-bind="args" />',
+    template: '<FormControl v-model="value" v-bind="args" />',
 });
 
 export const Default = template.bind({});
