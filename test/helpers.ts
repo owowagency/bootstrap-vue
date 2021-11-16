@@ -24,7 +24,7 @@ export const componentSlotRenderTest = (component: any, slot: string = 'default'
             slots: {[slot]: `<div id="${id}" />`},
             shallow: true,
         });
-        
+
         expect(wrapper.find(`#${id}`).exists()).toBe(true);
     });
 };
