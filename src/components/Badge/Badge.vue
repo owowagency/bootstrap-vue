@@ -22,8 +22,8 @@ const props = defineProps({
     ...variantProps,
 });
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     computed(() => props.pill ? 'rounded-pill' : undefined).value,
     useVariant(props.variant, 'bg-{0}').variantClass.value,
-]);
+]));
 </script>

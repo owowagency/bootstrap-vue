@@ -28,10 +28,10 @@ const props = defineProps({
 });
 
 
-const {classes} = useClasses([
-    computed(() => ['a', 'button'].includes(props.tag) ? 'list-group-item-action' : undefined).value,
+const {classes} = useClasses(computed(() => [
+    ['a', 'button'].includes(props.tag) ? 'list-group-item-action' : undefined,
     useActive(props.active).activeClass.value,
     useDisabled(props.disabled).disabledClass.value,
     useVariant(props.variant, 'list-group-item-{0}').variantClass.value,
-]);
+]));
 </script>

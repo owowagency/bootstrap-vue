@@ -3,9 +3,9 @@
 </template>
 
 <script lang="ts">
+import {PropType, computed, toRef} from 'vue';
 import useSize, {sizeProps} from '../../composables/useSize';
 import useVariant, {variantProps} from '../../composables/useVariant';
-import {PropType} from 'vue';
 import useClasses from '../../composables/useClasses';
 import useStringTemplate from '../../composables/useStringTemplate';
 
@@ -25,12 +25,12 @@ const props = defineProps({
     ...variantProps,
 });
 
-const spinnerClass = useStringTemplate('spinner-{0}', props.type).templatedString;
+const spinnerClass = useStringTemplate('spinner-{0}', toRef(props, 'type')).templatedString;
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     useSize(props.size, `${spinnerClass.value}-{0}`).sizeClass.value,
     spinnerClass.value,
     useVariant(props.variant, 'text-{0}').variantClass.value,
-]);
+]));
 </script>
 

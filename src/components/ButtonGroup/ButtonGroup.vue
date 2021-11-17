@@ -19,8 +19,8 @@ const props = defineProps({
     },
 });
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     computed(() => props.vertical ? 'btn-group-vertical' : 'btn-group').value,
     useSize(props.size, 'btn-group-{0}').sizeClass.value,
-]);
+]));
 </script>

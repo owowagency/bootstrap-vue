@@ -6,7 +6,7 @@
         :placeholder="placeholder"
         :readonly="readonly"
         :type="type"
-        :model-value="modelValue"
+        :value="modelValue"
         @input="emit('update:modelValue', $event.target.value)"
     >
 </template>
@@ -24,10 +24,10 @@ const props = defineProps(formControlProps);
 
 const emit = defineEmits(['update:modelValue']);
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     useDisabled(props.disabled).disabledClass.value,
-    computed(() => props.plainText ? 'form-control-plaintext' : '').value,
-    computed(() => props.readonly ? 'readonly' : '').value,
+    props.plainText ? 'form-control-plaintext' : '',
+    props.readonly ? 'readonly' : '',
     useSize(props.size, 'form-control-{0}').sizeClass.value,
-]);
+]));
 </script>

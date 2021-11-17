@@ -8,13 +8,13 @@ export const breakpoints = ['sm', 'md', 'lg', 'xl', 'xxl'] as const;
 
 export type Breakpoint = typeof breakpoints[number];
 
-export default (props: MaybeRef<Record<Breakpoint, string | number | undefined>>, classTemplate: MaybeRef<string>) => {
+export default (props: Record<Breakpoint, MaybeRef<string | number | undefined>>, classTemplate: MaybeRef<string>) => {
     const breakpointClasses = computed(() => breakpoints
-        .map(b => useStringTemplate(classTemplate, [b, unref(props)[b]]).templatedString.value),
+        .map(b => useStringTemplate(classTemplate, [b, unref(props[b])]).templatedString.value),
     );
 
     return {
-        breakpointClasses: useClasses(breakpointClasses.value).classes,
+        breakpointClasses: useClasses(breakpointClasses).classes,
     };
 };
 

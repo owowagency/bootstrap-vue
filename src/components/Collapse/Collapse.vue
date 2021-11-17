@@ -22,7 +22,6 @@ import {idProps} from '../../composables/useId';
 </script>
 
 <script lang="ts" setup>
-
 defineProps({
     ...idProps,
 });

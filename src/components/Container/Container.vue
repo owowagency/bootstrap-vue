@@ -15,7 +15,7 @@ const props = defineProps({
     },
 });
 
-const {classes} = useClasses([
-    computed(() => `container${props.fluid ? '-fluid' : ''}`).value,
-]);
+const {classes} = useClasses(computed(() => [
+    `container${props.fluid ? '-fluid' : ''}`,
+]));
 </script>

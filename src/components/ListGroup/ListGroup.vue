@@ -29,9 +29,9 @@ const props = defineProps({
 
 const tag = computed(() => props.numbered ? 'ol' : 'ul');
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     useFlush(props.flush, 'list-group-{0}').flushClass.value,
-    computed(() => props.horizontal ? 'list-group-horizontal' : undefined).value,
-    computed(() => props.numbered ? 'list-group-numbered' : undefined).value,
-]);
+    props.horizontal ? 'list-group-horizontal' : undefined,
+    props.numbered ? 'list-group-numbered' : undefined,
+]));
 </script>
