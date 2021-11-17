@@ -16,6 +16,7 @@
             <svg
                 v-if="success"
                 class="button-state-icon"
+                data-test="success"
                 fill="currentColor"
                 height="1em"
                 viewBox="3 3 10 10"
@@ -28,6 +29,7 @@
             <svg
                 v-if="error"
                 class="button-state-icon"
+                data-test="error"
                 fill="currentColor"
                 height="1em"
                 viewBox="0 0 16 16"

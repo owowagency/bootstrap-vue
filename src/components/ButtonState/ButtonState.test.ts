@@ -1,10 +1,38 @@
 import ButtonState from '.';
+import Spinner from '../Spinner';
 import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
     componentRenderTest(ButtonState);
 
     componentSlotRenderTest(ButtonState);
+
+    it('renders spinner when loading', () => {
+        const wrapper = shallowMount(ButtonState, {
+            props: {loading: true},
+            global: {renderStubDefaultSlot: true},
+        });
+
+        expect(wrapper.findComponent(Spinner).exists()).toBe(true);
+    });
+
+    it('renders success when success', () => {
+        const wrapper = shallowMount(ButtonState, {
+            props: {success: true},
+            global: {renderStubDefaultSlot: true},
+        });
+
+        expect(wrapper.find('[data-test="success"]').exists()).toBe(true);
+    });
+
+    it('renders error when error', () => {
+        const wrapper = shallowMount(ButtonState, {
+            props: {error: true},
+            global: {renderStubDefaultSlot: true},
+        });
+
+        expect(wrapper.find('[data-test="error"]').exists()).toBe(true);
+    });
 });
 
 describe('disabled', () => {

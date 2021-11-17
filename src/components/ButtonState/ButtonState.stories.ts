@@ -8,9 +8,7 @@ export default {
 
 const template = (args) => ({
     components: {ButtonState},
-    setup() {
-        return {args};
-    },
+    setup: () => ({args}),
     template: '<ButtonState v-bind="args">Button state</ButtonState>',
 });
 
