@@ -1,6 +1,6 @@
 {
     "name": "@owowagency/bootstrap-vue",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "license": "MIT",
     "main": "dist/bootstrap-vue.cjs",
     "module": "dist/bootstrap-vue.mjs",
@@ -8,7 +8,8 @@
     "unpkg": "dist/bootstrap-vue.js",
     "files": [
         "dist",
-        "src/**/*.stories.ts"
+        "src/**/*.stories.ts",
+        "src/**/*.scss"
     ],
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",

@@ -41,9 +41,7 @@
             </svg>
         </span>
 
-        <span>
-            <slot />
-        </span>
+        <slot />
     </Button>
 </template>
 
