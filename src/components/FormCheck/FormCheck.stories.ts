@@ -3,8 +3,7 @@ import FormCheck from '.';
 export default {
     title: 'Forms/Form check',
     component: FormCheck,
-    argTypes: {
-    },
+    argTypes: {},
 };
 
 const template = (args) => ({
