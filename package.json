@@ -1,6 +1,6 @@
 {
     "name": "@owowagency/bootstrap-vue",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "license": "MIT",
     "main": "dist/bootstrap-vue.cjs",
     "module": "dist/bootstrap-vue.mjs",

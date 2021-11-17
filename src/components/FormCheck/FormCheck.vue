@@ -12,11 +12,13 @@
         >
 
         <label
-            v-if="label"
+            v-if="$slots.default || label"
             class="form-check-label"
             :for="id"
         >
-            {{ label }}
+            <slot>
+                {{ label }}
+            </slot>
         </label>
     </div>
 </template>

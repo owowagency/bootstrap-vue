@@ -20,6 +20,8 @@ describe('template', () => {
         'renders label',
     );
 
+    componentSlotRenderTest(FormCheck);
+
     it('renders radio input type', () => {
         const wrapper = shallowMount(FormCheck, {props: {type: 'radio'}});
 
