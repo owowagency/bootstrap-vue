@@ -11,10 +11,14 @@ export default (variant: Variant, classTemplate: string) => {
     return {variantClass: templatedString};
 };
 
-export const variantProps = {
-    variant: {
+export const variantProp = (defaultValue: Variant | '' | undefined = 'primary') => {
+    return {
         type: String as PropType<Variant>,
-        default: 'primary',
+        default: defaultValue,
         validator: (v?: Variant) => v ? variants.includes(v) : true,
-    },
+    };
+};
+
+export const variantProps = {
+    variant: variantProp(),
 };

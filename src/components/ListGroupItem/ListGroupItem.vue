@@ -11,14 +11,9 @@
 <script lang="ts">
 import useActive, {activeProps} from '../../composables/useActive';
 import useDisabled, {disabledProps} from '../../composables/useDisabled';
-import useVariant, {variantProps} from '../../composables/useVariant';
+import useVariant, {variantProp} from '../../composables/useVariant';
 import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
-
-const variantProp = {
-    ...variantProps.variant,
-    default: '',
-};
 </script>
 
 <script lang="ts" setup>
@@ -29,7 +24,7 @@ const props = defineProps({
         type: String,
         default: 'li',
     },
-    variant: variantProp,
+    variant: variantProp(''),
 });
 
 
