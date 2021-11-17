@@ -1,7 +1,7 @@
 import ButtonState from '.';
 
 export default {
-    title: 'Components/Button State',
+    title: 'Components/Button state',
     component: ButtonState,
     argTypes: {},
 };
