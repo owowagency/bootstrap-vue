@@ -4,15 +4,14 @@ import {ref} from 'vue';
 export default {
     title: 'Forms/Form check list',
     component: FormCheckList,
-    argTypes: {
-    },
+    argTypes: {},
 };
 
 const template = (args) => ({
     components: {FormCheckList},
     setup: () =>({args, value: ref([])}),
     template: `
-        <FormCheckList v-bind="args" v-model="value" />
+        <FormCheckList v-model="value" type="checkbox" v-bind="args" />
     `,
 });
 
