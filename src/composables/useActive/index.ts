@@ -1,7 +1,8 @@
-import {computed} from 'vue';
+import {computed, unref} from 'vue';
+import {MaybeRef} from '../..';
 
-export default (value: boolean) => ({
-    activeClass: computed(() => value ? 'active' : undefined),
+export default (value: MaybeRef<boolean>) => ({
+    activeClass: computed(() => unref(value) ? 'active' : undefined),
 });
 
 export const activeProps = {

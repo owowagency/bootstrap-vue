@@ -1,6 +1,7 @@
+import {PropType, computed, unref} from 'vue';
 import useDisabled, {disabledProps} from '../../composables/useDisabled';
 import useSize, {Size, sizeProps} from '../../composables/useSize';
-import {PropType} from 'vue';
+import {MaybeRef} from '../..';
 import useClasses from '../useClasses';
 
 interface Props {
@@ -8,10 +9,10 @@ interface Props {
     size?: Size;
 };
 
-export default (props: Props) => useClasses([
-    useDisabled(props.disabled).disabledClass.value,
-    useSize(props.size, 'form-select-{0}').sizeClass.value,
-]);
+export default (props: MaybeRef<Props>) => useClasses(computed(() => [
+    useDisabled(unref(props).disabled).disabledClass.value,
+    useSize(unref(props).size, 'form-select-{0}').sizeClass.value,
+]));
 
 interface Item {
     label?: string;

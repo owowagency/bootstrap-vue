@@ -1,3 +1,4 @@
+import {MaybeRef} from '../..';
 import {PropType} from 'vue';
 import useStringTemplate from '../useStringTemplate';
 
@@ -5,7 +6,7 @@ export const variants = ['primary', 'secondary', 'success', 'danger', 'warning',
 
 export type Variant = typeof variants[number];
 
-export default (variant: Variant, classTemplate: string) => {
+export default (variant: MaybeRef<Variant>, classTemplate: MaybeRef<string>) => {
     const {templatedString} = useStringTemplate(classTemplate, variant);
 
     return {variantClass: templatedString};

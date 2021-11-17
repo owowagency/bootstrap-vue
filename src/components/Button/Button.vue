@@ -29,9 +29,9 @@ const props = defineProps({
 
 const variantClassTemplate = computed(() => `btn-${props.outline ? 'outline-' : ''}{0}`);
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     useDisabled(props.disabled).disabledClass.value,
     useSize(props.size, 'btn-{0}').sizeClass.value,
-    useVariant(props.variant, variantClassTemplate.value).variantClass.value,
-]);
+    useVariant(props.variant, variantClassTemplate).variantClass.value,
+]));
 </script>

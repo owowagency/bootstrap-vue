@@ -1,7 +1,8 @@
-import {computed} from 'vue';
+import {computed, unref} from 'vue';
+import {MaybeRef} from '../..';
 
-export default (values: (string|undefined)[]) => ({
-    classes: computed(() => values.filter((v, i, s) => {
-        return !!v && s.indexOf(v) === i;
-    })),
+export default (values: MaybeRef<(string|undefined)[]>) => ({
+    classes: computed(() => unref(values)
+        .filter((v, i, s) => !!v && s.indexOf(v) === i),
+    ),
 });

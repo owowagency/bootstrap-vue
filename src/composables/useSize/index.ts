@@ -1,3 +1,4 @@
+import {MaybeRef} from '../..';
 import {PropType} from 'vue';
 import useStringTemplate from '../useStringTemplate';
 
@@ -5,7 +6,7 @@ export const sizes = ['sm', 'md', 'lg'] as const;
 
 export type Size = typeof sizes[number];
 
-export default (size: Size, classTemplate: string) => {
+export default (size: MaybeRef<Size>, classTemplate: MaybeRef<string>) => {
     const {templatedString} = useStringTemplate(classTemplate, size);
 
     return {sizeClass: templatedString};

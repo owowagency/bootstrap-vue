@@ -1,10 +1,11 @@
-import {computed} from 'vue';
+import {computed, unref} from 'vue';
+import {MaybeRef} from '../..';
 import useStringTemplate from '../useStringTemplate';
 
-export default (flush: boolean, classTemplate: string) => {
+export default (flush: MaybeRef<boolean>, classTemplate: MaybeRef<string>) => {
     const {templatedString} = useStringTemplate(classTemplate, 'flush');
 
-    const flushClass = computed(() => flush ? templatedString.value : undefined);
+    const flushClass = computed(() => unref(flush) ? unref(templatedString) : undefined);
 
     return {flushClass};
 };
