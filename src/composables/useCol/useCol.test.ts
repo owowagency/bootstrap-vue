@@ -1,6 +1,12 @@
 import {colProp} from '.';
 
 describe('colProp', () => {
+    it('passes validation when auto', () => {
+        const valid = colProp.validator('auto');
+
+        expect(valid).toBe(true);
+    });
+
     it('passes validation when 1', () => {
         const valid = colProp.validator(1);
 
