@@ -1,10 +1,10 @@
-import FormCheckList from '.';
+import FormCheckGroup from '.';
 import {ref} from 'vue';
 import {types} from '../FormCheck';
 
 export default {
-    title: 'Forms/Form check list',
-    component: FormCheckList,
+    title: 'Forms/Form check group',
+    component: FormCheckGroup,
     argTypes: {
         disabled: {
             control: {type: 'boolean'},
@@ -25,10 +25,10 @@ const items = [
 ];
 
 const template = (args) => ({
-    components: {FormCheckList},
+    components: {FormCheckGroup},
     setup: () =>({args, value: ref([])}),
     template: `
-        <FormCheckList v-model="value" v-bind="args" />
+        <FormCheckGroup v-model="value" v-bind="args" />
     `,
 });
 

@@ -1,5 +1,5 @@
 import {FormCheck} from '..';
-import FormCheckList from '.';
+import FormCheckGroup from '.';
 import {shallowMount} from '@vue/test-utils';
 
 // Mock uuid module because it is used as `id` in `FormCheck` and we are unable
@@ -14,10 +14,10 @@ const items = [
 ];
 
 describe('template', () => {
-    componentRenderTest(FormCheckList, {props: {items}});
+    componentRenderTest(FormCheckGroup, {props: {items}});
 
     componentRenderTest(
-        FormCheckList,
+        FormCheckGroup,
         {props: {items, type: 'radio'}},
         true,
         'renders radio',
@@ -25,7 +25,7 @@ describe('template', () => {
 
     it('emits on update:modelValue of child', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, type: 'checkbox'}},
         );
 
@@ -40,7 +40,7 @@ describe('template', () => {
 describe('modelValue', () => {
     it('is an array by default when is type checkbox', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, type: 'checkbox'}},
         );
 
@@ -49,7 +49,7 @@ describe('modelValue', () => {
 
     it('is undefined by default when is type radio', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, type: 'radio'}},
         );
 
@@ -60,7 +60,7 @@ describe('modelValue', () => {
 describe('name', () => {
     it('is undefined when type is checkbox', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, type: 'checkbox'}},
         );
 
@@ -69,7 +69,7 @@ describe('name', () => {
 
     it('is uuid when type is radio', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, type: 'radio'}},
         );
 
@@ -80,7 +80,7 @@ describe('name', () => {
 describe('isSwitch', () => {
     it('is equal to switch', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, switch: true}},
         );
 
@@ -91,7 +91,7 @@ describe('isSwitch', () => {
 describe('value', () => {
     it('is equal to modelValue', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, modelValue: ['two']}},
         );
 
@@ -100,7 +100,7 @@ describe('value', () => {
 
     it('emits update:modelValue when set', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items}},
         );
 
@@ -114,7 +114,7 @@ describe('getValue', () => {
     describe('when checkbox', () => {
         it('returns true when in value array', () => {
             const wrapper = shallowMount(
-                FormCheckList,
+                FormCheckGroup,
                 {props: {items, modelValue: ['two'], type: 'checkbox'}},
             );
 
@@ -123,7 +123,7 @@ describe('getValue', () => {
 
         it('returns false when not in value array', () => {
             const wrapper = shallowMount(
-                FormCheckList,
+                FormCheckGroup,
                 {props: {items, modelValue: ['two'], type: 'checkbox'}},
             );
 
@@ -134,7 +134,7 @@ describe('getValue', () => {
     describe('when radio', () => {
         it('returns value', () => {
             const wrapper = shallowMount(
-                FormCheckList,
+                FormCheckGroup,
                 {props: {items, modelValue: 'two', type: 'radio'}},
             );
 
@@ -146,7 +146,7 @@ describe('getValue', () => {
 describe('setValue', () => {
     it('sets value in array when checkbox', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, type: 'checkbox'}},
         );
 
@@ -160,7 +160,7 @@ describe('setValue', () => {
 
     it('sets value in array when checkbox', () => {
         const wrapper = shallowMount(
-            FormCheckList,
+            FormCheckGroup,
             {props: {items, type: 'radio'}},
         );
 
