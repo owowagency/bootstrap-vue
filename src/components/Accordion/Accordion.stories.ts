@@ -1,5 +1,5 @@
 import Accordion from '.';
-import AccordionItem from '../AccordionItem';
+import AccordionItem from '@/components/AccordionItem';
 
 export default {
     title: 'Components/Accordion',

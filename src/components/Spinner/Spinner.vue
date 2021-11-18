@@ -4,10 +4,10 @@
 
 <script lang="ts">
 import {PropType, computed, toRef} from 'vue';
-import useSize, {sizeProps} from '../../composables/useSize';
-import useVariant, {variantProps} from '../../composables/useVariant';
-import useClasses from '../../composables/useClasses';
-import useStringTemplate from '../../composables/useStringTemplate';
+import useSize, {sizeProps} from '@/composables/useSize';
+import useVariant, {variantProps} from '@/composables/useVariant';
+import useClasses from '@/composables/useClasses';
+import useStringTemplate from '@/composables/useStringTemplate';
 
 export const types = ['border', 'grow'] as const;
 

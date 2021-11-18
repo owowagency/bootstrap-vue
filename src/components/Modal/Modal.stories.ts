@@ -1,5 +1,5 @@
 
-import Btn from '../Button';
+import Btn from '@/components/Button';
 import Modal from '.';
 
 export default {

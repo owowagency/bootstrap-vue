@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import {disabledProps} from '../../composables/useDisabled';
+import {disabledProps} from '@/composables/useDisabled';
 </script>
 
 <script lang="ts" setup>

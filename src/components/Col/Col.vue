@@ -6,10 +6,10 @@
 
 <script lang="ts">
 import {computed, toRef} from 'vue';
-import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
-import {colProp} from '../../composables/useCol';
-import useClasses from '../../composables/useClasses';
-import useStringTemplate from '../../composables/useStringTemplate';
+import useBreakpoints, {Breakpoint, breakpointProps} from '@/composables/useBreakpoints';
+import {colProp} from '@/composables/useCol';
+import useClasses from '@/composables/useClasses';
+import useStringTemplate from '@/composables/useStringTemplate';
 
 const propsCol = breakpointProps(colProp) as Record<Breakpoint, typeof colProp>;
 

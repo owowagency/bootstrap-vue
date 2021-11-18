@@ -1,6 +1,5 @@
 import {computed, unref} from 'vue';
-import {MaybeRef} from '../..';
-import useStringTemplate from '../useStringTemplate';
+import useStringTemplate from '@/composables/useStringTemplate';
 
 export default (flush: MaybeRef<boolean>, classTemplate: MaybeRef<string>) => {
     const {templatedString} = useStringTemplate(classTemplate, 'flush');

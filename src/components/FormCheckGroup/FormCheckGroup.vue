@@ -14,10 +14,10 @@
 </template>
 
 <script lang="ts">
-import FormCheck, {typeProp} from '../FormCheck';
+import FormCheck, {typeProp} from '@/components/FormCheck';
 import {PropType, computed} from 'vue';
-import {disabledProps} from '../../composables/useDisabled';
-import {idProps} from '../../composables/useId';
+import {disabledProps} from '@/composables/useDisabled';
+import {idProps} from '@/composables/useId';
 </script>
 
 <script lang="ts" setup>

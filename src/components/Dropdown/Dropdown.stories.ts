@@ -1,7 +1,7 @@
 import Dropdown from '.';
-import DropdownMenu from '../DropdownMenu';
-import {sizes} from '../../composables/useSize';
-import {variants} from '../../composables/useVariant';
+import DropdownMenu from '@/components/DropdownMenu';
+import {sizes} from '@/composables/useSize';
+import {variants} from '@/composables/useVariant';
 
 export default {
     title: 'Components/Dropdown',

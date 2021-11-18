@@ -1,5 +1,5 @@
 import FormSelect from '.';
-import {sizes} from '../../composables/useSize';
+import {sizes} from '@/composables/useSize';
 
 export default {
     title: 'Forms/Form select',

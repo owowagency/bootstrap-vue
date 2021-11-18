@@ -1,8 +1,7 @@
 import {ComponentObjectPropsOptions, Prop, computed, unref} from 'vue';
-import {MaybeRef} from '../..';
-import templateString from '../../library/templateString';
-import useClasses from '../useClasses';
-import useStringTemplate from '../useStringTemplate';
+import templateString from '@/library/templateString';
+import useClasses from '@/composables/useClasses';
+import useStringTemplate from '@/composables/useStringTemplate';
 
 export const breakpoints = ['sm', 'md', 'lg', 'xl', 'xxl'] as const;
 

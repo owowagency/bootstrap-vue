@@ -10,11 +10,11 @@
 
 <script lang="ts">
 import {Prop, PropType, computed, toRef} from 'vue';
-import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
-import {colProp} from '../../composables/useCol';
-import {tagProps} from '../../composables/useTag';
-import useClasses from '../../composables/useClasses';
-import useStringTemplate from '../../composables/useStringTemplate';
+import useBreakpoints, {Breakpoint, breakpointProps} from '@/composables/useBreakpoints';
+import {colProp} from '@/composables/useCol';
+import {tagProps} from '@/composables/useTag';
+import useClasses from '@/composables/useClasses';
+import useStringTemplate from '@/composables/useStringTemplate';
 
 export const aligns = ['center', 'end', 'start'] as const;
 

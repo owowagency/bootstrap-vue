@@ -1,6 +1,6 @@
 import ListGroup from '.';
-import ListGroupItem from '../ListGroupItem';
-import {variants} from '../../composables/useVariant';
+import ListGroupItem from '@/components/ListGroupItem';
+import {variants} from '@/composables/useVariant';
 
 export default {
     title: 'Components/List group',

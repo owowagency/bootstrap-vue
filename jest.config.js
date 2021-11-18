@@ -11,6 +11,9 @@ module.exports = {
         'json',
         'vue',
     ],
+    moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1',
+    },
     setupFiles:  [
         './test/helpers.ts',
     ],

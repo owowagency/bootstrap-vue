@@ -1,4 +1,4 @@
-import Btn from '../Button';
+import Btn from '@/components/Button';
 import Confirm from '.';
 
 export default {

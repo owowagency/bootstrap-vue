@@ -17,10 +17,10 @@
 </template>
 
 <script lang="ts">
-import useFormSelect, {formSelectProps} from '../../composables/useFormSelect';
-import Dropdown from '../Dropdown';
+import useFormSelect, {formSelectProps} from '@/composables/useFormSelect';
+import Dropdown from '@/components/Dropdown';
 import {computed} from 'vue';
-import {dropdownProps} from '../../composables/useDropdown';
+import {dropdownProps} from '@/composables/useDropdown';
 
 const {disabled: disabledProp, size: sizeProp} = formSelectProps;
 </script>

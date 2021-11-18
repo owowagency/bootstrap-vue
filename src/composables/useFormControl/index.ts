@@ -1,6 +1,6 @@
 import {PropType} from 'vue';
-import {disabledProps} from '../useDisabled';
-import {sizeProps} from '../useSize';
+import {disabledProps} from '@/composables/useDisabled';
+import {sizeProps} from '@/composables/useSize';
 
 export const types = ['date', 'email', 'number', 'password', 'text'] as const;
 

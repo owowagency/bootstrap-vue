@@ -1,5 +1,5 @@
 import ButtonState from '.';
-import Spinner from '../Spinner';
+import Spinner from '@/components/Spinner';
 import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {

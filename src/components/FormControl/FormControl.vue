@@ -13,10 +13,10 @@
 
 <script lang="ts">
 import {computed} from 'vue';
-import {formControlProps} from '../../composables/useFormControl';
-import useClasses from '../../composables/useClasses';
-import useDisabled from '../../composables/useDisabled';
-import useSize from '../../composables/useSize';
+import {formControlProps} from '@/composables/useFormControl';
+import useClasses from '@/composables/useClasses';
+import useDisabled from '@/composables/useDisabled';
+import useSize from '@/composables/useSize';
 </script>
 
 <script lang="ts" setup>

@@ -9,11 +9,11 @@
 </template>
 
 <script lang="ts">
-import useDisabled, {disabledProps} from '../../composables/useDisabled';
-import useSize, {sizeProps} from '../../composables/useSize';
-import useVariant, {variantProps} from '../../composables/useVariant';
+import useDisabled, {disabledProps} from '@/composables/useDisabled';
+import useSize, {sizeProps} from '@/composables/useSize';
+import useVariant, {variantProps} from '@/composables/useVariant';
 import {computed} from 'vue';
-import useClasses from '../../composables/useClasses';
+import useClasses from '@/composables/useClasses';
 </script>
 
 <script lang="ts" setup>

@@ -1,6 +1,6 @@
 import Badge from '.';
-import Btn from '../Button';
-import {variants} from '../../composables/useVariant';
+import Btn from '@/components/Button';
+import {variants} from '@/composables/useVariant';
 
 export default {
     title: 'Components/Badge',

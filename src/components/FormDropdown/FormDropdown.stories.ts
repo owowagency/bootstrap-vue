@@ -1,6 +1,6 @@
 import FormDropdown from '.';
 import {ref} from 'vue';
-import {sizes} from '../../composables/useSize';
+import {sizes} from '@/composables/useSize';
 
 export default {
     title: 'Forms/Form dropdown',

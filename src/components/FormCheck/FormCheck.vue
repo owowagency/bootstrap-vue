@@ -27,8 +27,8 @@
 
 <script lang="ts">
 import {PropType, computed} from 'vue';
-import {disabledProps} from '../../composables/useDisabled';
-import {idProps} from '../../composables/useId';
+import {disabledProps} from '@/composables/useDisabled';
+import {idProps} from '@/composables/useId';
 
 export const types = ['checkbox', 'radio'] as const;
 

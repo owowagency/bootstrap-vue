@@ -1,6 +1,6 @@
 import Btn from '.';
-import {sizes} from '../../composables/useSize';
-import {variants} from '../../composables/useVariant';
+import {sizes} from '@/composables/useSize';
+import {variants} from '@/composables/useVariant';
 
 export default {
     title: 'Components/Button',

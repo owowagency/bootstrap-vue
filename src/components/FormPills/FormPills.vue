@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import {PropType, computed, ref, watch} from 'vue';
-import {idProps} from '../../composables/useId';
+import {idProps} from '@/composables/useId';
 </script>
 
 <script lang="ts" setup>

@@ -1,6 +1,6 @@
 import FormCheckGroup from '.';
 import {ref} from 'vue';
-import {types} from '../FormCheck';
+import {types} from '@/components/FormCheck';
 
 export default {
     title: 'Forms/Form check group',
