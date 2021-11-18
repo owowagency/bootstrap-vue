@@ -23,5 +23,3 @@ Error.args = {error: true};
 export const Success = template.bind({});
 
 Success.args = {success: true};
-
-

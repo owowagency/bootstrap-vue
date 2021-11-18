@@ -36,7 +36,7 @@ describe('template', () => {
 });
 
 describe('disabled', () => {
-    it('is false when loading', () => {
+    it('is false when not loading', () => {
         const wrapper = shallowMount(ButtonState, {props: {loading: false}});
 
         expect(wrapper.vm.disabled).toBe(false);
