@@ -7,7 +7,7 @@
         :model-value="getValue(index)"
         :name="name"
         :type="type"
-        :switch="switch"
+        :switch="isSwitch"
         :value="item.value"
         @update:model-value="setValue($event, index)"
     />
@@ -22,16 +22,12 @@ import {idProps} from '../../composables/useId';
 
 <script lang="ts" setup>
 interface Item {
-    label: string;
+    label?: string;
     value: any;
 };
 
 const props = defineProps({
     ...disabledProps,
-    modelValue: {
-        type: [Array, String, Number, undefined],
-        default: (props) => props.type === 'checkbox' ? [] : undefined,
-    },
     switch: {
         type: Boolean,
         default: false,
@@ -41,11 +37,19 @@ const props = defineProps({
         required: true,
     },
     type: typeProp,
+    // Put `modelValue` after `type` so it will be available in `default`.
+    modelValue: {
+        type: [Array, String, Number, undefined],
+        default: (props) => props.type === 'checkbox' ? [] : undefined,
+    },
 });
 
 const name = props.type === 'checkbox' ? undefined : idProps.id.default();
 
 const emit = defineEmits(['update:modelValue']);
+
+// Required to prevent the use of reserved word `switch` in template.
+const isSwitch = computed(() => props.switch);
 
 const value = computed<any[]|string|number|undefined>({
     get: () => props.modelValue,
@@ -56,7 +60,11 @@ const getValue = (i) => props.type === 'checkbox' ? !!value.value[i] : value.val
 
 const setValue = (v, i) => {
     if (props.type === 'checkbox') {
-        value.value[i] = v;
+        const clone = [...value.value as any[]];
+
+        clone[i] = v;
+
+        value.value = clone;
     } else {
         value.value = v;
     }

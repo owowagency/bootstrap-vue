@@ -59,7 +59,7 @@ const props = defineProps({
     },
     name: {
         type: String,
-        required: false,
+        default: undefined,
     },
     switch: {
         type: Boolean,
@@ -76,7 +76,7 @@ const emit = defineEmits(['update:modelValue']);
 
 const checked = computed({
     get: () => props.modelValue,
-    set(v: Boolean) {
+    set(v: String | Number | Boolean | undefined) {
         let value: String | Number | Boolean | undefined = v;
 
         if (props.value) {
