@@ -25,14 +25,19 @@ const props = defineProps({
         type: Object as PropType<File>,
         default: undefined,
     },
+    preview: {
+        type: String,
+        default: undefined,
+    },
 });
 
 const emit = defineEmits(['update:modelValue']);
 
-const preview = ref<string|undefined>();
+const preview = ref<string|undefined>(props.preview);
 
 const file = computed<File|undefined>({
     get: () => props.modelValue,
+    // TODO: Emit different when base64
     set: (v?: File) => emit('update:modelValue', v),
 });
 
@@ -42,6 +47,7 @@ const style = computed(() => {
     }
 
     return {
+        'background-color': 'transparent',
         'background-image': `url(${preview.value})`,
         'background-size': 'cover',
     };
@@ -51,6 +57,8 @@ watch(file, (f) => {
     if (!f) {
         return;
     }
+
+    // TODO: base64
 
     const reader = new FileReader();
 
