@@ -1,6 +1,7 @@
+import {computed, unref} from 'vue';
 import templateString, {Value} from '../../library/templateString';
-import {computed} from 'vue';
+import {MaybeRef} from '../..';
 
-export default (template: string, value: Value | Value[]) => ({
-    templatedString: computed(() => templateString(template, value)),
+export default (template: MaybeRef<string>, value: MaybeRef<Value | Value[]>) => ({
+    templatedString: computed(() => templateString(unref(template), unref(value))),
 });

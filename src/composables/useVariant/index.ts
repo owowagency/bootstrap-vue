@@ -1,3 +1,4 @@
+import {MaybeRef} from '../..';
 import {PropType} from 'vue';
 import useStringTemplate from '../useStringTemplate';
 
@@ -5,16 +6,20 @@ export const variants = ['primary', 'secondary', 'success', 'danger', 'warning',
 
 export type Variant = typeof variants[number];
 
-export default (variant: Variant, classTemplate: string) => {
+export default (variant: MaybeRef<Variant>, classTemplate: MaybeRef<string>) => {
     const {templatedString} = useStringTemplate(classTemplate, variant);
 
     return {variantClass: templatedString};
 };
 
-export const variantProps = {
-    variant: {
+export const variantProp = (defaultValue: Variant | '' | undefined = 'primary') => {
+    return {
         type: String as PropType<Variant>,
-        default: 'primary',
+        default: defaultValue,
         validator: (v?: Variant) => v ? variants.includes(v) : true,
-    },
+    };
+};
+
+export const variantProps = {
+    variant: variantProp(),
 };

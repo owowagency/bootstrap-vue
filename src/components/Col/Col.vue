@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
+import {computed, toRef} from 'vue';
 import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
 import {colProp} from '../../composables/useCol';
-import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
 import useStringTemplate from '../../composables/useStringTemplate';
 
@@ -29,11 +29,11 @@ const props = defineProps({
 });
 
 const colProps = {
-    sm: props.sm,
-    md: props.md,
-    lg: props.lg,
-    xl: props.xl,
-    xxl: props.xxl,
+    sm: toRef(props, 'sm'),
+    md: toRef(props, 'md'),
+    lg: toRef(props, 'lg'),
+    xl: toRef(props, 'xl'),
+    xxl: toRef(props, 'xxl'),
 };
 
 const colClass = computed(() => {
@@ -48,11 +48,11 @@ const colClass = computed(() => {
 const colClasses = useBreakpoints(colProps, 'col-{0}-{1}').breakpointClasses;
 
 const offsetProps = {
-    sm: props.offsetSm,
-    md: props.offsetMd,
-    lg: props.offsetLg,
-    xl: props.offsetXl,
-    xxl: props.offsetXxl,
+    sm: toRef(props, 'offsetSm'),
+    md: toRef(props, 'offsetMd'),
+    lg: toRef(props, 'offsetLg'),
+    xl: toRef(props, 'offsetXl'),
+    xxl: toRef(props, 'offsetXxl'),
 };
 
 const offsetClass = computed(() => useStringTemplate('offset-{0}', props.offset).templatedString.value);
@@ -60,23 +60,23 @@ const offsetClass = computed(() => useStringTemplate('offset-{0}', props.offset)
 const offsetClasses = useBreakpoints(offsetProps, 'offset-{0}-{1}').breakpointClasses;
 
 const orderProps = {
-    sm: props.orderSm,
-    md: props.orderMd,
-    lg: props.orderLg,
-    xl: props.orderXl,
-    xxl: props.orderXxl,
+    sm: toRef(props, 'orderSm'),
+    md: toRef(props, 'orderMd'),
+    lg: toRef(props, 'orderLg'),
+    xl: toRef(props, 'orderXl'),
+    xxl: toRef(props, 'orderXxl'),
 };
 
 const orderClass = computed(() => useStringTemplate('order-{0}', props.order).templatedString.value);
 
 const orderClasses = useBreakpoints(orderProps, 'order-{0}-{1}').breakpointClasses;
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     colClass.value,
     ...colClasses.value,
     offsetClass.value,
     ...offsetClasses.value,
     orderClass.value,
     ...orderClasses.value,
-]);
+]));
 </script>

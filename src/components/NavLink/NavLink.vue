@@ -11,6 +11,7 @@
 <script lang="ts">
 import useActive, {activeProps} from '../../composables/useActive';
 import useDisabled, {disabledProps} from '../../composables/useDisabled';
+import {computed} from 'vue';
 import useClasses from '../../composables/useClasses';
 </script>
 
@@ -20,9 +21,9 @@ const props = defineProps({
     ...disabledProps,
 });
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     useActive(props.active).activeClass.value,
     useDisabled(props.disabled).disabledClass.value,
-]);
+]));
 </script>
 

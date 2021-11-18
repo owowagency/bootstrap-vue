@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import {Prop, PropType} from 'vue';
+import {Prop, PropType, computed, toRef} from 'vue';
 import useBreakpoints, {Breakpoint, breakpointProps} from '../../composables/useBreakpoints';
 import {colProp} from '../../composables/useCol';
 import {tagProps} from '../../composables/useTag';
@@ -62,11 +62,11 @@ const props = defineProps({
 });
 
 const colProps = {
-    sm: props.colsSm,
-    md: props.colsMd,
-    lg: props.colsLg,
-    xl: props.colsXl,
-    xxl: props.colsXxl,
+    sm: toRef(props, 'colsSm'),
+    md: toRef(props, 'colsMd'),
+    lg: toRef(props, 'colsLg'),
+    xl: toRef(props, 'colsXl'),
+    xxl: toRef(props, 'colsXxl'),
 };
 
 const colClass = useStringTemplate('row-cols-{0}', props.cols).templatedString;
@@ -74,11 +74,11 @@ const colClass = useStringTemplate('row-cols-{0}', props.cols).templatedString;
 const colClasses = useBreakpoints(colProps, 'row-cols-{0}-{1}').breakpointClasses;
 
 const guttersProps = {
-    sm: props.guttersSm,
-    md: props.guttersMd,
-    lg: props.guttersLg,
-    xl: props.guttersXl,
-    xxl: props.guttersXxl,
+    sm: toRef(props, 'guttersSm'),
+    md: toRef(props, 'guttersMd'),
+    lg: toRef(props, 'guttersLg'),
+    xl: toRef(props, 'guttersXl'),
+    xxl: toRef(props, 'guttersXxl'),
 };
 
 const guttersClass = useStringTemplate('g-{0}', props.gutters).templatedString;
@@ -86,11 +86,11 @@ const guttersClass = useStringTemplate('g-{0}', props.gutters).templatedString;
 const guttersClasses = useBreakpoints(guttersProps, 'g-{0}-{1}').breakpointClasses;
 
 const guttersXProps = {
-    sm: props.guttersXSm,
-    md: props.guttersXMd,
-    lg: props.guttersXLg,
-    xl: props.guttersXXl,
-    xxl: props.guttersXXxl,
+    sm: toRef(props, 'guttersXSm'),
+    md: toRef(props, 'guttersXMd'),
+    lg: toRef(props, 'guttersXLg'),
+    xl: toRef(props, 'guttersXXl'),
+    xxl: toRef(props, 'guttersXXxl'),
 };
 
 const guttersXClass = useStringTemplate('gx-{0}', props.guttersX).templatedString;
@@ -98,18 +98,18 @@ const guttersXClass = useStringTemplate('gx-{0}', props.guttersX).templatedStrin
 const guttersXClasses = useBreakpoints(guttersXProps, 'gx-{0}-{1}').breakpointClasses;
 
 const guttersYProps = {
-    sm: props.guttersYSm,
-    md: props.guttersYMd,
-    lg: props.guttersYLg,
-    xl: props.guttersYXl,
-    xxl: props.guttersYXxl,
+    sm: toRef(props, 'guttersYSm'),
+    md: toRef(props, 'guttersYMd'),
+    lg: toRef(props, 'guttersYLg'),
+    xl: toRef(props, 'guttersYXl'),
+    xxl: toRef(props, 'guttersYXxl'),
 };
 
 const guttersYClass = useStringTemplate('gy-{0}', props.guttersY).templatedString;
 
 const guttersYClasses = useBreakpoints(guttersYProps, 'gy-{0}-{1}').breakpointClasses;
 
-const {classes} = useClasses([
+const {classes} = useClasses(computed(() => [
     useStringTemplate('align-items-{0}', props.align).templatedString.value,
     colClass.value,
     ...colClasses.value,
@@ -120,5 +120,5 @@ const {classes} = useClasses([
     guttersYClass.value,
     ...guttersYClasses.value,
     useStringTemplate('justify-content-{0}', props.justify).templatedString.value,
-]);
+]));
 </script>

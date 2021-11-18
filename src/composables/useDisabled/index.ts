@@ -1,7 +1,8 @@
-import {computed} from 'vue';
+import {computed, unref} from 'vue';
+import {MaybeRef} from '../..';
 
-export default (value: boolean) => ({
-    disabledClass: computed(() => value ? 'disabled' : undefined),
+export default (value: MaybeRef<boolean>) => ({
+    disabledClass: computed(() => unref(value) ? 'disabled' : undefined),
 });
 
 export const disabledProps = {

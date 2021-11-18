@@ -1,4 +1,4 @@
-import useVariant, {variantProps, variants} from '.';
+import useVariant, {variantProp, variantProps, variants} from '.';
 
 describe('variantProps', () => {
     describe('variant', () => {
@@ -21,6 +21,14 @@ describe('variantProps', () => {
 
             expect(result).toBe(false);
         });
+    });
+});
+
+describe('variantProp', () => {
+    it('sets the default value', () => {
+        const prop = variantProp('');
+
+        expect(prop.default).toBe('');
     });
 });
 

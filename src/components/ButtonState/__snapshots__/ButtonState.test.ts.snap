@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `"<anonymous-stub disabled=\\"false\\" outline=\\"false\\" size=\\"md\\" variant=\\"primary\\"></anonymous-stub>"`;

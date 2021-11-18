@@ -34,11 +34,11 @@ const props = defineProps({
     },
 });
 
-const {classes} = useClasses([
-    computed(() => props.fill ? 'nav-fill' : undefined).value,
-    computed(() => props.justified ? 'nav-justified' : undefined).value,
-    computed(() => props.pills ? 'nav-pills' : undefined).value,
-    computed(() => props.tabs ? 'nav-tabs' : undefined).value,
-    computed(() => props.vertical ? 'flex-column' : undefined).value,
-]);
+const {classes} = useClasses(computed(() => [
+    props.fill ? 'nav-fill' : undefined,
+    props.justified ? 'nav-justified' : undefined,
+    props.pills ? 'nav-pills' : undefined,
+    props.tabs ? 'nav-tabs' : undefined,
+    props.vertical ? 'flex-column' : undefined,
+]));
 </script>
