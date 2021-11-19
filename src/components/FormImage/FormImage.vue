@@ -6,6 +6,7 @@
     >
         <input
             :id="id"
+            accept="image/*"
             hidden
             type="file"
             @change="onChange"
@@ -98,6 +99,8 @@ const onChange = (e: Event) => {
         return;
     }
 
-    file.value = newFile;
+    if (newFile.type.match('image.*')) {
+        file.value = newFile;
+    }
 };
 </script>
