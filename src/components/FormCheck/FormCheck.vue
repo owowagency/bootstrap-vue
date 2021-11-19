@@ -8,7 +8,9 @@
             v-model="checked"
             class="form-check-input"
             :disabled="disabled"
+            :name="name"
             :type="type"
+            :value="value"
         >
 
         <label
@@ -31,6 +33,12 @@ import {idProps} from '../../composables/useId';
 export const types = ['checkbox', 'radio'] as const;
 
 export type Type = typeof types[number];
+
+export const typeProp = {
+    type: String as PropType<Type>,
+    default: 'checkbox',
+    validator: (t: string): Boolean => types.includes(t),
+};
 </script>
 
 <script lang="ts" setup>
@@ -49,15 +57,15 @@ const props = defineProps({
         type: [Boolean, String, Number],
         default: false,
     },
+    name: {
+        type: String,
+        default: undefined,
+    },
     switch: {
         type: Boolean,
         default: false,
     },
-    type: {
-        type: String as PropType<Type>,
-        default: 'checkbox',
-        validator: (t: string): Boolean => types.includes(t),
-    },
+    type: typeProp,
     value: {
         type: [String, Number],
         default: undefined,
@@ -67,12 +75,8 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue']);
 
 const checked = computed({
-    get(): Boolean {
-        return props.value !== undefined
-            ? props.value === props.modelValue
-            : !!props.modelValue;
-    },
-    set(v: Boolean) {
+    get: () => props.modelValue,
+    set(v: String | Number | Boolean | undefined) {
         let value: String | Number | Boolean | undefined = v;
 
         if (props.value) {

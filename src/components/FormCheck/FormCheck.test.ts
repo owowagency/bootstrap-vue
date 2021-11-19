@@ -58,20 +58,12 @@ describe('checked', () => {
         expect(wrapper.vm.checked).toBe(true);
     });
 
-    it('is false when not equal to value', () => {
+    it('is equal to modelValue', () => {
         const wrapper = shallowMount(FormCheck, {
-            props: {value: 'a', modelValue: 'b'},
+            props: {modelValue: 'b'},
         });
 
-        expect(wrapper.vm.checked).toBe(false);
-    });
-
-    it('is true when equal to value', () => {
-        const wrapper = shallowMount(FormCheck, {
-            props: {value: 'a', modelValue: 'a'},
-        });
-
-        expect(wrapper.vm.checked).toBe(true);
+        expect(wrapper.vm.checked).toBe('b');
     });
 
     it('emit boolean when no value', () => {
