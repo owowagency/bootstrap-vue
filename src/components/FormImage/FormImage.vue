@@ -3,9 +3,13 @@
         class="form-image"
         :for="id"
         :style="style"
+        @drop="onDrop"
+        @dragenter="cancelDrag"
+        @dragover="cancelDrag"
     >
         <input
             :id="id"
+            ref="input"
             accept="image/*"
             hidden
             type="file"
@@ -48,6 +52,8 @@ const props = defineProps({
 const emit = defineEmits<{
   (e: 'update:modelValue', v: string|File): void,
 }>();
+
+const input = ref<HTMLInputElement>();
 
 const preview = ref<string|undefined>(props.preview);
 
@@ -92,8 +98,12 @@ watch(file, (f) => {
     reader.readAsDataURL(f);
 });
 
-const onChange = (e: Event) => {
-    const newFile = (e.target as HTMLInputElement).files.item(0);
+const cancelDrag = (e: Event) => {
+    e.preventDefault();
+};
+
+const onChange = (e: {target: HTMLInputElement}) => {
+    const newFile = e.target.files.item(0);
 
     if (!newFile) {
         return;
@@ -102,5 +112,13 @@ const onChange = (e: Event) => {
     if (newFile.type.match('image.*')) {
         file.value = newFile;
     }
+};
+
+const onDrop = (e: DragEvent) => {
+    e.preventDefault();
+
+    input.value.files = e.dataTransfer.files;
+
+    onChange({target: input.value});
 };
 </script>
