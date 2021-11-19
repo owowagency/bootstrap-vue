@@ -9,7 +9,6 @@
     "unpkg": "dist/bootstrap-vue.js",
     "files": [
         "dist",
-        "src/**/*.stories.ts",
         "src/**/*.scss"
     ],
     "scripts": {
