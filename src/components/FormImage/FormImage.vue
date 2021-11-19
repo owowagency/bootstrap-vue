@@ -16,13 +16,21 @@
 <script lang="ts">
 import {PropType, computed, ref, watch} from 'vue';
 import {idProps} from '@/composables/useId';
+
+export const dataTypes = ['file', 'base64'] as const;
+
+export type DataType = typeof dataTypes[number];
 </script>
 
 <script lang="ts" setup>
 const props = defineProps({
+    dataType: {
+        type: String as PropType<DataType>,
+        default: 'base64',
+    },
     ...idProps,
     modelValue: {
-        type: Object as PropType<File>,
+        type: [Object, String] as PropType<File|string>,
         default: undefined,
     },
     preview: {
@@ -31,15 +39,13 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits<{
+  (e: 'update:modelValue', v: string|File): void,
+}>();
 
 const preview = ref<string|undefined>(props.preview);
 
-const file = computed<File|undefined>({
-    get: () => props.modelValue,
-    // TODO: Emit different when base64
-    set: (v?: File) => emit('update:modelValue', v),
-});
+const file = ref<File|undefined>();
 
 const style = computed(() => {
     if (!preview.value) {
@@ -53,24 +59,35 @@ const style = computed(() => {
     };
 });
 
+const value = computed<string|File|undefined>({
+    get: () => props.modelValue,
+    set: (v?: string|File) => emit('update:modelValue', v),
+});
+
 watch(file, (f) => {
     if (!f) {
-        return;
+        value.value = undefined;
     }
 
-    // TODO: base64
+    if (props.dataType === 'file') {
+        value.value = f;
+    }
 
     const reader = new FileReader();
 
     reader.onload = () => {
         preview.value = reader.result as string;
+
+        if (props.dataType === 'base64') {
+            value.value = reader.result as string;
+        }
     };
 
     reader.readAsDataURL(f);
 });
 
 const onChange = (e: Event) => {
-    const newFile = (e.target as HTMLInputElement).files![0];
+    const newFile = (e.target as HTMLInputElement).files.item(0);
 
     if (!newFile) {
         return;
