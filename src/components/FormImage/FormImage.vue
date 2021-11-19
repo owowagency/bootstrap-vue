@@ -98,9 +98,7 @@ watch(file, (f) => {
     reader.readAsDataURL(f);
 });
 
-const cancelDrag = (e: Event) => {
-    e.preventDefault();
-};
+const cancelDrag = (e: Event) => e.preventDefault();
 
 const onChange = (e: {target: HTMLInputElement}) => {
     const newFile = e.target.files.item(0);
