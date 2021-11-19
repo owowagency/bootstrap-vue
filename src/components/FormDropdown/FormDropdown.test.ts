@@ -1,5 +1,5 @@
 import {mount, shallowMount} from '@vue/test-utils';
-import Dropdown from '../Dropdown';
+import Dropdown from '@/components/Dropdown';
 import FormDropdown from '.';
 
 // const

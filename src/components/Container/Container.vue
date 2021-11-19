@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import {computed} from 'vue';
-import useClasses from '../../composables/useClasses';
+import useClasses from '@/composables/useClasses';
 
 const props = defineProps({
     fluid: {

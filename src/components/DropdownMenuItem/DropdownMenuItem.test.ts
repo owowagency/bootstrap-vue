@@ -1,4 +1,4 @@
-import DropdownMenuItem from '../DropdownMenuItem';
+import DropdownMenuItem from '@/components/DropdownMenuItem';
 
 describe('template', () => {
     componentRenderTest(

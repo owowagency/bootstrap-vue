@@ -1,5 +1,5 @@
-import Btn from '../Button';
-import Card from '../Card';
+import Btn from '@/components/Button';
+import Card from '@/components/Card';
 import Collapse from '.';
 
 export default {

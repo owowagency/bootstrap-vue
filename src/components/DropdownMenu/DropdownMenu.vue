@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts">
-import {Item, dropdownItemsProps} from '../../composables/useDropdownItems';
-import DropdownMenuItem from '../DropdownMenuItem';
+import {Item, dropdownItemsProps} from '@/composables/useDropdownItems';
+import DropdownMenuItem from '@/components/DropdownMenuItem';
 </script>
 
 <script lang="ts" setup>

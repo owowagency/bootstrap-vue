@@ -1,6 +1,6 @@
-import Col from '../Col';
+import Col from '@/components/Col';
 import Container from '.';
-import Row from '../Row';
+import Row from '@/components/Row';
 
 export default {
     title: 'Layout/Container',

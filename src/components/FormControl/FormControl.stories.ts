@@ -1,7 +1,7 @@
 import FormControl from '.';
 import {ref} from 'vue';
-import {sizes} from '../../composables/useSize';
-import {types} from '../../composables/useFormControl';
+import {sizes} from '@/composables/useSize';
+import {types} from '@/composables/useFormControl';
 
 export default {
     title: 'Forms/Form control',

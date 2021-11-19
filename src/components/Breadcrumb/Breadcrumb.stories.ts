@@ -1,5 +1,5 @@
 import Breadcrumb from '.';
-import BreadcrumbItem from '../BreadcrumbItem';
+import BreadcrumbItem from '@/components/BreadcrumbItem';
 
 export default {
     title: 'Components/Breadcrumb',

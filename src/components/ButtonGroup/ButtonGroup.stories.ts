@@ -1,6 +1,6 @@
-import Btn from '../Button';
+import Btn from '@/components/Button';
 import ButtonGroup from '.';
-import {sizes} from '../../composables/useSize';
+import {sizes} from '@/composables/useSize';
 
 export default {
     title: 'Components/Button group',

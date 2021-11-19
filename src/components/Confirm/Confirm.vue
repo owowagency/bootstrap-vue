@@ -19,6 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-import Btn from '../Button';
-import Modal from '../Modal';
+import Btn from '@/components/Button';
+import Modal from '@/components/Modal';
 </script>

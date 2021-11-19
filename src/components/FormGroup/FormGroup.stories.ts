@@ -1,4 +1,4 @@
-import FormControl from '../FormControl';
+import FormControl from '@/components/FormControl';
 import FormGroup from '.';
 import {ref} from 'vue';
 

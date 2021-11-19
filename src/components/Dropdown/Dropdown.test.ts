@@ -1,5 +1,5 @@
 import Dropdown from '.';
-import DropdownMenu from '../DropdownMenu';
+import DropdownMenu from '@/components/DropdownMenu';
 import {shallowMount} from '@vue/test-utils';
 
 const items = [

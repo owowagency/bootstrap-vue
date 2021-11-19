@@ -9,10 +9,10 @@
 </template>
 
 <script lang="ts">
-import useActive, {activeProps} from '../../composables/useActive';
-import useDisabled, {disabledProps} from '../../composables/useDisabled';
+import useActive, {activeProps} from '@/composables/useActive';
+import useDisabled, {disabledProps} from '@/composables/useDisabled';
 import {computed} from 'vue';
-import useClasses from '../../composables/useClasses';
+import useClasses from '@/composables/useClasses';
 </script>
 
 <script lang="ts" setup>

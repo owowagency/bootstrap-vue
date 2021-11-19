@@ -1,7 +1,7 @@
 import Row, {aligns, justifies} from '.';
-import Col from '../Col';
-import Container from '../Container';
-import {breakpoints} from '../../composables/useBreakpoints';
+import Col from '@/components/Col';
+import Container from '@/components/Container';
+import {breakpoints} from '@/composables/useBreakpoints';
 
 const numberArg = {control: {type: 'number'}};
 

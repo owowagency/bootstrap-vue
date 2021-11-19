@@ -14,17 +14,17 @@
 </template>
 
 <script lang="ts">
-import FormCheck, {typeProp} from '../FormCheck';
+import FormCheck, {typeProp} from '@/components/FormCheck';
 import {PropType, computed} from 'vue';
-import {disabledProps} from '../../composables/useDisabled';
-import {idProps} from '../../composables/useId';
+import {disabledProps} from '@/composables/useDisabled';
+import {idProps} from '@/composables/useId';
 </script>
 
 <script lang="ts" setup>
 interface Item {
     label?: string;
-    value: any;
-};
+    value: unknown;
+}
 
 const props = defineProps({
     ...disabledProps,
@@ -51,7 +51,7 @@ const emit = defineEmits(['update:modelValue']);
 // Required to prevent the use of reserved word `switch` in template.
 const isSwitch = computed(() => props.switch);
 
-const value = computed<any[]|string|number|undefined>({
+const value = computed<unknown[]|string|number|undefined>({
     get: () => props.modelValue,
     set: (v) => emit('update:modelValue', v),
 });
@@ -60,7 +60,7 @@ const getValue = (i) => props.type === 'checkbox' ? !!value.value[i] : value.val
 
 const setValue = (v, i) => {
     if (props.type === 'checkbox') {
-        const clone = [...value.value as any[]];
+        const clone = [...value.value as unknown[]];
 
         clone[i] = v;
 

@@ -10,10 +10,10 @@
 
 <script lang="ts">
 import {computed} from 'vue';
-import {flushProps} from '../../composables/useFlush';
-import {idProps} from '../../composables/useId';
-import useClasses from '../../composables/useClasses';
-import useFlush from '../../composables/useFlush';
+import {flushProps} from '@/composables/useFlush';
+import {idProps} from '@/composables/useId';
+import useClasses from '@/composables/useClasses';
+import useFlush from '@/composables/useFlush';
 </script>
 
 <script lang="ts" setup>

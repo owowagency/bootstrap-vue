@@ -46,9 +46,9 @@
 </template>
 
 <script lang="ts">
-import {Variant, variantProp} from '../../composables/useVariant';
-import Button from '../Button';
-import Spinner from '../Spinner';
+import {Variant, variantProp} from '@/composables/useVariant';
+import Button from '@/components/Button';
+import Spinner from '@/components/Spinner';
 import {computed} from 'vue';
 </script>
 

@@ -1,4 +1,4 @@
-import {FormCheck} from '..';
+import {FormCheck} from '@/components';
 import FormCheckGroup from '.';
 import {shallowMount} from '@vue/test-utils';
 

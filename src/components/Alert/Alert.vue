@@ -9,9 +9,9 @@
 
 <script lang="ts">
 import {computed} from 'vue';
-import useClasses from '../../composables/useClasses';
-import useVariant from '../../composables/useVariant';
-import {variantProps} from '../../composables/useVariant';
+import useClasses from '@/composables/useClasses';
+import useVariant from '@/composables/useVariant';
+import {variantProps} from '@/composables/useVariant';
 </script>
 
 <script lang="ts" setup>

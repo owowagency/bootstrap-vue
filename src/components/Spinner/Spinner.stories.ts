@@ -1,7 +1,7 @@
 import Spinner from '.';
-import {sizes} from '../../composables/useSize';
+import {sizes} from '@/composables/useSize';
 import {types} from './Spinner.vue';
-import {variants} from '../../composables/useVariant';
+import {variants} from '@/composables/useVariant';
 
 export default {
     title: 'Components/Spinner',

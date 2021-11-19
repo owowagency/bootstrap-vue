@@ -1,6 +1,6 @@
-import {dropdownItemsProps} from '..//useDropdownItems';
-import {sizeProps} from '..//useSize';
-import {variantProps} from '..//useVariant';
+import {dropdownItemsProps} from '@/composables/useDropdownItems';
+import {sizeProps} from '@/composables/useSize';
+import {variantProps} from '@/composables/useVariant';
 
 export const dropdownProps = {
     ...dropdownItemsProps,

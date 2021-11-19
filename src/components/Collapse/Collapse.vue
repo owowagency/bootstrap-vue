@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import {idProps} from '../../composables/useId';
+import {idProps} from '@/composables/useId';
 </script>
 
 <script lang="ts" setup>

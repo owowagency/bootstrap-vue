@@ -1,5 +1,5 @@
 import Alert from '.';
-import {variants} from '../../composables/useVariant';
+import {variants} from '@/composables/useVariant';
 
 export default {
     title: 'Components/Alerts',

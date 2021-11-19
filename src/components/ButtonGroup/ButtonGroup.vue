@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-import useSize, {sizeProps} from '../../composables/useSize';
+import useSize, {sizeProps} from '@/composables/useSize';
 import {computed} from 'vue';
-import useClasses from '../../composables/useClasses';
+import useClasses from '@/composables/useClasses';
 </script>
 
 <script lang="ts" setup>

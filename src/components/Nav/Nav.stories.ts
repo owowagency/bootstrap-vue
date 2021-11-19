@@ -1,6 +1,6 @@
 import Nav from '.';
-import NavItem from '../NavItem';
-import NavLink from '../NavLink';
+import NavItem from '@/components/NavItem';
+import NavLink from '@/components/NavLink';
 
 export default {
     title: 'Components/Nav',

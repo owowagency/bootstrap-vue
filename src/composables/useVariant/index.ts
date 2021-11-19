@@ -1,6 +1,5 @@
-import {MaybeRef} from '../..';
 import {PropType} from 'vue';
-import useStringTemplate from '../useStringTemplate';
+import useStringTemplate from '@/composables/useStringTemplate';
 
 export const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'link'] as const;
 
