@@ -37,7 +37,7 @@ export type Type = typeof types[number];
 export const typeProp = {
     type: String as PropType<Type>,
     default: 'checkbox',
-    validator: (t: string): Boolean => types.includes(t),
+    validator: (t: string): boolean => types.includes(t),
 };
 </script>
 
@@ -76,8 +76,8 @@ const emit = defineEmits(['update:modelValue']);
 
 const checked = computed({
     get: () => props.modelValue,
-    set(v: String | Number | Boolean | undefined) {
-        let value: String | Number | Boolean | undefined = v;
+    set(v: string | number | boolean | undefined) {
+        let value: string | number | boolean | undefined = v;
 
         if (props.value) {
             value = v ? props.value : undefined;

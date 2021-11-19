@@ -37,7 +37,7 @@ describe('template', () => {
     it('emits on checked change', async() => {
         const wrapper = shallowMount(FormCheck);
 
-        const input = wrapper.find('input').setValue(true);
+        wrapper.find('input').setValue(true);
 
         expect(wrapper.emitted('update:modelValue')).toBeTruthy();
     });

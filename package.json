@@ -1,20 +1,22 @@
 {
     "name": "@owowagency/bootstrap-vue",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "license": "MIT",
+    "homepage": "https://owowagency.github.io/bootstrap-vue",
     "main": "dist/bootstrap-vue.cjs",
     "module": "dist/bootstrap-vue.mjs",
     "browser": "dist/bootstrap-vue.js",
     "unpkg": "dist/bootstrap-vue.js",
     "files": [
         "dist",
-        "src/**/*.stories.ts",
         "src/**/*.scss"
     ],
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",
         "build-storybook": "build-storybook",
+        "deploy-storybook": "gh-pages -d storybook-static",
         "lint": "eslint src/**/*.{vue,ts}",
+        "predeploy": "build-storybook",
         "storybook": "start-storybook -p 6006",
         "test": "jest"
     },
@@ -28,7 +30,7 @@
         "@storybook/preset-scss": "^1.0.3",
         "@storybook/vue3": "^6.3.12",
         "@types/jest": "^27.0.2",
-        "@typescript-eslint/eslint-plugin": "^5.3.1",
+        "@typescript-eslint/eslint-plugin": "^5.4.0",
         "@typescript-eslint/parser": "^5.3.1",
         "@vue/eslint-config-typescript": "^9.0.1",
         "@vue/test-utils": "^2.0.0-rc.16",
@@ -39,6 +41,7 @@
         "eslint": "^8.2.0",
         "eslint-plugin-unused-imports": "^2.0.0",
         "eslint-plugin-vue": "^8.0.3",
+        "gh-pages": "^3.2.3",
         "jest": "^27.3.1",
         "rollup": "^2.60.0",
         "rollup-plugin-typescript": "^1.0.1",
@@ -57,5 +60,8 @@
         "bootstrap": "^5.1.3",
         "uuid": "^8.3.2",
         "vue": "^3.2.20"
+    },
+    "storybook": {
+        "url": "https://owowagency.github.io/bootstrap-vue"
     }
 }

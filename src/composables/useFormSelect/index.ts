@@ -6,7 +6,7 @@ import useClasses from '@/composables/useClasses';
 interface Props {
     disabled?: boolean;
     size?: Size;
-};
+}
 
 export default (props: MaybeRef<Props>) => useClasses(computed(() => [
     useDisabled(unref(props).disabled).disabledClass.value,
