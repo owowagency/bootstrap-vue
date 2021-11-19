@@ -39,7 +39,7 @@
 export interface Field {
     key: string;
     label?: string;
-};
+}
 </script>
 
 <script lang="ts" setup>
@@ -52,7 +52,7 @@ const props = defineProps({
         default: undefined,
     },
     items: {
-        type: Array as PropType<Record<string, any>>,
+        type: Array as PropType<Record<string, unknown>>,
         default: () => [],
     },
 });
