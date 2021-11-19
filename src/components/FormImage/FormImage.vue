@@ -10,6 +10,11 @@
             type="file"
             @change="onChange"
         >
+
+        <div
+            v-if="preview"
+            class="form-image-btn-edit"
+        />
     </label>
 </template>
 

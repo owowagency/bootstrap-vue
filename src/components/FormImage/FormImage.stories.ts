@@ -9,8 +9,8 @@ export default {
 
 const template = (args) => ({
     components: {FormImage},
-    setup: () => ({args, value: ref<File>()}),
-    template: '<FormImage v-model="value" v-bind="args" />',
+    setup: () => ({args, value: ref<string>()}),
+    template: '<FormImage v-model="value" :preview="preview" v-bind="args" />',
 });
 
 export const Default = template.bind({});
