@@ -22,7 +22,7 @@ describe('template', () => {
 
 describe('file', () => {
     describe('watch', () => {
-        it('sets value to undefined when not thruthful', async () => {
+        it('sets value to undefined when not thruthful', async() => {
             const wrapper = shallowMount(FormImage, {props: {modelValue: 'some-file'}});
 
             // First change to something that is not undefined but still falsly
@@ -157,7 +157,7 @@ describe('readFile', () => {
     // The truthful test is done in watcher test of file to test if this method
     // is called.
 
-    it('handles when dataType is file', async () => {
+    it('handles when dataType is file', async() => {
         const readAsDataURLSpy = jest.spyOn(FileReader.prototype, 'readAsDataURL');
 
         const wrapper = shallowMount(FormImage, {props: {dataType: 'file'}});
@@ -179,7 +179,7 @@ describe('readFile', () => {
         expect(wrapper.vm.preview).toBe('some-preview');
     });
 
-    it('handles when dataType is base64', async () => {
+    it('handles when dataType is base64', async() => {
         const readAsDataURLSpy = jest.spyOn(FileReader.prototype, 'readAsDataURL');
 
         const wrapper = shallowMount(FormImage, {props: {dataType: 'base64'}});
