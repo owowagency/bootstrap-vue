@@ -83,13 +83,13 @@ const cancelDrag = (e: Event) => e.preventDefault();
 const onChange = (e: {target: HTMLInputElement}) => {
     const newFile = e.target.files.item(0);
 
-    if (!newFile) {
-        return;
+    if (newFile?.type.match('image.*')) {
+        file.value = newFile;
+
+        return true;
     }
 
-    if (newFile.type.match('image.*')) {
-        file.value = newFile;
-    }
+    return false;
 };
 
 const onDrop = (e: DragEvent) => {

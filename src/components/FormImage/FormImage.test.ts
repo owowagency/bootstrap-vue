@@ -1,6 +1,6 @@
 import FormImage from '.';
+import {nextTick} from 'vue';
 import {shallowMount} from '@vue/test-utils';
-import { nextTick } from '@vue/runtime-core';
 
 describe('template', () => {
     componentRenderTest(FormImage, {
@@ -78,6 +78,78 @@ describe('value', () => {
         wrapper.vm.value = 'some-value';
 
         expect(wrapper.emitted('update:modelValue')[0]).toEqual(['some-value']);
+    });
+});
+
+describe('cancelDrag', () => {
+    it('prevents event default', () => {
+        const wrapper = shallowMount(FormImage);
+
+        const event = {preventDefault: jest.fn()};
+
+        wrapper.vm.cancelDrag(event);
+
+        expect(event.preventDefault).toBeCalled();
+    });
+});
+
+describe('onChange', () => {
+    it('skips empty files', () => {
+        const wrapper = shallowMount(FormImage);
+
+        const event = {target: {files: {item: () => undefined}}};
+
+        expect(wrapper.vm.onChange(event)).toBe(false);
+    });
+
+    it('skips empty non image files', () => {
+        const wrapper = shallowMount(FormImage);
+
+        const file = new File([], 'test.json', {type: 'application/json'});
+
+        const event = {target: {files: {item: () => file}}};
+
+        expect(wrapper.vm.onChange(event)).toBe(false);
+    });
+
+    it('sets file value when image', () => {
+        const wrapper = shallowMount(FormImage);
+
+        const file = new File([], 'test.png', {type: 'image/png'});
+
+        const event = {target: {files: {item: () => file}}};
+
+        expect(wrapper.vm.onChange(event)).toBe(true);
+
+        expect(wrapper.vm.file).toBe(file);
+    });
+});
+
+describe('onDrop', () => {
+    it('calls onChange with files', () => {
+        const wrapper = shallowMount(FormImage);
+
+        const event = {
+            preventDefault: jest.fn(),
+            dataTransfer: {
+                files: {
+                    // Mock this method to test that `onChange` is being
+                    // called.
+                    item: jest.fn()
+                        .mockImplementation(() => undefined),
+                },
+            },
+        };
+
+        // Overwrite the input ref to prevent type "files should be of type
+        // FileList" error.
+        wrapper.vm.input = {files: {}};
+
+        wrapper.vm.onDrop(event);
+
+        expect(event.preventDefault).toBeCalled();
+
+        expect(event.dataTransfer.files.item).toBeCalledWith(0);
     });
 });
 
