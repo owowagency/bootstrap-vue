@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v2
+      with:
+        cache: yarn
+        node-version: 16.13.0
+        registry-url: https://npm.pkg.github.com/
+        
+    - name: Install dependencies
+      run: yarn
+
+    - name: Publish
+      run: yarn publish
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

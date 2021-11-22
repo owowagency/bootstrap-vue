@@ -11,6 +11,9 @@
         "dist",
         "src/**/*.scss"
     ],
+    "publishConfig": {
+        "@owowagency:registry": "https://npm.pkg.github.com"
+    },
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",
         "build-storybook": "build-storybook",
