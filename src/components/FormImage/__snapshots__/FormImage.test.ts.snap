@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template renders default 1`] = `
+"<label class=\\"form-image\\" for=\\"dont-change-please\\"><input id=\\"dont-change-please\\" accept=\\"image/*\\" hidden=\\"\\" type=\\"file\\">
+  <!--v-if-->
+</label>"
+`;

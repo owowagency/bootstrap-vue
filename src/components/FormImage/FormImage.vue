@@ -76,27 +76,7 @@ const value = computed<string|File|undefined>({
     set: (v?: string|File) => emit('update:modelValue', v),
 });
 
-watch(file, (f) => {
-    if (!f) {
-        value.value = undefined;
-    }
-
-    if (props.dataType === 'file') {
-        value.value = f;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = () => {
-        preview.value = reader.result as string;
-
-        if (props.dataType === 'base64') {
-            value.value = reader.result as string;
-        }
-    };
-
-    reader.readAsDataURL(f);
-});
+watch(file, f => readFile(f));
 
 const cancelDrag = (e: Event) => e.preventDefault();
 
@@ -118,5 +98,29 @@ const onDrop = (e: DragEvent) => {
     input.value.files = e.dataTransfer.files;
 
     onChange({target: input.value});
+};
+
+const readFile = (file: File) => {
+    if (!file) {
+        return value.value = undefined;
+    }
+
+    if (props.dataType === 'file') {
+        value.value = file;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+        preview.value = reader.result as string;
+
+        if (props.dataType === 'base64') {
+            value.value = reader.result as string;
+        }
+    };
+
+    reader.readAsDataURL(file);
+
+    return reader;
 };
 </script>
