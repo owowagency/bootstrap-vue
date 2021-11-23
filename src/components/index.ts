@@ -20,6 +20,8 @@ export {default as FormCheck} from './FormCheck';
 export {default as FormCheckGroup} from './FormCheckGroup';
 export {default as FormControl} from './FormControl';
 export {default as FormGroup} from './FormGroup';
+export {default as FormImage} from './FormImage';
+export {default as FormPills} from './FormPills';
 export {default as FormSelect} from './FormSelect';
 export {default as ListGroup} from './ListGroup';
 export {default as ListGroupItem} from './ListGroupItem';
