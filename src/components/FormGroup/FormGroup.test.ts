@@ -25,6 +25,20 @@ describe('template', () => {
         expect(label.attributes('for')).toBe('some-id');
     });
 
+    it('renders labelClass when given', () => {
+        const wrapper = shallowMount(FormGroup, {
+            props: {
+                // Add label so it will be rendered.
+                label: 'I am a label',
+                labelClass: 'text-primary',
+            },
+        });
+
+        const label = wrapper.find('.form-label');
+
+        expect(label.classes()).toContain('text-primary');
+    });
+
     it('renders description when given', () => {
         const wrapper = shallowMount(FormGroup, {
             props: {description: 'I am a description'},
