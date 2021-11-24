@@ -1,6 +1,5 @@
 import FormControl from '@/components/FormControl';
 import FormGroup from '.';
-import {nextTick} from 'vue';
 import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
@@ -11,7 +10,7 @@ describe('template', () => {
 
     componentSlotRenderTest(FormGroup);
 
-    it.only('renders scoped slot', async () => {
+    it('renders scoped slot', async() => {
         const wrapper = shallowMount(FormGroup, {
             props: {
                 invalidFeedback: 'a',
