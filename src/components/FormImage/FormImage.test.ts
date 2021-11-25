@@ -81,18 +81,6 @@ describe('value', () => {
     });
 });
 
-describe('cancelDrag', () => {
-    it('prevents event default', () => {
-        const wrapper = shallowMount(FormImage);
-
-        const event = {preventDefault: jest.fn()};
-
-        wrapper.vm.cancelDrag(event);
-
-        expect(event.preventDefault).toBeCalled();
-    });
-});
-
 describe('onChange', () => {
     it('skips empty files', () => {
         const wrapper = shallowMount(FormImage);
