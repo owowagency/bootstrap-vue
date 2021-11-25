@@ -10,6 +10,27 @@ describe('template', () => {
 
     componentSlotRenderTest(FormGroup);
 
+    it('renders scoped slot', async() => {
+        const wrapper = shallowMount(FormGroup, {
+            props: {
+                invalidFeedback: 'a',
+                validFeedback: 'a',
+            },
+            slots: {
+                default: `
+                    <template #default="params">
+                        {{ params.isInvalid ? 'I am invalid' : '' }}
+                        {{ params.isValid ? 'I am valid' : '' }}
+                    </template>
+                `,
+            },
+        });
+
+        expect(wrapper.text()).toContain('I am invalid');
+
+        expect(wrapper.text()).toContain('I am valid');
+    });
+
     it('renders label when given', () => {
         const wrapper = shallowMount(FormGroup, {
             props: {

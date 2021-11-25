@@ -16,7 +16,10 @@
             </div>
         </label>
 
-        <slot>
+        <slot
+            :is-invalid="isInvalid"
+            :is-valid="isValid"
+        >
             <FormControl
                 v-bind="propsFormControl"
                 :id="id"
