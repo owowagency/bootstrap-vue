@@ -3,7 +3,7 @@
 exports[`template renders default 1`] = `
 "<div>
   <!--v-if-->
-  <anonymous-stub disabled=\\"false\\" modelvalue=\\"\\" placeholder=\\"\\" plaintext=\\"false\\" size=\\"md\\" type=\\"text\\" id=\\"dont-change-please\\" class=\\"\\"></anonymous-stub>
+  <form-control-stub disabled=\\"false\\" modelvalue=\\"\\" placeholder=\\"\\" plaintext=\\"false\\" size=\\"md\\" type=\\"text\\" id=\\"dont-change-please\\" class=\\"\\"></form-control-stub>
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`template renders default 1`] = `
-"<anonymous-stub disabled=\\"false\\" id=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" inline=\\"false\\" label=\\"Item one\\" modelvalue=\\"false\\" switch=\\"false\\" type=\\"checkbox\\" value=\\"one\\"></anonymous-stub>
-<anonymous-stub disabled=\\"false\\" id=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" inline=\\"false\\" label=\\"two\\" modelvalue=\\"false\\" switch=\\"false\\" type=\\"checkbox\\" value=\\"two\\"></anonymous-stub>"
+"<form-check-stub disabled=\\"false\\" id=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" inline=\\"false\\" label=\\"Item one\\" modelvalue=\\"false\\" switch=\\"false\\" type=\\"checkbox\\" value=\\"one\\"></form-check-stub>
+<form-check-stub disabled=\\"false\\" id=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" inline=\\"false\\" label=\\"two\\" modelvalue=\\"false\\" switch=\\"false\\" type=\\"checkbox\\" value=\\"two\\"></form-check-stub>"
 `;
 
 exports[`template renders radio 1`] = `
-"<anonymous-stub disabled=\\"false\\" id=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" inline=\\"false\\" label=\\"Item one\\" modelvalue=\\"false\\" name=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" switch=\\"false\\" type=\\"radio\\" value=\\"one\\"></anonymous-stub>
-<anonymous-stub disabled=\\"false\\" id=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" inline=\\"false\\" label=\\"two\\" modelvalue=\\"false\\" name=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" switch=\\"false\\" type=\\"radio\\" value=\\"two\\"></anonymous-stub>"
+"<form-check-stub disabled=\\"false\\" id=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" inline=\\"false\\" label=\\"Item one\\" modelvalue=\\"false\\" name=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" switch=\\"false\\" type=\\"radio\\" value=\\"one\\"></form-check-stub>
+<form-check-stub disabled=\\"false\\" id=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" inline=\\"false\\" label=\\"two\\" modelvalue=\\"false\\" name=\\"owow-wordpres-sist-hebe-stwe-bsolution!!!\\" switch=\\"false\\" type=\\"radio\\" value=\\"two\\"></form-check-stub>"
 `;

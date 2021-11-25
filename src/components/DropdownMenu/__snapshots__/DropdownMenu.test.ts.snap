@@ -2,9 +2,9 @@
 
 exports[`template renders default 1`] = `
 "<ul class=\\"dropdown-menu\\">
-  <anonymous-stub active=\\"false\\" divider=\\"false\\" header=\\"true\\" label=\\"Item 1\\"></anonymous-stub>
-  <anonymous-stub active=\\"false\\" divider=\\"false\\" header=\\"false\\" label=\\"Item 3\\"></anonymous-stub>
-  <anonymous-stub active=\\"false\\" divider=\\"true\\" header=\\"false\\"></anonymous-stub>
-  <anonymous-stub active=\\"true\\" divider=\\"false\\" header=\\"false\\" label=\\"Item 4\\"></anonymous-stub>
+  <dropdown-menu-item-stub active=\\"false\\" divider=\\"false\\" header=\\"true\\" label=\\"Item 1\\"></dropdown-menu-item-stub>
+  <dropdown-menu-item-stub active=\\"false\\" divider=\\"false\\" header=\\"false\\" label=\\"Item 3\\"></dropdown-menu-item-stub>
+  <dropdown-menu-item-stub active=\\"false\\" divider=\\"true\\" header=\\"false\\"></dropdown-menu-item-stub>
+  <dropdown-menu-item-stub active=\\"true\\" divider=\\"false\\" header=\\"false\\" label=\\"Item 4\\"></dropdown-menu-item-stub>
 </ul>"
 `;
