@@ -4,8 +4,8 @@
         :for="id"
         :style="style"
         @drop="onDrop"
-        @dragenter="cancelDrag"
-        @dragover="cancelDrag"
+        @dragenter.prevent
+        @dragover.prevent
     >
         <input
             :id="id"
@@ -77,8 +77,6 @@ const value = computed<string|File|undefined>({
 });
 
 watch(file, f => readFile(f));
-
-const cancelDrag = (e: Event) => e.preventDefault();
 
 const onChange = (e: {target: HTMLInputElement}) => {
     const newFile = e.target.files.item(0);
