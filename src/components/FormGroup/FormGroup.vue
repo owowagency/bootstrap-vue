@@ -3,6 +3,7 @@
         <label
             v-if="label || description"
             class="form-label"
+            :class="labelClass"
             :for="id"
         >
             {{ label }}
@@ -58,29 +59,28 @@ import {idProps} from '@/composables/useId';
 const props = defineProps({
     description: {
         type: String,
-        required: false,
         default: undefined,
     },
     helpText: {
         type: String,
-        required: false,
         default: undefined,
     },
     ...idProps,
     ...formControlProps,
     invalidFeedback: {
         type: String,
-        required: false,
         default: undefined,
     },
     label: {
         type: String,
-        required: false,
+        default: undefined,
+    },
+    labelClass: {
+        type: [String, Array, Object],
         default: undefined,
     },
     validFeedback: {
         type: String,
-        required: false,
         default: undefined,
     },
 });
