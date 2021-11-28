@@ -26,19 +26,10 @@
 </template>
 
 <script lang="ts">
-import {PropType, computed} from 'vue';
+import {computed} from 'vue';
 import {disabledProps} from '@/composables/useDisabled';
 import {idProps} from '@/composables/useId';
-
-export const types = ['checkbox', 'radio'] as const;
-
-export type Type = typeof types[number];
-
-export const typeProp = {
-    type: String as PropType<Type>,
-    default: 'checkbox',
-    validator: (t: string): boolean => types.includes(t),
-};
+import {typeProp} from '@/components/FormCheck/type';
 </script>
 
 <script lang="ts" setup>

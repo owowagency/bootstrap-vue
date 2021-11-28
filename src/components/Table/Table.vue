@@ -52,7 +52,7 @@ const props = defineProps({
         default: undefined,
     },
     items: {
-        type: Array as PropType<Record<string, unknown>>,
+        type: Array as PropType<Record<string, unknown>[]>,
         default: () => [],
     },
 });

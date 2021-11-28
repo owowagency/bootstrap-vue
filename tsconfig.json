@@ -2,8 +2,23 @@
     "compilerOptions": {
         "baseUrl": "./",
         "esModuleInterop": true,
+        "declaration": true,
+        "skipLibCheck": true,
+        "target": "es2015",
+        "module": "esnext",
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "importHelpers": true,
         "paths": {
             "@/*": ["./src/*"]
         }
-    }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.vue",
+    ],
+    "exclude": [
+        "node_modules",
+        "tests",
+    ]
 }

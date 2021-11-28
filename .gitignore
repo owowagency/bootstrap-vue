@@ -3,3 +3,4 @@ storybook-static
 node_modules
 *.tgz
 yarn-error.log
+.DS_Store
