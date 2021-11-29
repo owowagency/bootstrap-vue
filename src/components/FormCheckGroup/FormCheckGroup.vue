@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import FormCheck, {typeProp} from '@/components/FormCheck';
+import FormCheck, {Type, typeProp} from '@/components/FormCheck';
 import {PropType, computed} from 'vue';
 import {disabledProps} from '@/composables/useDisabled';
 import {idProps} from '@/composables/useId';
@@ -40,7 +40,7 @@ const props = defineProps({
     // Put `modelValue` after `type` so it will be available in `default`.
     modelValue: {
         type: [Array, String, Number, undefined],
-        default: (props) => props.type === 'checkbox' ? [] : undefined,
+        default: (props: {type: Type}) => props.type === 'checkbox' ? [] : undefined,
     },
 });
 

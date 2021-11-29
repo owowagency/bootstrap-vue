@@ -9,25 +9,13 @@
 </template>
 
 <script lang="ts">
-import {Prop, PropType, computed, toRef} from 'vue';
+import {Align, Justify, aligns, gutterProp, justifies} from '@/components/Row/type';
+import {PropType, computed, toRef} from 'vue';
 import useBreakpoints, {Breakpoint, breakpointProps} from '@/composables/useBreakpoints';
 import {colProp} from '@/composables/useCol';
 import {tagProps} from '@/composables/useTag';
 import useClasses from '@/composables/useClasses';
 import useStringTemplate from '@/composables/useStringTemplate';
-
-export const aligns = ['center', 'end', 'start'] as const;
-
-export type Align = typeof justifies[number];
-
-export const justifies = ['around', 'between', 'center', 'end', 'evenly', 'start'] as const;
-
-export type Justify = typeof aligns[number];
-
-const gutterProp: Prop<number | string> = {
-    type: [Number, String],
-    default: undefined,
-};
 
 const propsCol = breakpointProps(colProp, 'cols-{0}') as Record<`cols${Capitalize<Breakpoint>}`, typeof colProp>;
 

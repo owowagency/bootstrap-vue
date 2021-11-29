@@ -13,7 +13,7 @@ export default (props: MaybeRef<Props>) => useClasses(computed(() => [
     useSize(unref(props).size, 'form-select-{0}').sizeClass.value,
 ]));
 
-interface Item {
+export interface Item {
     label?: string;
     selected?: boolean;
     value: string | number | undefined;

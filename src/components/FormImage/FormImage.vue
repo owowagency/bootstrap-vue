@@ -25,11 +25,8 @@
 
 <script lang="ts">
 import {PropType, computed, ref, watch} from 'vue';
+import {DataType} from '@/components/FormImage/type';
 import {idProps} from '@/composables/useId';
-
-export const dataTypes = ['file', 'base64'] as const;
-
-export type DataType = typeof dataTypes[number];
 </script>
 
 <script lang="ts" setup>
@@ -53,7 +50,8 @@ const emit = defineEmits<{
   (e: 'update:modelValue', v: string|File): void,
 }>();
 
-const input = ref<HTMLInputElement>();
+// Rollup cannot handle HTMLInputElement as ref, cannot
+const input = ref();
 
 const preview = ref<string|undefined>(props.preview);
 

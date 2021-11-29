@@ -3,14 +3,10 @@
     "version": "0.0.19",
     "license": "MIT",
     "homepage": "https://owowagency.github.io/bootstrap-vue",
-    "main": "dist/bootstrap-vue.cjs",
-    "module": "dist/bootstrap-vue.mjs",
-    "browser": "dist/bootstrap-vue.js",
-    "unpkg": "dist/bootstrap-vue.js",
-    "files": [
-        "dist",
-        "src/**/*.scss"
-    ],
+    "main": "bootstrap-vue.cjs",
+    "module": "bootstrap-vue.mjs",
+    "browser": "bootstrap-vue.js",
+    "unpkg": "bootstrap-vue.js",
     "publishConfig": {
         "@owowagency:registry": "https://npm.pkg.github.com"
     },
@@ -19,6 +15,7 @@
         "build-storybook": "build-storybook",
         "deploy-storybook": "gh-pages -d storybook-static",
         "lint": "eslint src --ext .ts,.vue",
+        "postversion": "cp package.json ..",
         "predeploy": "build-storybook",
         "storybook": "start-storybook -p 6006",
         "test": "jest"
@@ -27,12 +24,19 @@
         "@babel/core": "^7.16.0",
         "@babel/preset-env": "^7.16.0",
         "@babel/preset-typescript": "^7.16.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@semantic-release/commit-analyzer": "^9.0.2",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^8.0.2",
+        "@semantic-release/npm": "^8.0.3",
+        "@semantic-release/release-notes-generator": "^10.0.3",
         "@storybook/addon-actions": "^6.3.12",
         "@storybook/addon-essentials": "^6.3.12",
         "@storybook/addon-links": "^6.3.12",
         "@storybook/preset-scss": "^1.0.3",
         "@storybook/vue3": "^6.3.12",
         "@types/jest": "^27.0.2",
+        "@types/uuid": "^8.3.3",
         "@typescript-eslint/eslint-plugin": "^5.4.0",
         "@typescript-eslint/parser": "^5.3.1",
         "@vue/eslint-config-typescript": "^9.0.1",
@@ -47,20 +51,24 @@
         "gh-pages": "^3.2.3",
         "jest": "^27.3.1",
         "rollup": "^2.60.0",
-        "rollup-plugin-typescript": "^1.0.1",
+        "rollup-plugin-copy": "^3.4.0",
+        "rollup-plugin-typescript2": "^0.31.1",
         "rollup-plugin-vue": "^6.0.0",
         "sass": "^1.43.4",
         "sass-loader": "10.1.1",
         "ts-jest": "^27.0.7",
         "tsconfig-paths-webpack-plugin": "^3.5.2",
         "typescript": "^4.4.4",
+        "vue": "^3.2.20",
         "vue-eslint-parser": "^8.0.1",
         "vue-loader": "^16.8.3"
     },
     "dependencies": {
         "@popperjs/core": "^2.10.2",
         "bootstrap": "^5.1.3",
-        "uuid": "^8.3.2",
+        "uuid": "^8.3.2"
+    },
+    "peerDependencies": {
         "vue": "^3.2.20"
     },
     "storybook": {
