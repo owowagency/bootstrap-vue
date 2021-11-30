@@ -25,6 +25,7 @@ export default {
     input: 'src/index.ts',
     output: [
         createEntry({format: 'es', file: pkg.main}),
+        // Just release me :(
         // createEntry({format: 'iife', file: pkg.browser}),
         // createEntry({format: 'cjs', file: pkg.main}),
     ],
