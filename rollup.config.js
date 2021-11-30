@@ -24,9 +24,9 @@ export default {
     ],
     input: 'src/index.ts',
     output: [
-        createEntry({format: 'iife', file: pkg.browser}),
-        createEntry({format: 'es', file: pkg.module}),
-        createEntry({format: 'cjs', file: pkg.main}),
+        createEntry({format: 'es', file: pkg.main}),
+        // createEntry({format: 'iife', file: pkg.browser}),
+        // createEntry({format: 'cjs', file: pkg.main}),
     ],
     plugins: [
         json(),
