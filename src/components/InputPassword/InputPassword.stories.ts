@@ -1,4 +1,5 @@
 import InputPassword from '.';
+import {ref} from 'vue';
 import {sizes} from '@/composables/useSize';
 
 export default {
@@ -14,8 +15,8 @@ export default {
 
 const template = (args) => ({
     components: {InputPassword},
-    setup: () => ({args}),
-    template: '<InputPassword v-bind="args" />',
+    setup: () => ({args, value: ref('test')}),
+    template: '<InputPassword v-model="value" v-bind="args" />',
 });
 
 export const Default = template.bind({});

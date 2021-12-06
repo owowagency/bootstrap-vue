@@ -21,6 +21,7 @@ import useFormSelect, {formSelectProps} from '@/composables/useFormSelect';
 import Dropdown from '@/components/Dropdown';
 import {computed} from 'vue';
 import {dropdownProps} from '@/composables/useDropdown';
+import extractKeysFrom from '@/library/extractKeysFrom';
 
 const {disabled: disabledProp, size: sizeProp} = formSelectProps;
 </script>
@@ -50,14 +51,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
-const propsDropdown = computed(() => {
-    const properties = {};
-
-    Object.keys(dropdownProps)
-        .forEach(k => properties[k] = props[k]);
-
-    return properties;
-});
+const propsDropdown = extractKeysFrom(Object.keys(dropdownProps), props);
 
 const label = computed(() => {
     if (!props.modelValue) {

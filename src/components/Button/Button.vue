@@ -14,10 +14,8 @@ import useSize, {sizeProps} from '@/composables/useSize';
 import useVariant, {variantProps} from '@/composables/useVariant';
 import {computed} from 'vue';
 import useClasses from '@/composables/useClasses';
-</script>
 
-<script lang="ts" setup>
-const props = defineProps({
+export const buttonProps = {
     ...disabledProps,
     outline: {
         type: Boolean,
@@ -25,7 +23,11 @@ const props = defineProps({
     },
     ...sizeProps,
     ...variantProps,
-});
+};
+</script>
+
+<script lang="ts" setup>
+const props = defineProps(buttonProps);
 
 const variantClassTemplate = computed(() => `btn-${props.outline ? 'outline-' : ''}{0}`);
 
