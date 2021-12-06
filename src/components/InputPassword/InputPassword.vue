@@ -1,7 +1,5 @@
 <template>
-    <InputGroup
-        :size="props.size"
-    >
+    <InputGroup :size="props.size">
         <template #append>
             <Button
                 v-bind="propsButton"
