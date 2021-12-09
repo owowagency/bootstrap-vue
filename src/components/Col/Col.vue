@@ -45,7 +45,14 @@ const colClass = computed(() => {
     return 'col';
 });
 
-const colClasses = useBreakpoints(colProps, 'col-{0}-{1}').breakpointClasses;
+const colClasses = computed(() => {
+    // When the property is empty string it would result in for example
+    // `col-md-`. These classes should be transformed to `col-md`.
+    return useBreakpoints(colProps, 'col-{0}-{1}')
+        .breakpointClasses
+        .value
+        .map(c => c.replace(/\-$/, ''));
+});
 
 const offsetProps = {
     sm: toRef(props, 'offsetSm'),
