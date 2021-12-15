@@ -19,6 +19,7 @@ export {default as DropdownMenuItem} from './DropdownMenuItem';
 export {default as FormCheck} from './FormCheck';
 export {default as FormCheckGroup} from './FormCheckGroup';
 export {default as FormControl} from './FormControl';
+export {default as FormDropdown} from './FormDropdown';
 export {default as FormGroup} from './FormGroup';
 export {default as FormImage} from './FormImage';
 export {default as FormPills} from './FormPills';
