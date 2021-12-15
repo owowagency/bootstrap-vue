@@ -17,7 +17,15 @@
             :items="items"
             :class="menuClass"
             @click:item="clickItem($event)"
-        />
+        >
+            <template #prepend>
+                <slot name="menuPrepend" />
+            </template>
+
+            <template #append>
+                <slot name="menuAppend" />
+            </template>
+        </DropdownMenu>
     </div>
 </template>
 

@@ -16,13 +16,13 @@ export const componentSlotRenderTest = (component: any, slot: string = 'default'
     it(`renders ${slot} slot`, () => {
         const id = `i-am-the-${slot}-slot`;
 
-        const wrapper = shallowMount(component, {
-            ...options,
+        const wrapper = mount(component, {
             global: {
                 renderStubDefaultSlot: true,
             },
             slots: {[slot]: `<div id="${id}" />`},
             shallow: true,
+            ...options,
         });
 
         expect(wrapper.find(`#${id}`).exists()).toBe(true);

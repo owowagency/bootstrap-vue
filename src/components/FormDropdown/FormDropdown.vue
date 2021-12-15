@@ -13,6 +13,14 @@
                 {{ label }}
             </div>
         </template>
+
+        <template #menuPrepend>
+            <slot name="menuPrepend" />
+        </template>
+
+        <template #menuAppend>
+            <slot name="menuAppend" />
+        </template>
     </Dropdown>
 </template>
 

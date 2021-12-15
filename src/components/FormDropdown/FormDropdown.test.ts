@@ -2,10 +2,12 @@ import {mount, shallowMount} from '@vue/test-utils';
 import Dropdown from '@/components/Dropdown';
 import FormDropdown from '.';
 
-// const
-
 describe('template', () => {
     componentRenderTest(FormDropdown, {}, false);
+
+    componentSlotRenderTest(FormDropdown, 'menuPrepend', {shallow: false});
+
+    componentSlotRenderTest(FormDropdown, 'menuAppend', {shallow: false});
 
     it('emits update:modelValue on click item', () => {
         const wrapper = shallowMount(FormDropdown);

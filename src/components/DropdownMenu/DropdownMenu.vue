@@ -1,11 +1,15 @@
 <template>
     <ul class="dropdown-menu">
+        <slot name="prepend" />
+
         <DropdownMenuItem
             v-for="(item, index) of items"
             :key="`item-${index}`"
             v-bind="item"
             @click="clickItem(item)"
         />
+
+        <slot name="append" />
     </ul>
 </template>
 
