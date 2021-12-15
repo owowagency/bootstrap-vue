@@ -1,5 +1,8 @@
 <template>
-    <table class="table">
+    <table
+        class="table"
+        :class="classes"
+    >
         <thead v-if="headers.length">
             <tr>
                 <slot
@@ -19,6 +22,7 @@
             <tr
                 v-for="(item, index) in items"
                 :key="`item-${index}`"
+                @click="$emit('click:row', item)"
             >
                 <slot
                     v-for="header in headers"
@@ -44,6 +48,7 @@ export interface Field {
 
 <script lang="ts" setup>
 import {PropType, computed} from 'vue';
+import {useClasses} from '@/composables';
 
 const props = defineProps({
     fields: {
@@ -55,7 +60,17 @@ const props = defineProps({
         type: Array as PropType<Record<string, unknown>[]>,
         default: () => [],
     },
+    hover: {
+        type: Boolean,
+        default: false,
+    },
+    click: {
+        type: Boolean,
+        default: false,
+    },
 });
+
+defineEmits(['click:row']);
 
 const headers = computed<Field[]>(() => {
     if (props.fields) {
@@ -69,4 +84,9 @@ const headers = computed<Field[]>(() => {
             .map(f => ({key: f}))
         : [];
 });
+
+const {classes} = useClasses(computed(() => [
+    props.hover && 'table-hover',
+    props.click && 'table-click',
+]));
 </script>

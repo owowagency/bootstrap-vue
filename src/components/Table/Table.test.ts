@@ -35,6 +35,18 @@ describe('template', () => {
     componentSlotRenderTest(Table, 'header-id', {props});
 
     componentSlotRenderTest(Table, 'id', {props});
+
+    componentWrapperClassTest(Table, {hover: true}, 'table-hover');
+
+    componentWrapperClassTest(Table, {click: true}, 'table-click');
+
+    it('emits event on click table row', async() => {
+        const wrapper = shallowMount(Table, {props});
+
+        wrapper.vm.$emit('click:row', props.items[0]);
+
+        expect(wrapper.emitted('click:row')[0]).toEqual([props.items[0]]);
+    });
 });
 
 describe('headers', () => {
