@@ -37,7 +37,7 @@ Default.args = defaultArgs;
 
 export const Disabled = template.bind({});
 
-Default.args = {
+Disabled.args = {
     ...defaultArgs,
     disabled: true,
 };
