@@ -1,7 +1,7 @@
 {
     "name": "@owowagency/bootstrap-vue",
-    "version": "0.5.0",
-    "license": "MIT", 
+    "version": "0.5.1",
+    "license": "MIT",
     "homepage": "https://owowagency.github.io/bootstrap-vue",
     "main": "bootstrap-vue.mjs",
     "publishConfig": {
