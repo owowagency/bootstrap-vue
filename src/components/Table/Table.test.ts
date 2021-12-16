@@ -38,10 +38,15 @@ describe('template', () => {
 
     componentWrapperClassTest(Table, {hover: true}, 'table-hover');
 
-    componentWrapperClassTest(Table, {click: true}, 'table-click');
-
     it('emits event on click table row', async() => {
-        const wrapper = shallowMount(Table, {props});
+        const wrapper = shallowMount(Table, {
+            props: {
+                ...props,
+                'onClick:row': () => 'test',
+            },
+        });
+
+        expect(wrapper.classes('table-click')).toBe(true);
 
         await wrapper.find('tbody tr').trigger('click');
 

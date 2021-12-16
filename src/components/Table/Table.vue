@@ -75,13 +75,19 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    click: {
-        type: Boolean,
-        default: false,
+    // $attrs doesn't return emitted events so
+    // we have to catch it as a prop
+    // eslint-disable-next-line vue/prop-name-casing
+    'onClick:row': {
+        type: Function,
+        default: undefined,
     },
 });
 
-const emits = defineEmits(['click:row', 'sort']);
+const emit = defineEmits<{
+    (event: 'click:row', item: Record<string, unknown>): void
+    (event: 'sort', sorted: Record<string, string>): void
+}>();
 
 const sorted = reactive(
     (props.fields || [])
@@ -117,11 +123,11 @@ const sort = (field: Field) => {
         }
     }
 
-    emits('sort', sorted);
+    emit('sort', sorted);
 };
 
 const {classes} = useClasses(computed(() => [
     props.hover && 'table-hover',
-    props.click && 'table-click',
+    props['onClick:row'] && 'table-click',
 ]));
 </script>

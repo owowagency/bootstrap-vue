@@ -27,5 +27,4 @@ Default.args = {
         {firstName: 'Jar Jar', lastName: 'Binks'},
     ],
     hover: false,
-    click: false,
 };
