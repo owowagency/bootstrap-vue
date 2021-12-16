@@ -11,7 +11,7 @@ const props = {
 };
 
 const fields = [
-    {label: 'ajdie', key: 'id'},
+    {label: 'ajdie', key: 'id', sortable: true, asc: true},
     {label: 'neem', key: 'name'},
 ];
 
@@ -43,7 +43,7 @@ describe('template', () => {
     it('emits event on click table row', async() => {
         const wrapper = shallowMount(Table, {props});
 
-        wrapper.vm.$emit('click:row', props.items[0]);
+        await wrapper.find('tbody tr').trigger('click');
 
         expect(wrapper.emitted('click:row')[0]).toEqual([props.items[0]]);
     });
@@ -71,5 +71,33 @@ describe('headers', () => {
         });
 
         expect(wrapper.vm.headers).toStrictEqual(fields);
+    });
+
+    it('sorts header if fields are sortable', async() => {
+        const wrapper = shallowMount(Table, {
+            props: {fields},
+        });
+
+        const firstTh = wrapper.find('th');
+
+        expect(firstTh.classes()).toEqual(['sortable', 'asc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'asc'});
+
+        await firstTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['sortable', 'desc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'desc'});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{id: 'desc'}]);
+
+        await firstTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['sortable']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{}]);
     });
 });

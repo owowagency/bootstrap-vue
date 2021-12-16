@@ -1,3 +1,24 @@
+.table {
+    th.sortable {
+        cursor: pointer;
+
+        @each $sort in ['asc', 'desc'] {
+            &.#{$sort}::after {
+                background-image: escape-svg($table-sort-icon);
+                content: '';
+                height: 1rem;
+                margin: 0 0.5rem;
+                position: absolute;
+                width: 1rem;
+
+                @if($sort == 'desc') {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
 .table-click {
     tbody > tr {
         cursor: pointer;

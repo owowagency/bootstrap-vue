@@ -19,7 +19,7 @@ export const Default = template.bind({});
 
 Default.args = {
     fields: [
-        {key: 'firstName', label: 'First name'},
+        {key: 'firstName', label: 'First name', sortable: true, asc: true},
         {key: 'lastName', label: 'Last name'},
     ],
     items: [

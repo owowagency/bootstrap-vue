@@ -11,7 +11,15 @@
                     :header="header"
                     :name="`header-${header.key}`"
                 >
-                    <th :key="header.key">
+                    <th
+                        :key="header.key"
+                        :class="{
+                            sortable: header.sortable,
+                            asc: sorted[header.key] === 'asc',
+                            desc: sorted[header.key] === 'desc',
+                        }"
+                        @click="sort(header)"
+                    >
                         {{ header.label || header.key }}
                     </th>
                 </slot>
@@ -43,11 +51,14 @@
 export interface Field {
     key: string;
     label?: string;
+    sortable?: boolean;
+    asc?: boolean;
+    desc?: boolean;
 }
 </script>
 
 <script lang="ts" setup>
-import {PropType, computed} from 'vue';
+import {PropType, computed, reactive} from 'vue';
 import {useClasses} from '@/composables';
 
 const props = defineProps({
@@ -70,7 +81,13 @@ const props = defineProps({
     },
 });
 
-defineEmits(['click:row']);
+const emits = defineEmits(['click:row', 'sort']);
+
+const sorted = reactive(
+    (props.fields || [])
+        .filter(f => f.sortable && (f.asc || f.desc))
+        .reduce((obj, item) => Object.assign(obj, {[item.key]: item.asc ? 'asc' : 'desc'}), {}),
+);
 
 const headers = computed<Field[]>(() => {
     if (props.fields) {
@@ -84,6 +101,24 @@ const headers = computed<Field[]>(() => {
             .map(f => ({key: f}))
         : [];
 });
+
+const sort = (field: Field) => {
+    const key = field.key;
+
+    const sort = sorted[key];
+
+    if (field.sortable) {
+        if (sort === 'asc') {
+            sorted[key] = 'desc';
+        } else if (sort === 'desc') {
+            delete sorted[key];
+        } else {
+            sorted[key] = 'asc';
+        }
+    }
+
+    emits('sort', sorted);
+};
 
 const {classes} = useClasses(computed(() => [
     props.hover && 'table-hover',
