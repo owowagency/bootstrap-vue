@@ -1,8 +1,8 @@
 .table {
-    &-heading-sortable {
+    .table-heading-sortable {
         cursor: pointer;
 
-        &&-asc::after {
+        &.table-heading-sortable-asc::after {
             background-image: escape-svg($table-sort-icon);
             content: '';
             height: 1rem;
@@ -11,7 +11,7 @@
             width: 1rem;
         }
 
-        &&-desc::after {
+        &.table-heading-sortable-desc::after {
             @extend .table-heading-sortable-asc;
             transform: rotate(180deg);
         }
