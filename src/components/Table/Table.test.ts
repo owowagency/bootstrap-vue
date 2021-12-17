@@ -11,7 +11,7 @@ const props = {
 };
 
 const fields = [
-    {label: 'ajdie', key: 'id', sortable: true, asc: true},
+    {label: 'ajdie', key: 'id', sortable: true, sort: 'asc'},
     {label: 'neem', key: 'name'},
 ];
 
@@ -85,13 +85,13 @@ describe('headers', () => {
 
         const firstTh = wrapper.find('th');
 
-        expect(firstTh.classes()).toEqual(['sortable', 'asc']);
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
 
         expect(wrapper.vm.sorted).toStrictEqual({id: 'asc'});
 
         await firstTh.trigger('click');
 
-        expect(firstTh.classes()).toEqual(['sortable', 'desc']);
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-desc']);
 
         expect(wrapper.vm.sorted).toStrictEqual({id: 'desc'});
 
@@ -99,7 +99,7 @@ describe('headers', () => {
 
         await firstTh.trigger('click');
 
-        expect(firstTh.classes()).toEqual(['sortable']);
+        expect(firstTh.classes()).toEqual(['table-heading-sortable']);
 
         expect(wrapper.vm.sorted).toStrictEqual({});
 

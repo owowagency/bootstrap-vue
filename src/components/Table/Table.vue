@@ -14,9 +14,9 @@
                     <th
                         :key="header.key"
                         :class="{
-                            sortable: header.sortable,
-                            asc: sorted[header.key] === 'asc',
-                            desc: sorted[header.key] === 'desc',
+                            'table-heading-sortable': header.sortable,
+                            'table-heading-sortable-asc': sorted[header.key] === 'asc',
+                            'table-heading-sortable-desc': sorted[header.key] === 'desc',
                         }"
                         @click="sort(header)"
                     >
@@ -52,8 +52,7 @@ export interface Field {
     key: string;
     label?: string;
     sortable?: boolean;
-    asc?: boolean;
-    desc?: boolean;
+    sort?: 'asc' | 'desc';
 }
 </script>
 
@@ -91,8 +90,8 @@ const emit = defineEmits<{
 
 const sorted = reactive(
     (props.fields || [])
-        .filter(f => f.sortable && (f.asc || f.desc))
-        .reduce((obj, item) => Object.assign(obj, {[item.key]: item.asc ? 'asc' : 'desc'}), {}),
+        .filter(f => f.sortable && f.sort)
+        .reduce((obj, item) => Object.assign(obj, {[item.key]: item.sort}), {}),
 );
 
 const headers = computed<Field[]>(() => {
