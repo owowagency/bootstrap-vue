@@ -11,8 +11,8 @@ exports[`template renders with fields and items 1`] = `
 "<table class=\\"table\\">
   <thead>
     <tr>
-      <th>ajdie</th>
-      <th>neem</th>
+      <th class=\\"table-heading-sortable table-heading-sortable-asc\\">ajdie</th>
+      <th class=\\"\\">neem</th>
     </tr>
   </thead>
   <tbody>
@@ -40,8 +40,8 @@ exports[`template renders with items 1`] = `
 "<table class=\\"table\\">
   <thead>
     <tr>
-      <th>id</th>
-      <th>name</th>
+      <th class=\\"\\">id</th>
+      <th class=\\"\\">name</th>
     </tr>
   </thead>
   <tbody>

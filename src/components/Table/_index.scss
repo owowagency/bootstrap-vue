@@ -1,0 +1,25 @@
+.table {
+    &-heading-sortable {
+        cursor: pointer;
+
+        &&-asc::after {
+            background-image: escape-svg($table-sort-icon);
+            content: '';
+            height: 1rem;
+            margin: 0 0.5rem;
+            position: absolute;
+            width: 1rem;
+        }
+
+        &&-desc::after {
+            @extend .table-heading-sortable-asc;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.table-click {
+    tbody > tr {
+        cursor: pointer;
+    }
+}

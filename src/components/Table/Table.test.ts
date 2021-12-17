@@ -11,7 +11,7 @@ const props = {
 };
 
 const fields = [
-    {label: 'ajdie', key: 'id'},
+    {label: 'ajdie', key: 'id', sortable: true, sort: 'asc'},
     {label: 'neem', key: 'name'},
 ];
 
@@ -35,6 +35,23 @@ describe('template', () => {
     componentSlotRenderTest(Table, 'header-id', {props});
 
     componentSlotRenderTest(Table, 'id', {props});
+
+    componentWrapperClassTest(Table, {hover: true}, 'table-hover');
+
+    it('emits event on click table row', async() => {
+        const wrapper = shallowMount(Table, {
+            props: {
+                ...props,
+                'onClick:row': () => 'test',
+            },
+        });
+
+        expect(wrapper.classes('table-click')).toBe(true);
+
+        await wrapper.find('tbody tr').trigger('click');
+
+        expect(wrapper.emitted('click:row')[0]).toEqual([props.items[0]]);
+    });
 });
 
 describe('headers', () => {
@@ -59,5 +76,33 @@ describe('headers', () => {
         });
 
         expect(wrapper.vm.headers).toStrictEqual(fields);
+    });
+
+    it('sorts header if fields are sortable', async() => {
+        const wrapper = shallowMount(Table, {
+            props: {fields},
+        });
+
+        const firstTh = wrapper.find('th');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'asc'});
+
+        await firstTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-desc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'desc'});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{id: 'desc'}]);
+
+        await firstTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{}]);
     });
 });
