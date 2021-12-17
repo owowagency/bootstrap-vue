@@ -27,7 +27,7 @@ export {default as FormSelect} from './FormSelect';
 export {default as InputGroup} from './InputGroup';
 export {default as ListGroup} from './ListGroup';
 export {default as ListGroupItem} from './ListGroupItem';
-// export {default as Modal} from './Modal';
+export {default as Modal} from './Modal';
 export {default as Nav} from './Nav';
 export {default as NavItem} from './NavItem';
 export {default as NavLink} from './NavLink';
