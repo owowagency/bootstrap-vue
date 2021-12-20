@@ -24,9 +24,11 @@
 }
 
 .form-pill-input {
-    padding: 0;
+    background: transparent;
     border-width: 0;
+    color: $input-color;
     outline: 0;
+    padding: 0;
 }
 
 .form-pill-input-sizer {
