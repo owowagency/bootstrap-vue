@@ -39,7 +39,6 @@ export const Disabled = template.bind({});
 
 Default.args = {
     ...defaultArgs,
-    disabled: true,
 };
 
 export const Sizing = (args) => ({
