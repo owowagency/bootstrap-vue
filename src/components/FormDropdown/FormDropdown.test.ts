@@ -32,6 +32,14 @@ describe('template', () => {
 
         expect(formSelect.classes()).toContain('form-select-lg');
     });
+
+    it('adds toggle class to .form-select', () => {
+        const wrapper = mount(FormDropdown, {props: {toggleClass: 'is-invalid'}});
+
+        const formSelect = wrapper.find('.form-select');
+
+        expect(formSelect.classes()).toContain('is-invalid');
+    });
 });
 
 describe('label', () => {

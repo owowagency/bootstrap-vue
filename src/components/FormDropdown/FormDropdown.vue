@@ -29,6 +29,7 @@ import useFormSelect, {formSelectProps} from '@/composables/useFormSelect';
 import Dropdown from '@/components/Dropdown';
 import {computed} from 'vue';
 import {dropdownProps} from '@/composables/useDropdown';
+import useClasses from '@/composables/useClasses';
 
 const {disabled: disabledProp, size: sizeProp} = formSelectProps;
 </script>
@@ -54,6 +55,10 @@ const props = defineProps({
         default: 'Select',
     },
     size: sizeProp,
+    toggleClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
 });
 
 const emit = defineEmits(['update:modelValue']);
@@ -75,5 +80,8 @@ const label = computed(() => {
     return props.modelValue[props.labelKey];
 });
 
-const {classes} = useFormSelect(props);
+const {classes} = useClasses(computed(() => [
+    ...useFormSelect(props).classes.value,
+    props.toggleClass,
+]));
 </script>
