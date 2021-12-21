@@ -77,7 +77,9 @@ describe('headers', () => {
 
         expect(wrapper.vm.headers).toStrictEqual(fields);
     });
+});
 
+describe('sort', () => {
     it('sorts header if fields are sortable', async() => {
         const wrapper = shallowMount(Table, {
             props: {fields},
@@ -104,5 +106,17 @@ describe('headers', () => {
         expect(wrapper.vm.sorted).toStrictEqual({});
 
         expect(wrapper.emitted('sort')[0]).toEqual([{}]);
+    });
+
+    it('does not emit when field is not sortable', async() => {
+        const wrapper = shallowMount(Table, {
+            props: {fields: [{label: 'yooo', key: 'oooy'}]},
+        });
+
+        const firstTh = wrapper.find('th');
+
+        await firstTh.trigger('click');
+
+        expect(wrapper.emitted('sort')).toBeUndefined();
     });
 });
