@@ -42,7 +42,7 @@ const props = defineProps({
         default: false,
     },
     inputClass: {
-        type: String,
+        type: [String, Array, Object],
         default: undefined,
     },
     label: {
