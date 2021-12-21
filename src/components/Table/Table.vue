@@ -108,6 +108,10 @@ const headers = computed<Field[]>(() => {
 });
 
 const sort = (field: Field) => {
+    if (!field.sortable) {
+        return;
+    }
+
     const key = field.key;
 
     const sort = sorted[key];
