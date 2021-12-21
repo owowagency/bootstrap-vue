@@ -74,7 +74,9 @@ const modal = ref<HTMLElement>();
 const bsModal = ref<bootstrap.Modal>();
 
 onMounted(() => {
-    bsModal.value = bootstrap.Modal.getInstance(modal.value);
+    if (document) {
+        bsModal.value = bootstrap.Modal.getInstance(modal.value);
+    }
 });
 
 onBeforeUnmount(() => {
