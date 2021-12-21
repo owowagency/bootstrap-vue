@@ -34,6 +34,14 @@ describe('template', () => {
 
     componentWrapperClassTest(FormCheck, {inline: true}, 'form-check-inline');
 
+    it('adds input class to input', () => {
+        const wrapper = shallowMount(FormCheck, {props: {inputClass: 'is-invalid'}});
+
+        const input = wrapper.find('input');
+
+        expect(input.classes()).toContain('is-invalid');
+    });
+
     it('emits on checked change', async() => {
         const wrapper = shallowMount(FormCheck);
 
