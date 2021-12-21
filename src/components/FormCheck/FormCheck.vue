@@ -7,6 +7,7 @@
             :id="id"
             v-model="checked"
             class="form-check-input"
+            :class="inputClass"
             :disabled="disabled"
             :name="name"
             :type="type"
@@ -39,6 +40,10 @@ const props = defineProps({
     inline: {
         type: Boolean,
         default: false,
+    },
+    inputClass: {
+        type: [String, Array, Object],
+        default: undefined,
     },
     label: {
         type: String,
