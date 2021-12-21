@@ -56,7 +56,7 @@ const props = defineProps({
     },
     size: sizeProp,
     toggleClass: {
-        type: String,
+        type: [String, Array, Object],
         default: undefined,
     },
 });
