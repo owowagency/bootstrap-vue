@@ -46,13 +46,11 @@
 </template>
 
 <script lang="ts">
-import * as bootstrap from 'bootstrap';
 import {onBeforeUnmount, onMounted, ref} from 'vue';
 import {idProps} from '@/composables/useId';
 </script>
 
 <script lang="ts" setup>
-
 defineProps({
     body: {
         type: String,
@@ -71,10 +69,12 @@ defineProps({
 
 const modal = ref<HTMLElement>();
 
-const bsModal = ref<bootstrap.Modal>();
+const bsModal = ref();
 
-onMounted(() => {
+onMounted(async() => {
     if (document) {
+        const bootstrap = await import('bootstrap');
+
         bsModal.value = bootstrap.Modal.getInstance(modal.value);
     }
 });
