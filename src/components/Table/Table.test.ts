@@ -34,6 +34,8 @@ describe('template', () => {
 
     componentSlotRenderTest(Table, 'header-id', {props});
 
+    componentSlotRenderTest(Table, 'row', {props});
+
     componentSlotRenderTest(Table, 'id', {props});
 
     componentWrapperClassTest(Table, {hover: true}, 'table-hover');

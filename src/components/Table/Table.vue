@@ -27,22 +27,28 @@
         </thead>
 
         <tbody>
-            <tr
+            <template
                 v-for="(item, index) in items"
                 :key="`item-${index}`"
-                @click="$emit('click:row', item)"
             >
                 <slot
-                    v-for="header in headers"
-                    :key="header.key"
-                    :name="header.key"
+                    name="row"
                     :item="item"
                 >
-                    <td :key="`item-${index}-${header}`">
-                        {{ item[header.key] }}
-                    </td>
+                    <tr @click="$emit('click:row', item)">
+                        <slot
+                            v-for="header in headers"
+                            :key="header.key"
+                            :name="header.key"
+                            :item="item"
+                        >
+                            <td :key="`item-${index}-${header}`">
+                                {{ item[header.key] }}
+                            </td>
+                        </slot>
+                    </tr>
                 </slot>
-            </tr>
+            </template>
         </tbody>
     </table>
 </template>
