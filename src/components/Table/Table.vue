@@ -34,6 +34,7 @@
                 <slot
                     name="row"
                     :item="item"
+                    :index="index"
                 >
                     <tr @click="$emit('click:row', item)">
                         <slot
