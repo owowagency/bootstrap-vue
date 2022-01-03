@@ -83,10 +83,10 @@ onMounted(async() => {
 
         bsModal.value = bootstrap.Modal.getOrCreateInstance(modal.value);
 
-        modalEvents.forEach(event => {
+        modalEvents.forEach(event =>
             modal.value
-                .addEventListener(`${event}.bs.modal`, () => emit(event));
-        });
+                .addEventListener(`${event}.bs.modal`, () => emit(event)),
+        );
     }
 });
 

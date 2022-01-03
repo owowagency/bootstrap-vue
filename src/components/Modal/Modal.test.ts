@@ -1,4 +1,3 @@
-import * as bootstrap from 'bootstrap';
 import Modal from '.';
 import {shallowMount} from '@vue/test-utils';
 
