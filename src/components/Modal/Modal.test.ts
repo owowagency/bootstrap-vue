@@ -4,7 +4,7 @@ import {shallowMount} from '@vue/test-utils';
 
 jest.mock('bootstrap', () => ({
     Modal: {
-        getInstance: jest.fn(),
+        getOrCreateInstance: jest.fn(),
     },
 }));
 
@@ -41,9 +41,13 @@ describe('onMounted', () => {
     it('sets bsModal', async() => {
         const wrapper = await shallowMount(Modal);
 
-        expect(bootstrap.Modal.getInstance).toBeCalledWith(wrapper.vm.$refs.modal);
+        expect((await import('bootstrap')).Modal.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.modal);
 
         // TODO: Unable to assert bsModal value.
+    });
+
+    it('registers modal even listeners', async() => {
+        // TODO: Unable to assert events.
     });
 });
 

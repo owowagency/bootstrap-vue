@@ -48,6 +48,10 @@
 <script lang="ts">
 import {onBeforeUnmount, onMounted, ref} from 'vue';
 import {idProps} from '@/composables/useId';
+
+const modalEvents = ['show', 'shown', 'hide', 'hidden', 'hidePrevented'] as const;
+
+type ModalEvent = typeof modalEvents[number];
 </script>
 
 <script lang="ts" setup>
@@ -67,6 +71,8 @@ defineProps({
     },
 });
 
+const emit = defineEmits<{(event: ModalEvent): void}>();
+
 const modal = ref<HTMLElement>();
 
 const bsModal = ref();
@@ -75,7 +81,12 @@ onMounted(async() => {
     if (document) {
         const bootstrap = await import('bootstrap');
 
-        bsModal.value = bootstrap.Modal.getInstance(modal.value);
+        bsModal.value = bootstrap.Modal.getOrCreateInstance(modal.value);
+
+        modalEvents.forEach(event => {
+            modal.value
+                .addEventListener(`${event}.bs.modal`, () => emit(event));
+        });
     }
 });
 
