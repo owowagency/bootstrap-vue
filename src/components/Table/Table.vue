@@ -42,6 +42,7 @@
                             :key="header.key"
                             :name="header.key"
                             :item="item"
+                            :index="index"
                         >
                             <td :key="`item-${index}-${header}`">
                                 {{ item[header.key] }}
