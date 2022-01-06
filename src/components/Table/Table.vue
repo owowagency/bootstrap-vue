@@ -27,6 +27,8 @@
         </thead>
 
         <tbody>
+            <slot name="top-row" />
+
             <template
                 v-for="(item, index) in items"
                 :key="`item-${index}`"
@@ -51,6 +53,8 @@
                     </tr>
                 </slot>
             </template>
+
+            <slot name="bottom-row" />
         </tbody>
     </table>
 </template>
