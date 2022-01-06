@@ -66,7 +66,7 @@
         "uuid": "^8.3.2"
     },
     "peerDependencies": {
-        "vue": "^3.2.20"
+        "vue": "^3.2.26"
     },
     "storybook": {
         "url": "https://owowagency.github.io/bootstrap-vue"
