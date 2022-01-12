@@ -102,7 +102,6 @@ const {classes} = useClasses(computed(() => [
 ]));
 
 const filteredItems = computed(() => {
-    console.log('compuuuts');
     if (searchQuery.value === '' || !props.searchItems) {
         return props.items;
     }
@@ -134,9 +133,12 @@ const propsDropdown = computed(() => {
 
 const searchQuery = ref(props.searchQuery);
 
+// Update the `searchQuery` once the label of the value changes. This happens
+// for example when a user clicks on an item. The input should show the label
+// of the clicked item.
 watch(
     () => props.modelValue,
-    v => v ? searchQuery.value = v[props.labelKey] : undefined,
+    v => searchQuery.value = v?.[props.labelKey] || '',
 );
 
 watch(
@@ -147,7 +149,6 @@ watch(
 watch(
     () => searchQuery.value,
     s => {
-        console.log(s, props.modelValue?.label);
         if (props.modelValue !== undefined) {
             // Prevent emitting new `update:searchQuery` events when the
             // `searchQuery` is equal to the label of the `modelValue`.
