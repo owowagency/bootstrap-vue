@@ -26,7 +26,7 @@
         <template #menuPrepend>
             <slot
                 v-if="filteredItems.length === 0"
-                name="noItems"
+                name="noOptions"
             >
                 <DropdownMenuItem
                     class="pe-none"
@@ -138,12 +138,12 @@ const searchQuery = ref(props.searchQuery);
 // of the clicked item.
 watch(
     () => props.modelValue,
-    v => props.search ? (searchQuery.value = v?.[props.labelKey] || '') : false,
+    v => props.search && (searchQuery.value = v?.[props.labelKey] || ''),
 );
 
 watch(
     () => props.searchQuery,
-    s => props.search ? (searchQuery.value = s) : false,
+    s => props.search && (searchQuery.value = s),
 );
 
 watch(

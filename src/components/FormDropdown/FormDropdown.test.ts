@@ -1,13 +1,43 @@
 import {mount, shallowMount} from '@vue/test-utils';
 import Dropdown from '@/components/Dropdown';
 import FormDropdown from '.';
+import { nextTick } from 'vue';
+
+const items = [
+    {label: 'Item 1'},
+    {label: 'Item 2'},
+    {label: 'Item 3'},
+];
 
 describe('template', () => {
-    componentRenderTest(FormDropdown, {}, false);
+    componentRenderTest(FormDropdown, {props: {items}}, false);
+
+    componentRenderTest(
+        FormDropdown,
+        {props: {items: []}},
+        false,
+        'renders no options',
+    );
+
+    componentRenderTest(
+        FormDropdown,
+        {props: {search: true}},
+        false,
+        'renders input',
+    );
 
     componentSlotRenderTest(FormDropdown, 'menuPrepend', {shallow: false});
 
     componentSlotRenderTest(FormDropdown, 'menuAppend', {shallow: false});
+
+    componentSlotRenderTest(
+        FormDropdown,
+        'noOptions',
+        {
+            shallow: false,
+            props: {items: []},
+        },
+    );
 
     it('emits update:modelValue on click item', () => {
         const wrapper = shallowMount(FormDropdown);
@@ -60,5 +90,105 @@ describe('label', () => {
         });
 
         expect(wrapper.vm.label).toBe('Dees Dohmen');
+    });
+});
+
+describe('filteredItems', () => {
+    it('does not filter items without searchQuery', () => {
+        const wrapper = shallowMount(FormDropdown, {props: {items}});
+
+        expect(wrapper.vm.filteredItems).toEqual(items);
+    });
+
+    it('does not filter items with searchQuery but searchItems disabled', () => {
+        const wrapper = shallowMount(
+            FormDropdown,
+            {
+                props: {
+                    items,
+                    searchQuery: 'item 1',
+                    searchItems: false,
+                },
+            },
+        );
+
+        expect(wrapper.vm.filteredItems).toEqual(items);
+    });
+
+    it('filters items with searchQuery', () => {
+        const wrapper = shallowMount(
+            FormDropdown,
+            {
+                props: {
+                    items,
+                    searchQuery: 'item 1',
+                },
+            },
+        );
+
+        expect(wrapper.vm.filteredItems).toEqual([{label: 'Item 1'}]);
+    });
+});
+
+describe('searchQuery', () => {
+    it('emits on change', async() => {
+        const wrapper = mount(
+            FormDropdown,
+            {
+                props: {
+                    modelValue: items[0],
+                    search: true,
+                },
+            },
+        );
+
+        await wrapper.find('input').setValue('changed');
+
+        expect(wrapper.emitted('update:modelValue')[0]).toEqual([undefined]);
+
+        expect(wrapper.emitted('update:searchQuery')[0]).toEqual(['changed']);
+    });
+
+    it('does not emit when no search', async() => {
+        // TODO: unable to test since changing `searchQuery` on `wrapper.vm`
+        // does not trigger the watchers. Setting `search` to `false` will not
+        // render the input which is used as an alternative to change the value
+        // of `searchQuery`.
+    });
+
+    it('does not emit update:modelValue when modelValue is undefined', async() => {
+        const wrapper = mount(
+            FormDropdown,
+            {
+                props: {
+                    modelValue: undefined,
+                    search: true,
+                },
+            },
+        );
+
+        await wrapper.find('input').setValue('changed');
+
+        expect(wrapper.emitted('update:modelValue')).toBeFalsy();
+
+        expect(wrapper.emitted('update:searchQuery')[0]).toEqual(['changed']);
+    });
+
+    it('does not emit update:searchQuery and update:modelValue when modelValue is set with the same label value as the searchQuery', async() => {
+        const wrapper = mount(
+            FormDropdown,
+            {
+                props: {
+                    modelValue: items[0],
+                    search: true,
+                },
+            },
+        );
+
+        await wrapper.find('input').setValue(items[0].label);
+
+        expect(wrapper.emitted('update:modelValue')).toBeFalsy();
+
+        expect(wrapper.emitted('update:searchQuery')).toBeFalsy();
     });
 });

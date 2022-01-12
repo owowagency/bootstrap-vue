@@ -4,6 +4,25 @@ exports[`template renders default 1`] = `
 "<div class=\\"dropdown form-dropdown\\">
   <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">Select</div>
   <ul class=\\"dropdown-menu w-100\\">
+    <li><a class=\\"dropdown-item\\" href=\\"#\\">Item 1</a></li>
+    <li><a class=\\"dropdown-item\\" href=\\"#\\">Item 2</a></li>
+    <li><a class=\\"dropdown-item\\" href=\\"#\\">Item 3</a></li>
+  </ul>
+</div>"
+`;
+
+exports[`template renders input 1`] = `
+"<div class=\\"dropdown form-dropdown\\"><input class=\\"form-control form-control-md\\" placeholder=\\"\\" type=\\"text\\" data-bs-toggle=\\"dropdown\\">
+  <ul class=\\"dropdown-menu w-100\\">
+    <li class=\\"pe-none\\"><a class=\\"dropdown-item\\" href=\\"#\\">No options</a></li>
+  </ul>
+</div>"
+`;
+
+exports[`template renders no options 1`] = `
+"<div class=\\"dropdown form-dropdown\\">
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">Select</div>
+  <ul class=\\"dropdown-menu w-100\\">
     <li class=\\"pe-none\\"><a class=\\"dropdown-item\\" href=\\"#\\">No options</a></li>
   </ul>
 </div>"
