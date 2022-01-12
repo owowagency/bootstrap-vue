@@ -37,7 +37,8 @@ Default.args = defaultArgs;
 
 export const Disabled = template.bind({});
 
-Default.args = {
+Disabled.args = {
+    disabled: true,
     ...defaultArgs,
 };
 
@@ -48,3 +49,26 @@ export const Sizing = (args) => ({
 });
 
 Sizing.args = defaultArgs;
+
+// export const Search = template.bind({});
+
+export const Search = (args) => ({
+    components: {FormDropdown},
+    setup: () => ({
+        args,
+        search: ref(''),
+        value: ref(),
+    }),
+    template: `
+        <FormDropdown
+            v-model:search-query="search"
+            v-model="value"
+            v-bind="args"
+        />
+    `,
+});
+
+Search.args = {
+    search: true,
+    ...defaultArgs,
+};
