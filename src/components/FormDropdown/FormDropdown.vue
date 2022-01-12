@@ -44,8 +44,8 @@
 </template>
 
 <script lang="ts">
-import useFormSelect, {formSelectProps} from '@/composables/useFormSelect';
 import {computed, ref, watch} from 'vue';
+import useFormSelect, {formSelectProps} from '@/composables/useFormSelect';
 import Dropdown from '@/components/Dropdown';
 import DropdownMenuItem from '@/components/DropdownMenuItem';
 import FormControl from '@/components/FormControl';
@@ -163,7 +163,7 @@ watch(
             emit('update:modelValue', undefined);
         }
 
-        emit('update:searchQuery', s)
+        emit('update:searchQuery', s);
     },
 );
 </script>

@@ -1,7 +1,6 @@
 import {mount, shallowMount} from '@vue/test-utils';
 import Dropdown from '@/components/Dropdown';
 import FormDropdown from '.';
-import { nextTick } from 'vue';
 
 const items = [
     {label: 'Item 1'},
