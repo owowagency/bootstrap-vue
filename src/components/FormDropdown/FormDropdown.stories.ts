@@ -50,8 +50,6 @@ export const Sizing = (args) => ({
 
 Sizing.args = defaultArgs;
 
-// export const Search = template.bind({});
-
 export const Search = (args) => ({
     components: {FormDropdown},
     setup: () => ({

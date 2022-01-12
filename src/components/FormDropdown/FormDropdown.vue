@@ -138,17 +138,21 @@ const searchQuery = ref(props.searchQuery);
 // of the clicked item.
 watch(
     () => props.modelValue,
-    v => searchQuery.value = v?.[props.labelKey] || '',
+    v => props.search ? (searchQuery.value = v?.[props.labelKey] || '') : false,
 );
 
 watch(
     () => props.searchQuery,
-    s => searchQuery.value = s,
+    s => props.search ? (searchQuery.value = s) : false,
 );
 
 watch(
     () => searchQuery.value,
     s => {
+        if (!props.search) {
+            return;
+        }
+
         if (props.modelValue !== undefined) {
             // Prevent emitting new `update:searchQuery` events when the
             // `searchQuery` is equal to the label of the `modelValue`.
