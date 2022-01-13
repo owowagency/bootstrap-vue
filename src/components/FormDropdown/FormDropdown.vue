@@ -7,8 +7,8 @@
     >
         <template #dropdownToggle>
             <FormControl
-                v-if="search"
-                v-model="searchQuery"
+                v-if="searchable"
+                v-model="searchValue"
                 :size="size"
                 data-bs-toggle="dropdown"
             />
@@ -58,6 +58,10 @@ const {disabled: disabledProp, size: sizeProp} = formSelectProps;
 <script lang="ts" setup>
 const props = defineProps({
     ...dropdownProps,
+    autoSearch: {
+        type: Boolean,
+        default: true,
+    },
     disabled: disabledProp,
     labelKey: {
         type: String,
@@ -76,16 +80,12 @@ const props = defineProps({
         default: 'Select',
     },
     search: {
-        type: Boolean,
-        default: false,
-    },
-    searchItems: {
-        type: Boolean,
-        default: true,
-    },
-    searchQuery: {
         type: String,
         default: '',
+    },
+    searchable: {
+        type: Boolean,
+        default: false,
     },
     size: sizeProp,
     toggleClass: {
@@ -94,7 +94,7 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['update:modelValue', 'update:searchQuery']);
+const emit = defineEmits(['update:modelValue', 'update:search']);
 
 const {classes} = useClasses(computed(() => [
     ...useFormSelect(props).classes.value,
@@ -102,7 +102,7 @@ const {classes} = useClasses(computed(() => [
 ]));
 
 const filteredItems = computed(() => {
-    if (searchQuery.value === '' || !props.searchItems) {
+    if (searchValue.value === '' || !props.autoSearch) {
         return props.items;
     }
 
@@ -110,7 +110,7 @@ const filteredItems = computed(() => {
         .filter(i =>
             i.label
                 .toLowerCase()
-                .includes(searchQuery.value.toLocaleLowerCase()),
+                .includes(searchValue.value.toLocaleLowerCase()),
         );
 });
 
@@ -131,31 +131,31 @@ const propsDropdown = computed(() => {
     return properties;
 });
 
-const searchQuery = ref(props.searchQuery);
+const searchValue = ref(props.search);
 
-// Update the `searchQuery` once the label of the value changes. This happens
+// Update the `search` once the label of the value changes. This happens
 // for example when a user clicks on an item. The input should show the label
 // of the clicked item.
 watch(
     () => props.modelValue,
-    v => props.search && (searchQuery.value = v?.[props.labelKey] || ''),
+    v => props.searchable && (searchValue.value = v?.[props.labelKey] || ''),
 );
 
 watch(
-    () => props.searchQuery,
-    s => props.search && (searchQuery.value = s),
+    () => props.search,
+    s => props.searchable && (searchValue.value = s),
 );
 
 watch(
-    () => searchQuery.value,
+    () => searchValue.value,
     s => {
-        if (!props.search) {
+        if (!props.searchable) {
             return;
         }
 
         if (props.modelValue !== undefined) {
-            // Prevent emitting new `update:searchQuery` events when the
-            // `searchQuery` is equal to the label of the `modelValue`.
+            // Prevent emitting new `update:search` events when the
+            // `searchValue` is equal to the label of the `modelValue`.
             if (props.modelValue[props.labelKey] === s) {
                 return;
             }
@@ -163,7 +163,7 @@ watch(
             emit('update:modelValue', undefined);
         }
 
-        emit('update:searchQuery', s);
+        emit('update:search', s);
     },
 );
 </script>

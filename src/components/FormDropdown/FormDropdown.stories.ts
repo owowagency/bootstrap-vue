@@ -59,7 +59,7 @@ export const Search = (args) => ({
     }),
     template: `
         <FormDropdown
-            v-model:search-query="search"
+            v-model:search="search"
             v-model="value"
             v-bind="args"
         />
@@ -67,6 +67,6 @@ export const Search = (args) => ({
 });
 
 Search.args = {
-    search: true,
+    searchable: true,
     ...defaultArgs,
 };

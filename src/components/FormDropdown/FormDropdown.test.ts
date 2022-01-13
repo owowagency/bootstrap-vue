@@ -20,7 +20,7 @@ describe('template', () => {
 
     componentRenderTest(
         FormDropdown,
-        {props: {search: true}},
+        {props: {searchable: true}},
         false,
         'renders input',
     );
@@ -93,20 +93,20 @@ describe('label', () => {
 });
 
 describe('filteredItems', () => {
-    it('does not filter items without searchQuery', () => {
+    it('does not filter items without search', () => {
         const wrapper = shallowMount(FormDropdown, {props: {items}});
 
         expect(wrapper.vm.filteredItems).toEqual(items);
     });
 
-    it('does not filter items with searchQuery but searchItems disabled', () => {
+    it('does not filter items with search but searchItems disabled', () => {
         const wrapper = shallowMount(
             FormDropdown,
             {
                 props: {
+                    autoSearch: false,
                     items,
-                    searchQuery: 'item 1',
-                    searchItems: false,
+                    search: 'item 1',
                 },
             },
         );
@@ -114,13 +114,13 @@ describe('filteredItems', () => {
         expect(wrapper.vm.filteredItems).toEqual(items);
     });
 
-    it('filters items with searchQuery', () => {
+    it('filters items with search', () => {
         const wrapper = shallowMount(
             FormDropdown,
             {
                 props: {
                     items,
-                    searchQuery: 'item 1',
+                    search: 'item 1',
                 },
             },
         );
@@ -129,14 +129,14 @@ describe('filteredItems', () => {
     });
 });
 
-describe('searchQuery', () => {
+describe('search', () => {
     it('emits on change', async() => {
         const wrapper = mount(
             FormDropdown,
             {
                 props: {
                     modelValue: items[0],
-                    search: true,
+                    searchable: true,
                 },
             },
         );
@@ -145,14 +145,14 @@ describe('searchQuery', () => {
 
         expect(wrapper.emitted('update:modelValue')[0]).toEqual([undefined]);
 
-        expect(wrapper.emitted('update:searchQuery')[0]).toEqual(['changed']);
+        expect(wrapper.emitted('update:search')[0]).toEqual(['changed']);
     });
 
     it('does not emit when no search', async() => {
-        // TODO: unable to test since changing `searchQuery` on `wrapper.vm`
+        // TODO: unable to test since changing `search` on `wrapper.vm`
         // does not trigger the watchers. Setting `search` to `false` will not
         // render the input which is used as an alternative to change the value
-        // of `searchQuery`.
+        // of `search`.
     });
 
     it('does not emit update:modelValue when modelValue is undefined', async() => {
@@ -161,7 +161,7 @@ describe('searchQuery', () => {
             {
                 props: {
                     modelValue: undefined,
-                    search: true,
+                    searchable: true,
                 },
             },
         );
@@ -170,16 +170,16 @@ describe('searchQuery', () => {
 
         expect(wrapper.emitted('update:modelValue')).toBeFalsy();
 
-        expect(wrapper.emitted('update:searchQuery')[0]).toEqual(['changed']);
+        expect(wrapper.emitted('update:search')[0]).toEqual(['changed']);
     });
 
-    it('does not emit update:searchQuery and update:modelValue when modelValue is set with the same label value as the searchQuery', async() => {
+    it('does not emit update:search and update:modelValue when modelValue is set with the same label value as the search', async() => {
         const wrapper = mount(
             FormDropdown,
             {
                 props: {
                     modelValue: items[0],
-                    search: true,
+                    searchable: true,
                 },
             },
         );
@@ -188,6 +188,6 @@ describe('searchQuery', () => {
 
         expect(wrapper.emitted('update:modelValue')).toBeFalsy();
 
-        expect(wrapper.emitted('update:searchQuery')).toBeFalsy();
+        expect(wrapper.emitted('update:search')).toBeFalsy();
     });
 });
