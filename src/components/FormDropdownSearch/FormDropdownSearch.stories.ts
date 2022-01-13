@@ -1,10 +1,10 @@
-import FormDropdown from '.';
+import FormDropdownSearch from '.';
 import {ref} from 'vue';
 import {sizes} from '@/composables/useSize';
 
 export default {
-    title: 'Forms/Form dropdown',
-    component: FormDropdown,
+    title: 'Forms/Form dropdown search',
+    component: FormDropdownSearch,
     argTypes: {},
 };
 
@@ -17,14 +17,14 @@ const defaultArgs = {
 };
 
 const template = (args) => ({
-    components: {FormDropdown},
+    components: {FormDropdownSearch},
     setup() {
         const value = ref();
 
         return {args, value};
     },
     template: `
-        <FormDropdown
+        <FormDropdownSearch
             v-model="value"
             v-bind="args"
         />
@@ -43,22 +43,22 @@ Disabled.args = {
 };
 
 export const Sizing = (args) => ({
-    components: {FormDropdown},
+    components: {FormDropdownSearch},
     setup: () => ({args, sizes}),
-    template: '<FormDropdown v-for="s of sizes" class="mb-1" :size="s" v-bind="args" />',
+    template: '<FormDropdownSearch v-for="s of sizes" class="mb-1" :size="s" v-bind="args" />',
 });
 
 Sizing.args = defaultArgs;
 
 export const Search = (args) => ({
-    components: {FormDropdown},
+    components: {FormDropdownSearch},
     setup: () => ({
         args,
         search: ref(''),
-        value: ref({label: 'item 1'}),
+        value: ref(),
     }),
     template: `
-        <FormDropdown
+        <FormDropdownSearch
             v-model:search="search"
             v-model="value"
             v-bind="args"
