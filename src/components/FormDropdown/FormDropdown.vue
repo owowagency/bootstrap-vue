@@ -136,7 +136,7 @@ const propsDropdown = computed(() => {
     return properties;
 });
 
-const searchValue = ref(!props.searchable || props.search !== '' ? props.search : label.value);
+const searchValue = ref(!props.searchable ? '' : (props.search === '' ? label.value : props.search));
 
 // Update the `search` once the label of the value changes. This happens
 // for example when a user clicks on an item. The input should show the label

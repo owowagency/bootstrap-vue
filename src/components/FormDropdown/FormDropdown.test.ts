@@ -122,12 +122,13 @@ describe('filteredItems', () => {
         expect(wrapper.vm.filteredItems).toEqual(items);
     });
 
-    it('filters items with search', () => {
+    it.only('filters items with search', () => {
         const wrapper = shallowMount(
             FormDropdown,
             {
                 props: {
                     items,
+                    searchable: true,
                     search: 'item 1',
                 },
             },
@@ -137,7 +138,41 @@ describe('filteredItems', () => {
     });
 });
 
-describe('search', () => {
+describe('searchValue', () => {
+    it('is empty when not searchable', () => {
+        const wrapper = mount(FormDropdown, {props: {searchable: false}});
+
+        expect(wrapper.vm.searchValue).toBe('');
+    });
+
+    it('is label when searchable but empty', () => {
+        const wrapper = mount(
+            FormDropdown,
+            {
+                props: {
+                    modelValue: items[0],
+                    searchable: true,
+                },
+            },
+        );
+
+        expect(wrapper.vm.searchValue).toBe(items[0].label);
+    });
+
+    it('is search when searchable and has search prop', () => {
+        const wrapper = mount(
+            FormDropdown,
+            {
+                props: {
+                    search: 'search',
+                    searchable: true,
+                },
+            },
+        );
+
+        expect(wrapper.vm.searchValue).toBe('search');
+    });
+
     it('emits on change', async() => {
         const wrapper = mount(
             FormDropdown,
@@ -157,10 +192,10 @@ describe('search', () => {
     });
 
     it('does not emit when no search', async() => {
-        // TODO: unable to test since changing `search` on `wrapper.vm`
-        // does not trigger the watchers. Setting `search` to `false` will not
+        // TODO: unable to test since changing `searchValue` on `wrapper.vm`
+        // does not trigger the watchers. Setting `searchable` to `false` will not
         // render the input which is used as an alternative to change the value
-        // of `search`.
+        // of `searchValue`.
     });
 
     it('does not emit update:modelValue when modelValue is undefined', async() => {
