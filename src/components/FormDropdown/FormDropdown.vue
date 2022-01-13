@@ -9,8 +9,9 @@
             <FormControl
                 v-if="searchable"
                 v-model="searchValue"
-                :size="size"
                 data-bs-toggle="dropdown"
+                :placeholder="placeholder"
+                :size="size"
             />
 
             <div
@@ -116,6 +117,10 @@ const filteredItems = computed(() => {
 
 const label = computed(() => {
     if (!props.modelValue) {
+        if (props.searchable) {
+            return '';
+        }
+
         return props.placeholder;
     }
 
@@ -131,7 +136,7 @@ const propsDropdown = computed(() => {
     return properties;
 });
 
-const searchValue = ref(props.search);
+const searchValue = ref(!props.searchable || props.search !== '' ? props.search : label.value);
 
 // Update the `search` once the label of the value changes. This happens
 // for example when a user clicks on an item. The input should show the label

@@ -12,7 +12,7 @@ exports[`template renders default 1`] = `
 `;
 
 exports[`template renders input 1`] = `
-"<div class=\\"dropdown form-dropdown\\"><input class=\\"form-control form-control-md\\" placeholder=\\"\\" type=\\"text\\" data-bs-toggle=\\"dropdown\\">
+"<div class=\\"dropdown form-dropdown\\"><input class=\\"form-control form-control-md\\" placeholder=\\"Select\\" type=\\"text\\" data-bs-toggle=\\"dropdown\\">
   <ul class=\\"dropdown-menu w-100\\">
     <li class=\\"pe-none\\"><a class=\\"dropdown-item\\" href=\\"#\\">No options</a></li>
   </ul>

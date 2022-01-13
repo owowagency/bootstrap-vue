@@ -72,6 +72,14 @@ describe('template', () => {
 });
 
 describe('label', () => {
+    it('uses empty string when no modelValue but searchable', () => {
+        const wrapper = shallowMount(FormDropdown, {
+            props: {searchable: true},
+        });
+
+        expect(wrapper.vm.label).toBe('');
+    });
+
     it('uses placeholder when no modelValue', () => {
         const wrapper = shallowMount(FormDropdown, {
             props: {placeholder: 'I am a placeholder'},
