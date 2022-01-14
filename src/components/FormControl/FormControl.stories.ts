@@ -7,6 +7,9 @@ export default {
     title: 'Forms/Form control',
     component: FormControl,
     argTypes: {
+        autofocus: {
+            control: {type: 'boolean'},
+        },
         disabled: {
             control: {type: 'boolean'},
         },
@@ -43,6 +46,13 @@ export const Default = template.bind({});
 Default.args = {
     modelValue: 'I am an input',
     placeholder: 'I am a placeholder',
+};
+
+export const Autofocused = template.bind({});
+
+Autofocused.args = {
+    modelValue: 'I am autofocused',
+    autofocus: true,
 };
 
 export const Disabled = template.bind({});
