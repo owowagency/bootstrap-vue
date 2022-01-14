@@ -89,7 +89,7 @@ const bsModal = ref();
 
 const {classes} = useClasses(computed(() => [
     computed(() => props.modalCentered ? 'modal-dialog-centered' : null).value,
-    useModalSize(props.modalSize).sizeClass.value,
+    computed(() => props.modalSize ? useModalSize(props.modalSize).sizeClass.value : null).value,
 ]));
 
 onMounted(async() => {
