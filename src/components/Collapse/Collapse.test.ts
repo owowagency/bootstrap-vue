@@ -1,4 +1,5 @@
 import Collapse from '.';
+import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
     componentRenderTest(Collapse, {
@@ -7,4 +8,12 @@ describe('template', () => {
     });
 
     componentSlotRenderTest(Collapse);
+
+    it('emits event on click collapse toggle', async() => {
+        const wrapper = shallowMount(Collapse);
+
+        wrapper.findComponent(Collapse).vm.$emit('click:toggle');
+
+        expect(wrapper.emitted('click:toggle')).toBeTruthy();
+    });
 });

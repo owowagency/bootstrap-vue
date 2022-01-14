@@ -3,6 +3,7 @@
         class="d-inline-block"
         data-bs-toggle="collapse"
         :data-bs-target="`#${id}`"
+        @click="clickToggle"
     >
         <slot
             name="toggle"
@@ -12,6 +13,7 @@
     <div
         :id="id"
         class="collapse"
+        :data-bs-parent="parentSelector"
     >
         <slot />
     </div>
@@ -24,5 +26,14 @@ import {idProps} from '@/composables/useId';
 <script lang="ts" setup>
 defineProps({
     ...idProps,
+    // Should be a valid query selector.
+    parentSelector: {
+        type: String,
+        default: null,
+    },
 });
+
+const emit = defineEmits(['click:toggle']);
+
+const clickToggle = () => emit('click:toggle');
 </script>
