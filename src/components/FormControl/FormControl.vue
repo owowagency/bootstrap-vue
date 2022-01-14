@@ -34,5 +34,10 @@ const {classes} = useClasses(computed(() => [
     useSize(props.size, 'form-control-{0}').sizeClass.value,
 ]));
 
+const value = computed({
+    get: () => props.modelValue,
+    set: v => emit('update:modelValue', v),
+});
+
 defineExpose({input});
 </script>

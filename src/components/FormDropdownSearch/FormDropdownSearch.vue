@@ -62,8 +62,21 @@ const filteredItems = computed(() => {
 const formControl = ref<ComponentPublicInstance<typeof FormControl>>();
 
 const modelValue = computed({
-    get: () => modelValue.value,
+    get: () => props.modelValue,
     set: v => emit('update:modelValue', v),
+});
+
+const searchValueCached = ref<string>('');
+
+const searchValueDisplayed = computed({
+    get: () => searchValueCached.value !== ''
+        ? searchValueCached.value
+        : searchValue.value,
+    set: s => {
+        searchValueCached.value = '';
+
+        searchValue.value = s;
+    },
 });
 
 const searchValue = ref<string>(
@@ -72,110 +85,19 @@ const searchValue = ref<string>(
         : props.search,
 );
 
-const searchValueCached = ref(undefined);
-
-const searchValueDisplayed = computed({
-    get: () => searchValueCached.value !== undefined
-        ? searchValueCached.value
-        : searchValue.value,
-    set: s => searchValue.value = s,
-});
-
 const onFocus = () => {
     (formControl.value.input as HTMLInputElement).select();
 
-    if (searchValueCached.value === undefined) {
+    if (searchValueCached.value === '') {
         searchValueCached.value = searchValue.value;
     }
 
     searchValue.value = '';
 };
 
-// Update the `search` once the label of the value changes. This happens
-// for example when a user clicks on an item. The input should show the label
-// of the clicked item..
-watch(
-    () => props.modelValue,
-    v => {
-        v && (searchValueCached.value = undefined);
+watch(modelValue, v => v && (searchValueCached.value = v[props.labelKey]));
 
-        searchValue.value = v?.[props.labelKey] || '';
-    },
-);
+watch(() => props.search, s => searchValue.value = s);
 
-watch(
-    () => props.search,
-    s => searchValue.value = s,
-);
-
-watch(
-    () => searchValue.value,
-    s => {
-        if (modelValue.value !== undefined) {
-            // Prevent emitting new `update:search` events when the
-            // `searchValue` is equal to the label of the `modelValue`.
-            if (modelValue.value[props.labelKey] === searchValueDisplayed.value) {
-                return;
-            }
-            
-            modelValue.value = undefined;
-        }
-
-        if (s !== '' && searchValueCached.value !== undefined) {
-            searchValueCached.value === undefined;
-        }
-
-        if (searchValueCached.value === undefined) {
-            emit('update:search', s);
-        }
-    },
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const bootstrap = ref<{Dropdown: typeof Dropdown}>();
-
-// const bsDropdown = ref<Dropdown>();
-
-// const dropdownToggle = ref<ComponentPublicInstance<typeof FormControl>>();
-
-// onMounted(async() => {
-//     if (document) {
-//         bootstrap.value = await import('bootstrap');
-
-//         bsDropdown.value = bootstrap.value
-//             .Dropdown
-//             .getOrCreateInstance(dropdownToggle.value.$el);
-//     }
-// });
-
-// const hide = () => bsDropdown.value?.hide();
-
-// // TODO: Somehow it hides directly after.
-// const show = () => {
-//     bsDropdown.value?.show();
-
-//     return false;
-// };
-
-// defineExpose({dropdownToggle});
+watch(searchValue, s => emit('update:search', s));
 </script>
