@@ -22,6 +22,10 @@
                 <slot name="menuPrepend" />
             </template>
 
+            <template #items>
+                <slot name="menuItems" />
+            </template>
+
             <template #append>
                 <slot name="menuAppend" />
             </template>

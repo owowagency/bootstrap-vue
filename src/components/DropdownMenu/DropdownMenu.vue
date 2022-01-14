@@ -2,7 +2,7 @@
     <ul class="dropdown-menu">
         <slot name="prepend" />
 
-        <slot name="dropdown-menu-items">
+        <slot name="items">
             <DropdownMenuItem
                 v-for="(item, index) of items"
                 :key="`item-${index}`"

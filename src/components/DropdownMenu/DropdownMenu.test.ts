@@ -14,7 +14,7 @@ describe('template', () => {
 
     componentSlotRenderTest(DropdownMenu, 'prepend');
 
-    componentSlotRenderTest(DropdownMenu, 'dropdown-menu-items');
+    componentSlotRenderTest(DropdownMenu, 'items');
 
     componentSlotRenderTest(DropdownMenu, 'append');
 

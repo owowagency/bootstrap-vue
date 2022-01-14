@@ -15,6 +15,8 @@ describe('template', () => {
 
     componentSlotRenderTest(Dropdown, 'menuPrepend', {shallow: false});
 
+    componentSlotRenderTest(Dropdown, 'menuItems', {shallow: false});
+
     componentSlotRenderTest(Dropdown, 'menuAppend', {shallow: false});
 
     it('adds menu class to DropdownMenu', () => {
