@@ -1,11 +1,11 @@
 <template>
     <input
+        ref="input"
         class="form-control"
         :class="classes"
         :disabled="disabled"
         :placeholder="placeholder"
         :readonly="readonly"
-        ref="input"
         :type="type"
         :value="modelValue"
         @input="emit('update:modelValue', $event.target.value)"
@@ -33,11 +33,6 @@ const {classes} = useClasses(computed(() => [
     props.readonly ? 'readonly' : '',
     useSize(props.size, 'form-control-{0}').sizeClass.value,
 ]));
-
-const value = computed({
-    get: () => props.modelValue,
-    set: v => emit('update:modelValue', v),
-});
 
 defineExpose({input});
 </script>

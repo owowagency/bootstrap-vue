@@ -2,21 +2,24 @@
     <FormDropdown
         v-model="modelValue"
         :items="filteredItems"
+        :label-key="labelKey"
     >
         <template #dropdownToggle>
-            <FormControl
-                v-model="searchValueDisplayed"
-                data-bs-toggle="dropdown"
-                ref="formControl"
-                v-bind="$attrs"
-                @focus="onFocus"
-            />
+            <slot name="dropdownToggle">
+                <FormControl
+                    ref="formControl"
+                    v-model="searchValueDisplayed"
+                    data-bs-toggle="dropdown"
+                    v-bind="$attrs"
+                    @focus="onFocus"
+                />
+            </slot>
         </template>
     </FormDropdown>
 </template>
 
 <script lang="ts" setup>
-import {ComponentPublicInstance, PropType, computed, ref, onMounted, watch} from 'vue';
+import {ComponentPublicInstance, PropType, computed, ref, watch} from 'vue';
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
@@ -102,4 +105,6 @@ watch(modelValue, v => v && (searchValueCached.value = v[props.labelKey]));
 watch(() => props.search, s => searchValue.value = s);
 
 watch(searchValue, s => emit('update:search', s));
+
+defineExpose({formControl});
 </script>
