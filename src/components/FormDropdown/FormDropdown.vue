@@ -17,6 +17,16 @@
         </template>
 
         <template #menuPrepend>
+            <slot
+                v-if="items.length === 0"
+                name="noOptions"
+            >
+                <DropdownMenuItem
+                    class="pe-none"
+                    label="No options"
+                />
+            </slot>
+
             <slot name="menuPrepend" />
         </template>
 
@@ -29,6 +39,7 @@
 <script lang="ts">
 import useFormSelect, {formSelectProps} from '@/composables/useFormSelect';
 import Dropdown from '@/components/Dropdown';
+import DropdownMenuItem from '@/components/DropdownMenuItem';
 import {computed} from 'vue';
 import {dropdownProps} from '@/composables/useDropdown';
 import useClasses from '@/composables/useClasses';
