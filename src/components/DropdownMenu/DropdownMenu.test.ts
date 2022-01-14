@@ -14,6 +14,8 @@ describe('template', () => {
 
     componentSlotRenderTest(DropdownMenu, 'prepend');
 
+    componentSlotRenderTest(DropdownMenu, 'dropdown-menu-items');
+
     componentSlotRenderTest(DropdownMenu, 'append');
 
     it('emits event on click dropdown menu item', async() => {
