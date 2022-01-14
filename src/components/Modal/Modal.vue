@@ -4,7 +4,10 @@
         ref="modal"
         class="modal"
     >
-        <div class="modal-dialog">
+        <div
+            class="modal-dialog"
+            :class="classes"
+        >
             <div class="modal-content">
                 <div
                     v-if="!!$slots.header || !!$slots.title || !!title"
@@ -46,8 +49,10 @@
 </template>
 
 <script lang="ts">
-import {onBeforeUnmount, onMounted, ref} from 'vue';
+import useModalSize, {modalSizeProps} from '@/composables/useModalSize';
+import {computed, onBeforeUnmount, onMounted, ref} from 'vue';
 import {idProps} from '@/composables/useId';
+import useClasses from '@/composables/useClasses';
 
 const modalEvents = ['show', 'shown', 'hide', 'hidden', 'hidePrevented'] as const;
 
@@ -55,12 +60,17 @@ type ModalEvent = typeof modalEvents[number];
 </script>
 
 <script lang="ts" setup>
-defineProps({
+const props = defineProps({
     body: {
         type: String,
         default: undefined,
     },
     ...idProps,
+    modalCentered: {
+        type: Boolean,
+        default: false,
+    },
+    ...modalSizeProps,
     noBody: {
         type: Boolean,
         default: false,
@@ -76,6 +86,11 @@ const emit = defineEmits<{(event: ModalEvent): void}>();
 const modal = ref<HTMLElement>();
 
 const bsModal = ref();
+
+const {classes} = useClasses(computed(() => [
+    computed(() => props.modalCentered ? 'modal-dialog-centered' : null).value,
+    useModalSize(props.modalSize).sizeClass.value,
+]));
 
 onMounted(async() => {
     if (document) {

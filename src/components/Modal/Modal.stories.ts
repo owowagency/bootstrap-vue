@@ -1,11 +1,20 @@
 
 import Btn from '@/components/Button';
 import Modal from '.';
+import {modalSizes} from '@/composables/useModalSize';
 
 export default {
     title: 'Components/Modal',
     component: Modal,
-    argTypes: {},
+    argTypes: {
+        modalCentered: {
+            control: {type: 'boolean'},
+        },
+        modalSize: {
+            control: {type: 'select'},
+            options: modalSizes,
+        },
+    },
 };
 
 const template = (args) => ({
