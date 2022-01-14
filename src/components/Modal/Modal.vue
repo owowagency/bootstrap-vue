@@ -49,8 +49,8 @@
 </template>
 
 <script lang="ts">
-import useModalSize, {modalSizeProps} from '@/composables/useModalSize';
 import {computed, onBeforeUnmount, onMounted, ref} from 'vue';
+import useModalSize, {modalSizeProps} from '@/composables/useModalSize';
 import {idProps} from '@/composables/useId';
 import useClasses from '@/composables/useClasses';
 
