@@ -13,23 +13,25 @@
             </Btn>
         </slot>
 
-        <DropdownMenu
-            :items="items"
-            :class="menuClass"
-            @click:item="clickItem($event)"
-        >
-            <template #prepend>
-                <slot name="menuPrepend" />
-            </template>
+        <slot name="dropdownMenu">
+            <DropdownMenu
+                :items="items"
+                :class="menuClass"
+                @click:item="clickItem($event)"
+            >
+                <template #prepend>
+                    <slot name="menuPrepend" />
+                </template>
 
-            <template #items>
-                <slot name="menuItems" />
-            </template>
+                <template #items>
+                    <slot name="menuItems" />
+                </template>
 
-            <template #append>
-                <slot name="menuAppend" />
-            </template>
-        </DropdownMenu>
+                <template #append>
+                    <slot name="menuAppend" />
+                </template>
+            </DropdownMenu>
+        </slot>
     </div>
 </template>
 
