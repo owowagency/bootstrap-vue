@@ -8,6 +8,7 @@
                 v-model="searchValueDisplayed"
                 data-bs-toggle="dropdown"
                 ref="formControl"
+                v-bind="$attrs"
                 @focus="onFocus"
             />
         </template>
@@ -19,7 +20,6 @@ import {ComponentPublicInstance, PropType, computed, ref, onMounted, watch} from
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
-import {type Dropdown} from 'bootstrap';
 
 const props = defineProps({
     autoSearch: {
@@ -76,6 +76,8 @@ const searchValueDisplayed = computed({
         searchValueCached.value = '';
 
         searchValue.value = s;
+
+        modelValue.value = undefined;
     },
 });
 
