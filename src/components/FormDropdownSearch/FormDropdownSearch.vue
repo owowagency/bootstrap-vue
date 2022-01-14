@@ -8,8 +8,8 @@
             <slot name="dropdownToggle">
                 <FormControl
                     ref="formControl"
-                    v-model="searchValueDisplayed"
                     data-bs-toggle="dropdown"
+                    v-model="searchValueDisplayed"
                     v-bind="$attrs"
                     @focus="onFocus"
                 />
@@ -19,10 +19,11 @@
 </template>
 
 <script lang="ts" setup>
-import {ComponentPublicInstance, PropType, computed, ref, watch} from 'vue';
+import {ComponentPublicInstance, PropType, computed, ref, watch, onMounted, nextTick} from 'vue';
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
+import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
 const props = defineProps({
     autoSearch: {
@@ -64,6 +65,11 @@ const filteredItems = computed(() => {
 
 const formControl = ref<ComponentPublicInstance<typeof FormControl>>();
 
+const {bootstrap, bsInstance: bsDropdown} = useBootstrapInstance(
+    'Dropdown',
+    formControl,
+);
+
 const modelValue = computed({
     get: () => props.modelValue,
     set: v => emit('update:modelValue', v),
@@ -90,7 +96,13 @@ const searchValue = ref<string>(
         : props.search,
 );
 
-const onFocus = () => {
+const onBlur = () => {
+    if (bsDropdown.value) {
+        bsDropdown.value.hide();
+    }
+};
+
+const onFocus = async() => {
     (formControl.value.input as HTMLInputElement).select();
 
     if (searchValueCached.value === '') {
@@ -98,6 +110,10 @@ const onFocus = () => {
     }
 
     searchValue.value = '';
+
+    if (bsDropdown.value) {
+        bsDropdown.value.show();
+    }
 };
 
 watch(modelValue, v => v && (searchValueCached.value = v[props.labelKey]));
