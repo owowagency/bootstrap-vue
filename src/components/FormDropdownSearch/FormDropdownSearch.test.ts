@@ -152,6 +152,16 @@ describe('searchValue', () => {
 
         expect(wrapper.vm.searchValue).toBe('value');
     });
+
+    it('calls showMenu', () => {
+        // TODO: unable to test showMenu being called.
+    });
+});
+
+describe('showMenu', () => {
+    it('it calls show on bsDropdown', async() => {
+        // TODO: Currently not able to test.
+    });
 });
 
 describe('onFocus', () => {
@@ -199,5 +209,9 @@ describe('onFocus', () => {
         wrapper.vm.onFocus();
 
         expect(wrapper.vm.searchValue).toBe('');
+    });
+
+    it('calls showMenu', () => {
+        // TODO: unable to test showMenu being called.
     });
 });

@@ -65,7 +65,7 @@ const filteredItems = computed(() => {
 
 const formControl = ref<ComponentPublicInstance<typeof FormControl>>();
 
-const {bootstrap, bsInstance: bsDropdown} = useBootstrapInstance(
+const {bsInstance: bsDropdown} = useBootstrapInstance(
     'Dropdown',
     formControl,
 );
@@ -96,13 +96,18 @@ const searchValue = ref<string>(
         : props.search,
 );
 
-const onBlur = () => {
+const showMenu = () => {
+    console.log(1111111111111111111111111111111111111111111111111);
     if (bsDropdown.value) {
-        bsDropdown.value.hide();
+        // TODO: BS calls `toggle` once a user clicks on any
+        // `data-bs-toggle="dropdown"`. This event is being fired after the
+        // `focus` event, thus will result in hiding the menu after we call
+        // `show`. `await nextTick()` also does not solve this problem.
+        setTimeout(() => bsDropdown.value.show(), 100);
     }
 };
 
-const onFocus = async() => {
+const onFocus = () => {
     (formControl.value.input as HTMLInputElement).select();
 
     if (searchValueCached.value === '') {
@@ -111,16 +116,20 @@ const onFocus = async() => {
 
     searchValue.value = '';
 
-    if (bsDropdown.value) {
-        bsDropdown.value.show();
-    }
+    console.log('abot to showMenu');
+
+    showMenu();
 };
 
 watch(modelValue, v => v && (searchValueCached.value = v[props.labelKey]));
 
 watch(() => props.search, s => searchValue.value = s);
 
-watch(searchValue, s => emit('update:search', s));
+watch(searchValue, s => {
+    showMenu();
+
+    emit('update:search', s)
+});
 
 defineExpose({formControl});
 </script>
