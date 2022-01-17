@@ -139,6 +139,7 @@ describe('removeItem', () => {
         await wrapper.find('input').trigger('keydown', event);
 
         expect(wrapper.vm.value).toBe('aa');
+
         expect(wrapper.vm.modelValue).toHaveLength(0);
     });
 });
@@ -161,6 +162,22 @@ describe('addItem', () => {
         const wrapper = shallowMount(FormPills);
 
         expect(wrapper.vm.addItem('')).toBe(false);
+    });
+
+    it('adds new items with custom value matcher', () => {
+        // Cannot mock concat of `items` computed property.
+        const modelValue = [];
+
+        modelValue.concat = jest.fn();
+
+        const wrapper = shallowMount(FormPills, {props: {
+            modelValue,
+            valueMatcher: '^match',
+        }});
+
+        expect(wrapper.vm.addItem('match nomatch')).toBe(true);
+
+        expect(modelValue.concat).toBeCalledWith(['match']);
     });
 });
 

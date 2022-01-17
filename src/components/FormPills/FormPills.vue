@@ -64,6 +64,12 @@ const props = defineProps({
         type: Array as PropType<string[]>,
         default: () => ['Enter'],
     },
+    valueMatcher: {
+        type: [String, RegExp],
+        // For some reason it does not allow RegExp to be used as default value.
+        // eslint-disable-next-line vue/require-valid-default-prop
+        default: /^.+$/,
+    },
 });
 
 const emit = defineEmits(['update:modelValue']);
@@ -82,7 +88,7 @@ const splitItem = (item: string) => item.split(props.separator);
 const removeItem = (index: number) => items.value.splice(index, 1);
 
 const addItem = (item: string) => {
-    const newItems = splitItem(item).filter(v => v !== '');
+    const newItems = splitItem(item).filter(v => v.match(props.valueMatcher));
 
     if (newItems.length === 0) {
         return false;
