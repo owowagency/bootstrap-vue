@@ -1,4 +1,4 @@
-import {Ref, onMounted, ref, ComponentPublicInstance, watch} from 'vue';
+import {ComponentPublicInstance, Ref, ref, watch} from 'vue';
 import type Bs from 'bootstrap';
 import useBootstrap from '@/composables/useBootstrap';
 
