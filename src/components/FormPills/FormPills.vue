@@ -51,6 +51,10 @@ const props = defineProps({
         default: false,
     },
     ...idProps,
+    maxItems: {
+        type: Number,
+        default: Infinity,
+    },
     modelValue: {
         type: Array as PropType<string[]>,
         default: () => [],
@@ -93,13 +97,19 @@ const splitItem = (item: string) => item.split(props.separator);
 const removeItem = (index: number) => items.value.splice(index, 1);
 
 const addItem = (item: string) => {
+    if (items.value.length >= props.maxItems) {
+        return false;
+    }
+
     const newItems = splitItem(item).filter(v => v.match(props.valueMatcher));
 
     if (newItems.length === 0) {
         return false;
     }
 
-    items.value = items.value.concat(newItems);
+    const allowedItems = newItems.slice(0, props.maxItems - items.value.length);
+
+    items.value = items.value.concat(allowedItems);
 
     return true;
 };
@@ -147,9 +157,6 @@ const paste = (event: ClipboardEvent) => {
         return;
     }
 
-    items.value = items.value.concat(
-        pasteValue.split(props.separator)
-            .filter(v => v !== ''),
-    );
+    addItem(pasteValue);
 };
 </script>

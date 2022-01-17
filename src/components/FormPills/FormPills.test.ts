@@ -179,6 +179,22 @@ describe('addItem', () => {
 
         expect(modelValue.concat).toBeCalledWith(['match']);
     });
+
+    it('adds new items until max reached', () => {
+        // Cannot mock concat of `items` computed property.
+        const modelValue = [];
+
+        modelValue.concat = jest.fn();
+
+        const wrapper = shallowMount(FormPills, {props: {
+            modelValue,
+            maxItems: 2,
+        }});
+
+        expect(wrapper.vm.addItem('first second third')).toBe(true);
+
+        expect(modelValue.concat).toBeCalledWith(['first', 'second']);
+    });
 });
 
 describe('value', () => {

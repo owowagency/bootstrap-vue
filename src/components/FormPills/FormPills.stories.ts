@@ -8,6 +8,9 @@ export default {
         editItemOnBackspace: {
             control: {type: 'boolean'},
         },
+        maxItems: {
+            control: {type: 'number'},
+        },
         placeholder: {
             control: {type: 'text'},
         },
