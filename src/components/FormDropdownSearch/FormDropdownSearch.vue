@@ -115,8 +115,6 @@ const onFocus = () => {
 
     searchValue.value = '';
 
-    console.log('abot to showMenu');
-
     showMenu();
 };
 

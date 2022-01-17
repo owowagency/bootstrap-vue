@@ -26,10 +26,6 @@ const template = (args) => ({
             v-model="value"
             v-bind="args"
         />
-        <FormDropdownSearch
-            v-model="value"
-            v-bind="args"
-        />
     `,
 });
 
