@@ -126,7 +126,7 @@ describe('removeItem', () => {
         expect(modelValue.splice).toBeCalledWith(1, 1);
     });
 
-    it('edits removed item on backspace', async () => {
+    it('edits removed item on backspace', async() => {
         const wrapper = shallowMount(FormPills, {props: {
             editItemOnBackspace: true,
             modelValue: ['aa'],
