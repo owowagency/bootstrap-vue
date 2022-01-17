@@ -21,6 +21,18 @@ describe('template', () => {
         expect(wrapper.vm.removeItem).toBeCalledWith(0);
     });
 
+    // For some reason the trigger('blur') doesn't work. Anyone got ideas what
+    // might be off?
+    it.skip('tries to add item on blur', async() => {
+        const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
+
+        wrapper.vm.blur = jest.fn();
+
+        await wrapper.find('input').trigger('blur');
+
+        expect(wrapper.vm.blur).toBeCalled();
+    });
+
     it('tries to add item on keydown', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
@@ -112,6 +124,22 @@ describe('removeItem', () => {
         wrapper.vm.removeItem(1);
 
         expect(modelValue.splice).toBeCalledWith(1, 1);
+    });
+
+    it('edits removed item on backspace', async () => {
+        const wrapper = shallowMount(FormPills, {props: {
+            editItemOnBackspace: true,
+            modelValue: ['aa'],
+        }});
+
+        expect(wrapper.vm.value).toBe('');
+
+        const event = {code: 'Backspace'};
+
+        await wrapper.find('input').trigger('keydown', event);
+
+        expect(wrapper.vm.value).toBe('aa');
+        expect(wrapper.vm.modelValue).toHaveLength(0);
     });
 });
 

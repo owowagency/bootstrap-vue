@@ -4,7 +4,11 @@ import {ref} from 'vue';
 export default {
     title: 'Forms/Form pills',
     component: FormPills,
-    argTypes: {},
+    argTypes: {
+        editItemOnBackspace: {
+            control: {type: 'boolean'},
+        },
+    },
 };
 
 const template = (args) => ({

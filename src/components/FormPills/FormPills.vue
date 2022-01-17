@@ -29,6 +29,7 @@
                     v-model="value"
                     class="form-pill-input w-100"
                     type="text"
+                    @blur="blur"
                     @keydown="keydown($event)"
                     @paste="paste($event)"
                 >
@@ -44,6 +45,10 @@ import {idProps} from '@/composables/useId';
 
 <script lang="ts" setup>
 const props = defineProps({
+    editItemOnBackspace: {
+        type: Boolean,
+        default: false,
+    },
     ...idProps,
     modelValue: {
         type: Array as PropType<string[]>,
@@ -94,6 +99,12 @@ watch(value, (v) => {
     }
 });
 
+const blur = () => {
+    if (addItem(value.value)) {
+        clearValue();
+    }
+};
+
 const keydown = (event: KeyboardEvent) => {
     if (props.submitKeys.includes(event.code)) {
         if (addItem(value.value)) {
@@ -102,8 +113,16 @@ const keydown = (event: KeyboardEvent) => {
 
         event.preventDefault();
     } else if (event.code === 'Backspace') {
-        if (value.value === '') {
-            removeItem(items.value.length - 1);
+        if (value.value !== '') {
+            return;
+        }
+
+        const [removedItem] = removeItem(items.value.length - 1);
+
+        if (props.editItemOnBackspace && removedItem) {
+            value.value = removedItem;
+
+            event.preventDefault();
         }
     }
 };
