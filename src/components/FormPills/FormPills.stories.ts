@@ -8,6 +8,9 @@ export default {
         editItemOnBackspace: {
             control: {type: 'boolean'},
         },
+        placeholder: {
+            control: {type: 'text'},
+        },
     },
 };
 

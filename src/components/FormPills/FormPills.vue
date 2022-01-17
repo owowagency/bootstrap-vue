@@ -29,6 +29,7 @@
                     v-model="value"
                     class="form-pill-input w-100"
                     type="text"
+                    :placeholder="items.length ? '' : placeholder"
                     @blur="blur"
                     @keydown="keydown($event)"
                     @paste="paste($event)"
@@ -53,6 +54,10 @@ const props = defineProps({
     modelValue: {
         type: Array as PropType<string[]>,
         default: () => [],
+    },
+    placeholder: {
+        type: String,
+        default: '',
     },
     separator: {
         type: [String, RegExp],
