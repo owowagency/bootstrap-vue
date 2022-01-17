@@ -5,7 +5,11 @@ import Modal from '.';
 export default {
     title: 'Components/Modal',
     component: Modal,
-    argTypes: {},
+    argTypes: {
+        hideCloseBtn: {
+            control: {type: 'boolean'},
+        },
+    },
 };
 
 const template = (args) => ({
