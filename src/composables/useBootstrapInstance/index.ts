@@ -12,8 +12,10 @@ const useBootstrapInstance = <K extends keyof Bootstrap>(type: K, element: Ref<s
 
     watch(bootstrap, () => {
         if (element.value) {
+            // @ts-ignore
             bsInstance.value = bootstrap.value
                 ?.[type]
+                // @ts-ignore
                 .getOrCreateInstance(element.value?.$el || element.value);
         }
     });
