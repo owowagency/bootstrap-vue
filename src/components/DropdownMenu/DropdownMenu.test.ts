@@ -16,6 +16,8 @@ describe('template', () => {
 
     componentSlotRenderTest(DropdownMenu, 'items');
 
+    componentSlotRenderTest(DropdownMenu, 'item', {props: {items}});
+
     componentSlotRenderTest(DropdownMenu, 'append');
 
     it('emits event on click dropdown menu item', async() => {
