@@ -7,9 +7,6 @@ export default {
     title: 'Forms/Form control',
     component: FormControl,
     argTypes: {
-        autofocus: {
-            control: {type: 'boolean'},
-        },
         disabled: {
             control: {type: 'boolean'},
         },
