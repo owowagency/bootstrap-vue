@@ -12,7 +12,7 @@ describe('template', () => {
     it('emits event on click collapse toggle', async() => {
         const wrapper = shallowMount(Collapse);
 
-        wrapper.findComponent(Collapse).vm.$emit('click:toggle');
+        await wrapper.find('[data-bs-toggle="collapse"]').trigger('click');
 
         expect(wrapper.emitted('click:toggle')).toBeTruthy();
     });

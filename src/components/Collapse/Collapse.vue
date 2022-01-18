@@ -3,7 +3,7 @@
         class="d-inline-block"
         data-bs-toggle="collapse"
         :data-bs-target="`#${id}`"
-        @click="clickToggle"
+        @click="emit('click:toggle')"
     >
         <slot
             name="toggle"
@@ -33,7 +33,7 @@ defineProps({
     },
 });
 
-const emit = defineEmits(['click:toggle']);
-
-const clickToggle = () => emit('click:toggle');
+const emit = defineEmits<{
+    (event: 'click:toggle'): void,
+}>();
 </script>
