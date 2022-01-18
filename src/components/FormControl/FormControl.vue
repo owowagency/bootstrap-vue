@@ -1,6 +1,7 @@
 <template>
     <input
         ref="input"
+        :autofocus="autofocus"
         class="form-control"
         :class="classes"
         :disabled="disabled"

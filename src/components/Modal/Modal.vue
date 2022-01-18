@@ -95,4 +95,6 @@ onBeforeUnmount(() => {
         bsModal.value.dispose();
     }
 });
+
+defineExpose({bsModal});
 </script>
