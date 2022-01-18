@@ -12,9 +12,11 @@ const useBootstrapInstance = <K extends keyof Bootstrap>(type: K, element: Ref<s
 
     watch(bootstrap, () => {
         if (element.value) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             bsInstance.value = bootstrap.value
                 ?.[type]
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 .getOrCreateInstance(element.value?.$el || element.value);
         }

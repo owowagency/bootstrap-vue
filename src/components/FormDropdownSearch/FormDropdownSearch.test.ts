@@ -75,6 +75,18 @@ describe('modelValue', () => {
 
         expect(wrapper.vm.searchValueCached).toBe(items[0].label);
     });
+
+    it('resets searchValue', async() => {
+        const modelValue = ref(items[0]);
+
+        const wrapper = shallowMount(FormDropdownSearch, {props: {modelValue}});
+
+        modelValue.value = undefined;
+
+        await nextTick();
+
+        expect(wrapper.vm.searchValue).toBe('');
+    });
 });
 
 describe('search', () => {

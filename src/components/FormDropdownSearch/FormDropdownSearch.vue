@@ -110,7 +110,7 @@ const showMenu = () => {
         // `data-bs-toggle="dropdown"`. This event is being fired after the
         // `focus` event, thus will result in hiding the menu after we call
         // `show`. `await nextTick()` also does not solve this problem.
-        setTimeout(() => bsDropdown.value.show(), 100);
+        setTimeout(() => bsDropdown.value.show(), 200);
     }
 };
 
@@ -126,15 +126,23 @@ const onFocus = () => {
     showMenu();
 };
 
-watch(modelValue, v => v && (searchValueCached.value = v[props.labelKey]));
+watch(modelValue, (newValue, oldValue) => {
+    if (newValue) {
+        searchValueCached.value = newValue[props.labelKey];
+    } else if (
+        oldValue
+        && searchValueCached.value === ''
+        && searchValueDisplayed.value === oldValue[props.labelKey]
+    ) {
+        searchValue.value = '';
+    }
+});
 
 watch(() => props.search, s => searchValue.value = s);
 
 watch(searchValue, s => {
-    showMenu();
-
     emit('update:search', s);
 });
 
-defineExpose({formControl});
+defineExpose({bsDropdown, formControl});
 </script>
