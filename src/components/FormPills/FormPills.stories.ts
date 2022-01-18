@@ -14,6 +14,9 @@ export default {
         placeholder: {
             control: {type: 'text'},
         },
+        valueMatcher: {
+            control: {type: 'text'},
+        },
     },
 };
 

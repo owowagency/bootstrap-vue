@@ -266,4 +266,28 @@ describe('paste', () => {
 
         expect(modelValue.concat).not.toBeCalled();
     });
+
+    it('adds clipboard to input if data is invalid', () => {
+        // Cannot mock concat of `items` computed property.
+        const modelValue = [];
+
+        modelValue.concat = jest.fn();
+
+        const wrapper = shallowMount(FormPills, {
+            props: {
+                modelValue,
+                valueMatcher: /^abc$/,
+            },
+        });
+
+        const event = {
+            clipboardData: {getData: jest.fn().mockReturnValue('abcd abc abcd')},
+            preventDefault: jest.fn(),
+        };
+
+        wrapper.vm.paste(event);
+
+        expect(wrapper.vm.value).toBe(event.clipboardData.getData());
+        expect(modelValue.concat).not.toBeCalled();
+    });
 });

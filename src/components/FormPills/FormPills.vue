@@ -92,16 +92,36 @@ const items = computed({
     set: (v: string[]) => emit('update:modelValue', v),
 });
 
+const maxItemsReached = computed(() => items.value.length >= props.maxItems);
+
+const matchItem = (item: string) => item.match(props.valueMatcher);
+
 const splitItem = (item: string) => item.split(props.separator);
 
 const removeItem = (index: number) => items.value.splice(index, 1);
 
+const validateValue = (value: string) => {
+    const splitItems = splitItem(value);
+
+    // If the value has several items, return true if they are all valid. If
+    // the value is a single item, return true if that is valid.
+    return splitItems.length > 1
+        ? validateValues(splitItems)
+        : matchItem(value);
+};
+
+const validateValues = (values: string[]) => {
+    // Return true if there are multiple values, and they are all valid.
+    return values.length > 1
+        && values.filter(matchItem).length === values.filter(v => v !== '').length;
+};
+
 const addItem = (item: string) => {
-    if (items.value.length >= props.maxItems) {
+    if (maxItemsReached.value) {
         return false;
     }
 
-    const newItems = splitItem(item).filter(v => v.match(props.valueMatcher));
+    const newItems = splitItem(item).filter(matchItem);
 
     if (newItems.length === 0) {
         return false;
@@ -115,25 +135,25 @@ const addItem = (item: string) => {
 };
 
 watch(value, (v) => {
-    if (splitItem(v).length > 1 && addItem(v)) {
+    const splitItems = splitItem(v);
+
+    if (validateValues(splitItems)) {
+        addItem(v);
+
         clearValue();
     }
 });
 
 const blur = () => {
-    if (addItem(value.value)) {
+    if (validateValue(value.value)) {
+        addItem(value.value);
+
         clearValue();
     }
 };
 
 const keydown = (event: KeyboardEvent) => {
-    if (props.submitKeys.includes(event.code)) {
-        if (addItem(value.value)) {
-            clearValue();
-        }
-
-        event.preventDefault();
-    } else if (event.code === 'Backspace') {
+    if (event.code === 'Backspace') {
         if (value.value !== '') {
             return;
         }
@@ -145,6 +165,27 @@ const keydown = (event: KeyboardEvent) => {
 
             event.preventDefault();
         }
+
+        return;
+    }
+
+    // If the max allowed items has been reached, don't allow any more typing.
+    if (maxItemsReached.value) {
+        event.preventDefault();
+
+        return;
+    }
+
+    if (props.submitKeys.includes(event.code)) {
+        // If the value has several items, check if they are all valid. If the
+        // value only has one value, check if that one is valid.
+        if (validateValue(value.value)) {
+            addItem(value.value);
+
+            clearValue();
+        }
+
+        event.preventDefault();
     }
 };
 
@@ -157,6 +198,14 @@ const paste = (event: ClipboardEvent) => {
         return;
     }
 
-    addItem(pasteValue);
+    // If the input value together with the paste value are valid, add the items,
+    // otherwise concat the paste value to the input value.
+    if (validateValue(value.value + pasteValue)) {
+        addItem(value.value + pasteValue);
+
+        clearValue();
+    } else {
+        value.value += pasteValue;
+    }
 };
 </script>
