@@ -4,6 +4,14 @@ import {shallowMount} from '@vue/test-utils';
 describe('template', () => {
     componentRenderTest(FormControl);
 
+    it('adds autofocus property', () => {
+        const wrapper = shallowMount(FormControl, {
+            props: {autofocus: true},
+        });
+
+        expect((wrapper.element as HTMLInputElement).autofocus).toBe(true);
+    });
+
     it('adds disabled property', () => {
         const wrapper = shallowMount(FormControl, {
             props: {disabled: true},
