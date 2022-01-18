@@ -48,7 +48,7 @@ Default.args = {
 export const Autofocused = template.bind({});
 
 Autofocused.args = {
-    modelValue: 'I am autofocused ',
+    modelValue: 'I am autofocused',
     autofocus: true,
 };
 
