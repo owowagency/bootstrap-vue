@@ -1,7 +1,7 @@
 
 import Btn from '@/components/Button';
 import Modal from '.';
-import {modalSizes} from '@/composables/useModalSize';
+import {sizes} from '@/composables/useSize';
 
 export default {
     title: 'Components/Modal',
@@ -10,9 +10,9 @@ export default {
         modalCentered: {
             control: {type: 'boolean'},
         },
-        modalSize: {
+        size: {
             control: {type: 'select'},
-            options: modalSizes,
+            options: sizes,
         },
     },
 };

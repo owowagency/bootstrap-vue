@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import {computed, onBeforeUnmount, onMounted, ref} from 'vue';
-import useModalSize, {modalSizeProps} from '@/composables/useModalSize';
+import useSize, {sizeProps} from '@/composables/useSize';
 import {idProps} from '@/composables/useId';
 import useClasses from '@/composables/useClasses';
 
@@ -70,11 +70,11 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    ...modalSizeProps,
     noBody: {
         type: Boolean,
         default: false,
     },
+    ...sizeProps,
     title: {
         type: String,
         default: undefined,
@@ -88,8 +88,8 @@ const modal = ref<HTMLElement>();
 const bsModal = ref();
 
 const {classes} = useClasses(computed(() => [
-    computed(() => props.modalCentered ? 'modal-dialog-centered' : null).value,
-    computed(() => props.modalSize ? useModalSize(props.modalSize).sizeClass.value : null).value,
+    props.modalCentered ? 'modal-dialog-centered' : null,
+    props.size ? useSize(props.size, 'modal-{0}').sizeClass.value : null,
 ]));
 
 onMounted(async() => {
