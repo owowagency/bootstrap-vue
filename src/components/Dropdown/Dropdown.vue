@@ -13,7 +13,11 @@
             </Btn>
         </slot>
 
-        <slot name="dropdownMenu">
+        <slot
+            name="dropdownMenu"
+            :clickItem="clickItem"
+            :items="items"
+        >
             <DropdownMenu
                 :items="items"
                 :class="menuClass"
