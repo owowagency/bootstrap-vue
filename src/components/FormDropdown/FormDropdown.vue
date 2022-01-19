@@ -24,7 +24,7 @@
             </div>
         </template>
 
-        <template #menuPrepend>
+        <template #prepend>
             <slot
                 v-if="filteredItems.length === 0"
                 name="noOptions"
@@ -35,11 +35,17 @@
                 />
             </slot>
 
-            <slot name="menuPrepend" />
+            <slot name="prepend" />
         </template>
 
-        <template #menuAppend>
-            <slot name="menuAppend" />
+        <template
+            v-for="slotName in dropdownMenuSlots"
+            #[slotName]="slotScope"
+        >
+            <slot
+                :name="slotName"
+                v-bind="slotScope"
+            />
         </template>
     </Dropdown>
 </template>
@@ -171,4 +177,11 @@ watch(
         emit('update:search', s);
     },
 );
+
+const dropdownMenuSlots = [
+    'prepend',
+    'items',
+    'item',
+    'append',
+];
 </script>
