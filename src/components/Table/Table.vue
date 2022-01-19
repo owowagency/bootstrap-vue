@@ -27,8 +27,14 @@
         </thead>
 
         <tbody>
+            <slot
+                v-if="!items.length"
+                name="no-items"
+            />
+
             <template
                 v-for="(item, index) in items"
+                v-else
                 :key="`item-${index}`"
             >
                 <slot

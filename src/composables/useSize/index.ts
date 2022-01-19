@@ -1,7 +1,7 @@
 import {PropType} from 'vue';
 import useStringTemplate from '@/composables/useStringTemplate';
 
-export const sizes = ['sm', 'md', 'lg'] as const;
+export const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
 export type Size = typeof sizes[number];
 

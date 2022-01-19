@@ -49,24 +49,3 @@ export const Sizing = (args) => ({
 });
 
 Sizing.args = defaultArgs;
-
-export const Search = (args) => ({
-    components: {FormDropdown},
-    setup: () => ({
-        args,
-        search: ref(''),
-        value: ref(),
-    }),
-    template: `
-        <FormDropdown
-            v-model:search="search"
-            v-model="value"
-            v-bind="args"
-        />
-    `,
-});
-
-Search.args = {
-    searchable: true,
-    ...defaultArgs,
-};
