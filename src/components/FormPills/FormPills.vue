@@ -100,20 +100,12 @@ const splitItem = (item: string) => item.split(props.separator);
 
 const removeItem = (index: number) => items.value.splice(index, 1);
 
-const validateValue = (value: string) => {
-    const splitItems = splitItem(value);
+const validateValue = (value: string|string[]) => {
+    if (Array.isArray(value)) {
+        return value.every(validateValue);
+    }
 
-    // If the value has several items, return true if they are all valid. If
-    // the value is a single item, return true if that is valid.
-    return splitItems.length > 1
-        ? validateValues(splitItems)
-        : matchItem(value);
-};
-
-const validateValues = (values: string[]) => {
-    // Return true if there are multiple values, and they are all valid.
-    return values.length > 1
-        && values.filter(matchItem).length === values.filter(v => v !== '').length;
+    return matchItem(value);
 };
 
 const addItem = (item: string) => {
@@ -137,7 +129,10 @@ const addItem = (item: string) => {
 watch(value, (v) => {
     const splitItems = splitItem(v);
 
-    if (validateValues(splitItems)) {
+    if (
+        splitItems.length > 1
+        && splitItems.filter(validateValue).length === splitItems.filter(v => v !== '').length
+    ) {
         addItem(v);
 
         clearValue();
@@ -145,7 +140,9 @@ watch(value, (v) => {
 });
 
 const blur = () => {
-    if (validateValue(value.value)) {
+    const splitItems = splitItem(value.value);
+
+    if (validateValue(splitItems)) {
         addItem(value.value);
 
         clearValue();
@@ -177,9 +174,9 @@ const keydown = (event: KeyboardEvent) => {
     }
 
     if (props.submitKeys.includes(event.code)) {
-        // If the value has several items, check if they are all valid. If the
-        // value only has one value, check if that one is valid.
-        if (validateValue(value.value)) {
+        const splitItems = splitItem(value.value);
+
+        if (validateValue(splitItems)) {
             addItem(value.value);
 
             clearValue();
@@ -198,14 +195,18 @@ const paste = (event: ClipboardEvent) => {
         return;
     }
 
+    const newValue = value.value + pasteValue;
+
+    const splitItems = splitItem(newValue);
+
     // If the input value together with the paste value are valid, add the items,
     // otherwise concat the paste value to the input value.
-    if (validateValue(value.value + pasteValue)) {
-        addItem(value.value + pasteValue);
+    if (validateValue(splitItems)) {
+        addItem(newValue);
 
         clearValue();
     } else {
-        value.value += pasteValue;
+        value.value = newValue;
     }
 };
 </script>
