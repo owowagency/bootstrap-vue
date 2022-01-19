@@ -50,4 +50,15 @@ describe('onMounted', () => {
     });
 });
 
+describe('hideCloseBtn', () => {
+    it('hides close button', async() => {
+        const wrapper = await shallowMount(
+            Modal,
+            {props: {hideCloseBtn: true}},
+        );
+
+        expect(wrapper.find('[data-bs-dismiss="modal"]').exists()).toBeFalsy();
+    });
+});
+
 // TODO: Unable to assert dispose call on bsModal.

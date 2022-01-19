@@ -13,6 +13,8 @@ describe('template', () => {
 
     componentSlotRenderTest(Dropdown);
 
+    componentSlotRenderTest(Dropdown, 'dropdownMenu', {shallow: false});
+
     componentSlotRenderTest(Dropdown, 'prepend', {shallow: false});
 
     componentSlotRenderTest(Dropdown, 'items', {shallow: false});

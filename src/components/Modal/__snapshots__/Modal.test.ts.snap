@@ -2,7 +2,7 @@
 
 exports[`template renders default 1`] = `
 "<div id=\\"dont-change-please\\" class=\\"modal\\">
-  <div class=\\"modal-dialog\\">
+  <div class=\\"modal-dialog modal-md\\">
     <div class=\\"modal-content\\">
       <!--v-if-->
       <!--v-if-->

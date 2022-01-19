@@ -13,21 +13,27 @@
             </Btn>
         </slot>
 
-        <DropdownMenu
+        <slot
+            name="dropdownMenu"
+            :clickItem="clickItem"
             :items="items"
-            :class="menuClass"
-            @click:item="clickItem($event)"
         >
-            <template
-                v-for="slotName in menuSlots"
-                #[slotName]="slotScope"
+            <DropdownMenu
+                :items="items"
+                :class="menuClass"
+                @click:item="clickItem($event)"
             >
-                <slot
-                    :name="slotName"
-                    v-bind="slotScope"
-                />
-            </template>
-        </DropdownMenu>
+                <template
+                    v-for="slotName in menuSlots"
+                    #[slotName]="slotScope"
+                >
+                    <slot
+                        :name="slotName"
+                        v-bind="slotScope"
+                    />
+                </template>
+            </DropdownMenu>
+        </slot>
     </div>
 </template>
 

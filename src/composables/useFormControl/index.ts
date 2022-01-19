@@ -7,6 +7,10 @@ export const types = ['date', 'email', 'number', 'password', 'text'] as const;
 export type Type = typeof types[number];
 
 export const formControlProps = {
+    autofocus: {
+        type: Boolean,
+        default: false,
+    },
     ...disabledProps,
     modelValue: {
         type: String,
