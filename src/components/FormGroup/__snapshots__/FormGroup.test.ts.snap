@@ -3,7 +3,7 @@
 exports[`template renders default 1`] = `
 "<div>
   <!--v-if-->
-  <form-control-stub disabled=\\"false\\" modelvalue=\\"\\" placeholder=\\"\\" plaintext=\\"false\\" size=\\"md\\" type=\\"text\\" id=\\"dont-change-please\\" class=\\"\\"></form-control-stub>
+  <form-control-stub autofocus=\\"false\\" disabled=\\"false\\" modelvalue=\\"\\" placeholder=\\"\\" plaintext=\\"false\\" size=\\"md\\" type=\\"text\\" id=\\"dont-change-please\\" class=\\"\\"></form-control-stub>
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->

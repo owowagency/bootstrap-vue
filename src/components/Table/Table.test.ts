@@ -38,6 +38,12 @@ describe('template', () => {
 
     componentSlotRenderTest(Table, 'id', {props});
 
+    componentSlotRenderTest(Table, 'no-items', {
+        props: {
+            items: [],
+        },
+    });
+
     componentWrapperClassTest(Table, {hover: true}, 'table-hover');
 
     it('emits event on click table row', async() => {
