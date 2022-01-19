@@ -7,6 +7,9 @@ export default {
     title: 'Components/Modal',
     component: Modal,
     argTypes: {
+        hideCloseBtn: {
+            control: {type: 'boolean'},
+        },
         modalCentered: {
             control: {type: 'boolean'},
         },

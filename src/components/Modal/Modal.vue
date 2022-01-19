@@ -21,6 +21,7 @@
                         </h5>
 
                         <button
+                            v-if="!hideCloseBtn"
                             class="btn-close"
                             data-bs-dismiss="modal"
                             type="button"
@@ -64,6 +65,10 @@ const props = defineProps({
     body: {
         type: String,
         default: undefined,
+    },
+    hideCloseBtn: {
+        type: Boolean,
+        default: false,
     },
     ...idProps,
     modalCentered: {
