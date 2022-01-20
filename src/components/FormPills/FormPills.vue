@@ -30,7 +30,7 @@
                     class="form-pill-input w-100"
                     type="text"
                     :placeholder="items.length ? '' : placeholder"
-                    @blur="blur"
+                    @blur="blur($event)"
                     @keydown="keydown($event)"
                     @paste="paste($event)"
                 >
@@ -94,7 +94,7 @@ const items = computed({
 
 const maxItemsReached = computed(() => items.value.length >= props.maxItems);
 
-const matchItem = (item: string) => item.match(props.valueMatcher);
+const matchItem = (item: string) => !!item.match(props.valueMatcher);
 
 const splitItem = (item: string) => item.split(props.separator);
 
@@ -139,7 +139,9 @@ watch(value, (v) => {
     }
 });
 
-const blur = () => {
+// We need to pass the Focus Event to the blur method in order for the test to
+// be able to mock the blur method.
+const blur = (event: FocusEvent) => {
     const splitItems = splitItem(value.value);
 
     if (validateValue(splitItems)) {

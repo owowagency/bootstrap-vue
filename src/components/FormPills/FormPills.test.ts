@@ -21,9 +21,7 @@ describe('template', () => {
         expect(wrapper.vm.removeItem).toBeCalledWith(0);
     });
 
-    // For some reason the trigger('blur') doesn't work. Anyone got ideas what
-    // might be off?
-    it.skip('tries to add item on blur', async() => {
+    it('tries to add item on blur', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
         wrapper.vm.blur = jest.fn();
@@ -98,6 +96,40 @@ describe('items', () => {
     });
 });
 
+describe('matchItem', () => {
+    it('matches an item', () => {
+        const wrapper = shallowMount(FormPills);
+
+        expect(wrapper.vm.matchItem('I am an item')).toBe(true);
+    });
+
+    it('does not match an invalid item', () => {
+        const wrapper = shallowMount(FormPills);
+
+        expect(wrapper.vm.matchItem('')).toBe(false);
+    });
+});
+
+describe('maxItemsReached', () => {
+    it('computes max items not reached', () => {
+        const wrapper = shallowMount(FormPills, {props: {
+            maxItems: 3,
+            modelValue: ['first', 'second'],
+        }});
+
+        expect(wrapper.vm.maxItemsReached).toBe(false);
+    });
+
+    it('computes max items reached', () => {
+        const wrapper = shallowMount(FormPills, {props: {
+            maxItems: 3,
+            modelValue: ['first', 'second', 'third'],
+        }});
+
+        expect(wrapper.vm.maxItemsReached).toBe(true);
+    });
+});
+
 describe('splitItem', () => {
     it('splits spaces and newlines by default', () => {
         const wrapper = shallowMount(FormPills);
@@ -109,20 +141,6 @@ describe('splitItem', () => {
         const wrapper = shallowMount(FormPills, {props: {separator: ','}});
 
         expect(wrapper.vm.splitItem('a,a')).toEqual(['a', 'a']);
-    });
-});
-
-describe('matchItem', () => {
-    it('matches an item', () => {
-        const wrapper = shallowMount(FormPills);
-
-        expect(wrapper.vm.matchItem('I am an item')).toContain('I am an item');
-    });
-
-    it('does not match an invalid item', () => {
-        const wrapper = shallowMount(FormPills);
-
-        expect(wrapper.vm.matchItem('')).toEqual(null);
     });
 });
 
@@ -158,6 +176,32 @@ describe('removeItem', () => {
     });
 });
 
+describe('validateValue', () => {
+    it('validates single value', () => {
+        const wrapper = shallowMount(FormPills);
+
+        expect(wrapper.vm.validateValue('item')).toBe(true);
+    });
+
+    it('validates array of values', () => {
+        const wrapper = shallowMount(FormPills);
+
+        expect(wrapper.vm.validateValue(['first', 'second', 'third'])).toBe(true);
+    });
+
+    it('invalidates single faulty value', () => {
+        const wrapper = shallowMount(FormPills, {props: {valueMatcher: '^match'}});
+
+        expect(wrapper.vm.validateValue('nomatch')).toBe(false);
+    });
+
+    it('invalidates single faulty value in array of values', () => {
+        const wrapper = shallowMount(FormPills, {props: {valueMatcher: '^match'}});
+
+        expect(wrapper.vm.validateValue(['match', 'nomatch', 'match again'])).toBe(false);
+    });
+});
+
 describe('addItem', () => {
     it('adds new items', () => {
         // Cannot mock concat of `items` computed property.
@@ -170,6 +214,15 @@ describe('addItem', () => {
         expect(wrapper.vm.addItem('a')).toBe(true);
 
         expect(modelValue.concat).toBeCalledWith(['a']);
+    });
+
+    it('does not add items when max items reached', () => {
+        const wrapper = shallowMount(FormPills, {props: {
+            maxItems: 2,
+            modelValue: ['first', 'second'],
+        }});
+
+        expect(wrapper.vm.addItem('third')).toBe(false);
     });
 
     it('does not add new items when empty split', () => {
@@ -194,6 +247,12 @@ describe('addItem', () => {
         expect(modelValue.concat).toBeCalledWith(['match']);
     });
 
+    it('does not add new item with non-matching custom value matcher', () => {
+        const wrapper = shallowMount(FormPills, {props: {valueMatcher: '^match'}});
+
+        expect(wrapper.vm.addItem('nomatch')).toBe(false);
+    });
+
     it('adds new items until max reached', () => {
         // Cannot mock concat of `items` computed property.
         const modelValue = [];
@@ -208,17 +267,6 @@ describe('addItem', () => {
         expect(wrapper.vm.addItem('first second third')).toBe(true);
 
         expect(modelValue.concat).toBeCalledWith(['first', 'second']);
-    });
-
-    // For some reason it says that max items reached is false while it should be true??
-    it.skip('computes max items reached', () => {
-        const wrapper = shallowMount(FormPills, {props: {
-            maxItems: 2,
-        }});
-
-        expect(wrapper.vm.addItem('first second third')).toBe(true);
-
-        expect(wrapper.vm.maxItemsReached).toBe(true);
     });
 });
 
@@ -316,9 +364,3 @@ describe('paste', () => {
         expect(modelValue.concat).not.toBeCalled();
     });
 });
-
-
-/**
- * validateValue
- * addItem
- */
