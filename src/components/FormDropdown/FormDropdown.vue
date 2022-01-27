@@ -30,7 +30,7 @@
             <slot name="prepend" />
         </template>
 
-        <!-- Rollup does not dynamically overriding child slots.
+        <!-- Rollup does not dynamically overriding child slots. See issue #35
         <template
             v-for="slotName in dropdownMenuSlots"
             #[slotName]="slotScope"

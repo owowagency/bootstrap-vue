@@ -23,7 +23,7 @@
                 :class="menuClass"
                 @click:item="clickItem($event)"
             >
-                <!-- Rollup does not dynamically overriding child slots.
+                <!-- Rollup does not dynamically overriding child slots. See issue #35
                 <template
                     v-for="slotName in menuSlots"
                     #[slotName]="slotScope"
