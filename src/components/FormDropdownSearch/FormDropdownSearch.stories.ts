@@ -4,7 +4,11 @@ import {ref} from 'vue';
 export default {
     title: 'Forms/Form dropdown search',
     component: FormDropdownSearch,
-    argTypes: {},
+    argTypes: {
+        disableCache: {
+            control: {type: 'boolean'},
+        },
+    },
 };
 
 const defaultArgs = {

@@ -76,6 +76,10 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    disableCache: {
+        type: Boolean,
+        default: false,
+    },
     items: {
         type: Array as PropType<Item[]>,
         default: () => [],
@@ -163,7 +167,10 @@ const showMenu = () => {
 const onFocus = () => {
     (formControl.value.input as HTMLInputElement).select();
 
-    if (searchValueCached.value === '') {
+    if (
+        searchValueCached.value === ''
+        && !props.disableCache
+    ) {
         searchValueCached.value = searchValue.value;
     }
 
@@ -174,7 +181,9 @@ const onFocus = () => {
 
 watch(modelValue, (newValue, oldValue) => {
     if (newValue) {
-        searchValueCached.value = newValue[props.labelKey];
+        searchValueCached.value = props.disableCache
+            ? ''
+            : newValue[props.labelKey];
     } else if (
         oldValue
         && searchValueCached.value === ''
