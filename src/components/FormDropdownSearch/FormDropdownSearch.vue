@@ -15,6 +15,52 @@
                 />
             </slot>
         </template>
+
+        <!-- Rollup does not dynamically overriding child slots. See issue #35
+        <template
+            v-for="slotName in formDropdownSlots"
+            #[slotName]="slotScope"
+        >
+            <slot
+                :name="slotName"
+                v-bind="slotScope"
+            />
+        </template> -->
+
+        <template #noOptions="slotScope">
+            <slot
+                name="noOptions"
+                v-bind="slotScope"
+            />
+        </template>
+
+        <template #prepend="slotScope">
+            <slot
+                name="prepend"
+                v-bind="slotScope"
+            />
+        </template>
+
+        <template #items="slotScope">
+            <slot
+                name="items"
+                v-bind="slotScope"
+            />
+        </template>
+
+        <template #item="slotScope">
+            <slot
+                name="item"
+                v-bind="slotScope"
+            />
+        </template>
+
+        <template #append="slotScope">
+            <slot
+                name="append"
+                v-bind="slotScope"
+            />
+        </template>
     </FormDropdown>
 </template>
 
@@ -143,6 +189,15 @@ watch(() => props.search, s => searchValue.value = s);
 watch(searchValue, s => {
     emit('update:search', s);
 });
+
+// Rollup does not like dynamically overriding slots so this is not used for now.
+const formDropdownSlots = [
+    'noOptions',
+    'prepend',
+    'items',
+    'item',
+    'append',
+];
 
 defineExpose({bsDropdown, formControl});
 </script>

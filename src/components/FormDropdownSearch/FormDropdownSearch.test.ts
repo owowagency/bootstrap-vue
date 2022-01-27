@@ -14,6 +14,19 @@ describe('template', () => {
 
     componentSlotRenderTest(FormDropdownSearch, 'dropdownToggle', {shallow: false});
 
+    componentSlotRenderTest(FormDropdownSearch, 'noOptions', {shallow: false});
+
+    componentSlotRenderTest(FormDropdownSearch, 'prepend', {shallow: false});
+
+    componentSlotRenderTest(FormDropdownSearch, 'items', {shallow: false});
+
+    componentSlotRenderTest(FormDropdownSearch, 'item', {
+        props: {items},
+        shallow: false,
+    });
+
+    componentSlotRenderTest(FormDropdownSearch, 'append', {shallow: false});
+
     it('calls onFocus when focussing on FormControl', () => {
         const wrapper = mount(FormDropdownSearch, {
             global: {
