@@ -14,6 +14,8 @@ describe('template', () => {
 
     componentSlotRenderTest(FormDropdownSearch, 'dropdownToggle', {shallow: false});
 
+    componentSlotRenderTest(FormDropdownSearch, 'noOptions', {shallow: false});
+
     componentSlotRenderTest(FormDropdownSearch, 'prepend', {shallow: false});
 
     componentSlotRenderTest(FormDropdownSearch, 'items', {shallow: false});
