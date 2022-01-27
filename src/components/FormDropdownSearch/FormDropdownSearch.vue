@@ -27,6 +27,13 @@
             />
         </template> -->
 
+        <template #noOptions="slotScope">
+            <slot
+                name="noOptions"
+                v-bind="slotScope"
+            />
+        </template>
+
         <template #prepend="slotScope">
             <slot
                 name="prepend"
@@ -185,6 +192,7 @@ watch(searchValue, s => {
 
 // Rollup does not like dynamically overriding slots so this is not used for now.
 const formDropdown = [
+    'noOptions',
     'prepend',
     'items',
     'item',
