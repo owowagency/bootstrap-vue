@@ -16,7 +16,7 @@ exports[`template renders default 1`] = `
       <div class=\\"form-pill-remove\\"></div>
     </li>
     <li class=\\"form-pill-input-item\\">
-      <div class=\\"form-pill-input-sizer overflow-hidden\\"></div><input id=\\"dont-change-please\\" class=\\"form-pill-input w-100\\" type=\\"text\\">
+      <div class=\\"form-pill-input-sizer overflow-hidden\\"></div><input id=\\"dont-change-please\\" class=\\"form-pill-input w-100\\" type=\\"text\\" placeholder=\\"\\">
     </li>
   </ul>
 </label>"
