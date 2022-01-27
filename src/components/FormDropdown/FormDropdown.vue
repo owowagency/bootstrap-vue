@@ -30,12 +30,34 @@
             <slot name="prepend" />
         </template>
 
+        <!-- Rollup does not dynamically overriding child slots. See issue #35
         <template
             v-for="slotName in dropdownMenuSlots"
             #[slotName]="slotScope"
         >
             <slot
                 :name="slotName"
+                v-bind="slotScope"
+            />
+        </template> -->
+
+        <template #items="slotScope">
+            <slot
+                name="items"
+                v-bind="slotScope"
+            />
+        </template>
+
+        <template #item="slotScope">
+            <slot
+                name="item"
+                v-bind="slotScope"
+            />
+        </template>
+
+        <template #append="slotScope">
+            <slot
+                name="append"
                 v-bind="slotScope"
             />
         </template>
@@ -104,6 +126,7 @@ const {classes} = useClasses(computed(() => [
     props.toggleClass,
 ]));
 
+// Rollup does not like dynamically overriding slots so this is not used for now.
 const dropdownMenuSlots = [
     'items',
     'item',
