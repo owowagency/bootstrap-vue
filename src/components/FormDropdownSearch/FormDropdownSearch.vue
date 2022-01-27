@@ -18,7 +18,7 @@
 
         <!-- Rollup does not dynamically overriding child slots. See issue #35
         <template
-            v-for="slotName in formDropdown"
+            v-for="slotName in formDropdownSlots"
             #[slotName]="slotScope"
         >
             <slot
@@ -191,7 +191,7 @@ watch(searchValue, s => {
 });
 
 // Rollup does not like dynamically overriding slots so this is not used for now.
-const formDropdown = [
+const formDropdownSlots = [
     'noOptions',
     'prepend',
     'items',
