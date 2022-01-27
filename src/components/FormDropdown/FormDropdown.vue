@@ -16,7 +16,7 @@
             </slot>
         </template>
 
-        <template #menuPrepend>
+        <template #prepend>
             <slot
                 v-if="items.length === 0"
                 name="noOptions"
@@ -27,11 +27,17 @@
                 />
             </slot>
 
-            <slot name="menuPrepend" />
+            <slot name="prepend" />
         </template>
 
-        <template #menuAppend>
-            <slot name="menuAppend" />
+        <template
+            v-for="slotName in dropdownMenuSlots"
+            #[slotName]="slotScope"
+        >
+            <slot
+                :name="slotName"
+                v-bind="slotScope"
+            />
         </template>
     </Dropdown>
 </template>
@@ -97,4 +103,10 @@ const {classes} = useClasses(computed(() => [
     ...useFormSelect(props).classes.value,
     props.toggleClass,
 ]));
+
+const dropdownMenuSlots = [
+    'items',
+    'item',
+    'append',
+];
 </script>

@@ -23,16 +23,14 @@
                 :class="menuClass"
                 @click:item="clickItem($event)"
             >
-                <template #prepend>
-                    <slot name="menuPrepend" />
-                </template>
-
-                <template #items>
-                    <slot name="menuItems" />
-                </template>
-
-                <template #append>
-                    <slot name="menuAppend" />
+                <template
+                    v-for="slotName in menuSlots"
+                    #[slotName]="slotScope"
+                >
+                    <slot
+                        :name="slotName"
+                        v-bind="slotScope"
+                    />
                 </template>
             </DropdownMenu>
         </slot>
@@ -52,4 +50,11 @@ defineProps(dropdownProps);
 const emit = defineEmits(['click:item']);
 
 const clickItem = (item: Item) => emit('click:item', item);
+
+const menuSlots = [
+    'prepend',
+    'items',
+    'item',
+    'append',
+];
 </script>

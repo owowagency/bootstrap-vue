@@ -15,11 +15,16 @@ describe('template', () => {
 
     componentSlotRenderTest(Dropdown, 'dropdownMenu', {shallow: false});
 
-    componentSlotRenderTest(Dropdown, 'menuPrepend', {shallow: false});
+    componentSlotRenderTest(Dropdown, 'prepend', {shallow: false});
 
-    componentSlotRenderTest(Dropdown, 'menuItems', {shallow: false});
+    componentSlotRenderTest(Dropdown, 'items', {shallow: false});
 
-    componentSlotRenderTest(Dropdown, 'menuAppend', {shallow: false});
+    componentSlotRenderTest(Dropdown, 'item', {
+        props: {items},
+        shallow: false,
+    });
+
+    componentSlotRenderTest(Dropdown, 'append', {shallow: false});
 
     it('adds menu class to DropdownMenu', () => {
         const wrapper = shallowMount(Dropdown, {

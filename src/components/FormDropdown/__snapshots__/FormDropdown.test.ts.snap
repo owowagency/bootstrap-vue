@@ -11,6 +11,15 @@ exports[`template renders default 1`] = `
 </div>"
 `;
 
+exports[`template renders input 1`] = `
+"<div class=\\"dropdown form-dropdown\\" searchable=\\"true\\">
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">Select</div>
+  <ul class=\\"dropdown-menu w-100\\">
+    <li class=\\"pe-none\\"><a class=\\"dropdown-item\\" href=\\"#\\">No options</a></li>
+  </ul>
+</div>"
+`;
+
 exports[`template renders no options 1`] = `
 "<div class=\\"dropdown form-dropdown\\">
   <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">Select</div>

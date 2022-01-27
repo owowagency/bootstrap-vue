@@ -18,9 +18,23 @@ describe('template', () => {
         'renders no options',
     );
 
-    componentSlotRenderTest(FormDropdown, 'menuPrepend', {shallow: false});
+    componentRenderTest(
+        FormDropdown,
+        {props: {searchable: true}},
+        false,
+        'renders input',
+    );
 
-    componentSlotRenderTest(FormDropdown, 'menuAppend', {shallow: false});
+    componentSlotRenderTest(FormDropdown, 'prepend', {shallow: false});
+
+    componentSlotRenderTest(FormDropdown, 'items', {shallow: false});
+
+    componentSlotRenderTest(FormDropdown, 'item', {
+        props: {items},
+        shallow: false,
+    });
+
+    componentSlotRenderTest(FormDropdown, 'append', {shallow: false});
 
     componentSlotRenderTest(
         FormDropdown,
