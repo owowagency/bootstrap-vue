@@ -128,7 +128,7 @@ const modelValue = computed({
 /**
  * Is used to display a temporary value in the input while still emitting an
  * empty `search` to the parent. This will for example happen when this
- * component has a `modelValue` and the user focusses on the input. The parent
+ * component has a `modelValue` and the user focuses on the input. The parent
  * should receive an empty `search` so it can display more options than options
  * that match the `labelKey` of the `modelValue`. It acts af is there is no
  * `search` while still displaying the `modelValue`.
