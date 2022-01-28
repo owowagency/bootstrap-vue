@@ -89,6 +89,21 @@ describe('modelValue', () => {
         expect(wrapper.vm.searchValueCached).toBe(items[0].label);
     });
 
+    it('does not set searchValueCached if cache is disabled', async() => {
+        const modelValue = ref();
+
+        const wrapper = shallowMount(FormDropdownSearch, {props: {
+            disableSearchCache: true,
+            modelValue,
+        }});
+
+        modelValue.value = items[0];
+
+        await nextTick();
+
+        expect(wrapper.vm.searchValueCached).toBe('');
+    });
+
     it('resets searchValue', async() => {
         const modelValue = ref(items[0]);
 
@@ -212,6 +227,20 @@ describe('onFocus', () => {
         wrapper.vm.onFocus();
 
         expect(wrapper.vm.searchValueCached).toBe('copy me');
+    });
+
+    it('does not set searchValueCached to searchValue when cache is disabled', () => {
+        const wrapper = mount(FormDropdownSearch, {props: {
+            disableSearchCache: true,
+        }});
+
+        wrapper.vm.searchValueCached = '';
+
+        wrapper.vm.searchValue = 'copy me';
+
+        wrapper.vm.onFocus();
+
+        expect(wrapper.vm.searchValueCached).toBe('');
     });
 
     it('does not set searchValueCached to searchValue when searchValueCached has a value', () => {

@@ -76,6 +76,10 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    disableSearchCache: {
+        type: Boolean,
+        default: false,
+    },
     items: {
         type: Array as PropType<Item[]>,
         default: () => [],
@@ -124,7 +128,7 @@ const modelValue = computed({
 /**
  * Is used to display a temporary value in the input while still emitting an
  * empty `search` to the parent. This will for example happen when this
- * component has a `modelValue` and the user focusses on the input. The parent
+ * component has a `modelValue` and the user focuses on the input. The parent
  * should receive an empty `search` so it can display more options than options
  * that match the `labelKey` of the `modelValue`. It acts af is there is no
  * `search` while still displaying the `modelValue`.
@@ -163,7 +167,10 @@ const showMenu = () => {
 const onFocus = () => {
     (formControl.value.input as HTMLInputElement).select();
 
-    if (searchValueCached.value === '') {
+    if (
+        searchValueCached.value === ''
+        && !props.disableSearchCache
+    ) {
         searchValueCached.value = searchValue.value;
     }
 
@@ -174,7 +181,9 @@ const onFocus = () => {
 
 watch(modelValue, (newValue, oldValue) => {
     if (newValue) {
-        searchValueCached.value = newValue[props.labelKey];
+        if (!props.disableSearchCache) {
+            searchValueCached.value = newValue[props.labelKey];
+        }
     } else if (
         oldValue
         && searchValueCached.value === ''
