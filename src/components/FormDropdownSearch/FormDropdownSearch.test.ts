@@ -172,7 +172,7 @@ describe('searchValueDisplayed', () => {
             modelValue,
         }});
 
-        wrapper.vm.searchValue = 'display me';
+        wrapper.vm.searchValue = 'do not display me';
 
         expect(wrapper.vm.searchValueDisplayed).toEqual(modelValue.value.label);
     });
