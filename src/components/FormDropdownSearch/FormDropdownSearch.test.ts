@@ -164,6 +164,29 @@ describe('searchValueDisplayed', () => {
         expect(wrapper.vm.searchValueDisplayed).toEqual('display me');
     });
 
+    it('is equal to modelValue label when searchValueCached is disabled', () => {
+        const modelValue = ref(items[0]);
+
+        const wrapper = shallowMount(FormDropdownSearch, {props: {
+            disableSearchCache: true,
+            modelValue,
+        }});
+
+        wrapper.vm.searchValue = 'display me';
+
+        expect(wrapper.vm.searchValueDisplayed).toEqual(modelValue.value.label);
+    });
+
+    it('is equal to searchValue when searchValueCached is disabled and modelValue is undefined', () => {
+        const wrapper = shallowMount(FormDropdownSearch, {props: {
+            disableSearchCache: true,
+        }});
+
+        wrapper.vm.searchValue = 'display me';
+
+        expect(wrapper.vm.searchValueDisplayed).toEqual('display me');
+    });
+
     it('resets searchValueCached, and model value and it sets searchValue', () => {
         const wrapper = shallowMount(FormDropdownSearch);
 
