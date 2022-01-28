@@ -76,7 +76,7 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
-    disableCache: {
+    disableSearchCache: {
         type: Boolean,
         default: false,
     },
@@ -169,7 +169,7 @@ const onFocus = () => {
 
     if (
         searchValueCached.value === ''
-        && !props.disableCache
+        && !props.disableSearchCache
     ) {
         searchValueCached.value = searchValue.value;
     }
@@ -181,9 +181,9 @@ const onFocus = () => {
 
 watch(modelValue, (newValue, oldValue) => {
     if (newValue) {
-        searchValueCached.value = props.disableCache
-            ? ''
-            : newValue[props.labelKey];
+        if (!props.disableSearchCache) {
+            searchValueCached.value = newValue[props.labelKey];
+        }
     } else if (
         oldValue
         && searchValueCached.value === ''

@@ -89,11 +89,11 @@ describe('modelValue', () => {
         expect(wrapper.vm.searchValueCached).toBe(items[0].label);
     });
 
-    it('does not sets searchValueCached if cache is disabled', async() => {
+    it('does not set searchValueCached if cache is disabled', async() => {
         const modelValue = ref();
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {
-            disableCache: true,
+            disableSearchCache: true,
             modelValue,
         }});
 
@@ -231,7 +231,7 @@ describe('onFocus', () => {
 
     it('does not set searchValueCached to searchValue when cache is disabled', () => {
         const wrapper = mount(FormDropdownSearch, {props: {
-            disableCache: true,
+            disableSearchCache: true,
         }});
 
         wrapper.vm.searchValueCached = '';

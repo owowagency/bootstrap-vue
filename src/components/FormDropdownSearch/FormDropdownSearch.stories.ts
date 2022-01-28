@@ -5,7 +5,7 @@ export default {
     title: 'Forms/Form dropdown search',
     component: FormDropdownSearch,
     argTypes: {
-        disableCache: {
+        disableSearchCache: {
             control: {type: 'boolean'},
         },
     },
