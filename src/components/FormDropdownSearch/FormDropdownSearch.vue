@@ -136,9 +136,17 @@ const modelValue = computed({
 const searchValueCached = ref<string>('');
 
 const searchValueDisplayed = computed({
-    get: () => searchValueCached.value !== ''
-        ? searchValueCached.value
-        : searchValue.value,
+    get: () => {
+        if (props.disableSearchCache) {
+            return modelValue.value
+                ? modelValue.value[props.labelKey]
+                : searchValue.value;
+        }
+
+        return searchValueCached.value !== ''
+            ? searchValueCached.value
+            : searchValue.value;
+    },
     set: s => {
         searchValueCached.value = '';
 
