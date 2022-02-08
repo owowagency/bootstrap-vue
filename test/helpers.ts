@@ -45,7 +45,6 @@ export const componentWrapperAttributeTest = (component: any, props = {}, attrib
     });
 };
 
-
 global.componentWrapperAttributeTest = componentWrapperAttributeTest;
 
 export const componentWrapperClassTest = (component: any, props = {}, classname: string, testName?: string) => {
