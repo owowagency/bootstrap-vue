@@ -55,7 +55,7 @@ const props = defineProps({
 });
 
 const {classes} = useClasses(computed(() => [
-    computed(() => props.show ? 'show' : undefined).value,
     usePlacement(props.placement, 'offcanvas-{0}').placementClass.value,
+    computed(() => props.show ? 'show' : undefined).value,
 ]));
 </script>
