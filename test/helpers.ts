@@ -31,6 +31,22 @@ export const componentSlotRenderTest = (component: any, slot: string = 'default'
 
 global.componentSlotRenderTest = componentSlotRenderTest;
 
+export const componentWrapperAttributeTest = (component: any, props = {}, attributeName: string, expectedValue?: string) => {
+    const testSuffix = expectedValue ? `with value ${expectedValue}` : '';
+
+    it(`adds ${attributeName} attribute to the wrapper ${testSuffix}`, () => {
+        const wrapper = shallowMount(component, {props});
+
+        expect(wrapper.attributes()).toHaveProperty(attributeName);
+
+        if (expectedValue) {
+            expect(wrapper.attributes(attributeName)).toBe(expectedValue);
+        }
+    });
+};
+
+global.componentWrapperAttributeTest = componentWrapperAttributeTest;
+
 export const componentWrapperClassTest = (component: any, props = {}, classname: string, testName?: string) => {
     it(testName || `adds ${classname} class to the wrapper`, () => {
         const wrapper = shallowMount(component, {props});
