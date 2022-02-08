@@ -1,4 +1,3 @@
-
 import Btn from '@/components/Button';
 import Modal from '.';
 import {sizes} from '@/composables/useSize';
