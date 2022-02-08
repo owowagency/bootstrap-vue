@@ -32,7 +32,7 @@ import useClasses from '@/composables/useClasses';
 const props = defineProps({
     backdrop: {
         type: Boolean,
-        default: false,
+        default: true,
     },
     header: {
         type: String,
