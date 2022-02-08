@@ -1,10 +1,31 @@
 import Btn from '@/components/Button';
 import Offcanvas from '.';
+import {placements} from '@/composables/usePlacement';
 
 export default {
     title: 'Components/Offcanvas',
     component: Offcanvas,
-    argTypes: {},
+    argTypes: {
+        backdrop: {
+            control: {type: 'boolean'},
+        },
+        header: {
+            control: {type: 'text'},
+        },
+        noBody: {
+            control: {type: 'boolean'},
+        },
+        placement: {
+            control: {type: 'select'},
+            options: placements,
+        },
+        scroll: {
+            control: {type: 'boolean'},
+        },
+        show: {
+            control: {type: 'boolean'},
+        },
+    },
 };
 
 const template = (args) => ({
@@ -17,6 +38,12 @@ const template = (args) => ({
         >
             Launch offcanvas
         </Btn>
+
+        <p style="max-width: 100px;">
+            Dummy content to make the container scrollable.
+            Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. Obi-Wan is here. The Force is with him. You mean it controls your actions? As you wish. I find your lack of faith disturbing.
+            Hokey religions and ancient weapons are no match for a good blaster at your side, kid. Still, she's got a lot of spirit. I don't know, what do you think? Don't underestimate the Force. Still, she's got a lot of spirit. I don't know, what do you think?
+        </p>
 
         <Offcanvas
             id="offcanvas"

@@ -3,6 +3,8 @@
         :id="id"
         class="offcanvas"
         :class="classes"
+        :data-bs-backdrop="backdrop"
+        :data-bs-scroll="scroll"
     >
         <div
             v-if="!!$slots.header || !!header"
@@ -28,6 +30,10 @@ import useClasses from '@/composables/useClasses';
 
 <script lang="ts" setup>
 const props = defineProps({
+    backdrop: {
+        type: Boolean,
+        default: false,
+    },
     header: {
         type: String,
         default: undefined,
@@ -38,12 +44,14 @@ const props = defineProps({
         default: false,
     },
     ...placementProps,
+    scroll: {
+        type: Boolean,
+        default: false,
+    },
     show: {
         type: Boolean,
         default: false,
     },
-    // Backdrop
-    // Scroll
 });
 
 const {classes} = useClasses(computed(() => [
