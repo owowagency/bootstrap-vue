@@ -1,8 +1,8 @@
 <template>
     <div
         :id="id"
-        class="offcanvas offcanvas-start"
-        :class="{show}"
+        class="offcanvas"
+        :class="classes"
     >
         <div
             v-if="!!$slots.header || !!header"
@@ -20,8 +20,10 @@
 </template>
 
 <script lang="ts">
+import usePlacement, {placementProps} from '@/composables/usePlacement';
 import {computed} from 'vue';
 import {idProps} from '@/composables/useId';
+import useClasses from '@/composables/useClasses';
 </script>
 
 <script lang="ts" setup>
@@ -35,12 +37,17 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    ...placementProps,
     show: {
         type: Boolean,
         default: false,
     },
-    // Placement
     // Backdrop
     // Scroll
 });
+
+const {classes} = useClasses(computed(() => [
+    computed(() => props.show ? 'show' : undefined).value,
+    usePlacement(props.placement, 'offcanvas-{0}').placementClass.value,
+]));
 </script>
