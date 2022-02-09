@@ -1,4 +1,5 @@
 import copy from 'rollup-plugin-copy';
+import del from 'rollup-plugin-delete';
 import json from '@rollup/plugin-json';
 import pkg from './package.json';
 import typescript from 'rollup-plugin-typescript2';
@@ -30,6 +31,10 @@ export default {
         // createEntry({format: 'cjs', file: pkg.main}),
     ],
     plugins: [
+        // Clear out the output folder before bundling the new build.
+        del({
+            targets: 'dist/*',
+        }),
         json(),
         vue(),
         typescript(),
