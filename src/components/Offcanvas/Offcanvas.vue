@@ -5,6 +5,7 @@
         :class="classes"
         :data-bs-backdrop="backdrop"
         :data-bs-scroll="scroll"
+        ref="offcanvas"
     >
         <div
             v-if="!!$slots.header || !!header"
@@ -22,10 +23,15 @@
 </template>
 
 <script lang="ts">
+import {computed, ref} from 'vue';
 import usePlacement, {placementProps} from '@/composables/usePlacement';
-import {computed} from 'vue';
 import {idProps} from '@/composables/useId';
+import useBootstrapEmits from '@/composables/useBootstrapEmits';
 import useClasses from '@/composables/useClasses';
+
+const offcanvasEvents = ['show', 'shown', 'hide', 'hidden'] as const;
+
+type OffcanvasEvent = typeof offcanvasEvents[number];
 </script>
 
 <script lang="ts" setup>
@@ -53,6 +59,17 @@ const props = defineProps({
         default: false,
     },
 });
+
+const emit = defineEmits<{(event: OffcanvasEvent): void}>();
+
+const offcanvas = ref<HTMLElement>();
+
+useBootstrapEmits(
+    offcanvas,
+    offcanvasEvents,
+    emit,
+    'offcanvas',
+);
 
 const {classes} = useClasses(computed(() => [
     usePlacement(props.placement, 'offcanvas-{0}').placementClass.value,
