@@ -11,7 +11,10 @@ const useBootstrapEmits = <K extends keyof Bootstrap>(
 ) => {
     onMounted(() => {
         events.forEach((event: string) => {
-            const eventCallback = () => emit(event);
+            const eventCallback = () => {
+                console.log('event', event);
+                emit(event);
+            };
 
             element.value.addEventListener(`${event}.bs.${typeName}`, eventCallback);
         });

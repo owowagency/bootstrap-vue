@@ -3,7 +3,6 @@
         class="d-inline-block"
         data-bs-toggle="collapse"
         :data-bs-target="`#${id}`"
-        @click="emit('click:toggle')"
     >
         <slot
             name="toggle"
@@ -12,6 +11,7 @@
 
     <div
         :id="id"
+        ref="collapse"
         class="collapse"
         :data-bs-parent="parentSelector"
     >
@@ -21,6 +21,12 @@
 
 <script lang="ts">
 import {idProps} from '@/composables/useId';
+import {ref} from 'vue';
+import useBootstrapEmits from '@/composables/useBootstrapEmits';
+
+const collapseEvents = ['show', 'shown', 'hide', 'hidden'] as const;
+
+type CollapseEvent = typeof collapseEvents[number];
 </script>
 
 <script lang="ts" setup>
@@ -33,7 +39,14 @@ defineProps({
     },
 });
 
-const emit = defineEmits<{
-    (event: 'click:toggle'): void,
-}>();
+const emit = defineEmits<{(event: CollapseEvent): void}>();
+
+const collapse = ref<HTMLElement>();
+
+useBootstrapEmits(
+    collapse,
+    collapseEvents,
+    emit,
+    'collapse',
+);
 </script>
