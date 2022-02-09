@@ -32,6 +32,7 @@ export {default as Modal} from './Modal';
 export {default as Nav} from './Nav';
 export {default as NavItem} from './NavItem';
 export {default as NavLink} from './NavLink';
+export {default as Offcanvas} from './Offcanvas';
 export {default as Row} from './Row';
 export {default as Spinner} from './Spinner';
 export {default as Table} from './Table';
