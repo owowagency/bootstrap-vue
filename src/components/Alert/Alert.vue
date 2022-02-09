@@ -1,8 +1,8 @@
 <template>
     <div
+        ref="alert"
         class="alert"
         :class="classes"
-        ref="alert"
     >
         <slot />
     </div>

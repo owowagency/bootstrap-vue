@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import {computed, onBeforeUnmount, onMounted, ref} from 'vue';
+import {computed, onBeforeUnmount, ref} from 'vue';
 import useSize, {sizeProps} from '@/composables/useSize';
 import {idProps} from '@/composables/useId';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';

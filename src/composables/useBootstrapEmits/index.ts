@@ -1,12 +1,9 @@
 import {Ref, onMounted} from 'vue';
-import type Bs from 'bootstrap';
 
-type Bootstrap = typeof Bs;
-
-const useBootstrapEmits = <K extends keyof Bootstrap>(
+const useBootstrapEmits = (
     element: Ref<Element>,
     events: readonly string[],
-    emit: Function,
+    emit: (ev: string) => void,
     typeName: string,
 ) => {
     onMounted(() => {

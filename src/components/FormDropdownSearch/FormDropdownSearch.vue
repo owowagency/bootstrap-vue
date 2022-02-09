@@ -208,6 +208,7 @@ watch(searchValue, s => {
 });
 
 // Rollup does not like dynamically overriding slots so this is not used for now.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const formDropdownSlots = [
     'noOptions',
     'prepend',

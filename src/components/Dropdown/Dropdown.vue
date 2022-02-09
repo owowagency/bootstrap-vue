@@ -1,7 +1,7 @@
 <template>
     <div
-        class="dropdown"
         ref="dropdown"
+        class="dropdown"
     >
         <slot name="dropdownToggle">
             <Btn
@@ -72,7 +72,6 @@
 <script lang="ts">
 import Btn from '@/components/Button';
 import DropdownMenu from '@/components/DropdownMenu';
-import {Item} from '@/composables/useDropdownItems';
 import {dropdownProps} from '@/composables/useDropdown';
 import {ref} from 'vue';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
@@ -97,6 +96,7 @@ useBootstrapEmits(
 );
 
 // Rollup does not like dynamically overriding slots so this is not used for now.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const menuSlots = [
     'prepend',
     'items',

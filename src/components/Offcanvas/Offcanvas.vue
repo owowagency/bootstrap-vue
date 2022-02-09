@@ -1,11 +1,11 @@
 <template>
     <div
         :id="id"
+        ref="offcanvas"
         class="offcanvas"
         :class="classes"
         :data-bs-backdrop="backdrop"
         :data-bs-scroll="scroll"
-        ref="offcanvas"
     >
         <div
             v-if="!!$slots.header || !!header"
