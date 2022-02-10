@@ -1,5 +1,21 @@
 import {mount, shallowMount} from '@vue/test-utils';
 
+export const componentBootstrapEventTest = (component: any, target: string, eventType: string, componentType: string) => {
+    const eventName = `${eventType}.bs.${componentType}`;
+
+    it(`triggers ${eventType} emit after triggering ${eventName} event`, () => {
+        const wrapper = shallowMount(component);
+
+        const event = new Event(eventName);
+
+        wrapper.find(target).element.dispatchEvent(event);
+
+        expect(wrapper.emitted(eventType)).toBeTruthy();
+    });
+};
+
+global.componentBootstrapEventTest = componentBootstrapEventTest;
+
 export const componentRenderTest = (component: any, options = {}, shallow = true, testName = 'renders default') => {
     it(testName, () => {
         const mounter = shallow ? shallowMount : mount;
@@ -12,7 +28,7 @@ export const componentRenderTest = (component: any, options = {}, shallow = true
 
 global.componentRenderTest = componentRenderTest;
 
-export const componentSlotRenderTest = (component: any, slot: string = 'default', options = {}) => {
+export const componentSlotRenderTest = (component: any, slot = 'default', options = {}) => {
     it(`renders ${slot} slot`, () => {
         const id = `i-am-the-${slot}-slot`;
 

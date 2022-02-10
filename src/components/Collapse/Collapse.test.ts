@@ -7,4 +7,13 @@ describe('template', () => {
     });
 
     componentSlotRenderTest(Collapse);
+
+    ['show', 'shown', 'hide', 'hidden'].forEach((event: string) => {
+        componentBootstrapEventTest(
+            Collapse,
+            '.collapse',
+            event,
+            'collapse',
+        );
+    });
 });

@@ -34,6 +34,15 @@ describe('template', () => {
     componentSlotRenderTest(Modal, 'footer');
 
     ['title', 'body'].forEach(textPropTest);
+
+    ['show', 'shown', 'hide', 'hidden', 'hidePrevented'].forEach((event: string) => {
+        componentBootstrapEventTest(
+            Modal,
+            '.modal',
+            event,
+            'modal',
+        );
+    });
 });
 
 describe('onMounted', () => {

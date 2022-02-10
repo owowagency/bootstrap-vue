@@ -26,6 +26,15 @@ describe('template', () => {
 
     componentSlotRenderTest(Dropdown, 'append', {shallow: false});
 
+    ['show', 'shown', 'hide', 'hidden'].forEach((event: string) => {
+        componentBootstrapEventTest(
+            Dropdown,
+            '.dropdown',
+            event,
+            'dropdown',
+        );
+    });
+
     it('adds menu class to DropdownMenu', () => {
         const wrapper = shallowMount(Dropdown, {
             props: {
