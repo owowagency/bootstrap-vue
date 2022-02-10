@@ -7,7 +7,7 @@ import vue from 'rollup-plugin-vue';
 
 const createEntry = (options) => {
     return {
-        file: `dist/${options.file}`,
+        file: `dist/${pkg.entry}${options.extension || '.js'}`,
         format: options.format,
         globals: {
             vue: 'Vue',
@@ -25,7 +25,8 @@ export default {
     ],
     input: 'src/index.ts',
     output: [
-        createEntry({format: 'es', file: pkg.main}),
+        createEntry({format: 'umd'}),
+        createEntry({format: 'esm', extension: '.mjs'}),
         // Just release me :(
         // createEntry({format: 'iife', file: pkg.browser}),
         // createEntry({format: 'cjs', file: pkg.main}),
