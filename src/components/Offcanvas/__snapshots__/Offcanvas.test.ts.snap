@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`template renders default 1`] = `
-"<div id=\\"dont-change-please\\" class=\\"offcanvas offcanvas-start\\" data-bs-backdrop=\\"false\\" data-bs-scroll=\\"false\\">
+"<div id=\\"dont-change-please\\" class=\\"offcanvas offcanvas-start\\" data-bs-backdrop=\\"true\\" data-bs-scroll=\\"false\\">
   <!--v-if-->
   <div class=\\"offcanvas-body\\"></div>
 </div>"

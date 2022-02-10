@@ -38,7 +38,7 @@ type OffcanvasEvent = typeof offcanvasEvents[number];
 const props = defineProps({
     backdrop: {
         type: Boolean,
-        default: false,
+        default: true,
     },
     header: {
         type: String,
