@@ -13,10 +13,29 @@ describe('template', () => {
 
     it('renders header', () => {
         const wrapper = shallowMount(AccordionItem, {
-            props: {header: 'find-me'},
+            props: {
+                id: 'owow-accordion-item',
+                header: 'find-me',
+                headerTag: 'h5',
+            },
         });
 
-        expect(wrapper.text()).toContain('find-me');
+        expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('renders given custom classes', () => {
+        const wrapper = shallowMount(AccordionItem, {
+            props: {
+                id: 'owow-accordion-item',
+                bodyClass: 'body-class',
+                buttonClass: 'button-class',
+                collapseClass: 'collapse-class',
+                class: 'custom-class',
+                headerClass: 'header-class',
+            },
+        });
+
+        expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('adds parent id to collapse', () => {
