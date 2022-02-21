@@ -14,6 +14,7 @@ describe('template', () => {
     it('renders header', () => {
         const wrapper = shallowMount(AccordionItem, {
             props: {
+                id: 'owow-accordion-item',
                 header: 'find-me',
                 headerClass: 'header-class',
                 headerTag: 'h5',
