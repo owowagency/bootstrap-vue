@@ -1,7 +1,7 @@
 <template>
     <div class="accordion-item">
         <component
-            :is="headerTag" 
+            :is="headerTag"
             class="accordion-header"
             :class="headerClass"
         >
