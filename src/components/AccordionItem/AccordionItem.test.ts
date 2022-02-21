@@ -13,10 +13,14 @@ describe('template', () => {
 
     it('renders header', () => {
         const wrapper = shallowMount(AccordionItem, {
-            props: {header: 'find-me'},
+            props: {
+                header: 'find-me',
+                headerClass: 'header-class',
+                headerTag: 'h5',
+            },
         });
 
-        expect(wrapper.text()).toContain('find-me');
+        expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('adds parent id to collapse', () => {

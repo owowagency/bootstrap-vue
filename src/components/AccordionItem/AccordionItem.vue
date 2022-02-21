@@ -1,6 +1,10 @@
 <template>
     <div class="accordion-item">
-        <h2 class="accordion-header">
+        <component
+            :is="headerTag" 
+            class="accordion-header"
+            :class="headerClass"
+        >
             <button
                 class="accordion-button collapsed"
                 data-bs-toggle="collapse"
@@ -10,7 +14,7 @@
                     {{ header }}
                 </slot>
             </button>
-        </h2>
+        </component>
 
         <div
             :id="`${id}`"
@@ -33,6 +37,14 @@ defineProps({
     header: {
         type: String,
         default: undefined,
+    },
+    headerClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
+    headerTag: {
+        type: String,
+        default: 'h2',
     },
     ...idProps,
     parentId: {

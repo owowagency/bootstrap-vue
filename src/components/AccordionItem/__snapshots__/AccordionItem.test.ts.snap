@@ -8,3 +8,12 @@ exports[`template renders default 1`] = `
   </div>
 </div>"
 `;
+
+exports[`template renders header 1`] = `
+"<div class=\\"accordion-item\\">
+  <h5 class=\\"accordion-header header-class\\"><button class=\\"accordion-button collapsed\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#owow-291cbee1-0fc5-4326-81b5-36a219f64485\\">find-me</button></h5>
+  <div id=\\"owow-291cbee1-0fc5-4326-81b5-36a219f64485\\" class=\\"accordion-collapse collapse\\">
+    <div class=\\"accordion-body\\"></div>
+  </div>
+</div>"
+`;
