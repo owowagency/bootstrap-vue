@@ -7,6 +7,7 @@
         >
             <button
                 class="accordion-button collapsed"
+                :class="buttonClass"
                 data-bs-toggle="collapse"
                 :data-bs-target="`#${id}`"
             >
@@ -21,7 +22,10 @@
             class="accordion-collapse collapse"
             :data-bs-parent="parentId ? `#${parentId}` : undefined"
         >
-            <div class="accordion-body">
+            <div
+                class="accordion-body"
+                :class="bodyClass"
+            >
                 <slot />
             </div>
         </div>
@@ -34,6 +38,14 @@ import {idProps} from '@/composables/useId';
 
 <script lang="ts" setup>
 defineProps({
+    bodyClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
+    buttonClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
     header: {
         type: String,
         default: undefined,

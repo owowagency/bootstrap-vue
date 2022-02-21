@@ -16,8 +16,21 @@ describe('template', () => {
             props: {
                 id: 'owow-accordion-item',
                 header: 'find-me',
-                headerClass: 'header-class',
                 headerTag: 'h5',
+            },
+        });
+
+        expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('renders given custom classes', () => {
+        const wrapper = shallowMount(AccordionItem, {
+            props: {
+                id: 'owow-accordion-item',
+                bodyClass: 'body-class',
+                buttonClass: 'button-class',
+                class: 'custom-class',
+                headerClass: 'header-class',
             },
         });
 
