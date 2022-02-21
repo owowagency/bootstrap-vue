@@ -12,7 +12,7 @@ exports[`template renders default 1`] = `
 exports[`template renders given custom classes 1`] = `
 "<div class=\\"accordion-item custom-class\\">
   <h2 class=\\"accordion-header header-class\\"><button class=\\"accordion-button collapsed button-class\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#owow-accordion-item\\"></button></h2>
-  <div id=\\"owow-accordion-item\\" class=\\"accordion-collapse collapse\\">
+  <div id=\\"owow-accordion-item\\" class=\\"accordion-collapse collapse collapse-class\\">
     <div class=\\"accordion-body body-class\\"></div>
   </div>
 </div>"

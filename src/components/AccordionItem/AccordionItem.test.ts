@@ -29,6 +29,7 @@ describe('template', () => {
                 id: 'owow-accordion-item',
                 bodyClass: 'body-class',
                 buttonClass: 'button-class',
+                collapseClass: 'collapse-class',
                 class: 'custom-class',
                 headerClass: 'header-class',
             },

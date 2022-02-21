@@ -20,6 +20,7 @@
         <div
             :id="`${id}`"
             class="accordion-collapse collapse"
+            :class="collapseClass"
             :data-bs-parent="parentId ? `#${parentId}` : undefined"
         >
             <div
@@ -43,6 +44,10 @@ defineProps({
         default: undefined,
     },
     buttonClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
+    collapseClass: {
         type: [String, Array, Object],
         default: undefined,
     },
