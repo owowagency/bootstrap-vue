@@ -1,6 +1,7 @@
 export * from './useActive';
 export {default as useActive} from './useActive';
 export {default as useBootstrap} from './useBootstrap';
+export {default as useBootstrapEmits} from './useBootstrapEmits';
 export {default as useBootstrapInstance} from './useBootstrapInstance';
 export * from './useBreakpoints';
 export {default as useBreakpoints} from './useBreakpoints';

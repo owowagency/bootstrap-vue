@@ -1,5 +1,8 @@
 <template>
-    <div class="dropdown">
+    <div
+        ref="dropdown"
+        class="dropdown"
+    >
         <slot name="dropdownToggle">
             <Btn
                 class="dropdown-toggle"
@@ -15,13 +18,13 @@
 
         <slot
             name="dropdownMenu"
-            :clickItem="clickItem"
+            v-bind="{'onClick:item': $attrs['onClick:item']}"
             :items="items"
         >
             <DropdownMenu
                 :items="items"
                 :class="menuClass"
-                @click:item="clickItem($event)"
+                v-bind="{'onClick:item': $attrs['onClick:item']}"
             >
                 <!-- Rollup does not dynamically overriding child slots. See issue #35
                 <template
@@ -69,22 +72,43 @@
 <script lang="ts">
 import Btn from '@/components/Button';
 import DropdownMenu from '@/components/DropdownMenu';
-import {Item} from '@/composables/useDropdownItems';
 import {dropdownProps} from '@/composables/useDropdown';
+import {ref} from 'vue';
+import useBootstrapEmits from '@/composables/useBootstrapEmits';
+import useBootstrapInstance from '@/composables/useBootstrapInstance';
+
+const dropdownEvents = ['show', 'shown', 'hide', 'hidden'] as const;
+
+type DropdownEvent = typeof dropdownEvents[number];
 </script>
 
 <script lang="ts" setup>
 defineProps(dropdownProps);
 
-const emit = defineEmits(['click:item']);
+const emit = defineEmits<{(event: DropdownEvent): void}>();
 
-const clickItem = (item: Item) => emit('click:item', item);
+const dropdown = ref<HTMLElement>();
+
+useBootstrapEmits(
+    dropdown,
+    dropdownEvents,
+    emit,
+    'dropdown',
+);
+
+const {bsInstance: bsDropdown} = useBootstrapInstance(
+    'Dropdown',
+    dropdown,
+);
 
 // Rollup does not like dynamically overriding slots so this is not used for now.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const menuSlots = [
     'prepend',
     'items',
     'item',
     'append',
 ];
+
+defineExpose({bsDropdown});
 </script>

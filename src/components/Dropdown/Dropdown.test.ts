@@ -2,6 +2,12 @@ import Dropdown from '.';
 import DropdownMenu from '@/components/DropdownMenu';
 import {shallowMount} from '@vue/test-utils';
 
+jest.mock('bootstrap', () => ({
+    Dropdown: {
+        getOrCreateInstance: jest.fn(),
+    },
+}));
+
 const items = [
     {label: 'Item 1'},
     {label: 'Item 2'},
@@ -26,6 +32,15 @@ describe('template', () => {
 
     componentSlotRenderTest(Dropdown, 'append', {shallow: false});
 
+    ['show', 'shown', 'hide', 'hidden'].forEach((event: string) => {
+        componentBootstrapEventTest(
+            Dropdown,
+            '.dropdown',
+            event,
+            'dropdown',
+        );
+    });
+
     it('adds menu class to DropdownMenu', () => {
         const wrapper = shallowMount(Dropdown, {
             props: {
@@ -38,12 +53,14 @@ describe('template', () => {
 
         expect(dropdownMenu.attributes('class')).toBe('hello-there');
     });
+});
 
-    it('emits event on click dropdown menu item', async() => {
-        const wrapper = shallowMount(DropdownMenu);
+describe('onMounted', () => {
+    it('sets bsDropdown', async() => {
+        const wrapper = await shallowMount(Dropdown);
 
-        wrapper.findComponent(DropdownMenu).vm.$emit('click:item', items[0]);
+        expect((await import('bootstrap')).Dropdown.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.dropdown);
 
-        expect(wrapper.emitted('click:item')[0]).toEqual([items[0]]);
+        // TODO: Unable to assert bsDropdown value.
     });
 });
