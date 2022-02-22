@@ -23,6 +23,7 @@
 import {idProps} from '@/composables/useId';
 import {ref} from 'vue';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
+import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
 const collapseEvents = ['show', 'shown', 'hide', 'hidden'] as const;
 
@@ -49,4 +50,11 @@ useBootstrapEmits(
     emit,
     'collapse',
 );
+
+const {bsInstance: bsCollapse} = useBootstrapInstance(
+    'Collapse',
+    collapse,
+);
+
+defineExpose({bsCollapse});
 </script>

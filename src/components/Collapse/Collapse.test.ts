@@ -1,4 +1,11 @@
 import Collapse from '.';
+import {shallowMount} from '@vue/test-utils';
+
+jest.mock('bootstrap', () => ({
+    Collapse: {
+        getOrCreateInstance: jest.fn(),
+    },
+}));
 
 describe('template', () => {
     componentRenderTest(Collapse, {
@@ -15,5 +22,15 @@ describe('template', () => {
             event,
             'collapse',
         );
+    });
+});
+
+describe('onMounted', () => {
+    it('sets bsCollapse', async() => {
+        const wrapper = await shallowMount(Collapse);
+
+        expect((await import('bootstrap')).Collapse.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.collapse);
+
+        // TODO: Unable to assert bsCollapse value.
     });
 });

@@ -11,6 +11,7 @@
 <script lang="ts">
 import {computed, ref} from 'vue';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
+import useBootstrapInstance from '@/composables/useBootstrapInstance';
 import useClasses from '@/composables/useClasses';
 import useVariant from '@/composables/useVariant';
 import {variantProps} from '@/composables/useVariant';
@@ -34,7 +35,14 @@ useBootstrapEmits(
     'alert',
 );
 
+const {bsInstance: bsAlert} = useBootstrapInstance(
+    'Alert',
+    alert,
+);
+
 const {classes} = useClasses(computed(() => [
     useVariant(props.variant, 'alert-{0}').variantClass.value,
 ]));
+
+defineExpose({bsAlert});
 </script>

@@ -27,6 +27,7 @@ import {computed, ref} from 'vue';
 import usePlacement, {placementProps} from '@/composables/usePlacement';
 import {idProps} from '@/composables/useId';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
+import useBootstrapInstance from '@/composables/useBootstrapInstance';
 import useClasses from '@/composables/useClasses';
 
 const offcanvasEvents = ['show', 'shown', 'hide', 'hidden'] as const;
@@ -71,8 +72,15 @@ useBootstrapEmits(
     'offcanvas',
 );
 
+const {bsInstance: bsOffcanvas} = useBootstrapInstance(
+    'Offcanvas',
+    offcanvas,
+);
+
 const {classes} = useClasses(computed(() => [
     usePlacement(props.placement, 'offcanvas-{0}').placementClass.value,
     computed(() => props.show ? 'show' : undefined).value,
 ]));
+
+defineExpose({bsOffcanvas});
 </script>

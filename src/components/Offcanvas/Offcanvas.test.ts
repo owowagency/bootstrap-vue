@@ -1,6 +1,12 @@
 import Offcanvas from '.';
 import {shallowMount} from '@vue/test-utils';
 
+jest.mock('bootstrap', () => ({
+    Offcanvas: {
+        getOrCreateInstance: jest.fn(),
+    },
+}));
+
 describe('template', () => {
     componentRenderTest(Offcanvas, {
         // Force an id to prevent snapshots from failing because of uuid.
@@ -35,5 +41,15 @@ describe('template', () => {
         });
 
         expect(wrapper.find('.offcanvas-body').exists()).toBe(false);
+    });
+});
+
+describe('onMounted', () => {
+    it('sets bsOffcanvas', async() => {
+        const wrapper = await shallowMount(Offcanvas);
+
+        expect((await import('bootstrap')).Offcanvas.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.offcanvas);
+
+        // TODO: Unable to assert bsOffcanvas value.
     });
 });

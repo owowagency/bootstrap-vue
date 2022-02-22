@@ -2,6 +2,12 @@ import Dropdown from '.';
 import DropdownMenu from '@/components/DropdownMenu';
 import {shallowMount} from '@vue/test-utils';
 
+jest.mock('bootstrap', () => ({
+    Dropdown: {
+        getOrCreateInstance: jest.fn(),
+    },
+}));
+
 const items = [
     {label: 'Item 1'},
     {label: 'Item 2'},
@@ -46,5 +52,15 @@ describe('template', () => {
         const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
         expect(dropdownMenu.attributes('class')).toBe('hello-there');
+    });
+});
+
+describe('onMounted', () => {
+    it('sets bsDropdown', async() => {
+        const wrapper = await shallowMount(Dropdown);
+
+        expect((await import('bootstrap')).Dropdown.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.dropdown);
+
+        // TODO: Unable to assert bsDropdown value.
     });
 });

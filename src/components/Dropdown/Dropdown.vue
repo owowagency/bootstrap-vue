@@ -75,6 +75,7 @@ import DropdownMenu from '@/components/DropdownMenu';
 import {dropdownProps} from '@/composables/useDropdown';
 import {ref} from 'vue';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
+import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
 const dropdownEvents = ['show', 'shown', 'hide', 'hidden'] as const;
 
@@ -95,6 +96,11 @@ useBootstrapEmits(
     'dropdown',
 );
 
+const {bsInstance: bsDropdown} = useBootstrapInstance(
+    'Dropdown',
+    dropdown,
+);
+
 // Rollup does not like dynamically overriding slots so this is not used for now.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const menuSlots = [
@@ -103,4 +109,6 @@ const menuSlots = [
     'item',
     'append',
 ];
+
+defineExpose({bsDropdown});
 </script>
