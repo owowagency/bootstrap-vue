@@ -54,6 +54,7 @@ useBootstrapEmits(
 const {bsInstance: bsCollapse} = useBootstrapInstance(
     'Collapse',
     collapse,
+    {toggle: false},
 );
 
 defineExpose({bsCollapse});
