@@ -88,5 +88,7 @@ const hide = () => modal.value.bsModal?.hide();
 
 const show = () => modal.value.bsModal?.show();
 
-defineExpose({hide, show});
+const toggle = () => modal.value.bsModal?.toggle();
+
+defineExpose({hide, show, toggle});
 </script>
