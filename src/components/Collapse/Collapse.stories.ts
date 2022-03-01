@@ -12,7 +12,7 @@ const template = (args) => ({
     setup: () => ({args}),
     template: `
         <Collapse v-bind="args">
-            <template #toggle="{id}">
+            <template #toggle-content="{id}">
                 <Btn
                     class="mb-2"
                     data-bs-toggle="collapse"
