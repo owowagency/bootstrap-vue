@@ -4,7 +4,7 @@
         name="toggle"
     >
         <div
-            class="d-inline-block"
+            class="collapse-toggle"
             data-bs-toggle="collapse"
             :data-bs-target="`#${id}`"
         >
