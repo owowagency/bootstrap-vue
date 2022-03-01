@@ -7,6 +7,7 @@
             class="collapse-toggle"
             data-bs-toggle="collapse"
             :data-bs-target="`#${id}`"
+            v-bind="$attrs"
         >
             <slot
                 :id="id"
