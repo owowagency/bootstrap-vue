@@ -8,18 +8,20 @@
         </slot>
 
         <template #footer>
-            <slot name="button-cancel">
+            <slot name="buttonCancel">
                 <Button
+                    class="button-cancel"
                     :outline="cancelOutline"
                     :variant="cancelVariant"
-                    @click="hide"
+                    @click="cancel"
                 >
                     {{ cancelText }}
                 </Button>
             </slot>
 
-            <slot name="button-ok">
+            <slot name="buttonOk">
                 <Button
+                    class="button-ok"
                     :variant="okVariant"
                     @click="ok"
                 >
@@ -63,7 +65,16 @@ defineProps({
     },
 });
 
-const emit = defineEmits<{(e: 'confirmed'): void}>();
+const emit = defineEmits<{
+    (e: 'cancelled'): void,
+    (e: 'confirmed'): void,
+}>();
+
+const cancel = () => {
+    emit('cancelled');
+
+    hide();
+};
 
 const ok = () => {
     emit('confirmed');
@@ -73,9 +84,9 @@ const ok = () => {
 
 const modal = ref<ComponentPublicInstance<typeof Modal>>();
 
-const hide = () => modal.value.bsModal.hide();
+const hide = () => modal.value.bsModal?.hide();
 
-const show = () => modal.value.bsModal.show();
+const show = () => modal.value.bsModal?.show();
 
 defineExpose({hide, show});
 </script>
