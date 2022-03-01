@@ -1,13 +1,19 @@
 <template>
-    <div
-        class="d-inline-block"
-        data-bs-toggle="collapse"
-        :data-bs-target="`#${id}`"
+    <slot
+        :id="id"
+        name="toggle"
     >
-        <slot
-            name="toggle"
-        />
-    </div>
+        <div
+            class="d-inline-block"
+            data-bs-toggle="collapse"
+            :data-bs-target="`#${id}`"
+        >
+            <slot
+                :id="id"
+                name="toggle-content"
+            />
+        </div>
+    </slot>
 
     <div
         :id="id"
@@ -15,7 +21,7 @@
         class="collapse"
         :data-bs-parent="parentSelector"
     >
-        <slot />
+        <slot :id="id" />
     </div>
 </template>
 

@@ -5,7 +5,7 @@ import useBootstrap from '@/composables/useBootstrap';
 type Bootstrap = typeof Bs;
 
 // TODO: Better typehinting
-const useBootstrapInstance = <K extends keyof Bootstrap>(type: K, element: Ref<string|Element|ComponentPublicInstance>, options: Record<string, any> = {}) => {
+const useBootstrapInstance = <K extends keyof Bootstrap>(type: K, element: Ref<string|Element|ComponentPublicInstance>, options: Record<string, unknown> = {}) => {
     const bootstrap = useBootstrap();
 
     const bsInstance = ref<ReturnType<Bootstrap[K]['getOrCreateInstance']>>();
