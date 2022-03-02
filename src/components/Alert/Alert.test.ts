@@ -20,7 +20,7 @@ describe('onMounted', () => {
     it('sets bsAlert', async() => {
         const wrapper = await shallowMount(Alert);
 
-        expect((await import('bootstrap')).Alert.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.alert);
+        expect((await import('bootstrap')).Alert.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.alert, {});
 
         // TODO: Unable to assert bsAlert value.
     });

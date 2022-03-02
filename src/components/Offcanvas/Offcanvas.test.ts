@@ -48,7 +48,7 @@ describe('onMounted', () => {
     it('sets bsOffcanvas', async() => {
         const wrapper = await shallowMount(Offcanvas);
 
-        expect((await import('bootstrap')).Offcanvas.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.offcanvas);
+        expect((await import('bootstrap')).Offcanvas.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.offcanvas, {});
 
         // TODO: Unable to assert bsOffcanvas value.
     });

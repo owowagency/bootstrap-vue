@@ -1,13 +1,20 @@
 <template>
-    <div
-        class="d-inline-block"
-        data-bs-toggle="collapse"
-        :data-bs-target="`#${id}`"
+    <slot
+        :id="id"
+        name="toggle"
     >
-        <slot
-            name="toggle"
-        />
-    </div>
+        <div
+            class="collapse-toggle"
+            data-bs-toggle="collapse"
+            :data-bs-target="`#${id}`"
+            v-bind="$attrs"
+        >
+            <slot
+                :id="id"
+                name="toggleContent"
+            />
+        </div>
+    </slot>
 
     <div
         :id="id"
@@ -15,7 +22,7 @@
         class="collapse"
         :data-bs-parent="parentSelector"
     >
-        <slot />
+        <slot :id="id" />
     </div>
 </template>
 
@@ -54,6 +61,7 @@ useBootstrapEmits(
 const {bsInstance: bsCollapse} = useBootstrapInstance(
     'Collapse',
     collapse,
+    {toggle: false},
 );
 
 defineExpose({bsCollapse});

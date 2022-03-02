@@ -13,7 +13,9 @@ describe('template', () => {
         props: {id: 'dont-change-please'},
     });
 
-    componentSlotRenderTest(Collapse);
+    componentSlotRenderTest(Collapse, 'toggle');
+
+    componentSlotRenderTest(Collapse, 'toggleContent');
 
     ['show', 'shown', 'hide', 'hidden'].forEach((event: string) => {
         componentBootstrapEventTest(
@@ -29,7 +31,7 @@ describe('onMounted', () => {
     it('sets bsCollapse', async() => {
         const wrapper = await shallowMount(Collapse);
 
-        expect((await import('bootstrap')).Collapse.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.collapse);
+        expect((await import('bootstrap')).Collapse.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.collapse, {toggle: false});
 
         // TODO: Unable to assert bsCollapse value.
     });

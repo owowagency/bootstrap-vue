@@ -59,7 +59,7 @@ describe('onMounted', () => {
     it('sets bsDropdown', async() => {
         const wrapper = await shallowMount(Dropdown);
 
-        expect((await import('bootstrap')).Dropdown.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.dropdown);
+        expect((await import('bootstrap')).Dropdown.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.dropdown, {});
 
         // TODO: Unable to assert bsDropdown value.
     });
