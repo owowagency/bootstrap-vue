@@ -49,7 +49,7 @@ describe('onMounted', () => {
     it('sets bsModal', async() => {
         const wrapper = await shallowMount(Modal);
 
-        expect((await import('bootstrap')).Modal.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.modal);
+        expect((await import('bootstrap')).Modal.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.modal, {});
 
         // TODO: Unable to assert bsModal value.
     });

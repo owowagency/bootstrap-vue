@@ -11,7 +11,7 @@
         >
             <slot
                 :id="id"
-                name="toggle-content"
+                name="toggleContent"
             />
         </div>
     </slot>

@@ -15,7 +15,7 @@ describe('template', () => {
 
     componentSlotRenderTest(Collapse, 'toggle');
 
-    componentSlotRenderTest(Collapse, 'toggle-content');
+    componentSlotRenderTest(Collapse, 'toggleContent');
 
     ['show', 'shown', 'hide', 'hidden'].forEach((event: string) => {
         componentBootstrapEventTest(
