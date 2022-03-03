@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`template renders default 1`] = `
-"<div class=\\"dropdown form-dropdown\\"><input class=\\"form-control form-control-md\\" placeholder=\\"\\" type=\\"text\\" data-bs-toggle=\\"dropdown\\">
+"<div class=\\"dropdown form-dropdown\\"><input class=\\"form-control form-control-md form-select\\" placeholder=\\"\\" type=\\"text\\" data-bs-toggle=\\"dropdown\\">
   <ul class=\\"dropdown-menu w-100\\">
     <li><a class=\\"dropdown-item\\" href=\\"#\\">Item 1</a></li>
     <li><a class=\\"dropdown-item\\" href=\\"#\\">Item 2</a></li>

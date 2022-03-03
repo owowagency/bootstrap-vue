@@ -9,6 +9,7 @@
                 <FormControl
                     ref="formControl"
                     v-model="searchValueDisplayed"
+                    class="form-select"
                     data-bs-toggle="dropdown"
                     v-bind="$attrs"
                     @focus="onFocus"
