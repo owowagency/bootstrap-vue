@@ -152,6 +152,8 @@ const searchValueDisplayed = computed({
         searchValueCached.value = '';
 
         searchValue.value = s;
+
+        modelValue.value = undefined;
     },
 });
 
