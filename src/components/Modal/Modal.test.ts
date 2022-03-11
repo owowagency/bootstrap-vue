@@ -43,6 +43,18 @@ describe('template', () => {
             'modal',
         );
     });
+
+    it('renders given custom classes', () => {
+        const wrapper = shallowMount(Modal, {
+            props: {
+                id: 'owow-modal',
+                class: 'custom-class',
+                headerClass: 'header-class',
+            },
+        });
+
+        expect(wrapper.html()).toMatchSnapshot();
+    });
 });
 
 describe('onMounted', () => {
