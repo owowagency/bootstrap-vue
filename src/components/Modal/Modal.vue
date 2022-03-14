@@ -14,7 +14,10 @@
                     :class="['modal-header', headerClass]"
                 >
                     <slot name="header">
-                        <h5 class="modal-title">
+                        <h5
+                            v-if="!!$slots.title || !!title"
+                            class="modal-title"
+                        >
                             <slot name="title">
                                 {{ title }}
                             </slot>

@@ -5,7 +5,7 @@ exports[`template renders default 1`] = `
   <div class=\\"modal-dialog modal-md\\">
     <div class=\\"modal-content\\">
       <div class=\\"modal-header\\">
-        <h5 class=\\"modal-title\\"></h5><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
+        <!--v-if--><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
       </div>
       <!--v-if-->
       <!--v-if-->
@@ -19,7 +19,7 @@ exports[`template renders given custom classes 1`] = `
   <div class=\\"modal-dialog modal-md\\">
     <div class=\\"modal-content\\">
       <div class=\\"modal-header header-class\\">
-        <h5 class=\\"modal-title\\"></h5><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
+        <!--v-if--><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
       </div>
       <!--v-if-->
       <!--v-if-->
