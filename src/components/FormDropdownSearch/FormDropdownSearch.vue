@@ -11,8 +11,9 @@
                     v-model="searchValueDisplayed"
                     class="form-select"
                     data-bs-toggle="dropdown"
+                    :placeholder="searchValueCached"
                     v-bind="$attrs"
-                    @focus="onFocus"
+                    @focus="showMenu"
                 />
             </slot>
         </template>
@@ -66,7 +67,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ComponentPublicInstance, PropType, computed, ref, watch} from 'vue';
+import {ComponentPublicInstance, PropType, computed, ref, watch, onMounted, unref} from 'vue';
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
@@ -138,14 +139,8 @@ const searchValueCached = ref<string>('');
 
 const searchValueDisplayed = computed({
     get: () => {
-        if (props.disableSearchCache) {
-            return modelValue.value
-                ? modelValue.value[props.labelKey]
-                : searchValue.value;
-        }
-
         return searchValueCached.value !== ''
-            ? searchValueCached.value
+            ? ''
             : searchValue.value;
     },
     set: s => {
@@ -154,6 +149,8 @@ const searchValueDisplayed = computed({
         searchValue.value = s;
 
         modelValue.value = undefined;
+
+        emit('update:search', s);
     },
 });
 
@@ -173,40 +170,49 @@ const showMenu = () => {
     }
 };
 
-const onFocus = () => {
-    (formControl.value.input as HTMLInputElement).select();
+onMounted(() => {
+    formControl.value.$el.addEventListener('shown.bs.dropdown', () => {
+        (formControl.value.input as HTMLInputElement).focus();
 
-    if (
-        searchValueCached.value === ''
-        && !props.disableSearchCache
-    ) {
-        searchValueCached.value = searchValue.value;
-    }
-
-    searchValue.value = '';
-
-    showMenu();
-};
-
-watch(modelValue, (newValue, oldValue) => {
-    if (newValue) {
-        if (!props.disableSearchCache) {
-            searchValueCached.value = newValue[props.labelKey];
+        if (modelValue.value) {
+            searchValueCached.value = modelValue.value[props.labelKey];
         }
-    } else if (
-        oldValue
-        && searchValueCached.value === ''
-        && searchValueDisplayed.value === oldValue[props.labelKey]
-    ) {
-        searchValue.value = '';
+
+        emit('update:search', searchValue.value = '');
+    });
+
+    formControl.value.$el.addEventListener('hidden.bs.dropdown', () => {
+        (formControl.value.input as HTMLInputElement).blur();
+
+        if (searchValueCached.value !== '' && searchValue.value === '') {
+            searchValue.value = searchValueCached.value;
+        }
+
+        searchValueCached.value = '';
+
+        if (!modelValue.value) {
+            searchValue.value = '';
+        }
+    });
+});
+
+watch(
+    modelValue,
+    newValue => {
+        if (newValue) {
+            searchValue.value = newValue[props.labelKey];
+        } else {
+            searchValue.value = '';
+        }
+    },
+);
+
+watch(
+    () => props.search,
+    s => {
+        searchValue.value = s
     }
-});
-
-watch(() => props.search, s => searchValue.value = s);
-
-watch(searchValue, s => {
-    emit('update:search', s);
-});
+);
 
 // Rollup does not like dynamically overriding slots so this is not used for now.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
