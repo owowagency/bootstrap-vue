@@ -23,13 +23,14 @@ const template = (args) => ({
     components: {FormDropdownSearch},
     setup: () => ({
         args,
-        search: ref(''),
+        search: ref('test'),
         value: ref(),
     }),
     template: `
         <FormDropdownSearch
             v-model="value"
             v-model:search="search"
+            placeholder="Search for item"
             v-bind="args"
         />
     `,

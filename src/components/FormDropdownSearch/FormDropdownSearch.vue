@@ -11,7 +11,7 @@
                     v-model="searchValueDisplayed"
                     class="form-select"
                     data-bs-toggle="dropdown"
-                    :placeholder="searchValueCached"
+                    :placeholder="searchValueCached || placeholder"
                     v-bind="$attrs"
                     @focus="showMenu"
                 />
@@ -78,10 +78,6 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
-    disableSearchCache: {
-        type: Boolean,
-        default: false,
-    },
     items: {
         type: Array as PropType<Item[]>,
         default: () => [],
@@ -93,6 +89,10 @@ const props = defineProps({
     modelValue: {
         type: Object as PropType<Item>,
         default: undefined,
+    },
+    placeholder: {
+        type: String,
+        default: '',
     },
     search: {
         type: String,
@@ -127,6 +127,8 @@ const modelValue = computed({
     set: v => emit('update:modelValue', v),
 });
 
+const modelValueLabel = computed(() => modelValue.value?.[props.labelKey]);
+
 /**
  * Is used to display a temporary value in the input while still emitting an
  * empty `search` to the parent. This will for example happen when this
@@ -144,20 +146,14 @@ const searchValueDisplayed = computed({
             : searchValue.value;
     },
     set: s => {
-        searchValueCached.value = '';
-
         searchValue.value = s;
-
-        modelValue.value = undefined;
 
         emit('update:search', s);
     },
 });
 
 const searchValue = ref<string>(
-    modelValue.value
-        ? modelValue.value[props.labelKey]
-        : props.search,
+    modelValueLabel.value || props.search,
 );
 
 const showMenu = () => {
@@ -175,7 +171,7 @@ onMounted(() => {
         (formControl.value.input as HTMLInputElement).focus();
 
         if (modelValue.value) {
-            searchValueCached.value = modelValue.value[props.labelKey];
+            searchValueCached.value = modelValueLabel.value;
         }
 
         emit('update:search', searchValue.value = '');
@@ -184,15 +180,13 @@ onMounted(() => {
     formControl.value.$el.addEventListener('hidden.bs.dropdown', () => {
         (formControl.value.input as HTMLInputElement).blur();
 
-        if (searchValueCached.value !== '' && searchValue.value === '') {
-            searchValue.value = searchValueCached.value;
+        if (!modelValue.value) {
+            searchValue.value = '';
+        } else {
+            searchValue.value = modelValueLabel.value;
         }
 
         searchValueCached.value = '';
-
-        if (!modelValue.value) {
-            searchValue.value = '';
-        }
     });
 });
 
