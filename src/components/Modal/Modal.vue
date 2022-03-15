@@ -10,11 +10,14 @@
         >
             <div class="modal-content">
                 <div
-                    v-if="!!$slots.header || !!$slots.title || !!title"
-                    class="modal-header"
+                    v-if="!!$slots.header || !!$slots.title || !!title || !hideCloseBtn"
+                    :class="['modal-header', headerClass]"
                 >
                     <slot name="header">
-                        <h5 class="modal-title">
+                        <h5
+                            v-if="!!$slots.title || !!title"
+                            class="modal-title"
+                        >
                             <slot name="title">
                                 {{ title }}
                             </slot>
@@ -66,6 +69,10 @@ type ModalEvent = typeof modalEvents[number];
 const props = defineProps({
     body: {
         type: String,
+        default: undefined,
+    },
+    headerClass: {
+        type: [String, Array, Object],
         default: undefined,
     },
     hideCloseBtn: {

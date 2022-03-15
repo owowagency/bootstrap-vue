@@ -4,7 +4,23 @@ exports[`template renders default 1`] = `
 "<div id=\\"dont-change-please\\" class=\\"modal\\">
   <div class=\\"modal-dialog modal-md\\">
     <div class=\\"modal-content\\">
+      <div class=\\"modal-header\\">
+        <!--v-if--><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
+      </div>
       <!--v-if-->
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`template renders given custom classes 1`] = `
+"<div id=\\"owow-modal\\" class=\\"modal custom-class\\">
+  <div class=\\"modal-dialog modal-md\\">
+    <div class=\\"modal-content\\">
+      <div class=\\"modal-header header-class\\">
+        <!--v-if--><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
+      </div>
       <!--v-if-->
       <!--v-if-->
     </div>
