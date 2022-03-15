@@ -1,5 +1,6 @@
 <template>
     <FormDropdown
+        ref="formDropdown"
         v-model="modelValue"
         :items="filteredItems"
         :label-key="labelKey"
@@ -117,6 +118,8 @@ const filteredItems = computed(() => {
 
 const formControl = ref<ComponentPublicInstance<typeof FormControl>>();
 
+const formDropdown = ref<ComponentPublicInstance<typeof FormDropdown>>();
+
 const {bsInstance: bsDropdown} = useBootstrapInstance(
     'Dropdown',
     formControl,
@@ -128,6 +131,8 @@ const modelValue = computed({
 });
 
 const modelValueLabel = computed(() => modelValue.value?.[props.labelKey]);
+
+const searchValue = ref<string>(modelValueLabel.value || props.search);
 
 /**
  * Is used to display a temporary value in the input while still emitting an
@@ -152,23 +157,15 @@ const searchValueDisplayed = computed({
     },
 });
 
-const searchValue = ref<string>(
-    modelValueLabel.value || props.search,
-);
-
-const showMenu = () => {
-    if (bsDropdown.value) {
-        // TODO: BS calls `toggle` once a user clicks on any
-        // `data-bs-toggle="dropdown"`. This event is being fired after the
-        // `focus` event, thus will result in hiding the menu after we call
-        // `show`. `await nextTick()` also does not solve this problem.
-        setTimeout(() => bsDropdown.value.show(), 200);
-    }
-};
-
 onMounted(() => {
-    formControl.value.$el.addEventListener('shown.bs.dropdown', () => {
-        (formControl.value.input as HTMLInputElement).focus();
+    // Get the dropdown toggle element manually because it is possible to
+    // override it with the `dropdownToggle` slot.
+    const dropdownToggle = formDropdown.value
+        .$el
+        .querySelector('[data-bs-toggle="dropdown"]');
+
+    dropdownToggle?.addEventListener('shown.bs.dropdown', () => {
+        (dropdownToggle.input as HTMLInputElement)?.focus();
 
         if (modelValue.value) {
             searchValueCached.value = modelValueLabel.value;
@@ -177,8 +174,8 @@ onMounted(() => {
         emit('update:search', searchValue.value = '');
     });
 
-    formControl.value.$el.addEventListener('hidden.bs.dropdown', () => {
-        (formControl.value.input as HTMLInputElement).blur();
+    dropdownToggle?.addEventListener('hidden.bs.dropdown', () => {
+        (dropdownToggle.input as HTMLInputElement)?.blur();
 
         if (!modelValue.value) {
             searchValue.value = '';
@@ -189,6 +186,17 @@ onMounted(() => {
         searchValueCached.value = '';
     });
 });
+
+
+const showMenu = () => {
+    if (bsDropdown.value) {
+        // TODO: BS calls `toggle` once a user clicks on any
+        // `data-bs-toggle="dropdown"`. This event is being fired after the
+        // `focus` event, thus will result in hiding the menu after we call
+        // `show`. `await nextTick()` also does not solve this problem.
+        setTimeout(() => bsDropdown.value.show(), 200);
+    }
+};
 
 watch(
     modelValue,
