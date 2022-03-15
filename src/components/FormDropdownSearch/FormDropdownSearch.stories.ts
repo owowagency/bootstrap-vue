@@ -23,7 +23,7 @@ const template = (args) => ({
     components: {FormDropdownSearch},
     setup: () => ({
         args,
-        search: ref('test'),
+        search: ref(''),
         value: ref(),
     }),
     template: `
