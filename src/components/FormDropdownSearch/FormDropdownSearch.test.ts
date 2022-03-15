@@ -174,22 +174,66 @@ describe('searchValueDisplayed', () => {
 });
 
 describe('onMounted', () => {
-    it('listens to shown.bs.dropdown', () => {
-        const modelValue = ref(items[0]);
+    describe('listening to shown.bs.dropdown', () => {
+        it('focusses on dropdownToggle', () => {
+            // TODO: currently unable to create a test for this.
+        });
 
-        const wrapper = mount(FormDropdownSearch, {props: {modelValue}});
+        it('sets searchValueCached to modelValueLabel', () => {
+            const modelValue = ref(items[0]);
 
-        const event = new Event('shown.bs.dropdown');
+            const wrapper = mount(FormDropdownSearch, {props: {modelValue}});
 
-        wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+            const event = new Event('shown.bs.dropdown');
 
-        // TODO: currently unable to create a test for focus call.
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
 
-        expect(wrapper.vm.searchValueCached).toBe(items[0].label);
+            expect(wrapper.vm.searchValueCached).toBe(items[0].label);
+        });
 
-        expect(wrapper.vm.searchValue).toBe('');
+        it('does not set searchValueCached to modelValueLabel when empty', () => {
+            const wrapper = mount(FormDropdownSearch);
 
-        expect(wrapper.emitted('update:search')).toEqual([['']]);
+            wrapper.vm.searchValueCached = 'do not change me';
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.vm.searchValueCached).toBe('do not change me');
+        });
+
+        it('empties searchValue', () => {
+            const wrapper = mount(FormDropdownSearch);
+
+            wrapper.vm.searchValue = 'not empty';
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.vm.searchValue).toBe('');
+        });
+
+        it('emits searchValue when search is not empty', () => {
+            const wrapper = mount(FormDropdownSearch, {props: {search: 'not empty'}});
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.emitted('update:search')).toEqual([['']]);
+        });
+
+        it('does not emit searchValue when search is empty', () => {
+            const wrapper = mount(FormDropdownSearch, {props: {search: ''}});
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.emitted('update:search')).toBeUndefined();
+        });
     });
 
     describe('listening to hidden.bs.dropdown', () => {
@@ -201,9 +245,9 @@ describe('onMounted', () => {
             const wrapper = mount(FormDropdownSearch);
 
             wrapper.vm.searchValue = 'not empty';
-    
+
             const event = new Event('hidden.bs.dropdown');
-    
+
             wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
 
             expect(wrapper.vm.searchValue).toBe('');
@@ -211,15 +255,15 @@ describe('onMounted', () => {
 
         it('sets searchValue to modelValueLabel', () => {
             const modelValue = ref(items[0]);
-    
+
             const wrapper = mount(FormDropdownSearch, {props: {modelValue}});
 
             wrapper.vm.searchValue = 'something';
 
             expect(wrapper.vm.searchValue).toBe('something');
-    
+
             const event = new Event('hidden.bs.dropdown');
-    
+
             wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
 
             expect(wrapper.vm.searchValue).toBe(items[0].label);
@@ -231,7 +275,7 @@ describe('onMounted', () => {
             wrapper.vm.searchValueCached = 'not empty';
 
             const event = new Event('hidden.bs.dropdown');
-    
+
             wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
 
             expect(wrapper.vm.searchValueCached).toBe('');

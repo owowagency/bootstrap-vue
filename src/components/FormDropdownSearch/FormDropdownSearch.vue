@@ -68,7 +68,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ComponentPublicInstance, PropType, computed, ref, watch, onMounted, unref} from 'vue';
+import {ComponentPublicInstance, PropType, computed, onMounted, ref, watch} from 'vue';
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
@@ -167,11 +167,15 @@ onMounted(() => {
     dropdownToggle?.addEventListener('shown.bs.dropdown', () => {
         (dropdownToggle.input as HTMLInputElement)?.focus();
 
-        if (modelValue.value) {
+        if (modelValueLabel.value) {
             searchValueCached.value = modelValueLabel.value;
         }
 
-        emit('update:search', searchValue.value = '');
+        searchValue.value = '';
+
+        if (props.search !== '') {
+            emit('update:search', '');
+        }
     });
 
     dropdownToggle?.addEventListener('hidden.bs.dropdown', () => {
@@ -211,9 +215,7 @@ watch(
 
 watch(
     () => props.search,
-    s => {
-        searchValue.value = s
-    }
+    s => searchValue.value = s,
 );
 
 // Rollup does not like dynamically overriding slots so this is not used for now.
