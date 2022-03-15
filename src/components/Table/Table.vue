@@ -71,7 +71,7 @@ export interface Field {
 </script>
 
 <script lang="ts" setup>
-import {PropType, computed, reactive} from 'vue';
+import {PropType, computed, ref} from 'vue';
 import {useClasses} from '@/composables';
 
 const props = defineProps({
@@ -83,6 +83,10 @@ const props = defineProps({
     items: {
         type: Array as PropType<Record<string, unknown>[]>,
         default: () => [],
+    },
+    multiSort: {
+        type: Boolean,
+        default: false,
     },
     hover: {
         type: Boolean,
@@ -102,7 +106,7 @@ const emit = defineEmits<{
     (event: 'sort', sorted: Record<string, string>): void
 }>();
 
-const sorted = reactive(
+const sorted = ref(
     (props.fields || [])
         .filter(f => f.sortable && f.sort)
         .reduce((obj, item) => Object.assign(obj, {[item.key]: item.sort}), {}),
@@ -128,19 +132,23 @@ const sort = (field: Field) => {
 
     const key = field.key;
 
-    const sort = sorted[key];
+    const sort = sorted.value[key];
 
-    if (field.sortable) {
+    if (props.multiSort) {
         if (sort === 'asc') {
-            sorted[key] = 'desc';
+            sorted.value[key] = 'desc';
         } else if (sort === 'desc') {
-            delete sorted[key];
+            delete sorted.value[key];
         } else {
-            sorted[key] = 'asc';
+            sorted.value[key] = 'asc';
         }
+    } else {
+        sorted.value = {
+            [key]: sort === 'asc' ? 'desc' : 'asc',
+        };
     }
 
-    emit('sort', sorted);
+    emit('sort', sorted.value);
 };
 
 const {classes} = useClasses(computed(() => [

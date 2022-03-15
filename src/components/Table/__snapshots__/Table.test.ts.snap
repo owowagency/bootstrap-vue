@@ -12,25 +12,30 @@ exports[`template renders with fields and items 1`] = `
   <thead>
     <tr>
       <th class=\\"table-heading-sortable table-heading-sortable-asc\\">ajdie</th>
-      <th class=\\"\\">neem</th>
+      <th class=\\"table-heading-sortable\\">neem</th>
+      <th class=\\"\\">type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
       <td>Word</td>
+      <td></td>
     </tr>
     <tr>
       <td>2</td>
       <td>Press</td>
+      <td></td>
     </tr>
     <tr>
       <td>3</td>
       <td>ISDABEST</td>
+      <td></td>
     </tr>
     <tr>
       <td>4</td>
       <td>#prank</td>
+      <td></td>
     </tr>
   </tbody>
 </table>"
