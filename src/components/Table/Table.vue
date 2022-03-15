@@ -84,6 +84,10 @@ const props = defineProps({
         type: Array as PropType<Record<string, unknown>[]>,
         default: () => [],
     },
+    multiSort: {
+        type: Boolean,
+        default: false,
+    },
     hover: {
         type: Boolean,
         default: false,
@@ -131,12 +135,20 @@ const sort = (field: Field) => {
     const sort = sorted[key];
 
     if (field.sortable) {
-        if (sort === 'asc') {
-            sorted[key] = 'desc';
-        } else if (sort === 'desc') {
-            delete sorted[key];
+        if (props.multiSort) {
+            if (sort === 'asc') {
+                sorted[key] = 'desc';
+            } else if (sort === 'desc') {
+                delete sorted[key];
+            } else {
+                sorted[key] = 'asc';
+            }
         } else {
-            sorted[key] = 'asc';
+            for (const member in sorted) {
+                delete sorted[member];
+            }
+
+            sorted[key] = sort === 'asc' ? 'desc' : 'asc';
         }
     }
 

@@ -12,7 +12,8 @@ const props = {
 
 const fields = [
     {label: 'ajdie', key: 'id', sortable: true, sort: 'asc'},
-    {label: 'neem', key: 'name'},
+    {label: 'neem', key: 'name', sortable: true},
+    {label: 'type', key: 'type'},
 ];
 
 describe('template', () => {
@@ -93,7 +94,11 @@ describe('sort', () => {
             props: {fields},
         });
 
-        const firstTh = wrapper.find('th');
+        const th = wrapper.findAll('th');
+
+        const firstTh = th[0];
+
+        const secondTh = th[1];
 
         expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
 
@@ -107,13 +112,62 @@ describe('sort', () => {
 
         expect(wrapper.emitted('sort')[0]).toEqual([{id: 'desc'}]);
 
+        await secondTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable']);
+
+        expect(secondTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({name: 'asc'});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{name: 'asc'}]);
+    });
+
+    it('sorts multiple column on multi sort', async() => {
+        const wrapper = shallowMount(Table, {
+            props: {
+                fields,
+                multiSort: true,
+            },
+        });
+
+        const th = wrapper.findAll('th');
+
+        const firstTh = th[0];
+
+        const secondTh = th[1];
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'asc'});
+
+        await firstTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-desc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'desc'});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{id: 'desc'}]);
+
+        await secondTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-desc']);
+
+        expect(secondTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'desc', name: 'asc'});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{id: 'desc', name: 'asc'}]);
+
         await firstTh.trigger('click');
 
         expect(firstTh.classes()).toEqual(['table-heading-sortable']);
 
-        expect(wrapper.vm.sorted).toStrictEqual({});
+        expect(secondTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
 
-        expect(wrapper.emitted('sort')[0]).toEqual([{}]);
+        expect(wrapper.vm.sorted).toStrictEqual({name: 'asc'});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{name: 'asc'}]);
     });
 
     it('does not emit when field is not sortable', async() => {
