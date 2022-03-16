@@ -27,18 +27,18 @@ describe('template', () => {
 
     componentSlotRenderTest(FormDropdownSearch, 'append', {shallow: false});
 
-    it('calls onFocus when focussing on FormControl', () => {
+    it('calls showMenu when focussing on FormControl', () => {
         const wrapper = mount(FormDropdownSearch, {
             global: {
                 mocks: {
-                    onFocus: jest.fn(),
+                    showMenu: jest.fn(),
                 },
             },
         });
 
         wrapper.findComponent(FormControl).trigger('focus');
 
-        expect(wrapper.vm.onFocus).toBeCalled();
+        expect(wrapper.vm.showMenu).toBeCalled();
     });
 });
 
@@ -77,7 +77,7 @@ describe('filteredItems', () => {
 });
 
 describe('modelValue', () => {
-    it('sets searchValueCached to its label', async() => {
+    it('sets searchValue to its label', async() => {
         const modelValue = ref();
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {modelValue}});
@@ -86,28 +86,17 @@ describe('modelValue', () => {
 
         await nextTick();
 
-        expect(wrapper.vm.searchValueCached).toBe(items[0].label);
+        expect(wrapper.vm.searchValue).toBe(items[0].label);
     });
 
-    it('does not set searchValueCached if cache is disabled', async() => {
-        const modelValue = ref();
+    it('resets searchValue if undefined', async() => {
+        const modelValue = ref(items[0]);
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {
-            disableSearchCache: true,
             modelValue,
         }});
 
-        modelValue.value = items[0];
-
-        await nextTick();
-
-        expect(wrapper.vm.searchValueCached).toBe('');
-    });
-
-    it('resets searchValue', async() => {
-        const modelValue = ref(items[0]);
-
-        const wrapper = shallowMount(FormDropdownSearch, {props: {modelValue}});
+        expect(wrapper.vm.searchValue).toBe(items[0].label);
 
         modelValue.value = undefined;
 
@@ -132,163 +121,164 @@ describe('search', () => {
 });
 
 describe('searchValue', () => {
-    it('emits update:search on change', async() => {
-        const wrapper = shallowMount(FormDropdownSearch);
+    it('is equal to modelValueLabel by default', async() => {
+        const modelValue = ref(items[0]);
 
-        wrapper.vm.searchValue = 'changed';
+        const wrapper = shallowMount(FormDropdownSearch, {props: {modelValue}});
 
-        await nextTick();
+        expect(wrapper.vm.searchValue).toBe(items[0].label);
+    });
 
-        expect(wrapper.emitted('update:search')).toEqual([['changed']]);
+    it('is equal to search by default when there is no modelValueLabel', async() => {
+        const modelValue = ref();
+
+        const wrapper = shallowMount(FormDropdownSearch, {props: {
+            modelValue,
+            search: 'test',
+        }});
+
+        expect(wrapper.vm.searchValue).toBe('test');
     });
 });
 
 describe('searchValueDisplayed', () => {
-    it('is equal to searchValueCached when it has a value', () => {
+    it('is empty when searchValueCached has a value', () => {
         const wrapper = shallowMount(FormDropdownSearch);
+
+        wrapper.vm.searchValueCached = 'I am not empty';
 
         wrapper.vm.searchValue = 'do not display me';
 
-        wrapper.vm.searchValueCached = 'display me';
-
-        expect(wrapper.vm.searchValueDisplayed).toEqual('display me');
+        expect(wrapper.vm.searchValueDisplayed).toEqual('');
     });
 
     it('is equal to searchValue when searchValueCached does not have a value', () => {
         const wrapper = shallowMount(FormDropdownSearch);
 
-        wrapper.vm.searchValue = 'display me';
-
         wrapper.vm.searchValueCached = '';
 
-        expect(wrapper.vm.searchValueDisplayed).toEqual('display me');
-    });
-
-    it('is equal to modelValue label when searchValueCached is disabled', () => {
-        const modelValue = ref(items[0]);
-
-        const wrapper = shallowMount(FormDropdownSearch, {props: {
-            disableSearchCache: true,
-            modelValue,
-        }});
-
-        wrapper.vm.searchValue = 'do not display me';
-
-        expect(wrapper.vm.searchValueDisplayed).toEqual(modelValue.value.label);
-    });
-
-    it('is equal to searchValue when searchValueCached is disabled and modelValue is undefined', () => {
-        const wrapper = shallowMount(FormDropdownSearch, {props: {
-            disableSearchCache: true,
-        }});
-
         wrapper.vm.searchValue = 'display me';
 
         expect(wrapper.vm.searchValueDisplayed).toEqual('display me');
     });
 
-    it('resets searchValueCached, and model value and it sets searchValue', () => {
+    it('sets search value and emits', () => {
         const wrapper = shallowMount(FormDropdownSearch);
 
-        wrapper.vm.modelValue = items[0];
+        wrapper.vm.searchValueDisplayed = 'new search value';
 
-        wrapper.vm.searchValueCached = 'reset me';
+        expect(wrapper.vm.searchValue).toEqual('new search value');
 
-        wrapper.vm.searchValueDisplayed = 'changed';
-
-        expect(wrapper.vm.modelValue).toBeUndefined();
-
-        expect(wrapper.vm.searchValueCached).toBe('');
+        expect(wrapper.emitted('update:search')).toEqual([['new search value']]);
     });
 });
 
+describe('onMounted', () => {
+    describe('listening to shown.bs.dropdown', () => {
+        it('focusses on dropdownToggle', () => {
+            // TODO: currently unable to create a test for this.
+        });
 
-describe('searchValue', () => {
-    it('is equal to modelValue labelKey when modelValue is set', () => {
-        const wrapper = shallowMount(FormDropdownSearch, {props: {modelValue: items[0]}});
+        it('sets searchValueCached to modelValueLabel', () => {
+            const modelValue = ref(items[0]);
 
-        expect(wrapper.vm.searchValue).toBe(items[0].label);
+            const wrapper = mount(FormDropdownSearch, {props: {modelValue}});
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.vm.searchValueCached).toBe(items[0].label);
+        });
+
+        it('does not set searchValueCached to modelValueLabel when empty', () => {
+            const wrapper = mount(FormDropdownSearch);
+
+            wrapper.vm.searchValueCached = 'do not change me';
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.vm.searchValueCached).toBe('do not change me');
+        });
+
+        it('empties searchValue', () => {
+            const wrapper = mount(FormDropdownSearch);
+
+            wrapper.vm.searchValue = 'not empty';
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.vm.searchValue).toBe('');
+        });
+
+        it('emits searchValue when search is not empty', () => {
+            const wrapper = mount(FormDropdownSearch, {props: {search: 'not empty'}});
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.emitted('update:search')).toEqual([['']]);
+        });
+
+        it('does not emit searchValue when search is empty', () => {
+            const wrapper = mount(FormDropdownSearch, {props: {search: ''}});
+
+            const event = new Event('shown.bs.dropdown');
+
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
+
+            expect(wrapper.emitted('update:search')).toBeUndefined();
+        });
     });
 
-    it('is equal to search when modelValue is not set', () => {
-        const wrapper = shallowMount(FormDropdownSearch, {props: {search: 'value'}});
+    describe('listening to hidden.bs.dropdown', () => {
+        it('blurs on dropdownToggle', () => {
+            // TODO: currently unable to create a test for this.
+        });
 
-        expect(wrapper.vm.searchValue).toBe('value');
-    });
+        it('empties searchValue when there is no modelValue', () => {
+            const wrapper = mount(FormDropdownSearch);
 
-    it('calls showMenu', () => {
-        // TODO: unable to test showMenu being called.
-    });
-});
+            wrapper.vm.searchValue = 'not empty';
 
-describe('showMenu', () => {
-    it('it calls show on bsDropdown', async() => {
-        // TODO: Currently not able to test.
-    });
-});
+            const event = new Event('hidden.bs.dropdown');
 
-describe('onFocus', () => {
-    it('selects the value of the input', () => {
-        const wrapper = mount(FormDropdownSearch);
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
 
-        const mockSelect = jest.fn();
+            expect(wrapper.vm.searchValue).toBe('');
+        });
 
-        wrapper.vm.formControl.input.select = mockSelect;
+        it('sets searchValue to modelValueLabel', () => {
+            const modelValue = ref(items[0]);
 
-        wrapper.vm.onFocus();
+            const wrapper = mount(FormDropdownSearch, {props: {modelValue}});
 
-        expect(mockSelect).toBeCalled();
-    });
+            wrapper.vm.searchValue = 'something';
 
-    it('sets searchValueCached to searchValue when searchValueCached does not have a value', () => {
-        const wrapper = mount(FormDropdownSearch);
+            expect(wrapper.vm.searchValue).toBe('something');
 
-        wrapper.vm.searchValueCached = '';
+            const event = new Event('hidden.bs.dropdown');
 
-        wrapper.vm.searchValue = 'copy me';
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
 
-        wrapper.vm.onFocus();
+            expect(wrapper.vm.searchValue).toBe(items[0].label);
+        });
 
-        expect(wrapper.vm.searchValueCached).toBe('copy me');
-    });
+        it('empties searchValueCached', () => {
+            const wrapper = mount(FormDropdownSearch);
 
-    it('does not set searchValueCached to searchValue when cache is disabled', () => {
-        const wrapper = mount(FormDropdownSearch, {props: {
-            disableSearchCache: true,
-        }});
+            wrapper.vm.searchValueCached = 'not empty';
 
-        wrapper.vm.searchValueCached = '';
+            const event = new Event('hidden.bs.dropdown');
 
-        wrapper.vm.searchValue = 'copy me';
+            wrapper.find('[data-bs-toggle="dropdown"]').element.dispatchEvent(event);
 
-        wrapper.vm.onFocus();
-
-        expect(wrapper.vm.searchValueCached).toBe('');
-    });
-
-    it('does not set searchValueCached to searchValue when searchValueCached has a value', () => {
-        const wrapper = mount(FormDropdownSearch);
-
-        wrapper.vm.searchValueCached = 'hello';
-
-        wrapper.vm.searchValue = 'do not copy me';
-
-        wrapper.vm.onFocus();
-
-        expect(wrapper.vm.searchValueCached).toBe('hello');
-    });
-
-    it('resets searchValue', () => {
-        const wrapper = mount(FormDropdownSearch);
-
-        wrapper.vm.searchValue = 'copy me';
-
-        wrapper.vm.onFocus();
-
-        expect(wrapper.vm.searchValue).toBe('');
-    });
-
-    it('calls showMenu', () => {
-        // TODO: unable to test showMenu being called.
+            expect(wrapper.vm.searchValueCached).toBe('');
+        });
     });
 });

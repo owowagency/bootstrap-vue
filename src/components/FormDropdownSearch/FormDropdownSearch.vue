@@ -1,5 +1,6 @@
 <template>
     <FormDropdown
+        ref="formDropdown"
         v-model="modelValue"
         :items="filteredItems"
         :label-key="labelKey"
@@ -11,8 +12,9 @@
                     v-model="searchValueDisplayed"
                     class="form-select"
                     data-bs-toggle="dropdown"
+                    :placeholder="searchValueCached || placeholder"
                     v-bind="$attrs"
-                    @focus="onFocus"
+                    @focus="showMenu"
                 />
             </slot>
         </template>
@@ -66,7 +68,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ComponentPublicInstance, PropType, computed, ref, watch} from 'vue';
+import {ComponentPublicInstance, PropType, computed, onMounted, ref, watch} from 'vue';
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
@@ -76,10 +78,6 @@ const props = defineProps({
     autoSearch: {
         type: Boolean,
         default: true,
-    },
-    disableSearchCache: {
-        type: Boolean,
-        default: false,
     },
     items: {
         type: Array as PropType<Item[]>,
@@ -92,6 +90,10 @@ const props = defineProps({
     modelValue: {
         type: Object as PropType<Item>,
         default: undefined,
+    },
+    placeholder: {
+        type: String,
+        default: '',
     },
     search: {
         type: String,
@@ -116,6 +118,8 @@ const filteredItems = computed(() => {
 
 const formControl = ref<ComponentPublicInstance<typeof FormControl>>();
 
+const formDropdown = ref<ComponentPublicInstance<typeof FormDropdown>>();
+
 const {bsInstance: bsDropdown} = useBootstrapInstance(
     'Dropdown',
     formControl,
@@ -125,6 +129,10 @@ const modelValue = computed({
     get: () => props.modelValue,
     set: v => emit('update:modelValue', v),
 });
+
+const modelValueLabel = computed(() => modelValue.value?.[props.labelKey]);
+
+const searchValue = ref<string>(modelValueLabel.value || props.search);
 
 /**
  * Is used to display a temporary value in the input while still emitting an
@@ -138,30 +146,51 @@ const searchValueCached = ref<string>('');
 
 const searchValueDisplayed = computed({
     get: () => {
-        if (props.disableSearchCache) {
-            return modelValue.value
-                ? modelValue.value[props.labelKey]
-                : searchValue.value;
-        }
-
         return searchValueCached.value !== ''
-            ? searchValueCached.value
+            ? ''
             : searchValue.value;
     },
     set: s => {
-        searchValueCached.value = '';
-
         searchValue.value = s;
 
-        modelValue.value = undefined;
+        emit('update:search', s);
     },
 });
 
-const searchValue = ref<string>(
-    modelValue.value
-        ? modelValue.value[props.labelKey]
-        : props.search,
-);
+onMounted(() => {
+    // Get the dropdown toggle element manually because it is possible to
+    // override it with the `dropdownToggle` slot.
+    const dropdownToggle = formDropdown.value
+        .$el
+        .querySelector('[data-bs-toggle="dropdown"]');
+
+    dropdownToggle?.addEventListener('shown.bs.dropdown', () => {
+        (dropdownToggle.input as HTMLInputElement)?.focus();
+
+        if (modelValueLabel.value) {
+            searchValueCached.value = modelValueLabel.value;
+        }
+
+        searchValue.value = '';
+
+        if (props.search !== '') {
+            emit('update:search', '');
+        }
+    });
+
+    dropdownToggle?.addEventListener('hidden.bs.dropdown', () => {
+        (dropdownToggle.input as HTMLInputElement)?.blur();
+
+        if (!modelValue.value) {
+            searchValue.value = '';
+        } else {
+            searchValue.value = modelValueLabel.value;
+        }
+
+        searchValueCached.value = '';
+    });
+});
+
 
 const showMenu = () => {
     if (bsDropdown.value) {
@@ -173,40 +202,21 @@ const showMenu = () => {
     }
 };
 
-const onFocus = () => {
-    (formControl.value.input as HTMLInputElement).select();
-
-    if (
-        searchValueCached.value === ''
-        && !props.disableSearchCache
-    ) {
-        searchValueCached.value = searchValue.value;
-    }
-
-    searchValue.value = '';
-
-    showMenu();
-};
-
-watch(modelValue, (newValue, oldValue) => {
-    if (newValue) {
-        if (!props.disableSearchCache) {
-            searchValueCached.value = newValue[props.labelKey];
+watch(
+    modelValue,
+    newValue => {
+        if (newValue) {
+            searchValue.value = newValue[props.labelKey];
+        } else {
+            searchValue.value = '';
         }
-    } else if (
-        oldValue
-        && searchValueCached.value === ''
-        && searchValueDisplayed.value === oldValue[props.labelKey]
-    ) {
-        searchValue.value = '';
-    }
-});
+    },
+);
 
-watch(() => props.search, s => searchValue.value = s);
-
-watch(searchValue, s => {
-    emit('update:search', s);
-});
+watch(
+    () => props.search,
+    s => searchValue.value = s,
+);
 
 // Rollup does not like dynamically overriding slots so this is not used for now.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
