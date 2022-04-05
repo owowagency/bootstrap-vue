@@ -27,6 +27,8 @@
         </thead>
 
         <tbody>
+            <slot name="top-row" />
+
             <slot
                 v-if="!items.length"
                 name="no-items"
@@ -57,6 +59,8 @@
                     </tr>
                 </slot>
             </template>
+
+            <slot name="bottom-row" />
         </tbody>
     </table>
 </template>

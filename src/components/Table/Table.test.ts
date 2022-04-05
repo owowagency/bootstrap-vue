@@ -37,6 +37,10 @@ describe('template', () => {
 
     componentSlotRenderTest(Table, 'row', {props});
 
+    componentSlotRenderTest(Table, 'top-row', {props});
+
+    componentSlotRenderTest(Table, 'bottom-row', {props});
+
     componentSlotRenderTest(Table, 'id', {props});
 
     componentSlotRenderTest(Table, 'no-items', {
