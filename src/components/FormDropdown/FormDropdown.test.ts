@@ -2,12 +2,48 @@ import {mount, shallowMount} from '@vue/test-utils';
 import Dropdown from '@/components/Dropdown';
 import FormDropdown from '.';
 
+const items = [
+    {label: 'Item 1'},
+    {label: 'Item 2'},
+    {label: 'Item 3'},
+];
+
 describe('template', () => {
-    componentRenderTest(FormDropdown, {}, false);
+    componentRenderTest(FormDropdown, {props: {items}}, false);
 
-    componentSlotRenderTest(FormDropdown, 'menuPrepend', {shallow: false});
+    componentRenderTest(
+        FormDropdown,
+        {props: {items: []}},
+        false,
+        'renders no options',
+    );
 
-    componentSlotRenderTest(FormDropdown, 'menuAppend', {shallow: false});
+    componentRenderTest(
+        FormDropdown,
+        {props: {searchable: true}},
+        false,
+        'renders input',
+    );
+
+    componentSlotRenderTest(FormDropdown, 'prepend', {shallow: false});
+
+    componentSlotRenderTest(FormDropdown, 'items', {shallow: false});
+
+    componentSlotRenderTest(FormDropdown, 'item', {
+        props: {items},
+        shallow: false,
+    });
+
+    componentSlotRenderTest(FormDropdown, 'append', {shallow: false});
+
+    componentSlotRenderTest(
+        FormDropdown,
+        'noOptions',
+        {
+            shallow: false,
+            props: {items: []},
+        },
+    );
 
     it('emits update:modelValue on click item', () => {
         const wrapper = shallowMount(FormDropdown);

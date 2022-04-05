@@ -34,19 +34,61 @@ describe('template', () => {
     componentSlotRenderTest(Modal, 'footer');
 
     ['title', 'body'].forEach(textPropTest);
+
+    it('does not render modal-title when not given', () => {
+        // Don't give title prop or slot.
+        const wrapper = shallowMount(Modal);
+
+        expect(wrapper.find('.modal-title').exists()).toBe(false);
+
+        // Assert that .btn-close is still rendered.
+        expect(wrapper.find('.btn-close').exists()).toBe(true);
+    });
+
+    ['show', 'shown', 'hide', 'hidden', 'hidePrevented'].forEach((event: string) => {
+        componentBootstrapEventTest(
+            Modal,
+            '.modal',
+            event,
+            'modal',
+        );
+    });
+
+    it('renders given custom classes', () => {
+        const wrapper = shallowMount(Modal, {
+            props: {
+                id: 'owow-modal',
+                class: 'custom-class',
+                headerClass: 'header-class',
+            },
+        });
+
+        expect(wrapper.html()).toMatchSnapshot();
+    });
 });
 
 describe('onMounted', () => {
     it('sets bsModal', async() => {
         const wrapper = await shallowMount(Modal);
 
-        expect((await import('bootstrap')).Modal.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.modal);
+        expect((await import('bootstrap')).Modal.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.modal, {});
 
         // TODO: Unable to assert bsModal value.
     });
 
     it('registers modal even listeners', async() => {
         // TODO: Unable to assert events.
+    });
+});
+
+describe('hideCloseBtn', () => {
+    it('hides close button', async() => {
+        const wrapper = await shallowMount(
+            Modal,
+            {props: {hideCloseBtn: true}},
+        );
+
+        expect(wrapper.find('[data-bs-dismiss="modal"]').exists()).toBeFalsy();
     });
 });
 

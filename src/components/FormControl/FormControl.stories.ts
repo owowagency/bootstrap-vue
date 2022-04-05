@@ -45,6 +45,13 @@ Default.args = {
     placeholder: 'I am a placeholder',
 };
 
+export const Autofocused = template.bind({});
+
+Autofocused.args = {
+    modelValue: 'I am autofocused',
+    autofocus: true,
+};
+
 export const Disabled = template.bind({});
 
 Disabled.args = {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`template renders default 1`] = `
-"<div class=\\"d-inline-block\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#dont-change-please\\"></div>
+"<div class=\\"collapse-toggle\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#dont-change-please\\"></div>
 <div id=\\"dont-change-please\\" class=\\"collapse\\"></div>"
 `;

@@ -3,6 +3,6 @@
 exports[`template renders default 1`] = `
 "<div class=\\"dropdown\\">
   <btn-stub disabled=\\"false\\" outline=\\"false\\" size=\\"md\\" variant=\\"primary\\" class=\\"dropdown-toggle\\" data-bs-toggle=\\"dropdown\\"></btn-stub>
-  <dropdown-menu-stub items=\\"[object Object],[object Object],[object Object]\\" class=\\"\\"></dropdown-menu-stub>
+  <dropdown-menu-stub items=\\"[object Object],[object Object],[object Object]\\"></dropdown-menu-stub>
 </div>"
 `;

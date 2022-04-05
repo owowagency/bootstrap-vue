@@ -8,7 +8,19 @@ describe('template', () => {
         props: {id: 'dont-change-please'},
     });
 
+    componentWrapperClassTest(
+        FormImage,
+        {preview: 'some-preview'},
+        'form-image-has-preview',
+    );
+
     it('renders btn edit when has preview', () => {
+        const wrapper = shallowMount(FormImage, {props: {preview: 'some-preview'}});
+
+        expect(wrapper.find('.form-image-btn-edit').exists()).toBe(true);
+    });
+
+    it('adds class when has preview', () => {
         const wrapper = shallowMount(FormImage, {props: {preview: 'some-preview'}});
 
         expect(wrapper.find('.form-image-btn-edit').exists()).toBe(true);

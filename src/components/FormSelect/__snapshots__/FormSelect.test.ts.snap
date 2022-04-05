@@ -2,8 +2,8 @@
 
 exports[`template renders default 1`] = `
 "<select class=\\"form-select form-select-md\\">
-  <option>Item 1</option>
-  <option>Item 2</option>
+  <option value=\\"Item 1\\">Item 1</option>
+  <option value=\\"Item 2\\">Item 2</option>
   <option value=\\"Item 3\\">Item three</option>
 </select>"
 `;

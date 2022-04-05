@@ -12,7 +12,8 @@ const props = {
 
 const fields = [
     {label: 'ajdie', key: 'id', sortable: true, sort: 'asc'},
-    {label: 'neem', key: 'name'},
+    {label: 'neem', key: 'name', sortable: true},
+    {label: 'type', key: 'type'},
 ];
 
 describe('template', () => {
@@ -41,6 +42,12 @@ describe('template', () => {
     componentSlotRenderTest(Table, 'bottom-row', {props});
 
     componentSlotRenderTest(Table, 'id', {props});
+
+    componentSlotRenderTest(Table, 'no-items', {
+        props: {
+            items: [],
+        },
+    });
 
     componentWrapperClassTest(Table, {hover: true}, 'table-hover');
 
@@ -91,12 +98,18 @@ describe('sort', () => {
             props: {fields},
         });
 
-        const firstTh = wrapper.find('th');
+        const th = wrapper.findAll('th');
 
+        const firstTh = th[0];
+
+        const secondTh = th[1];
+
+        // Check if sorts are correct as start with defined properties, that is 'asc'
         expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
 
         expect(wrapper.vm.sorted).toStrictEqual({id: 'asc'});
 
+        // After clicking first column heading sort directions should be 'desc'
         await firstTh.trigger('click');
 
         expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-desc']);
@@ -105,13 +118,69 @@ describe('sort', () => {
 
         expect(wrapper.emitted('sort')[0]).toEqual([{id: 'desc'}]);
 
+        // After clicking second column heading, first heading should not
+        // have sorting, and second column should have 'asc' sort
+        await secondTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable']);
+
+        expect(secondTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({name: 'asc'});
+
+        expect(wrapper.emitted('sort')[1]).toEqual([{name: 'asc'}]);
+    });
+
+    it('sorts multiple column on multi sort', async() => {
+        const wrapper = shallowMount(Table, {
+            props: {
+                fields,
+                multiSort: true,
+            },
+        });
+
+        const th = wrapper.findAll('th');
+
+        const firstTh = th[0];
+
+        const secondTh = th[1];
+
+        // Check if sorts are correct as start with defined properties, that is 'asc'
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'asc'});
+
+        // After clicking first column heading sort directions should be 'desc'
+        await firstTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-desc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'desc'});
+
+        expect(wrapper.emitted('sort')[0]).toEqual([{id: 'desc'}]);
+
+        // After clicking second column, first column should stay untucked
+        // and second column should have 'asc' sort
+        await secondTh.trigger('click');
+
+        expect(firstTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-desc']);
+
+        expect(secondTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
+
+        expect(wrapper.vm.sorted).toStrictEqual({id: 'desc', name: 'asc'});
+
+        expect(wrapper.emitted('sort')[1]).toEqual([{id: 'desc', name: 'asc'}]);
+
+        // After clicking first column again, it should clear first column's sorting
         await firstTh.trigger('click');
 
         expect(firstTh.classes()).toEqual(['table-heading-sortable']);
 
-        expect(wrapper.vm.sorted).toStrictEqual({});
+        expect(secondTh.classes()).toEqual(['table-heading-sortable', 'table-heading-sortable-asc']);
 
-        expect(wrapper.emitted('sort')[0]).toEqual([{}]);
+        expect(wrapper.vm.sorted).toStrictEqual({name: 'asc'});
+
+        expect(wrapper.emitted('sort')[2]).toEqual([{name: 'asc'}]);
     });
 
     it('does not emit when field is not sortable', async() => {

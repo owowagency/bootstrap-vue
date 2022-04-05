@@ -1,8 +1,13 @@
 <template>
     <div class="accordion-item">
-        <h2 class="accordion-header">
+        <component
+            :is="headerTag"
+            class="accordion-header"
+            :class="headerClass"
+        >
             <button
                 class="accordion-button collapsed"
+                :class="buttonClass"
                 data-bs-toggle="collapse"
                 :data-bs-target="`#${id}`"
             >
@@ -10,14 +15,18 @@
                     {{ header }}
                 </slot>
             </button>
-        </h2>
+        </component>
 
         <div
             :id="`${id}`"
             class="accordion-collapse collapse"
+            :class="collapseClass"
             :data-bs-parent="parentId ? `#${parentId}` : undefined"
         >
-            <div class="accordion-body">
+            <div
+                class="accordion-body"
+                :class="bodyClass"
+            >
                 <slot />
             </div>
         </div>
@@ -30,9 +39,29 @@ import {idProps} from '@/composables/useId';
 
 <script lang="ts" setup>
 defineProps({
+    bodyClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
+    buttonClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
+    collapseClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
     header: {
         type: String,
         default: undefined,
+    },
+    headerClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
+    headerTag: {
+        type: String,
+        default: 'h2',
     },
     ...idProps,
     parentId: {

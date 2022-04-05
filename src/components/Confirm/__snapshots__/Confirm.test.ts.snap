@@ -2,13 +2,13 @@
 
 exports[`template renders default 1`] = `
 "<div id=\\"dont-change-please\\" class=\\"modal\\">
-  <div class=\\"modal-dialog\\">
+  <div class=\\"modal-dialog modal-md\\">
     <div class=\\"modal-content\\">
       <div class=\\"modal-header\\">
-        <h5 class=\\"modal-title\\">Confirm</h5><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
+        <h5 class=\\"modal-title\\">Confirmation</h5><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
       </div>
-      <div class=\\"modal-body\\">You are about to do something that requires confirmation. Do you wish to continue?</div>
-      <div class=\\"modal-footer\\"><button class=\\"btn btn-md btn-light\\" data-bs-dismiss=\\"modal\\"> Cancel </button><button class=\\"btn btn-md btn-danger\\"> Confirm </button></div>
+      <div class=\\"modal-body\\">Are you sure?</div>
+      <div class=\\"modal-footer\\"><button class=\\"btn btn-md btn-light button-cancel\\">No</button><button class=\\"btn btn-md btn-primary button-ok\\">Yes</button></div>
     </div>
   </div>
 </div>"
