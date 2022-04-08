@@ -6,10 +6,51 @@
         :class="classes"
         data-bs-ride="carousel"
     >
+        <div
+            v-if="indicators"
+            class="carousel-indicators"
+        >
+            <button
+                v-for="(_, index) in slides"
+                :key="`slide-indicator-${index}`"
+                :class="{active: !index}"
+                :data-bs-target="`#${id}`"
+                :data-bs-slide-to="index"
+            />
+        </div>
+
         <div class="carousel-inner">
-            <slot>
-                Default
-            </slot>
+            <div
+                v-for="(slide, index) in slides"
+                :key="`slide-${index}`"
+                class="carousel-item"
+                :class="{active: !index}"
+            >
+                <slot :slide="slide">
+                    <img
+                        :src="slide"
+                        class="d-block w-100"
+                    >
+                </slot>
+            </div>
+        </div>
+
+        <div v-if="controls">
+            <button
+                class="carousel-control-prev"
+                :data-bs-target="`#${id}`"
+                data-bs-slide="prev"
+            >
+                <span class="carousel-control-prev-icon" />
+            </button>
+
+            <button
+                class="carousel-control-next"
+                :data-bs-target="`#${id}`"
+                data-bs-slide="next"
+            >
+                <span class="carousel-control-next-icon" />
+            </button>
         </div>
     </div>
 </template>
@@ -28,6 +69,10 @@ type CarouselEvent = typeof carouselEvents[number];
 
 <script lang="ts" setup>
 const props = defineProps({
+    controls: {
+        type: Boolean,
+        default: true,
+    },
     dark: {
         type: Boolean,
         default: false,
@@ -37,6 +82,14 @@ const props = defineProps({
         default: false,
     },
     ...idProps,
+    indicators: {
+        type: Boolean,
+        default: true,
+    },
+    slides: {
+        type: Array,
+        default: () => [],
+    },
 });
 
 const emit = defineEmits<{(event: CarouselEvent): void}>();
