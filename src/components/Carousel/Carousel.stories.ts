@@ -16,6 +16,9 @@ export default {
         indicators: {
             control: {type: 'boolean'},
         },
+        interval: {
+            control: {type: 'number'},
+        },
     },
 };
 
@@ -27,7 +30,7 @@ const template = (args) => ({
             <Carousel
                 id="Carousel"
                 v-bind="args"
-                :slides="['https://placekitten.com/800/450', 'https://placekitten.com/800/450', 'https://placekitten.com/800/450']"
+                :slides="['https://placekitten.com/900/500', 'https://placekitten.com/800/450', 'https://placekitten.com/g/800/450']"
             />
         </div>
     `,

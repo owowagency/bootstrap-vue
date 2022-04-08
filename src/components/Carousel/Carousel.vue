@@ -4,6 +4,7 @@
         ref="carousel"
         class="carousel slide"
         :class="classes"
+        :data-bs-interval="interval"
         data-bs-ride="carousel"
     >
         <div
@@ -85,6 +86,10 @@ const props = defineProps({
     indicators: {
         type: Boolean,
         default: true,
+    },
+    interval: {
+        type: Number,
+        default: 5000,
     },
     slides: {
         type: Array,
