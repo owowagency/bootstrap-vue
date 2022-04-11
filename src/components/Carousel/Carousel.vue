@@ -14,26 +14,52 @@
             <button
                 v-for="(_, index) in slides"
                 :key="`slide-indicator-${index}`"
-                :class="{active: !index}"
+                :class="{active: index === activeIndex}"
                 :data-bs-target="`#${id}`"
                 :data-bs-slide-to="index"
             />
         </div>
 
         <div class="carousel-inner">
-            <div
-                v-for="(slide, index) in slides"
-                :key="`slide-${index}`"
-                class="carousel-item"
-                :class="{active: !index}"
+            <slot
+                name="slides"
+                :slides="slides"
             >
-                <slot :slide="slide">
-                    <img
-                        :src="slide"
-                        class="d-block w-100"
-                    >
-                </slot>
-            </div>
+                <div
+                    v-for="(slide, index) in slides"
+                    :key="`slide-${index}`"
+                    class="carousel-item"
+                    :class="{active: index === activeIndex}"
+                    :data-bs-interval="slide.interval"
+                >
+                    <slot :slide="slide">
+                        <img
+                            v-if="slide.image"
+                            :src="slide.image"
+                            class="d-block w-100"
+                        >
+
+                        <slot
+                            name="caption"
+                            :description="slide.description"
+                            :title="slide.title"
+                        >
+                            <div
+                                v-if="slide.title || slide.description"
+                                class="carousel-caption d-none d-md-block"
+                            >
+                                <h5 v-if="slide.title">
+                                    {{ slide.title }}
+                                </h5>
+
+                                <p v-if="slide.description">
+                                    {{ slide.description }}
+                                </p>
+                            </div>
+                        </slot>
+                    </slot>
+                </div>
+            </slot>
         </div>
 
         <div v-if="controls">
@@ -57,7 +83,7 @@
 </template>
 
 <script lang="ts">
-import {computed, ref} from 'vue';
+import {PropType, computed, ref} from 'vue';
 import {idProps} from '@/composables/useId';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
 import useBootstrapInstance from '@/composables/useBootstrapInstance';
@@ -66,6 +92,14 @@ import useClasses from '@/composables/useClasses';
 const carouselEvents = ['slide', 'slide'] as const;
 
 type CarouselEvent = typeof carouselEvents[number];
+
+export interface CarouselSlide {
+    active?: boolean;
+    description?: string;
+    image?: string;
+    interval?: number;
+    title?: string;
+}
 </script>
 
 <script lang="ts" setup>
@@ -92,7 +126,7 @@ const props = defineProps({
         default: 5000,
     },
     slides: {
-        type: Array,
+        type: Array as PropType<CarouselSlide[]>,
         default: () => [],
     },
 });
@@ -100,6 +134,12 @@ const props = defineProps({
 const emit = defineEmits<{(event: CarouselEvent): void}>();
 
 const carousel = ref<HTMLElement>();
+
+const activeIndex = computed(() => {
+    const activeSlideIndex = props.slides.findIndex((slide: CarouselSlide) => slide.active);
+
+    return activeSlideIndex > -1 ? activeSlideIndex : 0;
+});
 
 useBootstrapEmits(
     carousel,
