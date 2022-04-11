@@ -9,6 +9,7 @@ export {default as ButtonClose} from './ButtonClose';
 export {default as ButtonGroup} from './ButtonGroup';
 export {default as ButtonState} from './ButtonState';
 export {default as Card} from './Card';
+export {default as Carousel} from './Carousel';
 export {default as Col} from './Col';
 export {default as Collapse} from './Collapse';
 export {default as Confirm} from './Confirm';
