@@ -19,7 +19,10 @@
                     :class="{active: index === activeIndex}"
                     :data-bs-interval="slide.interval"
                 >
-                    <slot :slide="slide">
+                    <slot
+                        :index="index"
+                        :slide="slide"
+                    >
                         <img
                             v-if="slide.image"
                             :src="slide.image"

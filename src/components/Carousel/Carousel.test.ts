@@ -64,7 +64,9 @@ describe('template', () => {
 
         const slides = wrapper.findAll('.carousel-item');
 
+        expect(slides[0].classes()).not.toContain('active');
         expect(slides[1].classes()).toContain('active');
+        expect(slides[2].classes()).not.toContain('active');
     });
 
     it('sets slide interval from slides', async() => {
