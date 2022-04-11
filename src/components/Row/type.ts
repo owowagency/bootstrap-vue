@@ -1,6 +1,6 @@
 import {Prop, PropType} from 'vue';
 
-const aligns = ['center', 'end', 'start'] as const;
+const aligns = ['baseline', 'center', 'end', 'start', 'stretch'] as const;
 
 type Align = typeof aligns[number];
 
