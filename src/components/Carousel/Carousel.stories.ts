@@ -13,7 +13,7 @@ const slides: CarouselSlide[] = [
         title: 'Kitten #2',
     },
     {
-        description: 'Munchkin the kitten',
+        description: 'Munchie the kitten',
         image: 'https://placekitten.com/850/475',
         title: 'Kitten #3',
     },
