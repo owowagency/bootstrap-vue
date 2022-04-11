@@ -7,19 +7,6 @@
         :data-bs-interval="interval"
         data-bs-ride="carousel"
     >
-        <div
-            v-if="indicators"
-            class="carousel-indicators"
-        >
-            <button
-                v-for="(_, index) in slides"
-                :key="`slide-indicator-${index}`"
-                :class="{active: index === activeIndex}"
-                :data-bs-target="`#${id}`"
-                :data-bs-slide-to="index"
-            />
-        </div>
-
         <div class="carousel-inner">
             <slot
                 name="slides"
@@ -62,7 +49,7 @@
             </slot>
         </div>
 
-        <div v-if="controls">
+        <div v-if="!hideControls">
             <button
                 class="carousel-control-prev"
                 :data-bs-target="`#${id}`"
@@ -79,6 +66,19 @@
                 <span class="carousel-control-next-icon" />
             </button>
         </div>
+
+        <div
+            v-if="!hideIndicators"
+            class="carousel-indicators"
+        >
+            <button
+                v-for="(_, index) in slides"
+                :key="`slide-indicator-${index}`"
+                :class="{active: index === activeIndex}"
+                :data-bs-target="`#${id}`"
+                :data-bs-slide-to="index"
+            />
+        </div>
     </div>
 </template>
 
@@ -89,7 +89,7 @@ import useBootstrapEmits from '@/composables/useBootstrapEmits';
 import useBootstrapInstance from '@/composables/useBootstrapInstance';
 import useClasses from '@/composables/useClasses';
 
-const carouselEvents = ['slide', 'slide'] as const;
+const carouselEvents = ['slid', 'slide'] as const;
 
 type CarouselEvent = typeof carouselEvents[number];
 
@@ -104,10 +104,6 @@ export interface CarouselSlide {
 
 <script lang="ts" setup>
 const props = defineProps({
-    controls: {
-        type: Boolean,
-        default: true,
-    },
     dark: {
         type: Boolean,
         default: false,
@@ -116,11 +112,15 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    ...idProps,
-    indicators: {
+    hideControls: {
         type: Boolean,
-        default: true,
+        default: false,
     },
+    hideIndicators: {
+        type: Boolean,
+        default: false,
+    },
+    ...idProps,
     interval: {
         type: Number,
         default: 5000,
