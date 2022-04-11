@@ -8,6 +8,11 @@ describe('template', () => {
     componentWrapperTagTest(Row, {props: {tag: 'ul'}});
 
     componentWrapperClassTest(Row, {align: 'center'}, 'align-items-center');
+    componentWrapperClassTest(Row, {alignSm: 'end'}, 'align-items-sm-end');
+    componentWrapperClassTest(Row, {alignMd: 'start'}, 'align-items-md-start');
+    componentWrapperClassTest(Row, {alignLg: 'center'}, 'align-items-lg-center');
+    componentWrapperClassTest(Row, {alignXl: 'end'}, 'align-items-xl-end');
+    componentWrapperClassTest(Row, {alignXxl: 'start'}, 'align-items-xxl-start');
 
     componentWrapperClassTest(Row, {cols: 1}, 'row-cols-1');
     componentWrapperClassTest(Row, {colsSm: 2}, 'row-cols-sm-2');
@@ -38,4 +43,9 @@ describe('template', () => {
     componentWrapperClassTest(Row, {guttersYXxl: 6}, 'gy-xxl-6');
 
     componentWrapperClassTest(Row, {justify: 'around'}, 'justify-content-around');
+    componentWrapperClassTest(Row, {justifySm: 'between'}, 'justify-content-sm-between');
+    componentWrapperClassTest(Row, {justifyMd: 'center'}, 'justify-content-md-center');
+    componentWrapperClassTest(Row, {justifyLg: 'end'}, 'justify-content-lg-end');
+    componentWrapperClassTest(Row, {justifyXl: 'evenly'}, 'justify-content-xl-evenly');
+    componentWrapperClassTest(Row, {justifyXxl: 'start'}, 'justify-content-xxl-start');
 });
