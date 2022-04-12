@@ -118,6 +118,10 @@ const {classes} = useClasses(computed(() => [
 
 onBeforeUnmount(() => {
     if (bsModal.value) {
+        // Hide is used to remove any behavior and styling from
+        // DOM then dispose will compactly destroy the modal
+        bsModal.value.hide();
+
         bsModal.value.dispose();
     }
 });
