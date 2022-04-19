@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts">
-import {computed} from 'vue';
 import {buttonProps} from '@/composables/useButton';
+import {computed} from 'vue';
 import useClasses from '@/composables/useClasses';
 import useDisabled from '@/composables/useDisabled';
 import useSize from '@/composables/useSize';

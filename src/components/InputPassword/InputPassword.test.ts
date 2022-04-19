@@ -4,11 +4,26 @@ import InputPassword from '.';
 import {mount} from '@vue/test-utils';
 
 describe('template', () => {
-    componentRenderTest(InputPassword);
+    componentRenderTest(InputPassword, {}, false);
+
+    componentRenderTest(
+        InputPassword,
+        {
+            props: {
+                modelValue: 'Password',
+                rules: [
+                    {rule: /Password/, feedback: 'Yoooo'},
+                    {rule: /Drowssap/, feedback: 'Ooooy'},
+                ],
+            },
+        },
+        false,
+        'renders rules feedback',
+    );
 });
 
 describe('toggleType', () => {
-    it('toggles type', async () => {
+    it('toggles type', async() => {
         const wrapper = mount(InputPassword);
 
         const button = wrapper.findComponent(Button);

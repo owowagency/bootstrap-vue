@@ -48,6 +48,6 @@ Rules.args = {
         {
             rule: /.{7,}/,
             message: '7 characters',
-        }
+        },
     ],
 };

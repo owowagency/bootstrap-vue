@@ -49,14 +49,14 @@
             :key="rule.rule.toString()"
             :class="rule.valid ? 'is-valid' : 'is-invalid'"
         >
-            {{ rule.message }}
+            {{ rule.feedback }}
         </li>
     </ol>
 </template>
 
 <script lang="ts">
-import Button from '@/components/Button';
 import {PropType, computed, ref} from 'vue';
+import Button from '@/components/Button';
 import FormControl from '@/components/FormControl';
 import InputGroup from '@/components/InputGroup';
 import {buttonProps} from '@/composables/useButton';
@@ -65,7 +65,7 @@ import {formControlProps} from '@/composables/useFormControl';
 import {sizeProps} from '@/composables/useSize';
 
 export interface Rule {
-    message: string;
+    feedback: string;
     rule: RegExp;
     valid?: boolean;
 }
