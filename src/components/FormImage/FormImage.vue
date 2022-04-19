@@ -1,6 +1,7 @@
 <template>
     <label
         class="form-image"
+        :class="{'form-image-has-preview': !!preview}"
         :for="id"
         :style="style"
         @drop="onDrop"

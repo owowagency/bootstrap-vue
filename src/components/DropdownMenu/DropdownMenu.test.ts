@@ -12,6 +12,14 @@ const items = [
 describe('template', () => {
     componentRenderTest(DropdownMenu, {props: {items}});
 
+    componentSlotRenderTest(DropdownMenu, 'prepend');
+
+    componentSlotRenderTest(DropdownMenu, 'items');
+
+    componentSlotRenderTest(DropdownMenu, 'item', {props: {items}});
+
+    componentSlotRenderTest(DropdownMenu, 'append');
+
     it('emits event on click dropdown menu item', async() => {
         const wrapper = shallowMount(DropdownMenu, {props: {items}});
 

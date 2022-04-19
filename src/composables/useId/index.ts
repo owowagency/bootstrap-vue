@@ -5,7 +5,7 @@ export const idProps = {
         type: String,
         /**
          * ID's that start with a numeric value are considered invalid query
-         * selectors, thus prefix it with somethin non numeric.
+         * selectors, thus prefix it with something non-numeric.
          */
         default: () => `owow-${v4()}`,
     },

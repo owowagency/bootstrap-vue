@@ -17,6 +17,7 @@
             class="dropdown-item"
             :class="{active: active}"
             href="#"
+            @click.prevent
         >
             {{ label }}
         </a>

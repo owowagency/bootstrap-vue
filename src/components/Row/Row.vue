@@ -9,13 +9,15 @@
 </template>
 
 <script lang="ts">
-import {Align, Justify, aligns, gutterProp, justifies} from '@/components/Row/type';
-import {PropType, computed, toRef} from 'vue';
+import {alignProp, gutterProp, justifyProp} from '@/components/Row/type';
+import {computed, toRef} from 'vue';
 import useBreakpoints, {Breakpoint, breakpointProps} from '@/composables/useBreakpoints';
 import {colProp} from '@/composables/useCol';
 import {tagProps} from '@/composables/useTag';
 import useClasses from '@/composables/useClasses';
 import useStringTemplate from '@/composables/useStringTemplate';
+
+const propsAlign = breakpointProps(alignProp, 'align-{0}') as Record<`align${Capitalize<Breakpoint>}`, typeof alignProp>;
 
 const propsCol = breakpointProps(colProp, 'cols-{0}') as Record<`cols${Capitalize<Breakpoint>}`, typeof colProp>;
 
@@ -24,15 +26,14 @@ const propsGutters = breakpointProps(gutterProp, 'gutters-{0}') as Record<`gutte
 const propsGuttersX = breakpointProps(gutterProp, 'gutters-x-{0}') as Record<`guttersX${Capitalize<Breakpoint>}`, typeof gutterProp>;
 
 const propsGuttersY = breakpointProps(gutterProp, 'gutters-y-{0}') as Record<`guttersY${Capitalize<Breakpoint>}`, typeof gutterProp>;
+
+const propsJustify = breakpointProps(justifyProp, 'justify-{0}') as Record<`justify${Capitalize<Breakpoint>}`, typeof justifyProp>;
 </script>
 
 <script lang="ts" setup>
 const props = defineProps({
-    align: {
-        type: String as PropType<Align>,
-        default: undefined,
-        validator: (a: Align) => aligns.includes(a),
-    },
+    align: alignProp,
+    ...propsAlign,
     cols: colProp,
     ...propsCol,
     gutters: gutterProp,
@@ -41,13 +42,22 @@ const props = defineProps({
     ...propsGuttersX,
     guttersY: gutterProp,
     ...propsGuttersY,
-    justify: {
-        type: String as PropType<Justify>,
-        default: undefined,
-        validator: (j: Justify) => justifies.includes(j),
-    },
+    justify: justifyProp,
+    ...propsJustify,
     ...tagProps,
 });
+
+const alignProps = {
+    sm: toRef(props, 'alignSm'),
+    md: toRef(props, 'alignMd'),
+    lg: toRef(props, 'alignLg'),
+    xl: toRef(props, 'alignXl'),
+    xxl: toRef(props, 'alignXxl'),
+};
+
+const alignClass = useStringTemplate('align-items-{0}', props.align).templatedString;
+
+const alignClasses = useBreakpoints(alignProps, 'align-items-{0}-{1}').breakpointClasses;
 
 const colProps = {
     sm: toRef(props, 'colsSm'),
@@ -97,8 +107,21 @@ const guttersYClass = useStringTemplate('gy-{0}', props.guttersY).templatedStrin
 
 const guttersYClasses = useBreakpoints(guttersYProps, 'gy-{0}-{1}').breakpointClasses;
 
+const justifyProps = {
+    sm: toRef(props, 'justifySm'),
+    md: toRef(props, 'justifyMd'),
+    lg: toRef(props, 'justifyLg'),
+    xl: toRef(props, 'justifyXl'),
+    xxl: toRef(props, 'justifyXxl'),
+};
+
+const justifyClass = useStringTemplate('justify-content-{0}', props.justify).templatedString;
+
+const justifyClasses = useBreakpoints(justifyProps, 'justify-content-{0}-{1}').breakpointClasses;
+
 const {classes} = useClasses(computed(() => [
-    useStringTemplate('align-items-{0}', props.align).templatedString.value,
+    alignClass.value,
+    ...alignClasses.value,
     colClass.value,
     ...colClasses.value,
     guttersClass.value,
@@ -107,6 +130,7 @@ const {classes} = useClasses(computed(() => [
     ...guttersXClasses.value,
     guttersYClass.value,
     ...guttersYClasses.value,
-    useStringTemplate('justify-content-{0}', props.justify).templatedString.value,
+    justifyClass.value,
+    ...justifyClasses.value,
 ]));
 </script>

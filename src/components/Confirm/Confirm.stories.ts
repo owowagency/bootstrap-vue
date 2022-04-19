@@ -8,19 +8,6 @@ export default {
 };
 
 const template = (args) => ({
-    components: {Confirm},
-    setup: () => ({args}),
-    template: `
-        <Confirm
-            class="d-block"
-            v-bind="args"
-        />
-    `,
-});
-
-export const Default = template.bind({});
-
-export const Demo = (args) => ({
     components: {Btn, Confirm},
     setup: () => ({args}),
     template: `
@@ -37,3 +24,5 @@ export const Demo = (args) => ({
         />
     `,
 });
+
+export const Default = template.bind({});

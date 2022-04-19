@@ -21,6 +21,16 @@ describe('template', () => {
         expect(wrapper.vm.removeItem).toBeCalledWith(0);
     });
 
+    it('tries to add item on blur', async() => {
+        const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
+
+        wrapper.vm.blur = jest.fn();
+
+        await wrapper.find('input').trigger('blur');
+
+        expect(wrapper.vm.blur).toBeCalled();
+    });
+
     it('tries to add item on keydown', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
@@ -86,6 +96,40 @@ describe('items', () => {
     });
 });
 
+describe('matchItem', () => {
+    it('matches an item', () => {
+        const wrapper = shallowMount(FormPills);
+
+        expect(wrapper.vm.matchItem('I am an item')).toBe(true);
+    });
+
+    it('does not match an invalid item', () => {
+        const wrapper = shallowMount(FormPills);
+
+        expect(wrapper.vm.matchItem('')).toBe(false);
+    });
+});
+
+describe('maxItemsReached', () => {
+    it('computes max items not reached', () => {
+        const wrapper = shallowMount(FormPills, {props: {
+            maxItems: 3,
+            modelValue: ['first', 'second'],
+        }});
+
+        expect(wrapper.vm.maxItemsReached).toBe(false);
+    });
+
+    it('computes max items reached', () => {
+        const wrapper = shallowMount(FormPills, {props: {
+            maxItems: 3,
+            modelValue: ['first', 'second', 'third'],
+        }});
+
+        expect(wrapper.vm.maxItemsReached).toBe(true);
+    });
+});
+
 describe('splitItem', () => {
     it('splits spaces and newlines by default', () => {
         const wrapper = shallowMount(FormPills);
@@ -113,6 +157,49 @@ describe('removeItem', () => {
 
         expect(modelValue.splice).toBeCalledWith(1, 1);
     });
+
+    it('edits removed item on backspace', async() => {
+        const wrapper = shallowMount(FormPills, {props: {
+            editItemOnBackspace: true,
+            modelValue: ['aa'],
+        }});
+
+        expect(wrapper.vm.value).toBe('');
+
+        const event = {code: 'Backspace'};
+
+        await wrapper.find('input').trigger('keydown', event);
+
+        expect(wrapper.vm.value).toBe('aa');
+
+        expect(wrapper.vm.modelValue).toHaveLength(0);
+    });
+});
+
+describe('validateValue', () => {
+    it('validates single value', () => {
+        const wrapper = shallowMount(FormPills);
+
+        expect(wrapper.vm.validateValue('item')).toBe(true);
+    });
+
+    it('validates array of values', () => {
+        const wrapper = shallowMount(FormPills);
+
+        expect(wrapper.vm.validateValue(['first', 'second', 'third'])).toBe(true);
+    });
+
+    it('invalidates single faulty value', () => {
+        const wrapper = shallowMount(FormPills, {props: {valueMatcher: '^match'}});
+
+        expect(wrapper.vm.validateValue('nomatch')).toBe(false);
+    });
+
+    it('invalidates single faulty value in array of values', () => {
+        const wrapper = shallowMount(FormPills, {props: {valueMatcher: '^match'}});
+
+        expect(wrapper.vm.validateValue(['match', 'nomatch', 'match again'])).toBe(false);
+    });
 });
 
 describe('addItem', () => {
@@ -129,10 +216,57 @@ describe('addItem', () => {
         expect(modelValue.concat).toBeCalledWith(['a']);
     });
 
+    it('does not add items when max items reached', () => {
+        const wrapper = shallowMount(FormPills, {props: {
+            maxItems: 2,
+            modelValue: ['first', 'second'],
+        }});
+
+        expect(wrapper.vm.addItem('third')).toBe(false);
+    });
+
     it('does not add new items when empty split', () => {
         const wrapper = shallowMount(FormPills);
 
         expect(wrapper.vm.addItem('')).toBe(false);
+    });
+
+    it('adds new items with custom value matcher', () => {
+        // Cannot mock concat of `items` computed property.
+        const modelValue = [];
+
+        modelValue.concat = jest.fn();
+
+        const wrapper = shallowMount(FormPills, {props: {
+            modelValue,
+            valueMatcher: '^match',
+        }});
+
+        expect(wrapper.vm.addItem('match nomatch')).toBe(true);
+
+        expect(modelValue.concat).toBeCalledWith(['match']);
+    });
+
+    it('does not add new item with non-matching custom value matcher', () => {
+        const wrapper = shallowMount(FormPills, {props: {valueMatcher: '^match'}});
+
+        expect(wrapper.vm.addItem('nomatch')).toBe(false);
+    });
+
+    it('adds new items until max reached', () => {
+        // Cannot mock concat of `items` computed property.
+        const modelValue = [];
+
+        modelValue.concat = jest.fn();
+
+        const wrapper = shallowMount(FormPills, {props: {
+            modelValue,
+            maxItems: 2,
+        }});
+
+        expect(wrapper.vm.addItem('first second third')).toBe(true);
+
+        expect(modelValue.concat).toBeCalledWith(['first', 'second']);
     });
 });
 
@@ -203,6 +337,30 @@ describe('paste', () => {
 
         wrapper.vm.paste(event);
 
+        expect(modelValue.concat).not.toBeCalled();
+    });
+
+    it('adds clipboard to input if data is invalid', () => {
+        // Cannot mock concat of `items` computed property.
+        const modelValue = [];
+
+        modelValue.concat = jest.fn();
+
+        const wrapper = shallowMount(FormPills, {
+            props: {
+                modelValue,
+                valueMatcher: /^abc$/,
+            },
+        });
+
+        const event = {
+            clipboardData: {getData: jest.fn().mockReturnValue('abcd abc abcd')},
+            preventDefault: jest.fn(),
+        };
+
+        wrapper.vm.paste(event);
+
+        expect(wrapper.vm.value).toBe(event.clipboardData.getData());
         expect(modelValue.concat).not.toBeCalled();
     });
 });
