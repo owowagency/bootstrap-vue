@@ -1,29 +1,21 @@
 <template>
-    <button
+    <component
+        :is="tag"
         class="btn"
         :class="classes"
         :disabled="disabled"
     >
         <slot />
-    </button>
+    </component>
 </template>
 
 <script lang="ts">
-import useDisabled, {disabledProps} from '@/composables/useDisabled';
-import useSize, {sizeProps} from '@/composables/useSize';
-import useVariant, {variantProps} from '@/composables/useVariant';
 import {computed} from 'vue';
+import {buttonProps} from '@/composables/useButton';
 import useClasses from '@/composables/useClasses';
-
-export const buttonProps = {
-    ...disabledProps,
-    outline: {
-        type: Boolean,
-        default: false,
-    },
-    ...sizeProps,
-    ...variantProps,
-};
+import useDisabled from '@/composables/useDisabled';
+import useSize from '@/composables/useSize';
+import useVariant from '@/composables/useVariant';
 </script>
 
 <script lang="ts" setup>

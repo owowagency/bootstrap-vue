@@ -3,6 +3,7 @@
         <template #append>
             <Button
                 v-bind="propsButton"
+                tag="div"
                 @click="toggleType"
             >
                 <svg
@@ -54,10 +55,11 @@
 </template>
 
 <script lang="ts">
-import Button, {buttonProps} from '@/components/Button';
+import Button from '@/components/Button';
 import {PropType, computed, ref} from 'vue';
 import FormControl from '@/components/FormControl';
 import InputGroup from '@/components/InputGroup';
+import {buttonProps} from '@/composables/useButton';
 import extractKeysFrom from '@/library/extractKeysFrom';
 import {formControlProps} from '@/composables/useFormControl';
 import {sizeProps} from '@/composables/useSize';
