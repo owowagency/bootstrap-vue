@@ -41,7 +41,7 @@
 
     <ol
         v-if="rules.length"
-        class="input-password-feedback list-unstyled"
+        class="input-password-feedback"
     >
         <li
             v-for="rule of rules"
