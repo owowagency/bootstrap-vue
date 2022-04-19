@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import {PropType, computed, ref} from 'vue';
+import {PropType, computed, ref, watch} from 'vue';
 import Button from '@/components/Button';
 import FormControl from '@/components/FormControl';
 import InputGroup from '@/components/InputGroup';
@@ -83,6 +83,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits<{
+    (e: 'update:isValid', value?: boolean): void;
     (e: 'update:modelValue', value?: string): void;
 }>();
 
@@ -101,4 +102,8 @@ const rules = computed(() => {
         return r;
     });
 });
+
+const isValid = computed(() => rules.value.every(r => r.valid));
+
+watch(isValid, v => emit('update:isValid', v));
 </script>
