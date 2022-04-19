@@ -50,6 +50,7 @@ import {Variant, variantProp} from '@/composables/useVariant';
 import Button from '@/components/Button';
 import Spinner from '@/components/Spinner';
 import {computed} from 'vue';
+import {disabledProps} from '@/composables/useDisabled';
 </script>
 
 <script lang="ts" setup>
@@ -69,9 +70,10 @@ const props = defineProps({
         default: false,
     },
     successVariant: variantProp('success'),
+    ...disabledProps
 });
 
-const disabled = computed(() => props.loading);
+const disabled = computed(() => props.disabled || props.loading);
 
 const variant = computed<Variant>(() => {
     switch (true) {

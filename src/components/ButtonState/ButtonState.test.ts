@@ -36,6 +36,24 @@ describe('template', () => {
 });
 
 describe('disabled', () => {
+    it('is false when not disabled', () => {
+        const wrapper = shallowMount(ButtonState, {props: {disabled: false}});
+
+        expect(wrapper.vm.disabled).toBe(false);
+    });
+
+    it('is true when disabled', () => {
+        const wrapper = shallowMount(ButtonState, {props: {disabled: true}});
+
+        expect(wrapper.vm.disabled).toBe(true);
+    });
+
+    it('is true when disabled and not loading', () => {
+        const wrapper = shallowMount(ButtonState, {props: {disabled: true, loading: false}});
+
+        expect(wrapper.vm.disabled).toBe(true);
+    });
+
     it('is false when not loading', () => {
         const wrapper = shallowMount(ButtonState, {props: {loading: false}});
 

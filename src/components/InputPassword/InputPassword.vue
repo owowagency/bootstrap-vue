@@ -105,5 +105,9 @@ const rules = computed(() => {
 
 const isValid = computed(() => rules.value.every(r => r.valid));
 
-watch(isValid, v => emit('update:isValid', v));
+watch(
+    isValid,
+    v => emit('update:isValid', v),
+    {immediate: true},
+);
 </script>

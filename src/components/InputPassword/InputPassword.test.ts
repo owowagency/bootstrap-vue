@@ -86,6 +86,7 @@ describe('isValid', () => {
 
         await nextTick();
 
-        expect(wrapper.emitted('update:isValid')).toEqual([[true]]);
+        // First one is immidiate
+        expect(wrapper.emitted('update:isValid')[1]).toEqual([true]);
     });
 });
