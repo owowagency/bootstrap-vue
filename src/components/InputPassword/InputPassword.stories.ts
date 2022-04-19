@@ -35,19 +35,19 @@ Rules.args = {
     rules: [
         {
             rule: /\d/,
-            message: 'One number',
+            feedback: 'One number',
         },
         {
             rule: /[a-z]/,
-            message: 'One lowercase character',
+            feedback: 'One lowercase character',
         },
         {
             rule: /[A-Z]/,
-            message: 'One upper character',
+            feedback: 'One upper character',
         },
         {
             rule: /.{7,}/,
-            message: '7 characters',
+            feedback: '7 characters',
         },
     ],
 };
