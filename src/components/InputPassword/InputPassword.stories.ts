@@ -28,3 +28,26 @@ export const Sizing = (args) => ({
     },
     template: '<InputPassword v-for="s of sizes" class="mb-1" :size="s" v-bind="args">',
 });
+
+export const Rules = template.bind({});
+
+Rules.args = {
+    rules: [
+        {
+            rule: /\d/,
+            message: 'One number',
+        },
+        {
+            rule: /[a-z]/,
+            message: 'One lowercase character',
+        },
+        {
+            rule: /[A-Z]/,
+            message: 'One upper character',
+        },
+        {
+            rule: /.{7,}/,
+            message: '7 characters',
+        }
+    ],
+};

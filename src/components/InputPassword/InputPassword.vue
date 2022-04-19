@@ -38,16 +38,35 @@
             @update:model-value="emit('update:modelValue', $event)"
         />
     </InputGroup>
+
+    <ol
+        v-if="rules.length"
+        class="input-password-feedback list-unstyled"
+    >
+        <li
+            v-for="rule of rules"
+            :key="rule.rule.toString()"
+            :class="rule.valid ? 'is-valid' : 'is-invalid'"
+        >
+            {{ rule.message }}
+        </li>
+    </ol>
 </template>
 
 <script lang="ts">
 import Button, {buttonProps} from '@/components/Button';
+import {PropType, computed, ref} from 'vue';
 import FormControl from '@/components/FormControl';
 import InputGroup from '@/components/InputGroup';
 import extractKeysFrom from '@/library/extractKeysFrom';
 import {formControlProps} from '@/composables/useFormControl';
-import {ref} from 'vue';
 import {sizeProps} from '@/composables/useSize';
+
+export interface Rule {
+    message: string;
+    rule: RegExp;
+    valid?: boolean;
+}
 </script>
 
 <script lang="ts" setup>
@@ -55,6 +74,10 @@ const props = defineProps({
     ...buttonProps,
     ...formControlProps,
     ...sizeProps,
+    rules: {
+        type: Array as PropType<Rule[]>,
+        default: () => [],
+    },
 });
 
 const emit = defineEmits<{
@@ -68,4 +91,12 @@ const propsButton = extractKeysFrom(Object.keys(buttonProps), props);
 const type = ref<'password'|'text'>('password');
 
 const toggleType = () => type.value = type.value === 'password' ? 'text' : 'password';
+
+const rules = computed(() => {
+    return props.rules.map(r => {
+        r.valid = r.rule.test(props.modelValue);
+
+        return r;
+    });
+});
 </script>
