@@ -103,6 +103,14 @@ describe('template', () => {
         expect(invalidFeedback.text()).toBe('errooore');
     });
 
+    it('renders an array of invalid feedback', () => {
+        const wrapper = shallowMount(FormGroup, {
+            props: {invalidFeedback: ['errooore 1', 'errooore 2']},
+        });
+
+        expect(wrapper.findAll('.invalid-feedback').length).toBe(2);
+    });
+
     it('renders valid feedback', () => {
         const wrapper = shallowMount(FormGroup, {
             props: {validFeedback: 'well done!'},
@@ -113,6 +121,14 @@ describe('template', () => {
         expect(validFeedback.text()).toBe('well done!');
     });
 
+    it('renders an array of valid feedback', () => {
+        const wrapper = shallowMount(FormGroup, {
+            props: {validFeedback: ['well', 'done']},
+        });
+
+        expect(wrapper.findAll('.valid-feedback').length).toBe(2);
+    });
+
     it('renders help text', () => {
         const wrapper = shallowMount(FormGroup, {
             props: {helpText: 'some more info'},
@@ -121,6 +137,24 @@ describe('template', () => {
         const helpText = wrapper.find('.form-text');
 
         expect(helpText.text()).toBe('some more info');
+    });
+});
+
+describe('invalidFeedback', () => {
+    it('always is an array', () => {
+        const wrapper = shallowMount(FormGroup, {
+            props: {invalidFeedback: 'string'},
+        });
+
+        expect(wrapper.vm.invalidFeedback).toEqual(['string']);
+    });
+
+    it('filters', () => {
+        const wrapper = shallowMount(FormGroup, {
+            props: {invalidFeedback: ['', 0, undefined]},
+        });
+
+        expect(wrapper.vm.invalidFeedback).toEqual([]);
     });
 });
 
@@ -139,6 +173,25 @@ describe('isInvalid', () => {
         });
 
         expect(wrapper.vm.isInvalid).toBe(true);
+    });
+});
+
+
+describe('validFeedback', () => {
+    it('always is an array', () => {
+        const wrapper = shallowMount(FormGroup, {
+            props: {validFeedback: 'string'},
+        });
+
+        expect(wrapper.vm.validFeedback).toEqual(['string']);
+    });
+
+    it('filters', () => {
+        const wrapper = shallowMount(FormGroup, {
+            props: {validFeedback: ['', 0, undefined]},
+        });
+
+        expect(wrapper.vm.validFeedback).toEqual([]);
     });
 });
 

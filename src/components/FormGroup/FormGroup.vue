@@ -28,19 +28,25 @@
             />
         </slot>
 
-        <div
-            v-if="isInvalid"
-            class="invalid-feedback"
-        >
-            {{ invalidFeedback }}
-        </div>
+        <template v-if="isInvalid">
+            <div
+                v-for="feedback of invalidFeedback"
+                :key="feedback"
+                class="invalid-feedback"
+            >
+                {{ feedback }}
+            </div>
+        </template>
 
-        <div
-            v-if="isValid"
-            class="valid-feedback"
-        >
-            {{ validFeedback }}
-        </div>
+        <template v-if="isValid">
+            <div
+                v-for="feedback of validFeedback"
+                :key="feedback"
+                class="valid-feedback"
+            >
+                {{ feedback }}
+            </div>
+        </template>
 
         <div
             v-if="helpText"
@@ -71,8 +77,8 @@ const props = defineProps({
     ...idProps,
     ...formControlProps,
     invalidFeedback: {
-        type: String,
-        default: undefined,
+        type: [Array, String],
+        default: () => [],
     },
     label: {
         type: String,
@@ -83,8 +89,8 @@ const props = defineProps({
         default: undefined,
     },
     validFeedback: {
-        type: String,
-        default: undefined,
+        type: [Array, String],
+        default: () => [],
     },
 });
 
@@ -99,9 +105,13 @@ const propsFormControl = computed(() => {
     return properties;
 });
 
-const isInvalid = computed(() => !!props.invalidFeedback);
+const invalidFeedback = computed(() => [props.invalidFeedback].flat().filter(f => !!f));
 
-const isValid = computed(() => !!props.validFeedback);
+const isInvalid = computed(() => !!invalidFeedback.value.length);
+
+const validFeedback = computed(() => [props.validFeedback].flat().filter(f => !!f));
+
+const isValid = computed(() => !!validFeedback.value.length);
 
 const validityClass = computed(() => [
     isInvalid.value ? 'is-invalid' : undefined,
