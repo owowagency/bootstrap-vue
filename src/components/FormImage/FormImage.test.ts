@@ -14,6 +14,19 @@ describe('template', () => {
         'form-image-has-preview',
     );
 
+    componentSlotRenderTest(FormImage, 'placeholder');
+
+    it('doesnt renders placeholder slot with preview', () => {
+        const id = 'i-am-the-placeholder-slot';
+
+        const wrapper = shallowMount(FormImage, {
+            props: {preview: 'some-preview'},
+            slots: {placeholder: `<div id="${id}" />`},
+        });
+
+        expect(wrapper.find(`#${id}`).exists()).toBe(false);
+    });
+
     it('renders btn edit when has preview', () => {
         const wrapper = shallowMount(FormImage, {props: {preview: 'some-preview'}});
 
