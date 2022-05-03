@@ -21,6 +21,11 @@
             v-if="preview"
             class="form-image-btn-edit"
         />
+
+        <slot
+            v-else
+            name="placeholder"
+        />
     </label>
 </template>
 
