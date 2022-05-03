@@ -23,7 +23,7 @@
         />
 
         <slot
-            v-if="!preview"
+            v-else
             name="placeholder"
         />
     </label>
