@@ -73,8 +73,8 @@ import {ComponentPublicInstance, PropType, computed, onMounted, ref, watch} from
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
-import {formControlProps} from '@/composables/useFormControl';
 import {dropdownProps} from '@/composables/useDropdown';
+import {formControlProps} from '@/composables/useFormControl';
 import extractKeysFrom from '@/library/extractKeysFrom';
 import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
@@ -117,7 +117,7 @@ const propsFormControl = extractKeysFrom(
 const propsDropdown = extractKeysFrom(
     Object.keys(dropdownProps)
         .filter(k => !['items', 'labelKey'].includes(k)),
-    props
+    props,
 );
 
 const filteredItems = computed(() => {
