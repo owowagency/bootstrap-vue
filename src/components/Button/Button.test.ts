@@ -6,6 +6,8 @@ describe('template', () => {
 
     componentSlotRenderTest(Button);
 
+    componentWrapperTagTest(Button, {props: {tag: 'div'}});
+
     it('adds disabled property', () => {
         const wrapper = shallowMount(Button, {
             props: {disabled: true},

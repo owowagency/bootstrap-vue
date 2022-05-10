@@ -44,7 +44,7 @@ const props = defineProps({
     ...propsGuttersY,
     justify: justifyProp,
     ...propsJustify,
-    ...tagProps,
+    ...tagProps(),
 });
 
 const alignProps = {

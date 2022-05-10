@@ -1,8 +1,8 @@
 import {PropType} from 'vue';
 
-export const tagProps = {
+export const tagProps = (d = 'div') => ({
     tag: {
         type: String as PropType<keyof HTMLElementTagNameMap>,
-        default: 'div',
+        default: d,
     },
-};
+});

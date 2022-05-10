@@ -60,6 +60,7 @@
 <script lang="ts">
 import FormControl from '@/components/FormControl';
 import {computed} from 'vue';
+import extractKeysFrom from '@/library/extractKeysFrom';
 import {formControlProps} from '@/composables/useFormControl';
 import {idProps} from '@/composables/useId';
 </script>
@@ -96,14 +97,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
-const propsFormControl = computed(() => {
-    const properties = {};
-
-    Object.keys(formControlProps)
-        .forEach(k => properties[k] = props[k]);
-
-    return properties;
-});
+const propsFormControl = extractKeysFrom(Object.keys(formControlProps), props);
 
 const invalidFeedback = computed(() => [props.invalidFeedback].flat().filter(f => !!f));
 

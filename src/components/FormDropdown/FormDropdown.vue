@@ -70,6 +70,7 @@ import Dropdown from '@/components/Dropdown';
 import DropdownMenuItem from '@/components/DropdownMenuItem';
 import {computed} from 'vue';
 import {dropdownProps} from '@/composables/useDropdown';
+import extractKeysFrom from '@/library/extractKeysFrom';
 import useClasses from '@/composables/useClasses';
 
 const {disabled: disabledProp, size: sizeProp} = formSelectProps;
@@ -104,14 +105,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
-const propsDropdown = computed(() => {
-    const properties = {};
-
-    Object.keys(dropdownProps)
-        .forEach(k => properties[k] = props[k]);
-
-    return properties;
-});
+const propsDropdown = extractKeysFrom(Object.keys(dropdownProps), props);
 
 const label = computed(() => {
     if (!props.modelValue) {
