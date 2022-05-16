@@ -74,8 +74,8 @@ import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
 import {dropdownProps} from '@/composables/useDropdown';
-import {formControlProps} from '@/composables/useFormControl';
 import extractKeysFrom from '@/library/extractKeysFrom';
+import {formControlProps} from '@/composables/useFormControl';
 import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
 const props = defineProps({
