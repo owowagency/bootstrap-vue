@@ -4,6 +4,7 @@
         v-model="modelValue"
         :items="filteredItems"
         :label-key="labelKey"
+        v-bind="propsDropdown"
     >
         <template #dropdownToggle>
             <slot name="dropdownToggle">
@@ -13,7 +14,7 @@
                     class="form-select"
                     data-bs-toggle="dropdown"
                     :placeholder="searchValueCached || placeholder"
-                    v-bind="$attrs"
+                    v-bind="propsFormControl"
                     @focus="showMenu"
                 />
             </slot>
@@ -72,9 +73,13 @@ import {ComponentPublicInstance, PropType, computed, onMounted, ref, watch} from
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
+import {dropdownProps} from '@/composables/useDropdown';
+import extractKeysFrom from '@/library/extractKeysFrom';
+import {formControlProps} from '@/composables/useFormControl';
 import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
 const props = defineProps({
+    ...formControlProps,
     autoSearch: {
         type: Boolean,
         default: true,
@@ -102,6 +107,18 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['update:modelValue', 'update:search']);
+
+const propsFormControl = extractKeysFrom(
+    Object.keys(formControlProps)
+        .filter(k => !['modelValue', 'placeholder'].includes(k)),
+    props,
+);
+
+const propsDropdown = extractKeysFrom(
+    Object.keys(dropdownProps)
+        .filter(k => !['items', 'labelKey'].includes(k)),
+    props,
+);
 
 const filteredItems = computed(() => {
     if (searchValue.value === '' || !props.autoSearch) {
