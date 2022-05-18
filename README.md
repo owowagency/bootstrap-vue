@@ -68,7 +68,7 @@ yarn add @owowagency/bootstrap-vue
 
 This package provides the following features:
 
-## Components
+### Components
 
 <details>
     <summary>
@@ -116,7 +116,9 @@ This package provides the following features:
 - Table
 </details>
 
-## Composables
+<br>
+
+### Composables
 
 <details>
     <summary>
@@ -146,8 +148,8 @@ This package provides the following features:
 
 # Contributing
 
-Please see [CONTRIBUTING](https://github.com/owowagency/bootstrap-vue/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/owowagency/bootstrap-vue/blob/master/CONTRIBUTING) for details.
 
 # License
 
-The MIT License (MIT). Please see [License File](https://github.com/owowagency/bootstrap-vue/blob/master/LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/owowagency/bootstrap-vue/blob/master/LICENSE) for more information.
