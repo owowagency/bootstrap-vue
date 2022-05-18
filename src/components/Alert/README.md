@@ -1,7 +1,5 @@
 # Alert
 
-## Examples
-
 ```html
 <Alert variant="danger">
     Something went wrong!
@@ -10,13 +8,19 @@
 
 ## Props
 
-| name | type |
+| Name | Type | Description |
+| - | - | - |
+| variant | [Variant](#link-to-variant-definition) (string) | The variant of the alert. |
+
+## Slots
+
+| Name | Description |
 | - | - |
-| variant | Variant (string) |
+| Default | Displays content inside the alert. |
 
 ## Events
 
-| name | type |
-| - | - |
-| close | |
-| closed | |
+| Name | Args | Description |
+| - | - | - |
+| close | | Fires immediately when the `close` instance method is called.  |
+| closed | | Fired when the alert has been closed and CSS transitions have completed. |
