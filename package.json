@@ -74,5 +74,7 @@
     },
     "storybook": {
         "url": "https://owowagency.github.io/bootstrap-vue"
-    }
+    },
+    "repository": "git@github.com:owowagency/bootstrap-vue.git",
+    "author": "Thomas van der Veen <thomas@owow.io>"
 }
