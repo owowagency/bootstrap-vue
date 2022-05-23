@@ -25,4 +25,4 @@ jobs:
 
     - run: yarn build-storybook
 
-    - run: yarn deploy-storybook -u 'github-actions-bot <support+actions@github.com>'
+    - run: yarn deploy-storybook -u "github-actions-bot <support+actions@github.com>"
