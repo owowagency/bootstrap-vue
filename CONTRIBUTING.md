@@ -10,7 +10,7 @@ yarn
 
 ## Storybook
 
-This package utilizes [Storybook](https://storybook.js.org/) to easily develop components in isolation.
+This package utilizes [Storybook](https://storybook.js.org/) to easily develop components in isolation. It also serves as the [demo page](https://owowagency.github.io/bootstrap-vue) of all the components.
 
 ```bash
 yarn storybook
@@ -46,5 +46,6 @@ In this folder the following files are required to be present:
 - Vue component file named after the component itself, example: `Alert.vue`. This file contains the code of the component itself.
 - A storybook file to preview the component, `Alert.stories.ts`.
 - A test file in which the component is tested, `Alert.test.ts`.
+- A `README.md` file that at least contains an example, and definitions for props, events, and slots.
 
-Further more this component needs to be exported and made available to consumers.
+Furthermore this component needs to be exported and made available to consumers in the final build.

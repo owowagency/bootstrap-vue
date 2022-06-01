@@ -4,53 +4,52 @@
 A component library for Vue 3 and Bootstrap 5 + a few extra's.
 
 ```html
-<h1>
-    Vote for best package
-</h1>
-
 <Row
-    align="center"
+    align="end"
     cols="1"
-    cols-sm="2"
+    cols-sm="3"
 >
     <Col>
         <FormGroup
-            v-model="organisation"
-            :invalid-feedback="errors.organisation"
-            label="Organisation"
-            placholder="owowagency"
+            v-model="email"
+            :invalid-feedback="errors.email"
+            label="Email address"
+            placeholder="bootstrap-vue@owow.io"
         />
     </Col>
 
     <Col>
         <FormGroup
-            :invalid-feedback="errors.package"
-            label="Package"
+            v-model="password"
+            :invalid-feedback="errors.password"
+            label="Password"
+            type="password"
+        />
+    </Col>
+
+    <Col>
+        <ButtonState
+            :error="error"
+            :loading="loading"
+            @click="login"
         >
-            <FormDropdownSearch
-                v-model="package"
-                :items="packages"
-                placeholder="bootstrap-vue"
-            />
-        </FormGroup>
+            Login
+        </ButtonState>
     </Col>
 </Row>
-
-<ButtonState
-    :error="error"
-    :loading="loading"
-    @click="submit"
->
-    Submit
-</ButtonState>
 ```
 
 # Table of contents
 
+1. [Demo](#demo)
 1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Contributing](#contributing)
-6. [License](#license)
+1. [Usage](#usage)
+1. [Contributing](#contributing)
+1. [License](#license)
+
+# Demo
+
+All components can be found on the [Storybook page](https://owowagency.github.io/bootstrap-vue) of this package.
 
 # Installation
 
@@ -64,7 +63,31 @@ npm install @owowagency/bootstrap-vue
 yarn add @owowagency/bootstrap-vue
 ```
 
+This package also requires [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/download/#package-managers) for its styling and Javascript.
+
+```bash
+# npm
+npm install bootstrap
+
+# yarn
+yarn add bootstrap
+```
+
 # Usage
+
+Here is a simple example on how to use a component in your Vue application:
+
+```html
+<template>
+    <Button variant="danger">
+        Please don't click me!
+    </Button>
+</template>
+
+<script setup>
+import {Button} from '@owowagency/bootstrap-vue';
+</script>
+```
 
 This package provides the following features:
 
@@ -77,7 +100,7 @@ This package provides the following features:
 
 - Accordion
 - AccordionItem
-- [Alert](https://github.com/owowagency/bootstrap-vue/blob/master/src/components/Alert/README.md)
+- [Alert](./src/components/Alert/README.md)
 - Badge
 - Breadcrumb
 - BreadcrumbItem
@@ -148,8 +171,8 @@ This package provides the following features:
 
 # Contributing
 
-Please see [CONTRIBUTING](https://github.com/owowagency/bootstrap-vue/blob/master/CONTRIBUTING) for details.
+Please see [CONTRIBUTING](./CONTRIBUTING.md) for details.
 
 # License
 
-The MIT License (MIT). Please see [License File](https://github.com/owowagency/bootstrap-vue/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](./LICENSE) for more information.
