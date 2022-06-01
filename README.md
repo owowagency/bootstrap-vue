@@ -46,6 +46,7 @@ A component library for Vue 3 and Bootstrap 5 + a few extra's.
 1. [Usage](#usage)
 1. [Contributing](#contributing)
 1. [License](#license)
+1. [OWOW](#owow)
 
 # Demo
 
@@ -176,3 +177,7 @@ Please see [CONTRIBUTING](./CONTRIBUTING.md) for details.
 # License
 
 The MIT License (MIT). Please see [License File](./LICENSE) for more information.
+
+# OWOW
+
+This package has been brought to you with much love by the wizkids of OWOW.asda as
