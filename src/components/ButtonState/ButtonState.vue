@@ -54,7 +54,6 @@ import {computed} from 'vue';
 
 <script lang="ts" setup>
 const props = defineProps({
-    variant: variantProp(),
     error: {
         type: Boolean,
         default: false,
@@ -69,6 +68,7 @@ const props = defineProps({
         default: false,
     },
     successVariant: variantProp('success'),
+    variant: variantProp(),
 });
 
 const disabled = computed(() => props.loading);

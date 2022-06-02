@@ -16,7 +16,7 @@
 
 | Name | Description |
 | - | - |
-| Default | Displays content inside the alert. |
+| default | Displays content inside the alert. |
 
 ## Events
 
