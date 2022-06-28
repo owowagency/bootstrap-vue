@@ -4,7 +4,7 @@
 
         <slot
             name="items"
-            :clickItem="clickItem"
+            :click-item="clickItem"
             :items="items"
         >
             <template
@@ -13,7 +13,7 @@
             >
                 <slot
                     name="item"
-                    :clickItem="clickItem"
+                    :click-item="clickItem"
                     :item="item"
                 >
                     <DropdownMenuItem

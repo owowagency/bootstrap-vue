@@ -78,7 +78,7 @@ describe('filteredItems', () => {
 
 describe('modelValue', () => {
     it('sets searchValue to its label', async() => {
-        let modelValue = undefined;
+        const modelValue = undefined;
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {modelValue}});
 
@@ -90,7 +90,7 @@ describe('modelValue', () => {
     });
 
     it('resets searchValue if undefined', async() => {
-        let modelValue = items[0];
+        const modelValue = items[0];
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {
             modelValue,

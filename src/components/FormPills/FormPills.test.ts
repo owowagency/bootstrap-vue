@@ -1,5 +1,5 @@
-import {nextTick, ref} from 'vue';
 import FormPills from '.';
+import {nextTick} from 'vue';
 import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
