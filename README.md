@@ -53,7 +53,7 @@
 # 📖 Table of contents
 
 1. [Demo](#-demo)
-1. [Installation](#-installation)
+1. [Installation](#%EF%B8%8F-installation)
 1. [Usage](#-usage)
 1. [Contributing](#-contributing)
 1. [License](#-license)
