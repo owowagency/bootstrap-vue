@@ -94,11 +94,6 @@ This package provides the following features:
 
 ### Components
 
-<details>
-    <summary>
-        Click to view components
-    </summary>
-
 - Accordion
 - AccordionItem
 - [Alert](./src/components/Alert/README.md)
@@ -138,16 +133,8 @@ This package provides the following features:
 - Row
 - Spinner
 - Table
-</details>
-
-<br>
 
 ### Composables
-
-<details>
-    <summary>
-        Click to view composables
-    </summary>
 
 - useActive
 - useBootstrap
@@ -168,7 +155,6 @@ This package provides the following features:
 - useStringTemplate
 - useTag
 - useVariant
-</details>
 
 # Contributing
 
@@ -180,4 +166,4 @@ The MIT License (MIT). Please see [License File](./LICENSE) for more information
 
 # OWOW
 
-This package has been brought to you with much love by the wizkids of OWOW.asda as
+This package has been brought to you with much love by the wizkids of [OWOW](https://owow.io/). Do you like this package? We’re still looking for new talent and Wizkids. So do you want to contribute to open source, while getting paid? [Apply now](https://owow.io/jobs).
