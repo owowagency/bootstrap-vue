@@ -52,11 +52,11 @@
 
 # 📖 Table of contents
 
-1. [Demo](#demo)
-1. [Installation](#installation)
-1. [Usage](#usage)
-1. [Contributing](#contributing)
-1. [License](#license)
+1. [Demo](#-demo)
+1. [Installation](#-installation)
+1. [Usage](#-usage)
+1. [Contributing](#-contributing)
+1. [License](#-license)
 1. [OWOW](#owow)
 
 # 🚀 Demo
@@ -178,7 +178,7 @@ The MIT License (MIT). Please see [License File](./LICENSE) for more information
 <br>
 <br>
 
-<img src="https://user-images.githubusercontent.com/45201651/176249441-e83226be-7281-4ddb-ad4a-9100f8862d4e.svg#gh-light-mode-only" width="150">
-<img src="https://user-images.githubusercontent.com/45201651/176249444-ceede6f9-3c2e-481d-87c3-3a72ca497e65.svg#gh-dark-mode-only" width="150">
+<img id="owow" src="https://user-images.githubusercontent.com/45201651/176249441-e83226be-7281-4ddb-ad4a-9100f8862d4e.svg#gh-light-mode-only" width="150">
+<img id="owow" src="https://user-images.githubusercontent.com/45201651/176249444-ceede6f9-3c2e-481d-87c3-3a72ca497e65.svg#gh-dark-mode-only" width="150">
 
 This package has been brought to you with much love by the wizkids of [OWOW](https://owow.io/). Do you like this package? We’re still looking for new talent and Wizkids. So do you want to contribute to open source, while getting paid? [Apply now](https://owow.io/jobs).
