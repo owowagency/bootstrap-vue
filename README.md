@@ -108,16 +108,16 @@ This package provides the following features:
 - Accordion
 - AccordionItem
 - [Alert](./src/components/Alert/README.md)
-- Badge
-- Breadcrumb
-- BreadcrumbItem
-- Button
-- ButtonClose
-- ButtonGroup
-- ButtonState
-- Card
+- [Badge](./src/components/Badge/README.md)
+- [Breadcrumb](./src/components/Breadcrumb/README.md)
+- [BreadcrumbItem](./src/components/BreadcrumbItem/README.md)
+- [Button](./src/components/Button/README.md)
+- [ButtonClose](./src/components/ButtonClose/README.md)
+- [ButtonGroup](./src/components/ButtonGroup/README.md)
+- [ButtonState](./src/components/ButtonState/README.md)
+- [Card](./src/components/Card/README.md)
 - Carousel
-- Col
+- [Col](./src/components/Col/README.md)
 - Collapse
 - Confirm
 - Container
@@ -141,7 +141,7 @@ This package provides the following features:
 - NavItem
 - NavLink
 - Offcanvas
-- Row
+- [Row](./src/components/Row/README.md)
 - Spinner
 - Table
 
