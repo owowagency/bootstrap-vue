@@ -1,7 +1,13 @@
 ![banner-dark](https://user-images.githubusercontent.com/45201651/169008977-bb183203-dc58-44b8-ae79-aa2d2c97a8ce.svg#gh-dark-mode-only)
 ![banner-light](https://user-images.githubusercontent.com/45201651/169008981-ecd6889a-e444-49a6-8148-62d78ffbb5d4.svg#gh-light-mode-only)
 
-A component library for Vue 3 and Bootstrap 5 + a few extra's.
+<br>
+
+<p align="center">
+    A component library for Vue 3 and Bootstrap 5 + a few extra's just for you 😉.
+</p>
+
+<br>
 
 ```html
 <Row
@@ -39,7 +45,7 @@ A component library for Vue 3 and Bootstrap 5 + a few extra's.
 </Row>
 ```
 
-# Table of contents
+# 📖 Table of contents
 
 1. [Demo](#demo)
 1. [Installation](#installation)
@@ -48,11 +54,11 @@ A component library for Vue 3 and Bootstrap 5 + a few extra's.
 1. [License](#license)
 1. [OWOW](#owow)
 
-# Demo
+# 🚀 Demo
 
 All components can be found on the [Storybook page](https://owowagency.github.io/bootstrap-vue) of this package.
 
-# Installation
+# ⚙️ Installation
 
 Installing this package can be done by using `npm` or `yarn`.
 
@@ -74,7 +80,7 @@ npm install bootstrap
 yarn add bootstrap
 ```
 
-# Usage
+# 🏭 Usage
 
 Here is a simple example on how to use a component in your Vue application:
 
@@ -156,14 +162,14 @@ This package provides the following features:
 - useTag
 - useVariant
 
-# Contributing
+# 🫶 Contributing
 
 Please see [CONTRIBUTING](./CONTRIBUTING.md) for details.
 
-# License
+# 📜 License
 
 The MIT License (MIT). Please see [License File](./LICENSE) for more information.
 
-# OWOW
+# ✨ OWOW ✨
 
 This package has been brought to you with much love by the wizkids of [OWOW](https://owow.io/). Do you like this package? We’re still looking for new talent and Wizkids. So do you want to contribute to open source, while getting paid? [Apply now](https://owow.io/jobs).
