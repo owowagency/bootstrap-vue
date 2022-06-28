@@ -85,7 +85,7 @@ npm install bootstrap
 yarn add bootstrap
 ```
 
-# 🛠️ Usage
+# 🛠 Usage
 
 Here is a simple example on how to use a component in your Vue application:
 
