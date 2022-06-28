@@ -63,7 +63,7 @@
 
 All components can be found on the [Storybook page](https://owowagency.github.io/bootstrap-vue) of this package.
 
-# ⚙️ Installation
+# Installation
 
 Installing this package can be done by using `npm` or `yarn`.
 
