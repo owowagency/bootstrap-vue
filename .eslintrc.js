@@ -33,10 +33,7 @@ module.exports = {
         'unused-imports/no-unused-imports-ts': 'error',
         indent: ['error', 4, {SwitchCase: 1}],
         'vue/html-indent': ['error', 4],
-        'vue/multi-word-component-names': [
-            'error',
-            {'ignores': ['Breadcrumb']},
-        ],
+        'vue/multi-word-component-names': 'off'
     },
     overrides: [
         {

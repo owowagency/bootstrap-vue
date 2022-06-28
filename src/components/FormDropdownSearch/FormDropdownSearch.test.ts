@@ -78,11 +78,11 @@ describe('filteredItems', () => {
 
 describe('modelValue', () => {
     it('sets searchValue to its label', async() => {
-        const modelValue = ref();
+        const modelValue = undefined;
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {modelValue}});
 
-        modelValue.value = items[0];
+        wrapper.setProps({modelValue: items[0]});
 
         await nextTick();
 
@@ -90,7 +90,7 @@ describe('modelValue', () => {
     });
 
     it('resets searchValue if undefined', async() => {
-        const modelValue = ref(items[0]);
+        const modelValue = items[0];
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {
             modelValue,
@@ -98,7 +98,7 @@ describe('modelValue', () => {
 
         expect(wrapper.vm.searchValue).toBe(items[0].label);
 
-        modelValue.value = undefined;
+        wrapper.setProps({modelValue: undefined});
 
         await nextTick();
 
@@ -108,21 +108,21 @@ describe('modelValue', () => {
 
 describe('search', () => {
     it('sets searchValue on change', async() => {
-        const search = ref();
+        const search = undefined;
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {search}});
 
-        search.value = 'changed';
+        wrapper.setProps({search: 'changed'});
 
         await nextTick();
 
-        expect(wrapper.vm.searchValue).toBe(search.value);
+        expect(wrapper.vm.searchValue).toBe('changed');
     });
 });
 
 describe('searchValue', () => {
     it('is equal to modelValueLabel by default', async() => {
-        const modelValue = ref(items[0]);
+        const modelValue = items[0];
 
         const wrapper = shallowMount(FormDropdownSearch, {props: {modelValue}});
 
@@ -180,7 +180,7 @@ describe('onMounted', () => {
         });
 
         it('sets searchValueCached to modelValueLabel', () => {
-            const modelValue = ref(items[0]);
+            const modelValue = items[0];
 
             const wrapper = mount(FormDropdownSearch, {props: {modelValue}});
 
@@ -254,7 +254,7 @@ describe('onMounted', () => {
         });
 
         it('sets searchValue to modelValueLabel', () => {
-            const modelValue = ref(items[0]);
+            const modelValue = items[0];
 
             const wrapper = mount(FormDropdownSearch, {props: {modelValue}});
 

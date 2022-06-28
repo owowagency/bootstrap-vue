@@ -1,5 +1,5 @@
-import {nextTick, ref} from 'vue';
 import FormPills from '.';
+import {nextTick} from 'vue';
 import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
@@ -74,19 +74,19 @@ describe('clearValue', () => {
 
 describe('items', () => {
     it('equals to modelValue', () => {
-        const modelValue = ref(['a']);
+        const modelValue = ['a'];
 
         const wrapper = shallowMount(FormPills, {props: {modelValue}});
 
         expect(wrapper.vm.items).toEqual(['a']);
 
-        modelValue.value.push('b');
+        modelValue.push('b');
 
         expect(wrapper.vm.items).toEqual(['a', 'b']);
     });
 
     it('emits update:modelValue when set', () => {
-        const modelValue = ref(['a']);
+        const modelValue = ['a'];
 
         const wrapper = shallowMount(FormPills, {props: {modelValue}});
 
