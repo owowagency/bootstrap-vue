@@ -4,6 +4,11 @@
 <br>
 
 <p align="center">
+    <img src="https://img.shields.io/npm/v/@owowagency/bootstrap-vue">
+    <img src="https://github.com/owowagency/bootstrap-vue/actions/workflows/test.yml/badge.svg">
+</p>
+
+<p align="center">
     A component library for Vue 3 and Bootstrap 5 + a few extra's just for you 😉.
 </p>
 
