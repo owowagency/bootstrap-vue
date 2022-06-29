@@ -12,7 +12,7 @@ describe('template', () => {
 
     componentSlotRenderTest(FormGroup, 'labelAppend', {
         props: {
-            label: 'This field is',
+            label: 'Label',
         },
     });
 
