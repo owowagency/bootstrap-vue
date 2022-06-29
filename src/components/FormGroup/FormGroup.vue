@@ -8,6 +8,8 @@
         >
             {{ label }}
 
+            <slot name="labelAppend" />
+
             <div
                 v-if="!!description"
                 class="form-text"
