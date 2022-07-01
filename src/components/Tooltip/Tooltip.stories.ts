@@ -1,10 +1,15 @@
 import Btn from '@/components/Button';
 import Tooltip from '.';
+import {tooltipPlacements} from '@/composables/useTooltipPlacement';
 
 export default {
     title: 'Components/Tooltip',
     component: Tooltip,
     argTypes: {
+        placement: {
+            control: {type: 'select'},
+            options: tooltipPlacements,
+        },
         title: {
             control: {type: 'text'},
         },
@@ -28,5 +33,6 @@ const template = (args) => ({
 export const Default = template.bind({});
 
 Default.args = {
+    placement: 'top',
     title: 'I am the tooltip title',
 };

@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import {PropType, computed, ref} from 'vue';
+import {tooltipPlacementProps} from '@/composables/useTooltipPlacement';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
 import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
@@ -47,10 +48,6 @@ const props = defineProps({
         type: [String, Array],
         default: () => [0, 0],
     },
-    placement: {
-        type: String,
-        default: 'top',
-    },
     popperConfig: {
         type: [Object, Function],
         default: () => ({}),
@@ -59,6 +56,7 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    ...tooltipPlacementProps,
     trigger: {
         type: String,
         default: 'hover focus',
