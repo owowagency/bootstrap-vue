@@ -1,6 +1,9 @@
 <template>
-    <div ref="tooltip">
-        <slot />
+    <div
+        ref="tooltip"
+        class="d-inline-block"
+    >
+        <slot v-if="!!$slots.default" />
     </div>
 </template>
 
