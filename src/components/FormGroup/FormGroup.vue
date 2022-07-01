@@ -1,12 +1,17 @@
 <template>
     <div>
         <label
-            v-if="label || description"
+            v-if="!!$slots.label || label || description"
             class="form-label"
             :class="labelClass"
             :for="id"
         >
-            {{ label }}
+            <slot
+                name="label"
+                :label="label"
+            >
+                {{ label }}
+            </slot>
 
             <div
                 v-if="!!description"
