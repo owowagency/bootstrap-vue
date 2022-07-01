@@ -10,11 +10,7 @@ describe('template', () => {
 
     componentSlotRenderTest(FormGroup);
 
-    componentSlotRenderTest(FormGroup, 'labelAppend', {
-        props: {
-            label: 'Label',
-        },
-    });
+    componentSlotRenderTest(FormGroup, 'label');
 
     it('renders scoped slot', async() => {
         const wrapper = shallowMount(FormGroup, {
