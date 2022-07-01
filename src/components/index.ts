@@ -37,3 +37,4 @@ export {default as Offcanvas} from './Offcanvas';
 export {default as Row} from './Row';
 export {default as Spinner} from './Spinner';
 export {default as Table} from './Table';
+export {default as Tooltip} from './Tooltip';
