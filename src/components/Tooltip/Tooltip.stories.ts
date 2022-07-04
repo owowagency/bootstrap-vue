@@ -7,7 +7,7 @@ export default {
     title: 'Components/Tooltip',
     component: Tooltip,
     argTypes: {
-        fallbackPlacement: {
+        fallbackPlacements: {
             control: {type: 'check'},
             options: tooltipFallbackPlacements,
         },
@@ -42,7 +42,7 @@ const template = (args) => ({
 export const Default = template.bind({});
 
 Default.args = {
-    fallbackPlacement: ['top', 'right', 'bottom', 'left'],
+    fallbackPlacements: ['top', 'right', 'bottom', 'left'],
     placement: 'top',
     title: 'I am the tooltip title',
     trigger: ['hover', 'focus'],
