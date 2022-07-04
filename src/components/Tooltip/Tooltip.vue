@@ -9,7 +9,8 @@
 
 <script lang="ts">
 import {PropType, computed, ref} from 'vue';
-import {tooltipPlacementProps} from '@/composables/useTooltipPlacement';
+import {tooltipFallbackPlacementProps, tooltipPlacementProps} from '@/composables/useTooltipPlacement';
+import {triggerProps} from '@/composables/useTrigger';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
 import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
@@ -36,16 +37,12 @@ const props = defineProps({
         type: [Number, Object],
         default: 0,
     },
-    fallbackPlacements: {
-        type: Array as PropType<string[]>,
-        default: () => ['top', 'right', 'bottom', 'left'],
-    },
     html: {
         type: Boolean,
         default: false,
     },
     offset: {
-        type: [String, Array],
+        type: [String, Array] as PropType<string | number[]>,
         default: () => [0, 0],
     },
     popperConfig: {
@@ -56,11 +53,9 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    ...tooltipFallbackPlacementProps,
     ...tooltipPlacementProps,
-    trigger: {
-        type: String,
-        default: 'hover focus',
-    },
+    ...triggerProps,
 });
 
 const tooltip = ref<HTMLElement>();
@@ -72,13 +67,21 @@ const tooltipClass = computed(() => {
         return props.customClass;
     }
 
-    if (props.customClass.constructor === Array) {
+    if (Array.isArray(props.customClass)) {
         return props.customClass.join(' ');
     }
 
     return Object.keys(props.customClass)
         .filter((key: string) => !!props.customClass[key])
         .join(' ');
+});
+
+const tooltipTriggers = computed(() => {
+    if (Array.isArray(props.trigger)) {
+        return props.trigger.join(' ');
+    }
+
+    return props.trigger;
 });
 
 useBootstrapEmits(
@@ -94,6 +97,7 @@ const {bsInstance: bsTooltip} = useBootstrapInstance(
     {
         ...props,
         customClass: tooltipClass.value,
+        trigger: tooltipTriggers.value,
     },
 );
 
