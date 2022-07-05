@@ -3,7 +3,7 @@
         :is="tag"
         ref="tooltip"
     >
-        <slot v-if="!!$slots.default" />
+        <slot />
     </component>
 </template>
 
