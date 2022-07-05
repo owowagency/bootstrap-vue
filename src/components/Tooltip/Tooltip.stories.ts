@@ -15,6 +15,9 @@ export default {
             control: {type: 'select'},
             options: tooltipPlacements,
         },
+        tag: {
+            control: {type: 'text'},
+        },
         title: {
             control: {type: 'text'},
         },
@@ -30,10 +33,8 @@ const template = (args) => ({
     setup: () => ({args}),
     template: `
         <div class="d-flex justify-content-center align-items-center position-fixed top-0 bottom-0 start-0 end-0">
-            <Tooltip v-bind="args">
-                <Btn>
-                    Hover me
-                </Btn>
+            <Tooltip v-bind="args" class="btn btn-primary">
+                Hover me
             </Tooltip>
         </div>
     `,
@@ -44,6 +45,7 @@ export const Default = template.bind({});
 Default.args = {
     fallbackPlacements: ['top', 'right', 'bottom', 'left'],
     placement: 'top',
+    tag: 'button',
     title: 'I am the tooltip title',
     trigger: ['hover', 'focus'],
 };

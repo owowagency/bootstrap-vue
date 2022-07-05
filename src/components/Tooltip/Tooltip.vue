@@ -1,10 +1,10 @@
 <template>
-    <div
+    <component
+        :is="tag"
         ref="tooltip"
-        class="d-inline-block"
     >
         <slot v-if="!!$slots.default" />
-    </div>
+    </component>
 </template>
 
 <script lang="ts">
@@ -48,6 +48,10 @@ const props = defineProps({
     popperConfig: {
         type: [Object, Function],
         default: () => ({}),
+    },
+    tag: {
+        type: String,
+        default: 'div',
     },
     title: {
         type: String,
