@@ -9,7 +9,7 @@ export interface Item {
 
 export const dropdownItemsProps = {
     items: {
-        type: Array as PropType<Item>,
+        type: Array as PropType<Item[]>,
         default: () => [],
     },
 };

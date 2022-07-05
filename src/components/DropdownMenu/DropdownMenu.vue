@@ -9,7 +9,7 @@
         >
             <template
                 v-for="(item, index) of items"
-                :key="`item-${index}`"
+                :key="`item-${index.toString()}`"
             >
                 <slot
                     name="item"
