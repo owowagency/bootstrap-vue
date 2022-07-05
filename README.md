@@ -144,6 +144,7 @@ This package provides the following features:
 - [Row](./src/components/Row/README.md)
 - Spinner
 - Table
+- Tooltip
 
 ### Composables
 
@@ -165,6 +166,8 @@ This package provides the following features:
 - useSize
 - useStringTemplate
 - useTag
+- useTooltipPlacement
+- useTrigger
 - useVariant
 
 # 🫶 Contributing
