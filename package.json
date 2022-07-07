@@ -6,9 +6,6 @@
     "entry": "bootstrap-vue",
     "main": "bootstrap-vue.js",
     "module": "bootstrap-vue.mjs",
-    "publishConfig": {
-        "@owowagency:registry": "https://npm.pkg.github.com"
-    },
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",
         "build-storybook": "build-storybook",
@@ -75,6 +72,6 @@
     "storybook": {
         "url": "https://owowagency.github.io/bootstrap-vue"
     },
-    "repository": "git@github.com:owowagency/bootstrap-vue.git",
+    "repository": "github:owowagency/bootstrap-vue.git",
     "author": "Thomas van der Veen <thomas@owow.io>"
 }
