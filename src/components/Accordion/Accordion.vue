@@ -4,6 +4,10 @@
         class="accordion"
         :class="classes"
     >
+        <!--
+        @slot Displays the content of the accordion
+        @binding parent-id The id of the parent accordion
+        -->
         <slot :parent-id="id" />
     </div>
 </template>
@@ -26,3 +30,13 @@ const {classes} = useClasses(computed(() => [
     useFlush(props.flush, 'accordion-{0}').flushClass.value,
 ]));
 </script>
+
+<docs>
+```vue
+<Accordion>
+    <AccordionItem header="Header">
+        Content
+    </AccordionItem>
+</Accordion>
+```
+</docs>
