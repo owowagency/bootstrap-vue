@@ -20,7 +20,7 @@ ${renderedUsage.methods}
 
 module.exports = {
     componentsRoot: 'src/components',
-    components: '**/Accordion*.vue',
+    components: '**/A*.vue',
     defaultExamples: true,
     docsBranch: 'master',
     docsRepo: 'owowagency/bootstrap-vue',

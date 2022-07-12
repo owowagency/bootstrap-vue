@@ -4,6 +4,9 @@
         class="alert"
         :class="classes"
     >
+        <!--
+        @slot Displays the content of the alert
+        -->
         <slot />
     </div>
 </template>
@@ -46,3 +49,11 @@ const {classes} = useClasses(computed(() => [
 
 defineExpose({bsAlert});
 </script>
+
+<docs>
+```vue
+<Alert variant="danger">
+    Something went wrong!
+</Alert>
+```
+</docs>
