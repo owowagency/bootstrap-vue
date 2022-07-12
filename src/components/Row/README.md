@@ -1,29 +1,22 @@
 # Row
 
-```html
-<Row
-    align-sm="center"
-    align-xl="start"
-    row-cols
->
-    <Col>
-        ...
-    </Col>
-
-    <Col>
-        ...
-    </Col>
-</Row>
+```vue live
+<Row>Default Example Usage</Row>
 ```
 
 ## Props
 
-| Name | Type | Description |
-| - | - | - |
-| | | |
+| Prop name | Description | Type        | Values | Default |
+| --------- | ----------- | ----------- | ------ | ------- |
+| align     |             | alignProp   | -      |         |
+| cols      |             | colProp     | -      |         |
+| gutters   |             | gutterProp  | -      |         |
+| guttersX  |             | gutterProp  | -      |         |
+| guttersY  |             | gutterProp  | -      |         |
+| justify   |             | justifyProp | -      |         |
 
 ## Slots
 
-| Name | Description |
-| - | - |
-| default | Displays content inside the col. |
+| Name    | Description | Bindings |
+| ------- | ----------- | -------- |
+| default |             |          |

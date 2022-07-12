@@ -1,19 +1,19 @@
 # BreadcrumbItem
 
-```html
+```vue
 <BreadcrumbItem active>
     Products
 </BreadcrumbItem>
 ```
 
-## Props
+## Imported Props
 
-| Name | Type | Description |
-| - | - | - |
-| active | boolean | Adds the `active` class. |
+| Prop name | Description             | Type    | Values | Default |
+| --------- | ----------------------- | ------- | ------ | ------- |
+| active    | Adds the `active` class | boolean | -      | false   |
 
 ## Slots
 
-| Name | Description |
-| - | - |
-| default | Displays content inside the breadcrumb item. |
+| Name    | Description                                 | Bindings |
+| ------- | ------------------------------------------- | -------- |
+| default | Displays content inside the breadcrumb item |          |

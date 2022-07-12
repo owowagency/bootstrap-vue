@@ -1,23 +1,25 @@
 # Badge
 
-```html
-<Badge
-    pill
-    variant="danger"
->
+```vue
+<Badge pill variant="danger">
     I am a badge
 </Badge>
 ```
 
+## Imported Props
+
+| Prop name | Description                  | Type                                             | Values | Default   |
+| --------- | ---------------------------- | ------------------------------------------------ | ------ | --------- |
+| variant   | The variant of the component | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+
 ## Props
 
-| Name | Type | Description |
-| - | - | - |
-| pill | boolean | Makes the badge more rounded. |
-| variant | [Variant](#link-to-variant-definition) (string) | The variant of the badge. |
+| Prop name | Description                                      | Type    | Values | Default |
+| --------- | ------------------------------------------------ | ------- | ------ | ------- |
+| pill      | Indicates if the badge should be shown as a pill | boolean | -      | false   |
 
 ## Slots
 
-| Name | Description |
-| - | - |
-| default | Displays content inside the badge. |
+| Name    | Description                       | Bindings |
+| ------- | --------------------------------- | -------- |
+| default | Displays content inside the badge |          |

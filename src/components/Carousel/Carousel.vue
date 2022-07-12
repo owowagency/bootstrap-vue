@@ -8,6 +8,10 @@
         data-bs-ride="carousel"
     >
         <div class="carousel-inner">
+            <!--
+            @slot Displays content inside the carousel
+            @binding {array} slides The `CarouselSlide` list
+             -->
             <slot
                 name="slides"
                 :slides="slides"
@@ -19,6 +23,11 @@
                     :class="{active: index === activeIndex}"
                     :data-bs-interval="slide.interval"
                 >
+                    <!--
+                    @slot Displays content inside the slide
+                    @binding {int} index The index of the slide
+                    @binding {object} slide The `CarouselSlide` object
+                    -->
                     <slot
                         :index="index"
                         :slide="slide"
@@ -29,6 +38,11 @@
                             class="d-block w-100"
                         >
 
+                        <!--
+                        @slot Display the caption of the carousel
+                        @binding {string} description The description of the slide
+                        @binding {string} title The title of the slide
+                        -->
                         <slot
                             name="caption"
                             :description="slide.description"
@@ -107,27 +121,45 @@ export interface CarouselSlide {
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * Use dark mode for the controls
+     */
     dark: {
         type: Boolean,
         default: false,
     },
+    /**
+     * Use a fade transition for the slides
+     */
     fade: {
         type: Boolean,
         default: false,
     },
+    /**
+     * Hide the controls
+     */
     hideControls: {
         type: Boolean,
         default: false,
     },
+    /**
+     * Hide the indicators
+     */
     hideIndicators: {
         type: Boolean,
         default: false,
     },
     ...idProps,
+    /**
+     * The interval of the carousel in milliseconds
+     */
     interval: {
         type: Number,
         default: 5000,
     },
+    /**
+     * The slides of the carousel
+     */
     slides: {
         type: Array as PropType<CarouselSlide[]>,
         default: () => [],
@@ -163,3 +195,19 @@ const {classes} = useClasses(computed(() => [
 
 defineExpose({bsCarousel});
 </script>
+
+<docs>
+```vue
+<Carousel
+    slides="[CarouselSlide]"
+    interval="10000"
+    hideControls
+/>
+```
+
+## Imported Props
+
+| Prop name | Description                   | Type   | Values | Default |
+| --------- | ----------------------------- | ------ | ------ | ------- |
+| id        | The id used for the component | string | -      | `uuid`  |
+</docs>

@@ -83,9 +83,6 @@ defineProps({
         type: String,
         default: 'h2',
     },
-    /**
-     * ID Props test.
-     */
     ...idProps,
     /**
      * The id of the parent `Accordion` component.
@@ -103,4 +100,10 @@ defineProps({
     <div>I'm the body</div>
 </AccordionItem>
 ```
+
+## Imported Props
+
+| Prop name | Description                   | Type   | Values | Default |
+| --------- | ----------------------------- | ------ | ------ | ------- |
+| id        | The id used for the component | string | -      | `uuid`  |
 </docs>

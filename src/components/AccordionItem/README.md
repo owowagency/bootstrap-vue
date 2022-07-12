@@ -6,7 +6,11 @@
 </AccordionItem>
 ```
 
----
+## Imported Props
+
+| Prop name | Description                   | Type   | Values | Default |
+| --------- | ----------------------------- | ------ | ------ | ------- |
+| id        | The id used for the component | string | -      | `uuid`  |
 
 ## Props
 

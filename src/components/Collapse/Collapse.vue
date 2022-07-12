@@ -1,4 +1,8 @@
 <template>
+    <!--
+    @slot Displays the toggle for the collapse
+    @binding {string} id The id of the target collapse
+    -->
     <slot
         :id="id"
         name="toggle"
@@ -9,6 +13,10 @@
             :data-bs-target="`#${id}`"
             v-bind="$attrs"
         >
+            <!--
+            @slot Displays the content for the toggle
+            @binding {string} id The id of the target collapse
+            -->
             <slot
                 :id="id"
                 name="toggleContent"
@@ -22,6 +30,10 @@
         class="collapse"
         :data-bs-parent="parentSelector"
     >
+        <!--
+        @slot Displays the content of the collapse
+        @binding {string} id The id of the collapse
+        -->
         <slot :id="id" />
     </div>
 </template>
@@ -40,7 +52,10 @@ type CollapseEvent = typeof collapseEvents[number];
 <script lang="ts" setup>
 defineProps({
     ...idProps,
-    // Should be a valid query selector.
+    /**
+     * The selector of the parent element
+     * *This should be a valid query selector*
+     */
     parentSelector: {
         type: String,
         default: null,
@@ -66,3 +81,20 @@ const {bsInstance: bsCollapse} = useBootstrapInstance(
 
 defineExpose({bsCollapse});
 </script>
+
+<docs>
+```vue
+<Collapse parent-selector="#parent">
+    <template #toggle-content="{id}">
+        <Button
+            data-bs-toggle="collapse"
+            :data-bs-target="'#' + id"
+        >
+            Open me
+        </Button>
+    </template>
+
+    <Card text="This panel is hidden by default but revealed when the user activates the relevant trigger." />
+</Collapse>
+```
+</docs>
