@@ -1,7 +1,7 @@
 # Carousel
 
 ```vue
-<Carousel slides="[CarouselSlide]" interval="10000" hideControls />
+<Carousel :slides="[CarouselSlide]" interval="10000" hideControls />
 ```
 
 ## Imported Props

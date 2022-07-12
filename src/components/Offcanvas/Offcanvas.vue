@@ -11,12 +11,14 @@
             v-if="!!$slots.header || !!header"
             class="offcanvas-header"
         >
+            <!-- @slot Displays content inside the header of the offcanvas -->
             <slot name="header">
                 {{ header }}
             </slot>
         </div>
 
         <div :class="{'offcanvas-body': !noBody}">
+            <!-- @slot Displays the body of the offcanvas -->
             <slot />
         </div>
     </div>
@@ -37,24 +39,39 @@ type OffcanvasEvent = typeof offcanvasEvents[number];
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * Defines if a backdrop should be shown
+     */
     backdrop: {
         type: Boolean,
         default: true,
     },
+    /**
+     * The header text of the offcanvas
+     */
     header: {
         type: String,
         default: undefined,
     },
     ...idProps,
+    /**
+     * Defines if the `offcanvas-body` class should be omitted
+     */
     noBody: {
         type: Boolean,
         default: false,
     },
     ...placementProps,
+    /**
+     * Defines if the main content should be scrollable when offcanvas is opened
+     */
     scroll: {
         type: Boolean,
         default: false,
     },
+    /**
+     * Defines if the offcanvas is shown
+     */
     show: {
         type: Boolean,
         default: false,
@@ -84,3 +101,22 @@ const {classes} = useClasses(computed(() => [
 
 defineExpose({bsOffcanvas});
 </script>
+
+<docs>
+```vue
+<Offcanvas header="Navigation">
+    <Nav>
+        <NavItem>Home</NavItem>
+        <NavItem>Docs</NavItem>
+        <NavItem>About</NavItem>
+    </Nav>
+</Offcanvas>
+```
+
+## Imported Props
+
+| Prop name | Description                    | Type                                            | Values | Default |
+| --------- | ------------------------------ | ----------------------------------------------- | ------ | ------- |
+| id        | The id used for the component  | string                                          | -      | `uuid`  |
+| placement | The placement of the component | [Size](../../composables/usePlacement) (string) | -      | 'start' |
+</docs>

@@ -199,7 +199,7 @@ defineExpose({bsCarousel});
 <docs>
 ```vue
 <Carousel
-    slides="[CarouselSlide]"
+    :slides="[CarouselSlide]"
     interval="10000"
     hideControls
 />

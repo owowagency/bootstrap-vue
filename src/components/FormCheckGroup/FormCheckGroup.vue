@@ -28,16 +28,29 @@ interface Item {
 
 const props = defineProps({
     ...disabledProps,
+    /**
+     * Display the checks as a switch by adding the `form-switch` class
+     */
     switch: {
         type: Boolean,
         default: false,
     },
+    /**
+     * The items to display in the group
+     */
     items: {
         type: Array as PropType<Item[]>,
         required: true,
     },
+    /**
+     * The type of the input
+     * @values 'checkbox'|'radio'
+     */
     type: typeProp,
     // Put `modelValue` after `type` so it will be available in `default`.
+    /**
+     * The model value
+     */
     modelValue: {
         type: [Array, String, Number, undefined],
         default: (props: {type: Type}) => props.type === 'checkbox' ? [] : undefined,
@@ -70,3 +83,19 @@ const setValue = (v, i) => {
     }
 };
 </script>
+
+<docs>
+```vue
+<FormCheckGroup
+    v-model="checks"
+    :items="[Item]"
+    type="checkbox"
+/>
+```
+
+## Imported Props
+
+| Prop name | Description            | Type    | Values | Default |
+| --------- | ---------------------- | ------- | ------ | ------- |
+| disabled  | Disables the component | boolean | -      | false   |
+</docs>

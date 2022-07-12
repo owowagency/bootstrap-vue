@@ -4,6 +4,7 @@
         class="list-group-item"
         :class="classes"
     >
+        <!-- @slot Displays the content of the list group item -->
         <slot />
     </component>
 </template>
@@ -20,6 +21,9 @@ import useClasses from '@/composables/useClasses';
 const props = defineProps({
     ...activeProps,
     ...disabledProps,
+    /**
+     * The tag to be used for the list group item
+     */
     tag: {
         type: String,
         default: 'li',
@@ -35,3 +39,19 @@ const {classes} = useClasses(computed(() => [
     useVariant(props.variant, 'list-group-item-{0}').variantClass.value,
 ]));
 </script>
+
+<docs>
+```vue
+<ListGroupItem>
+    List group item
+</ListGroupItem>
+```
+
+## Imported Props
+
+| Prop name | Description                  | Type                                             | Values | Default |
+| --------- | ---------------------------- | ------------------------------------------------ | ------ | ------- |
+| active    | Adds the `active` class      | boolean                                          | -      | false   |
+| disabled  | Disables the component       | boolean                                          | -      | false   |
+| variant   | The variant of the component | [Variant](../../composables/useVariant) (string) | -      | ''      |
+</docs>

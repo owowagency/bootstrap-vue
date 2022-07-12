@@ -21,38 +21,65 @@ type TooltipEvent = typeof tooltipEvents[number];
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * ?
+     */
     boundary: {
         type: [String, HTMLElement],
         default: 'clippingParents',
     },
+    /**
+     * ?
+     */
     container: {
         type: [String, HTMLElement, Boolean],
         default: false,
     },
+    /**
+     * The classes that will be forwarded to the tooltip
+     */
     customClass: {
         type: [String, Array, Object],
         default: '',
     },
+    /**
+     * ?
+     */
     delay: {
         type: [Number, Object],
         default: 0,
     },
+    /**
+     * ?
+     */
     html: {
         type: Boolean,
         default: false,
     },
+    /**
+     * The x, y offset of the tooltip
+     */
     offset: {
         type: [String, Array] as PropType<string | number[]>,
         default: () => [0, 0],
     },
+    /**
+     * ?
+     */
     popperConfig: {
         type: [Object, Function],
         default: () => ({}),
     },
+    /**
+     * The tag to be used for the list group item
+     */
     tag: {
         type: String,
         default: 'div',
     },
+    /**
+     * ?
+     */
     title: {
         type: String,
         default: '',
@@ -107,3 +134,14 @@ const {bsInstance: bsTooltip} = useBootstrapInstance(
 
 defineExpose({bsTooltip});
 </script>
+
+<docs>
+```vue
+<Tooltip>
+    Insert coin here
+</Tooltip>
+```
+
+## Imported Props
+
+</docs>
