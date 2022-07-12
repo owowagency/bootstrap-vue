@@ -20,19 +20,21 @@ type TooltipEvent = typeof tooltipEvents[number];
 </script>
 
 <script lang="ts" setup>
+import {PropType} from 'vue';
+
 const props = defineProps({
     /**
      * ?
      */
     boundary: {
-        type: [String, HTMLElement],
+        type: [String, Object] as PropType<string | HTMLElement>,
         default: 'clippingParents',
     },
     /**
      * ?
      */
     container: {
-        type: [String, HTMLElement, Boolean],
+        type: [String, HTMLElement, Boolean],y
         default: false,
     },
     /**
@@ -136,6 +138,7 @@ defineExpose({bsTooltip});
 </script>
 
 <docs>
+<!-- TODO Document the events -->
 ```vue
 <Tooltip>
     Insert coin here
@@ -144,4 +147,9 @@ defineExpose({bsTooltip});
 
 ## Imported Props
 
+| Prop name | Description                   | Type                                       | Values | Default |
+| --------- | ----------------------------- | ------------------------------------------ | ------ | ------- |
+| fallbackPlacements | The size of the component     | [Size](../../composables/useSize) (string) | -      | 'md'    |
+| placement          | The size of the component     | [Size](../../composables/useSize) (string) | -      | 'md'    |
+| trigger            | The size of the component     | [Size](../../composables/useSize) (string) | -      | 'md'    |
 </docs>
