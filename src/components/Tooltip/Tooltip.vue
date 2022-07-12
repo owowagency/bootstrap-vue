@@ -22,11 +22,11 @@ type TooltipEvent = typeof tooltipEvents[number];
 <script lang="ts" setup>
 const props = defineProps({
     boundary: {
-        type: [String, HTMLElement],
+        type: [String, Object] as PropType<string | HTMLElement>,
         default: 'clippingParents',
     },
     container: {
-        type: [String, HTMLElement, Boolean],
+        type: [String, Object, Boolean] as PropType<string | HTMLElement | boolean>,
         default: false,
     },
     customClass: {
