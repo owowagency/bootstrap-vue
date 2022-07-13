@@ -24,6 +24,6 @@
 
 ## Events
 
-| Event name        | Properties | Description |
-| ----------------- | ---------- | ----------- |
-| update:modelValue |            |
+| Event name        | Properties                           | Description                           |
+| ----------------- | ------------------------------------ | ------------------------------------- |
+| update:modelValue | **value** `string[]` - The new value | Fired when the model value is updated |

@@ -16,10 +16,10 @@
 
 ## Events
 
-| Name   | Args | Description                                                              |
-| ------ | ---- | ------------------------------------------------------------------------ |
-| close  |      | Fires immediately when the `close` instance method is called.            |
-| closed |      | Fired when the alert has been closed and CSS transitions have completed. |
+| Name   | Args | Description                                                             |
+| ------ | ---- | ----------------------------------------------------------------------- |
+| close  |      | Fires immediately when the `close` instance method is called            |
+| closed |      | Fired when the alert has been closed and CSS transitions have completed |
 
 ## Slots
 

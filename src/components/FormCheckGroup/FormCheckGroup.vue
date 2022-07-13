@@ -59,7 +59,13 @@ const props = defineProps({
 
 const name = props.type === 'checkbox' ? undefined : idProps.id.default();
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([
+    /**
+     * Fired when the model value is updated
+     * @param {any} value The new value
+     */
+    'update:modelValue',
+]);
 
 // Required to prevent the use of reserved word `switch` in template.
 const isSwitch = computed(() => props.switch);

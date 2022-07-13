@@ -64,7 +64,11 @@ const props = defineProps({
 });
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', v: string|File): void,
+    /**
+     * Fired when the model value is updated
+     * @param {string|File} value The new value
+     */
+    (e: 'update:modelValue', value: string|File): void,
 }>();
 
 // Rollup cannot handle HTMLInputElement as ref, cannot

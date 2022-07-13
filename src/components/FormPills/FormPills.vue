@@ -102,7 +102,13 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([
+    /**
+     * Fired when the model value is updated
+     * @param {string[]} value The new value
+     */
+    'update:modelValue',
+]);
 
 const value = ref('');
 

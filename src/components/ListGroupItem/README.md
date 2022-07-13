@@ -16,10 +16,10 @@
 
 ## Props
 
-| Prop name | Description                                 | Type            | Values | Default |
-| --------- | ------------------------------------------- | --------------- | ------ | ------- |
-| tag       | The tag to be used for the list group item. | string          | -      | 'li'    |
-| variant   |                                             | variantProp('') | -      |         |
+| Prop name | Description                                | Type            | Values | Default |
+| --------- | ------------------------------------------ | --------------- | ------ | ------- |
+| tag       | The tag to be used for the list group item | string          | -      | 'li'    |
+| variant   |                                            | variantProp('') | -      |         |
 
 ## Slots
 

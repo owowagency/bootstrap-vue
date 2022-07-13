@@ -10,6 +10,15 @@
 | --------- | ----------------------------- | ------ | ------ | ------- |
 | id        | The id used for the component | string | -      | `uuid`  |
 
+<!-- TODO Auto-generate based on type? -->
+
+## Events
+
+| Name  | Args | Description                                                 |
+| ----- | ---- | ----------------------------------------------------------- |
+| slid  |      | Fired when the carousel has completed its slide transition  |
+| slide |      | Fires immediately when the slide instance method is invoked |
+
 ## Props
 
 | Prop name      | Description                                  | Type            | Values | Default  |

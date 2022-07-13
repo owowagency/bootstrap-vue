@@ -21,6 +21,6 @@
 
 ## Events
 
-| Event name | Properties | Description |
-| ---------- | ---------- | ----------- |
-| click:item |            |
+| Event name | Properties                                  | Description                   |
+| ---------- | ------------------------------------------- | ----------------------------- |
+| click:item | **item** `Item` - The item that was clicked | Fired when an item is clicked |

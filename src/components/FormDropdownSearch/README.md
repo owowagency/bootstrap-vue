@@ -40,7 +40,7 @@
 
 ## Events
 
-| Event name        | Properties | Description |
-| ----------------- | ---------- | ----------- |
-| update:modelValue |            |
-| update:search     |            |
+| Event name        | Properties                                 | Description                            |
+| ----------------- | ------------------------------------------ | -------------------------------------- |
+| update:modelValue | **value** `any` - The new value            | Fired when the model value is updated  |
+| update:search     | **search** `string` - The new search value | Fired when the search value is updated |

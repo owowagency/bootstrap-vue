@@ -1,7 +1,7 @@
 # Dropdown
 
 ```vue
-<Dropdown :items="[Item]">
+<Dropdown :items="[Item]" />
 ```
 
 ## Imported Props
@@ -12,6 +12,17 @@
 | menuClass | The classes that will be forwarded to the menu | `string`\|`array`\|`object`                      | -      | undefined |
 | size      | The size of the component                      | [Size](../../composables/useSize) (string)       | -      | 'md'      |
 | variant   | The variant of the component                   | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+
+<!-- TODO Auto-generate based on type? -->
+
+## Events
+
+| Name   | Args | Description                                                                                        |
+| ------ | ---- | -------------------------------------------------------------------------------------------------- |
+| show   |      | Fires immediately when the `show` instance method is called                                        |
+| shown  |      | Fired when the dropdown has been made visible to the user and CSS transitions have completed       |
+| hide   |      | Fires immediately when the `hide` instance method has been called                                  |
+| hidden |      | Fired when the dropdown has finished being hidden from the user and CSS transitions have completed |
 
 ## Slots
 

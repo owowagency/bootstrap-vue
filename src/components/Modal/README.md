@@ -19,6 +19,18 @@
 | id        | The id used for the component | string                                     | -      | `uuid`  |
 | size      | The size of the component     | [Size](../../composables/useSize) (string) | -      | 'md'    |
 
+<!-- TODO Auto-generate based on type? -->
+
+## Events
+
+| Name          | Args | Description                                                                                                       |
+| ------------- | ---- | ----------------------------------------------------------------------------------------------------------------- |
+| show          |      | This event fires immediately when the `show` instance method is called                                            |
+| shown         |      | This event is fired when the modal has been made visible to the user                                              |
+| hide          |      | This event is fired immediately when the `hide` instance method has been called                                   |
+| hidden        |      | This event is fired when the modal has finished being hidden from the user                                        |
+| hidePrevented |      | This event is fired when the modal is shown, its backdrop is static and a click outside of the modal is performed |
+
 ## Props
 
 | Prop name     | Description                                         | Type                  | Values | Default   |

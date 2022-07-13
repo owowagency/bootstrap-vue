@@ -127,7 +127,13 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([
+    /**
+     * Fired when the model value is updated
+     * @param {any} value The new value
+     */
+    'update:modelValue',
+]);
 
 const propsDropdown = extractKeysFrom(Object.keys(dropdownProps), props);
 

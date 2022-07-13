@@ -4,9 +4,7 @@
         class="alert"
         :class="classes"
     >
-        <!--
-        @slot Displays content inside the alert
-        -->
+        <!-- @slot Displays content inside the alert -->
         <slot />
     </div>
 </template>
@@ -66,8 +64,8 @@ defineExpose({bsAlert});
 <!-- TODO Auto-generate based on type? -->
 ## Events
 
-| Name   | Args | Description                                                              |
-| ------ | ---- | ------------------------------------------------------------------------ |
-| close  |      | Fires immediately when the `close` instance method is called.            |
-| closed |      | Fired when the alert has been closed and CSS transitions have completed. |
+| Name   | Args | Description                                                             |
+| ------ | ---- | ----------------------------------------------------------------------- |
+| close  |      | Fires immediately when the `close` instance method is called            |
+| closed |      | Fired when the alert has been closed and CSS transitions have completed |
 </docs>

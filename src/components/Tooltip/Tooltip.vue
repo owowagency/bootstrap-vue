@@ -3,6 +3,7 @@
         :is="tag"
         ref="tooltip"
     >
+        <!-- @slot Displays the content of the tooltip -->
         <slot />
     </component>
 </template>
@@ -20,21 +21,19 @@ type TooltipEvent = typeof tooltipEvents[number];
 </script>
 
 <script lang="ts" setup>
-import {PropType} from 'vue';
-
 const props = defineProps({
     /**
-     * ?
+     * Overflow constraint boundary of the tooltip
      */
     boundary: {
         type: [String, Object] as PropType<string | HTMLElement>,
         default: 'clippingParents',
     },
     /**
-     * ?
+     * Appends the tooltip to the given element
      */
     container: {
-        type: [String, HTMLElement, Boolean],y
+        type: [String, HTMLElement, Boolean],
         default: false,
     },
     /**
@@ -45,14 +44,14 @@ const props = defineProps({
         default: '',
     },
     /**
-     * ?
+     * Delay showing and hiding the tooltip in milliseconds
      */
     delay: {
         type: [Number, Object],
         default: 0,
     },
     /**
-     * ?
+     * Defines if HTML is allowed in the tooltip
      */
     html: {
         type: Boolean,
@@ -66,7 +65,7 @@ const props = defineProps({
         default: () => [0, 0],
     },
     /**
-     * ?
+     * Change Bootstrap's default Popper config
      */
     popperConfig: {
         type: [Object, Function],
@@ -80,7 +79,7 @@ const props = defineProps({
         default: 'div',
     },
     /**
-     * ?
+     * The text to display in the tooltip
      */
     title: {
         type: String,
@@ -138,18 +137,28 @@ defineExpose({bsTooltip});
 </script>
 
 <docs>
-<!-- TODO Document the events -->
 ```vue
-<Tooltip>
+<Tooltip :fallback-placements="['bottom']">
     Insert coin here
 </Tooltip>
 ```
 
 ## Imported Props
 
-| Prop name | Description                   | Type                                       | Values | Default |
-| --------- | ----------------------------- | ------------------------------------------ | ------ | ------- |
-| fallbackPlacements | The size of the component     | [Size](../../composables/useSize) (string) | -      | 'md'    |
-| placement          | The size of the component     | [Size](../../composables/useSize) (string) | -      | 'md'    |
-| trigger            | The size of the component     | [Size](../../composables/useSize) (string) | -      | 'md'    |
+| Prop name          | Description                                | Type                                                              | Values                                | Default                            |
+| ------------------ | ------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------- | ---------------------------------- |
+| fallbackPlacements | The fallback placements of the component   | [TooltipFallbackPlacement](../../composables/useTooltipPlacement) | ['top'\|'bottom'\|'left'\|'right']    | ['top', 'right', 'bottom', 'left'] |
+| placement          | The default placement of the component     | [TooltipPlacement](../../composables/useTooltipPlacement)         | ['top'\|'bottom'\|'left'\|'right']    | 'top'                              |
+| trigger            | The trigger on which to toggle the trigger | [Trigger](../../composables/useTrigger)                           | ['click'\|'hover'\|'focus'\|'manual'] | ['hover', 'focus']                 |
+
+<!-- TODO Auto-generate based on type? -->
+## Events
+
+| Name          | Args | Description                                                                                             |
+| ------------- | ---- | ------------------------------------------------------------------------------------------------------- |
+| show          |      | This event fires immediately when the `show` instance method is called                                  |
+| shown         |      | This event is fired when the popover has been made visible to the user                                  |
+| hide          |      | This event is fired immediately when the `hide` instance method has been called                         |
+| hidden        |      | This event is fired when the popover has finished being hidden from the user                            |
+| hidePrevented |      | This event is fired after the show.bs.tooltip event when the tooltip template has been added to the DOM |
 </docs>

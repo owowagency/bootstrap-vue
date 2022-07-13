@@ -48,7 +48,13 @@ import DropdownMenuItem from '@/components/DropdownMenuItem';
 <script lang="ts" setup>
 defineProps(dropdownItemsProps);
 
-const emit = defineEmits(['click:item']);
+const emit = defineEmits([
+    /**
+     * Fired when an item is clicked
+     * @param {Item} item The item that was clicked
+     */
+    'click:item',
+]);
 
 const clickItem = (item: Item) => emit('click:item', item);
 </script>

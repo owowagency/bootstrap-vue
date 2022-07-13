@@ -15,6 +15,17 @@
 </Collapse>
 ```
 
+<!-- TODO Auto-generate based on type? -->
+
+## Events
+
+| Name   | Args | Description                                                                   |
+| ------ | ---- | ----------------------------------------------------------------------------- |
+| show   |      | This event fires immediately when the `show` instance method is called        |
+| shown  |      | This event is fired when a collapse element has been made visible to the user |
+| hide   |      | This event is fired immediately when the `hide` method has been called        |
+| hidden |      | This event is fired when a collapse element has been hidden from the user     |
+
 ## Props
 
 | Prop name      | Description                                                                    | Type   | Values | Default |

@@ -142,7 +142,15 @@ const props = defineProps({
 });
 
 const emit = defineEmits<{
+    /**
+     * Fired when a row is clicked
+     * @param {object} item The row that was clicked
+     */
     (event: 'click:row', item: Record<string, unknown>): void
+    /**
+     * Fired when the sorting of a column is changed
+     * @param {object} sorted The sort object
+     */
     (event: 'sort', sorted: Record<string, string>): void
 }>();
 

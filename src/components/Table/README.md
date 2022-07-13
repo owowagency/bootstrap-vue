@@ -26,7 +26,7 @@
 
 ## Events
 
-| Event name | Properties | Description |
-| ---------- | ---------- | ----------- |
-| click:row  |            |
-| sort       |            |
+| Event name | Properties                                   | Description                                   |
+| ---------- | -------------------------------------------- | --------------------------------------------- |
+| click:row  | **item** `object` - The row that was clicked | Fired when a row is clicked                   |
+| sort       | **sorted** `object` - The sort object        | Fired when the sorting of a column is changed |
