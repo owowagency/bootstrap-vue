@@ -148,26 +148,26 @@ This package provides the following features:
 
 ### Composables
 
-- useActive
-- useBootstrap
-- useBootstrapEmits
-- useBootstrapInstance
-- useBreakpoints
-- useClasses
-- useCol
-- useDisabled
-- useDropdown
-- useDropdownItems
-- useFlush
-- useFormControl
-- useFormSelect
-- useId
-- usePlacement
+- [useActive](./src/composables/useActive)
+- [useBootstrap](./src/composables/useBootstrap)
+- [useBootstrapEmits](./src/composables/useBootstrapEmits)
+- [useBootstrapInstance](./src/composables/useBootstrapInstance)
+- [useBreakpoints](./src/composables/useBreakpoints)
+- [useClasses](./src/composables/useClasses)
+- [useCol](./src/composables/useCol)
+- [useDisabled](./src/composables/useDisabled)
+- [useDropdown](./src/composables/useDropdown)
+- [useDropdownItems](./src/composables/useDropdownItems)
+- [useFlush](./src/composables/useFlush)
+- [useFormControl](./src/composables/useFormControl)
+- [useFormSelect](./src/composables/useFormSelect)
+- [useId](./src/composables/useId)
+- [usePlacement](./src/composables/usePlacement)
 - [useSize](./src/composables/useSize)
-- useStringTemplate
-- useTag
-- useTooltipPlacement
-- useTrigger
+- [useStringTemplate](./src/composables/useStringTemplate)
+- [useTag](./src/composables/useTag)
+- [useTooltipPlacement](./src/composables/useTooltipPlacement)
+- [useTrigger](./src/composables/useTrigger)
 - [useVariant](./src/composables/useVariant)
 
 # 🫶 Contributing
