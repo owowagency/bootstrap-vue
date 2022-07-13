@@ -1,16 +1,13 @@
-# useSize
+# useTag
 
 ## Props
 
-### size
+### tag
 
 #### Default Value
 
-`md`
+`div`
 
 #### Available Values
 
-- `sm`
-- `md`
-- `lg`
-- `xl`
+*Any valid HTML tag name*

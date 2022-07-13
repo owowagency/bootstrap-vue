@@ -1,10 +1,14 @@
 # useVariant
 
-## Default Value
+## Props
+
+### variant
+
+#### Default Value
 
 `primary`
 
-## Available Values
+#### Available Values
 
 - `primary`
 - `secondary`

@@ -145,11 +145,11 @@ defineExpose({bsTooltip});
 
 ## Imported Props
 
-| Prop name          | Description                                | Type                                                              | Values                                | Default                            |
-| ------------------ | ------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------- | ---------------------------------- |
-| fallbackPlacements | The fallback placements of the component   | [TooltipFallbackPlacement](../../composables/useTooltipPlacement) | ['top'\|'bottom'\|'left'\|'right']    | ['top', 'right', 'bottom', 'left'] |
-| placement          | The default placement of the component     | [TooltipPlacement](../../composables/useTooltipPlacement)         | ['top'\|'bottom'\|'left'\|'right']    | 'top'                              |
-| trigger            | The trigger on which to toggle the trigger | [Trigger](../../composables/useTrigger)                           | ['click'\|'hover'\|'focus'\|'manual'] | ['hover', 'focus']                 |
+| Prop name          | Description                                | Type                                                              | Values                                     | Default                            |
+| ------------------ | ------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------------ | ---------------------------------- |
+| fallbackPlacements | The fallback placements of the component   | [TooltipFallbackPlacement](../../composables/useTooltipPlacement) | ['top'\|'bottom'\|'left'\|'right']         | ['top', 'right', 'bottom', 'left'] |
+| placement          | The default placement of the component     | [TooltipPlacement](../../composables/useTooltipPlacement)         | ['auto'\|'top'\|'bottom'\|'left'\|'right'] | 'top'                              |
+| trigger            | The trigger on which to toggle the trigger | [Trigger](../../composables/useTrigger)                           | ['click'\|'hover'\|'focus'\|'manual']      | ['hover', 'focus']                 |
 
 <!-- TODO Auto-generate based on type? -->
 ## Events
