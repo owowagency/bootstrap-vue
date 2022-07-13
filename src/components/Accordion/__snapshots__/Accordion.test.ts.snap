@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`template renders default 1`] = `"<div id=\\"dont-change-please\\" class=\\"accordion\\"></div>"`;
+exports[`template renders default 1`] = `
+"<div id=\\"dont-change-please\\" class=\\"accordion\\">
+  <!--
+        @slot Displays the content of the accordion
+        @binding {string} parent-id The id of the parent accordion
+        -->
+</div>"
+`;

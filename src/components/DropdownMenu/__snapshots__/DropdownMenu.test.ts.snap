@@ -2,9 +2,35 @@
 
 exports[`template renders default 1`] = `
 "<ul class=\\"dropdown-menu\\">
+  <!-- @slot Prepends the dropdown menu -->
+  <!--
+        @slot Displays content inside the dropdown menu
+        @binding {array} items The \`Item\` list
+        @binding {function} click-item The function to call when an item is clicked
+        -->
+  <!--
+                @slot Displays the dropdown menu item
+                @binding {object} item The \`Item\` object
+                @binding {function} click-item The function to call when an item is clicked
+                -->
   <dropdown-menu-item-stub active=\\"false\\" divider=\\"false\\" header=\\"true\\" label=\\"Item 1\\"></dropdown-menu-item-stub>
+  <!--
+                @slot Displays the dropdown menu item
+                @binding {object} item The \`Item\` object
+                @binding {function} click-item The function to call when an item is clicked
+                -->
   <dropdown-menu-item-stub active=\\"false\\" divider=\\"false\\" header=\\"false\\" label=\\"Item 3\\"></dropdown-menu-item-stub>
+  <!--
+                @slot Displays the dropdown menu item
+                @binding {object} item The \`Item\` object
+                @binding {function} click-item The function to call when an item is clicked
+                -->
   <dropdown-menu-item-stub active=\\"false\\" divider=\\"true\\" header=\\"false\\"></dropdown-menu-item-stub>
-  <dropdown-menu-item-stub active=\\"true\\" divider=\\"false\\" header=\\"false\\" label=\\"Item 4\\"></dropdown-menu-item-stub>
+  <!--
+                @slot Displays the dropdown menu item
+                @binding {object} item The \`Item\` object
+                @binding {function} click-item The function to call when an item is clicked
+                -->
+  <dropdown-menu-item-stub active=\\"true\\" divider=\\"false\\" header=\\"false\\" label=\\"Item 4\\"></dropdown-menu-item-stub><!-- @slot Appends the dropdown menu -->
 </ul>"
 `;

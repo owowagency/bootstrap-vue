@@ -5,10 +5,22 @@ exports[`template renders default 1`] = `
   <div class=\\"modal-dialog modal-md\\">
     <div class=\\"modal-content\\">
       <div class=\\"modal-header\\">
-        <h5 class=\\"modal-title\\">Confirmation</h5><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
+        <!-- @slot Displays the header of the modal -->
+        <h5 class=\\"modal-title\\">
+          <!-- @slot Displays the header title of the modal -->Confirmation
+        </h5><button class=\\"btn-close\\" data-bs-dismiss=\\"modal\\" type=\\"button\\"></button>
       </div>
-      <div class=\\"modal-body\\">Are you sure?</div>
-      <div class=\\"modal-footer\\"><button class=\\"btn btn-md btn-light button-cancel\\">No</button><button class=\\"btn btn-md btn-primary button-ok\\">Yes</button></div>
+      <div class=\\"modal-body\\">
+        <!-- @slot Displays the body of the modal -->Are you sure?
+      </div>
+      <div class=\\"modal-footer\\">
+        <!-- @slot Displays the footer of the modal -->
+        <!-- @slot Displays content inside the cancel button --><button class=\\"btn btn-md btn-light button-cancel\\">
+          <!-- @slot Displays content inside the button -->No
+        </button><!-- @slot Displays content inside the ok button --><button class=\\"btn btn-md btn-primary button-ok\\">
+          <!-- @slot Displays content inside the button -->Yes
+        </button>
+      </div>
     </div>
   </div>
 </div>"

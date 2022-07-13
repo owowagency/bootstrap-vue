@@ -2,6 +2,8 @@
 
 exports[`template renders default 1`] = `
 "<nav>
-  <ol class=\\"breadcrumb\\"></ol>
+  <ol class=\\"breadcrumb\\">
+    <!-- @slot Displays content inside the breadcrumb -->
+  </ol>
 </nav>"
 `;

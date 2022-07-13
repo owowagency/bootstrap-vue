@@ -3,19 +3,53 @@
 exports[`template renders default 1`] = `
 "<div id=\\"dont-change-please\\" class=\\"carousel slide\\" data-bs-interval=\\"5000\\" data-bs-ride=\\"carousel\\">
   <div class=\\"carousel-inner\\">
-    <div class=\\"carousel-item\\"><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+    <!--
+            @slot Displays content inside the carousel
+            @binding {array} slides The \`CarouselSlide\` list
+             -->
+    <div class=\\"carousel-item\\">
+      <!--
+                    @slot Displays content inside the slide
+                    @binding {int} index The index of the slide
+                    @binding {object} slide The \`CarouselSlide\` object
+                    --><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+      <!--
+                        @slot Display the caption of the carousel
+                        @binding {string} description The description of the slide
+                        @binding {string} title The title of the slide
+                        -->
       <div class=\\"carousel-caption d-none d-md-block\\">
         <h5>Kitten #1</h5>
         <!--v-if-->
       </div>
     </div>
-    <div class=\\"carousel-item active\\"><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+    <div class=\\"carousel-item active\\">
+      <!--
+                    @slot Displays content inside the slide
+                    @binding {int} index The index of the slide
+                    @binding {object} slide The \`CarouselSlide\` object
+                    --><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+      <!--
+                        @slot Display the caption of the carousel
+                        @binding {string} description The description of the slide
+                        @binding {string} title The title of the slide
+                        -->
       <div class=\\"carousel-caption d-none d-md-block\\">
         <h5>Kitten #2</h5>
         <!--v-if-->
       </div>
     </div>
-    <div class=\\"carousel-item\\" data-bs-interval=\\"1000\\"><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+    <div class=\\"carousel-item\\" data-bs-interval=\\"1000\\">
+      <!--
+                    @slot Displays content inside the slide
+                    @binding {int} index The index of the slide
+                    @binding {object} slide The \`CarouselSlide\` object
+                    --><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+      <!--
+                        @slot Display the caption of the carousel
+                        @binding {string} description The description of the slide
+                        @binding {string} title The title of the slide
+                        -->
       <div class=\\"carousel-caption d-none d-md-block\\">
         <h5>Kitten #3</h5>
         <!--v-if-->
