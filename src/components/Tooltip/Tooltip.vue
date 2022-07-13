@@ -26,7 +26,7 @@ const props = defineProps({
      * Overflow constraint boundary of the tooltip
      */
     boundary: {
-        type: [String, Object] as PropType<string | HTMLElement>,
+        type: [String, HTMLElement],
         default: 'clippingParents',
     },
     /**
