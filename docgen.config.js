@@ -11,7 +11,7 @@ module.exports = {
     getDestFile: (file, config) => {
         return path.join(config.outDir, file).replace(/(?<=\/)\w+\.vue$/, 'README.md');
     },
-    getDocFileName: (componentPath) => componentPath.replace(/\.vue$/, '.md'), // specify the name of the input md file
+    getDocFileName: (componentPath) => componentPath.replace(/\.vue$/, '.md'),
     outDir: 'src/components',
     templates: {
         component: (renderedUsage, doc) => {
