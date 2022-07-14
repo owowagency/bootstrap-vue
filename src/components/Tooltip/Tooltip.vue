@@ -154,11 +154,11 @@ defineExpose({bsTooltip});
 <!-- TODO Auto-generate based on type? -->
 ## Events
 
-| Name          | Args | Description                                                                                             |
-| ------------- | ---- | ------------------------------------------------------------------------------------------------------- |
-| show          |      | This event fires immediately when the `show` instance method is called                                  |
-| shown         |      | This event is fired when the popover has been made visible to the user                                  |
-| hide          |      | This event is fired immediately when the `hide` instance method has been called                         |
-| hidden        |      | This event is fired when the popover has finished being hidden from the user                            |
-| hidePrevented |      | This event is fired after the show.bs.tooltip event when the tooltip template has been added to the DOM |
+| Name     | Args | Description                                                                                             |
+| -------- | ---- | ------------------------------------------------------------------------------------------------------- |
+| show     |      | This event fires immediately when the `show` instance method is called                                  |
+| shown    |      | This event is fired when the popover has been made visible to the user                                  |
+| hide     |      | This event is fired immediately when the `hide` instance method has been called                         |
+| hidden   |      | This event is fired when the popover has finished being hidden from the user                            |
+| inserted |      | This event is fired after the show.bs.tooltip event when the tooltip template has been added to the DOM |
 </docs>
