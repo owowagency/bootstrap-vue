@@ -4,8 +4,6 @@
 <Confirm body="Are you sure you want to delete this?" :cancelOutline="true" />
 ```
 
-<!-- TODO Fix the variants showing in props -->
-
 ## Imported Props
 
 | Prop name     | Description                  | Type                                             | Values | Default   |

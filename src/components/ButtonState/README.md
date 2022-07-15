@@ -6,8 +6,6 @@
 </ButtonState>
 ```
 
-<!-- TODO Fix the variants showing in props -->
-
 ## Imported Props
 
 | Prop name      | Description                                       | Type                                             | Values | Default   |
