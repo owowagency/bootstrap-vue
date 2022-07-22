@@ -1,5 +1,13 @@
 # useFormControl
 
+```typescript
+import {formControlProps} from '@/composables/useFormControl';
+
+const props = defineProps({
+  ...formControlProps,
+});
+```
+
 ## Props
 
 ### autofocus

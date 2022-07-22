@@ -1,5 +1,15 @@
 # useVariant
 
+```typescript
+import useVariant, {variantProps} from '@/composables/useVariant';
+
+const props = defineProps({
+  ...variantProps,
+});
+
+useVariant(props.variant, 'alert-{0}')
+```
+
 ## Props
 
 ### variant

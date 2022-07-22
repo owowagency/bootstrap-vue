@@ -1,5 +1,13 @@
 # useDropdownItems
 
+```typescript
+import {dropdownItemsProps} from '@/composables/useDropdownItems';
+
+const props = defineProps({
+  ...dropdownItemsProps,
+});
+```
+
 ## Props
 
 ### items

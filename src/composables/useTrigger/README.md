@@ -1,5 +1,13 @@
 # useTrigger
 
+```typescript
+import {triggerProps} from '@/composables/useTrigger';
+
+const props = defineProps({
+  ...triggerProps,
+});
+```
+
 ## Props
 
 ### trigger

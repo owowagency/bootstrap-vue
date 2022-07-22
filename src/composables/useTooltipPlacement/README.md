@@ -1,5 +1,14 @@
 # useTooltipPlacement
 
+```typescript
+import {tooltipFallbackPlacementProps, tooltipPlacementProps} from '@/composables/useTooltipPlacement';
+
+const props = defineProps({
+  ...tooltipFallbackPlacementProps,
+  ...tooltipPlacementProps,
+});
+```
+
 ## Props
 
 ### fallbackPlacements

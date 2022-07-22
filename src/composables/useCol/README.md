@@ -1,5 +1,13 @@
 # useCol
 
+```typescript
+import {colProp} from '@/composables/useCol';
+
+const props = defineProps({
+  cols: colProp,
+});
+```
+
 ## Default Value
 
 `undefined`

@@ -1,5 +1,13 @@
 # useTag
 
+```typescript
+import {tagProps} from '@/composables/useTag';
+
+const props = defineProps({
+  ...tagProps,
+});
+```
+
 ## Props
 
 ### tag

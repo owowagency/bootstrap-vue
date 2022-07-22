@@ -1,5 +1,15 @@
 # useFormSelect
 
+```typescript
+import useFormSelect, {formSelectProps} from '@/composables/useFormSelect';
+
+const props = defineProps({
+  ...formSelectProps,
+});
+
+useFormSelect(props)
+```
+
 ## Props
 
 ### [disabled](../useDisabled)
