@@ -24,7 +24,13 @@ import useSize from '@/composables/useSize';
 <script lang="ts" setup>
 const props = defineProps(formControlProps);
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([
+    /**
+     * Fired when the model value is updated
+     * @param {any} value The new value
+     */
+    'update:modelValue',
+]);
 
 const input = ref<HTMLInputElement>();
 
@@ -37,3 +43,26 @@ const {classes} = useClasses(computed(() => [
 
 defineExpose({input});
 </script>
+
+<docs>
+```vue
+<FormControl
+    name="username"
+    v-model="username"
+    placeholder="JohnDoe"
+/>
+```
+
+## Imported Props
+
+| Prop name   | Description                                  | Type                                              | Values | Default |
+| ----------- | -------------------------------------------- | ------------------------------------------------- | ------ | ------- |
+| autofocus   | Automatically focus on the input when loaded | boolean                                           | -      | false   |
+| disabled    | Disables the component                       | boolean                                           | -      | false   |
+| modelValue  | The model value                              | string                                            | -      | ''      |
+| placeholder | The placeholder of the form input            | string                                            | -      | ''      |
+| plainText   | Adds the `form-control-plaintext` class      | boolean                                           | -      | false   |
+| readonly    | Makes the component readonly                 | boolean                                           | -      | false   |
+| size        | The size of the component                    | [Size](../../composables/useSize) (string)        | -      | 'md'    |
+| type        | The type of the component                    | [Type](../../composables/useFormControl) (string) | -      | 'text'  |
+</docs>

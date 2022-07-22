@@ -2,7 +2,12 @@
 
 exports[`template renders default 1`] = `
 "<div class=\\"dropdown\\">
+  <!-- @slot Displays the dropdown toggle -->
   <btn-stub disabled=\\"false\\" outline=\\"false\\" size=\\"md\\" variant=\\"primary\\" class=\\"dropdown-toggle\\" data-bs-toggle=\\"dropdown\\"></btn-stub>
+  <!--
+        @slot Displays the dropdown menu
+        @binding {array} items The \`Item\` list
+        -->
   <dropdown-menu-stub items=\\"[object Object],[object Object],[object Object]\\"></dropdown-menu-stub>
 </div>"
 `;

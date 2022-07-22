@@ -2,7 +2,10 @@
 
 exports[`template renders default 1`] = `
 "<div class=\\"input-group input-group-md\\">
+  <!-- @slot Displays the prepend of the input -->
   <!--v-if-->
+  <!-- @slot Displays the content of the input -->
+  <!-- @slot Displays the append of the input -->
   <!--v-if-->
 </div>"
 `;

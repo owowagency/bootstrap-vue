@@ -1,22 +1,27 @@
 # Button
 
-```html
+```vue
 <Button variant="danger">
     Delete
 </Button>
 ```
 
+## Imported Props
+
+| Prop name | Description                  | Type                                             | Values | Default   |
+| --------- | ---------------------------- | ------------------------------------------------ | ------ | --------- |
+| disabled  | Disables the component       | boolean                                          | -      | false     |
+| size      | The size of the component    | [Size](../../composables/useSize) (string)       | -      | 'md'      |
+| variant   | The variant of the component | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+
 ## Props
 
-| Name | Type | Description |
-| - | - | - |
-| disabled | boolean | Disables the button. |
-| outline | boolean | Changes the button the an outline variant. |
-| size | [Size](#link-to-size-definition) (string) | The size of the button. |
-| variant | [Variant](#link-to-variant-definition) (string) | The variant of the button. |
+| Prop name | Description                              | Type    | Values | Default |
+| --------- | ---------------------------------------- | ------- | ------ | ------- |
+| outline   | Changes the button to an outline variant | boolean | -      | false   |
 
 ## Slots
 
-| Name | Description |
-| - | - |
-| default | Displays content inside the button. |
+| Name    | Description                        | Bindings |
+| ------- | ---------------------------------- | -------- |
+| default | Displays content inside the button |          |

@@ -26,21 +26,39 @@
 
 <script lang="ts" setup>
 defineProps({
+    /**
+     * Adds the `active` class
+     */
     active: {
         type: Boolean,
         default: false,
     },
+    /**
+     * Displays a divider
+     */
     divider: {
         type: Boolean,
         default: false,
     },
+    /**
+     * Displays label as header
+     */
     header: {
         type: Boolean,
         default: false,
     },
+    /**
+     * The label to display
+     */
     label: {
         type: String,
         default: undefined,
     },
 });
 </script>
+
+<docs>
+```vue
+<DropdownMenuItem label="Menu item" />
+```
+</docs>

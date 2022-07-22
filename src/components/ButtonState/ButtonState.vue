@@ -41,6 +41,7 @@
             </svg>
         </span>
 
+        <!-- @slot Displays content inside the button -->
         <slot />
     </Button>
 </template>
@@ -54,15 +55,24 @@ import {computed} from 'vue';
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * Controls the error state of the button
+     */
     error: {
         type: Boolean,
         default: false,
     },
     errorVariant: variantProp('danger'),
+    /**
+     * Controls the loading state of the button
+     */
     loading: {
         type: Boolean,
         default: false,
     },
+    /**
+     * Controls the success state of the button
+     */
     success: {
         type: Boolean,
         default: false,
@@ -86,3 +96,23 @@ const variant = computed<Variant>(() => {
     }
 });
 </script>
+
+<docs>
+```vue
+<ButtonState
+    :error="error"
+    :loading="loading"
+    :success="success"
+>
+    Submit
+</ButtonState>
+```
+
+## Imported Props
+
+| Prop name      | Description                                       | Type                                             | Values | Default   |
+| -------------- | ------------------------------------------------- | ------------------------------------------------ | ------ | --------- |
+| errorVariant   | The variant of the component in the error state   | [Variant](../../composables/useVariant) (string) | -      | 'danger'  |
+| successVariant | The variant of the component in the success state | [Variant](../../composables/useVariant) (string) | -      | 'success' |
+| variant        | The variant of the component                      | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+</docs>

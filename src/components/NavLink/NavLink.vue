@@ -4,6 +4,7 @@
         :class="classes"
         href="#"
     >
+        <!-- @slot Displays the content of the nav link -->
         <slot />
     </a>
 </template>
@@ -26,4 +27,20 @@ const {classes} = useClasses(computed(() => [
     useDisabled(props.disabled).disabledClass.value,
 ]));
 </script>
+
+<docs>
+```vue
+<NavLink href="https://github.com/owowagency/bootstrap-vue">
+    GitHub
+</NavLink>
+```
+
+
+## Imported Props
+
+| Prop name | Description             | Type    | Values | Default   |
+| --------- | ----------------------- | ------- | ------ | --------- |
+| active    | Adds the `active` class | boolean | -      | false     |
+| disabled  | Disables the component  | boolean | -      | false     |
+</docs>
 

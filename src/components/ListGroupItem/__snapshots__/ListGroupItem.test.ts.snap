@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`template renders default 1`] = `"<li class=\\"list-group-item list-group-item-\\"></li>"`;
+exports[`template renders default 1`] = `
+"<li class=\\"list-group-item list-group-item-\\">
+  <!-- @slot Displays the content of the list group item -->
+</li>"
+`;

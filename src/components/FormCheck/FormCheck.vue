@@ -19,6 +19,7 @@
             class="form-check-label"
             :for="id"
         >
+            <!-- @slot Displays content inside the label -->
             <slot>
                 {{ label }}
             </slot>
@@ -37,38 +38,69 @@ import {typeProp} from '@/components/FormCheck/type';
 const props = defineProps({
     ...disabledProps,
     ...idProps,
+    /**
+     * Adds the `form-check-inline` class
+     */
     inline: {
         type: Boolean,
         default: false,
     },
+    /**
+     * The classes that will be forwarded to the input
+     */
     inputClass: {
         type: [String, Array, Object],
         default: undefined,
     },
+    /**
+     * The label to display
+     */
     label: {
         type: String,
         default: undefined,
     },
+    /**
+     * The model value
+     */
     modelValue: {
         type: [Boolean, String, Number],
         default: false,
     },
+    /**
+     * The name of the input
+     */
     name: {
         type: String,
         default: undefined,
     },
+    /**
+     * Display the check as a switch by adding the `form-switch` class
+     */
     switch: {
         type: Boolean,
         default: false,
     },
+    /**
+     * The type of the input
+     * @values 'checkbox'|'radio'
+     */
     type: typeProp,
+    /**
+     * The value of the input
+     */
     value: {
         type: [String, Number],
         default: undefined,
     },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([
+    /**
+     * Fired when the model value is updated
+     * @param {any} value The new value
+     */
+    'update:modelValue',
+]);
 
 const checked = computed({
     get: () => props.modelValue,
@@ -86,3 +118,20 @@ const checked = computed({
 // Required to prevent the use of a reserved word.
 const isSwitch = computed(() => props.switch);
 </script>
+
+<docs>
+```vue
+<FormCheck
+    v-model="check"
+    label="Check me"
+    switch
+/>
+```
+
+## Imported Props
+
+| Prop name | Description                   | Type    | Values | Default |
+| --------- | ----------------------------- | ------- | ------ | ------- |
+| disabled  | Disables the component        | boolean | -      | false   |
+| id        | The id used for the component | string  | -      | `uuid`  |
+</docs>

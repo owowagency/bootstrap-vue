@@ -3,6 +3,7 @@
         class="badge"
         :class="classes"
     >
+        <!-- @slot Displays content inside the badge -->
         <slot />
     </div>
 </template>
@@ -15,6 +16,9 @@ import useClasses from '@/composables/useClasses';
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * Indicates if the badge should be shown as a pill
+     */
     pill: {
         type: Boolean,
         default: false,
@@ -27,3 +31,20 @@ const {classes} = useClasses(computed(() => [
     useVariant(props.variant, 'bg-{0}').variantClass.value,
 ]));
 </script>
+
+<docs>
+```vue
+<Badge
+    pill
+    variant="danger"
+>
+    I am a badge
+</Badge>
+```
+
+## Imported Props
+
+| Prop name | Description                  | Type                                             | Values | Default   |
+| --------- | ---------------------------- | ------------------------------------------------ | ------ | --------- |
+| variant   | The variant of the component | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+</docs>

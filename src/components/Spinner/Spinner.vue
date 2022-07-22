@@ -17,6 +17,10 @@ type Type = typeof types[number];
 <script lang="ts" setup>
 const props = defineProps({
     ...sizeProps,
+    /**
+     * The type of the spinner
+     * @values 'border'|'grow'
+     */
     type: {
         type: String as PropType<Type>,
         default: 'border',
@@ -34,3 +38,15 @@ const {classes} = useClasses(computed(() => [
 ]));
 </script>
 
+<docs>
+```vue
+<Spinner size="lg" />
+```
+
+## Imported Props
+
+| Prop name | Description                  | Type                                             | Values | Default   |
+| --------- | ---------------------------- | ------------------------------------------------ | ------ | --------- |
+| size      | The size of the component    | [Size](../../composables/useSize) (string)       | -      | 'md'      |
+| variant   | The variant of the component | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+</docs>

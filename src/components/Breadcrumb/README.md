@@ -1,19 +1,19 @@
 # Breadcrumb
 
-```html
+```vue
 <Breadcrumb>
-    <BreadcrumItem>
+    <BreadcrumbItem>
         Home
-    </BreadcrumItem>
+    </BreadcrumbItem>
 
-    <BreadcrumItem active>
+    <BreadcrumbItem active>
         Products
-    <BreadcrumItem>
+    </BreadcrumbItem>
 </Breadcrumb>
 ```
 
 ## Slots
 
-| Name | Description |
-| - | - |
-| default | Displays content inside the breadcrumb. |
+| Name    | Description                            | Bindings |
+| ------- | -------------------------------------- | -------- |
+| default | Displays content inside the breadcrumb |          |

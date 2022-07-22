@@ -3,6 +3,7 @@
         class="input-group"
         :class="classes"
     >
+        <!-- @slot Displays the prepend of the input -->
         <slot name="prepend">
             <span
                 v-if="prepend"
@@ -12,8 +13,11 @@
             </span>
         </slot>
 
+
+        <!-- @slot Displays the content of the input -->
         <slot />
 
+        <!-- @slot Displays the append of the input -->
         <slot name="append">
             <span
                 v-if="append"
@@ -33,10 +37,16 @@ import useClasses from '@/composables/useClasses';
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * The text to prepend to the input
+     */
     append: {
         type: String,
         default: undefined,
     },
+    /**
+     * The text to append to the input
+     */
     prepend: {
         type: String,
         default: undefined,
@@ -48,3 +58,17 @@ const {classes} = useClasses(computed(() => [
     useSize(props.size, 'input-group-{0}').sizeClass.value,
 ]));
 </script>
+
+<docs>
+```vue
+<InputGroup prepend="$">
+    <FormControl v-model="price" />
+</InputGroup>
+```
+
+## Imported Props
+
+| Prop name | Description               | Type                                       | Values | Default |
+| --------- | ------------------------- | ------------------------------------------ | ------ | ------- |
+| size      | The size of the component | [Size](../../composables/useSize) (string) | -      | 'md'    |
+</docs>

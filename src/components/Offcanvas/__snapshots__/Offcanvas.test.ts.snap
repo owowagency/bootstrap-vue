@@ -3,6 +3,8 @@
 exports[`template renders default 1`] = `
 "<div id=\\"dont-change-please\\" class=\\"offcanvas offcanvas-start\\" data-bs-backdrop=\\"true\\" data-bs-scroll=\\"false\\">
   <!--v-if-->
-  <div class=\\"offcanvas-body\\"></div>
+  <div class=\\"offcanvas-body\\">
+    <!-- @slot Displays the body of the offcanvas -->
+  </div>
 </div>"
 `;

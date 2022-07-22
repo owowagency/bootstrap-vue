@@ -1,6 +1,6 @@
 # ButtonGroup
 
-```html
+```vue
 <ButtonGroup vertical>
     <Button>
         Top
@@ -16,15 +16,20 @@
 </ButtonGroup>
 ```
 
+## Imported Props
+
+| Prop name | Description               | Type                                       | Values | Default |
+| --------- | ------------------------- | ------------------------------------------ | ------ | ------- |
+| size      | The size of the component | [Size](../../composables/useSize) (string) | -      | 'md'    |
+
 ## Props
 
-| Name | Type | Description |
-| - | - | - |
-| size | [Size](#link-to-size-definition) (string) | The size of the button group. |
-| verical | boolean | Stacks the buttons vertically. |
+| Prop name | Description                   | Type    | Values | Default |
+| --------- | ----------------------------- | ------- | ------ | ------- |
+| vertical  | Stacks the buttons vertically | boolean | -      | false   |
 
 ## Slots
 
-| Name | Description |
-| - | - |
-| default | Displays content inside the button group. |
+| Name    | Description                              | Bindings |
+| ------- | ---------------------------------------- | -------- |
+| default | Displays content inside the button group |          |

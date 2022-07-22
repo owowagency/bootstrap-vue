@@ -4,6 +4,7 @@
         :class="classes"
         :disabled="disabled"
     >
+        <!-- @slot Displays content inside the button -->
         <slot />
     </button>
 </template>
@@ -19,6 +20,9 @@ import useClasses from '@/composables/useClasses';
 <script lang="ts" setup>
 const props = defineProps({
     ...disabledProps,
+    /**
+     * Changes the button to an outline variant
+     */
     outline: {
         type: Boolean,
         default: false,
@@ -35,3 +39,19 @@ const {classes} = useClasses(computed(() => [
     useVariant(props.variant, variantClassTemplate).variantClass.value,
 ]));
 </script>
+
+<docs>
+```vue
+<Button variant="danger">
+    Delete
+</Button>
+```
+
+## Imported Props
+
+| Prop name | Description                  | Type                                             | Values | Default   |
+| --------- | ---------------------------- | ------------------------------------------------ | ------ | --------- |
+| disabled  | Disables the component       | boolean                                          | -      | false     |
+| size      | The size of the component    | [Size](../../composables/useSize) (string)       | -      | 'md'      |
+| variant   | The variant of the component | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+</docs>

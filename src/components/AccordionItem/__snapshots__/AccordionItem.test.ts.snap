@@ -2,27 +2,39 @@
 
 exports[`template renders default 1`] = `
 "<div class=\\"accordion-item\\">
-  <h2 class=\\"accordion-header\\"><button class=\\"accordion-button collapsed\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#dont-change-please\\"></button></h2>
+  <h2 class=\\"accordion-header\\"><button class=\\"accordion-button collapsed\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#dont-change-please\\">
+      <!-- @slot Displays the header of the accordion -->
+    </button></h2>
   <div id=\\"dont-change-please\\" class=\\"accordion-collapse collapse\\">
-    <div class=\\"accordion-body\\"></div>
+    <div class=\\"accordion-body\\">
+      <!-- @slot Displays the body of the accordion -->
+    </div>
   </div>
 </div>"
 `;
 
 exports[`template renders given custom classes 1`] = `
 "<div class=\\"accordion-item custom-class\\">
-  <h2 class=\\"accordion-header header-class\\"><button class=\\"accordion-button collapsed button-class\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#owow-accordion-item\\"></button></h2>
+  <h2 class=\\"accordion-header header-class\\"><button class=\\"accordion-button collapsed button-class\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#owow-accordion-item\\">
+      <!-- @slot Displays the header of the accordion -->
+    </button></h2>
   <div id=\\"owow-accordion-item\\" class=\\"accordion-collapse collapse collapse-class\\">
-    <div class=\\"accordion-body body-class\\"></div>
+    <div class=\\"accordion-body body-class\\">
+      <!-- @slot Displays the body of the accordion -->
+    </div>
   </div>
 </div>"
 `;
 
 exports[`template renders header 1`] = `
 "<div class=\\"accordion-item\\">
-  <h5 class=\\"accordion-header\\"><button class=\\"accordion-button collapsed\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#owow-accordion-item\\">find-me</button></h5>
+  <h5 class=\\"accordion-header\\"><button class=\\"accordion-button collapsed\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#owow-accordion-item\\">
+      <!-- @slot Displays the header of the accordion -->find-me
+    </button></h5>
   <div id=\\"owow-accordion-item\\" class=\\"accordion-collapse collapse\\">
-    <div class=\\"accordion-body\\"></div>
+    <div class=\\"accordion-body\\">
+      <!-- @slot Displays the body of the accordion -->
+    </div>
   </div>
 </div>"
 `;
