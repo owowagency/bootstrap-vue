@@ -18,6 +18,8 @@
         "src/**/*.vue",
     ],
     "exclude": [
+        "src/**/*.stories.ts",
+        "src/**/*.test.ts",
         "node_modules",
         "tests",
     ]

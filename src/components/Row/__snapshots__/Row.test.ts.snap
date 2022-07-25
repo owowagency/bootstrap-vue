@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`template renders default 1`] = `"<div class=\\"row\\"></div>"`;
+exports[`template renders default 1`] = `
+"<div class=\\"row\\">
+  <!-- @slot Displays content inside the row -->
+</div>"
+`;

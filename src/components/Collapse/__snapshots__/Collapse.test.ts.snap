@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`template renders default 1`] = `
-"<div class=\\"collapse-toggle\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#dont-change-please\\"></div>
-<div id=\\"dont-change-please\\" class=\\"collapse\\"></div>"
+"<!--
+    @slot Displays the toggle for the collapse
+    @binding {string} id The id of the target collapse
+    -->
+<div class=\\"collapse-toggle\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#dont-change-please\\">
+  <!--
+            @slot Displays the content for the toggle
+            @binding {string} id The id of the target collapse
+            -->
+</div>
+<div id=\\"dont-change-please\\" class=\\"collapse\\">
+  <!--
+        @slot Displays the content of the collapse
+        @binding {string} id The id of the collapse
+        -->
+</div>"
 `;

@@ -1,11 +1,11 @@
 # ButtonClose
 
-```html
+```vue
 <ButtonClose />
 ```
 
-## Props
+## Imported Props
 
-| Name | Type | Description |
-| - | - | - |
-| disabled | boolean | Disables the button. |
+| Prop name | Description            | Type    | Values | Default |
+| --------- | ---------------------- | ------- | ------ | ------- |
+| disabled  | Disables the component | boolean | -      | false   |

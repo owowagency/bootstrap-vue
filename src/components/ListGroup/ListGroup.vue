@@ -4,6 +4,7 @@
         class="list-group"
         :class="classes"
     >
+        <!-- @slot Displays the content of the list group -->
         <slot />
     </component>
 </template>
@@ -17,10 +18,16 @@ import useClasses from '@/composables/useClasses';
 <script lang="ts" setup>
 const props = defineProps({
     ...flushProps,
+    /**
+     * Defines if the list should be displayed horizontally
+     */
     horizontal: {
         type: Boolean,
         default: false,
     },
+    /**
+     * Defines if the list should be numbered
+     */
     numbered: {
         type: Boolean,
         default: false,
@@ -35,3 +42,19 @@ const {classes} = useClasses(computed(() => [
     props.numbered ? 'list-group-numbered' : undefined,
 ]));
 </script>
+
+<docs>
+```vue
+<ListGroup>
+    <ListGroupItem>...</ListGroupItem>
+    <ListGroupItem>...</ListGroupItem>
+    <ListGroupItem>...</ListGroupItem>
+</ListGroup>
+```
+
+## Imported Props
+
+| Prop name | Description                            | Type    | Values | Default |
+| --------- | -------------------------------------- | ------- | ------ | ------- |
+| flush     | Use the flush variant of the component | boolean | -      | false   |
+</docs>

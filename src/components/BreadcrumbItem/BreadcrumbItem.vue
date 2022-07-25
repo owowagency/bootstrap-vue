@@ -3,6 +3,7 @@
         class="breadcrumb-item"
         :class="classes"
     >
+        <!-- @slot Displays content inside the breadcrumb item -->
         <slot />
     </li>
 </template>
@@ -23,3 +24,17 @@ const {classes} = useClasses(computed(() => [
     useActive(props.active).activeClass.value,
 ]));
 </script>
+
+<docs>
+```vue
+<BreadcrumbItem active>
+    Products
+</BreadcrumbItem>
+```
+
+## Imported Props
+
+| Prop name | Description             | Type    | Values | Default |
+| --------- | ----------------------- | ------- | ------ | ------- |
+| active    | Adds the `active` class | boolean | -      | false   |
+</docs>

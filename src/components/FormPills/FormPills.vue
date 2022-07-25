@@ -46,33 +46,54 @@ import {idProps} from '@/composables/useId';
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * Defines if items should be removed when pressing backspace
+     */
     editItemOnBackspace: {
         type: Boolean,
         default: false,
     },
     ...idProps,
+    /**
+     * The maximym amount of items that can be added to the list
+     */
     maxItems: {
         type: Number,
         default: Infinity,
     },
+    /**
+     * The model value
+     */
     modelValue: {
         type: Array as PropType<string[]>,
         default: () => [],
     },
+    /**
+     * The placeholder for the input
+     */
     placeholder: {
         type: String,
         default: '',
     },
+    /**
+     * The separator that checks if an item should be separated from the next one
+     */
     separator: {
         type: [String, RegExp],
         // For some reason it does not allow RegExp to be used as default value.
         // eslint-disable-next-line vue/require-valid-default-prop
         default: /[\s\n]+/,
     },
+    /**
+     * The key to press to submit an item
+     */
     submitKeys: {
         type: Array as PropType<string[]>,
         default: () => ['Enter'],
     },
+    /**
+     * The matcher to check if an item is valid
+     */
     valueMatcher: {
         type: [String, RegExp],
         // For some reason it does not allow RegExp to be used as default value.
@@ -81,7 +102,13 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([
+    /**
+     * Fired when the model value is updated
+     * @param {string[]} value The new value
+     */
+    'update:modelValue',
+]);
 
 const value = ref('');
 
@@ -212,3 +239,18 @@ const paste = (event: ClipboardEvent) => {
     }
 };
 </script>
+
+<docs>
+```vue
+<FormPills
+    v-model="emails"
+    :value-matcher="/.+@.+\.\w+/"
+/>
+```
+
+## Imported Props
+
+| Prop name | Description                   | Type   | Values | Default |
+| --------- | ----------------------------- | ------ | ------ | ------- |
+| id        | The id used for the component | string | -      | `uuid`  |
+</docs>

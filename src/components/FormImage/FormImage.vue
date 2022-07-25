@@ -22,6 +22,7 @@
             class="form-image-btn-edit"
         />
 
+        <!-- @slot Displays the placeholder -->
         <slot
             v-else
             name="placeholder"
@@ -37,15 +38,25 @@ import {idProps} from '@/composables/useId';
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * The data type of the model
+     * @values 'file'|'base64'
+     */
     dataType: {
         type: String as PropType<DataType>,
         default: 'base64',
     },
     ...idProps,
+    /**
+     * The model value
+     */
     modelValue: {
         type: [Object, String] as PropType<File|string>,
         default: undefined,
     },
+    /**
+     * The preview
+     */
     preview: {
         type: String,
         default: undefined,
@@ -53,7 +64,11 @@ const props = defineProps({
 });
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', v: string|File): void,
+    /**
+     * Fired when the model value is updated
+     * @param {string|File} value The new value
+     */
+    (e: 'update:modelValue', value: string|File): void,
 }>();
 
 // Rollup cannot handle HTMLInputElement as ref, cannot
@@ -126,3 +141,18 @@ const readFile = (file: File) => {
     return reader;
 };
 </script>
+
+<docs>
+```vue
+<FormImage
+    v-model="b64"
+    type="base64"
+/>
+```
+
+## Imported Props
+
+| Prop name | Description                   | Type   | Values | Default |
+| --------- | ----------------------------- | ------ | ------ | ------- |
+| id        | The id used for the component | string | -      | `uuid`  |
+</docs>

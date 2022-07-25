@@ -3,6 +3,7 @@
         ref="dropdown"
         class="dropdown"
     >
+        <!-- @slot Displays the dropdown toggle -->
         <slot name="dropdownToggle">
             <Btn
                 class="dropdown-toggle"
@@ -10,12 +11,17 @@
                 :size="size"
                 :variant="variant"
             >
+                <!-- @slot Displays content inside the dropdown toggle -->
                 <slot>
                     Select
                 </slot>
             </Btn>
         </slot>
 
+        <!--
+        @slot Displays the dropdown menu
+        @binding {array} items The `Item` list
+        -->
         <slot
             name="dropdownMenu"
             v-bind="{'onClick:item': $attrs['onClick:item']}"
@@ -38,6 +44,7 @@
                 </template> -->
 
                 <template #prepend="slotScope">
+                    <!-- @slot *Forwarded to child* -->
                     <slot
                         name="prepend"
                         v-bind="slotScope"
@@ -45,6 +52,7 @@
                 </template>
 
                 <template #items="slotScope">
+                    <!-- @slot *Forwarded to child* -->
                     <slot
                         name="items"
                         v-bind="slotScope"
@@ -52,6 +60,7 @@
                 </template>
 
                 <template #item="slotScope">
+                    <!-- @slot *Forwarded to child* -->
                     <slot
                         name="item"
                         v-bind="slotScope"
@@ -59,6 +68,7 @@
                 </template>
 
                 <template #append="slotScope">
+                    <!-- @slot *Forwarded to child* -->
                     <slot
                         name="append"
                         v-bind="slotScope"
@@ -83,6 +93,7 @@ type DropdownEvent = typeof dropdownEvents[number];
 </script>
 
 <script lang="ts" setup>
+
 defineProps(dropdownProps);
 
 const emit = defineEmits<{(event: DropdownEvent): void}>();
@@ -112,3 +123,28 @@ const menuSlots = [
 
 defineExpose({bsDropdown});
 </script>
+
+<docs>
+```vue
+<Dropdown :items="[Item]" />
+```
+
+## Imported Props
+
+| Prop name | Description                                    | Type                                             | Values | Default   |
+| --------- | ---------------------------------------------- | ------------------------------------------------ | ------ | --------- |
+| items     | The items of the dropdown menu                 | [Item[]](../../composables/useDropdownItems)     | -      | () => []  |
+| menuClass | The classes that will be forwarded to the menu | `string`\|`array`\|`object`                      | -      | undefined |
+| size      | The size of the component                      | [Size](../../composables/useSize) (string)       | -      | 'md'      |
+| variant   | The variant of the component                   | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+
+<!-- TODO Auto-generate based on type? -->
+## Events
+
+| Name   | Args | Description                                                                                        |
+| ------ | ---- | -------------------------------------------------------------------------------------------------- |
+| show   |      | Fires immediately when the `show` instance method is called                                        |
+| shown  |      | Fired when the dropdown has been made visible to the user and CSS transitions have completed       |
+| hide   |      | Fires immediately when the `hide` instance method has been called                                  |
+| hidden |      | Fired when the dropdown has finished being hidden from the user and CSS transitions have completed |
+</docs>

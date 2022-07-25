@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`template renders default 1`] = `"<li class=\\"nav-item\\"></li>"`;
+exports[`template renders default 1`] = `
+"<li class=\\"nav-item\\">
+  <!-- @slot Displays the content of the nav item -->
+</li>"
+`;

@@ -3,6 +3,7 @@
         :is="tag"
         ref="tooltip"
     >
+        <!-- @slot Displays the content of the tooltip -->
         <slot />
     </component>
 </template>
@@ -21,38 +22,65 @@ type TooltipEvent = typeof tooltipEvents[number];
 
 <script lang="ts" setup>
 const props = defineProps({
+    /**
+     * Overflow constraint boundary of the tooltip
+     */
     boundary: {
         type: [String, Object] as PropType<string | HTMLElement>,
         default: 'clippingParents',
     },
+    /**
+     * Appends the tooltip to the given element
+     */
     container: {
         type: [String, Object, Boolean] as PropType<string | HTMLElement | boolean>,
         default: false,
     },
+    /**
+     * The classes that will be forwarded to the tooltip
+     */
     customClass: {
         type: [String, Array, Object],
         default: '',
     },
+    /**
+     * Delay showing and hiding the tooltip in milliseconds
+     */
     delay: {
         type: [Number, Object],
         default: 0,
     },
+    /**
+     * Defines if HTML is allowed in the tooltip
+     */
     html: {
         type: Boolean,
         default: false,
     },
+    /**
+     * The x, y offset of the tooltip
+     */
     offset: {
         type: [String, Array] as PropType<string | number[]>,
         default: () => [0, 0],
     },
+    /**
+     * Change Bootstrap's default Popper config
+     */
     popperConfig: {
         type: [Object, Function],
         default: () => ({}),
     },
+    /**
+     * The tag to be used for the list group item
+     */
     tag: {
         type: String,
         default: 'div',
     },
+    /**
+     * The text to display in the tooltip
+     */
     title: {
         type: String,
         default: '',
@@ -107,3 +135,30 @@ const {bsInstance: bsTooltip} = useBootstrapInstance(
 
 defineExpose({bsTooltip});
 </script>
+
+<docs>
+```vue
+<Tooltip :fallback-placements="['bottom']">
+    Insert coin here
+</Tooltip>
+```
+
+## Imported Props
+
+| Prop name          | Description                                | Type                                                              | Values                                     | Default                            |
+| ------------------ | ------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------------ | ---------------------------------- |
+| fallbackPlacements | The fallback placements of the component   | [TooltipFallbackPlacement](../../composables/useTooltipPlacement) | ['top'\|'bottom'\|'left'\|'right']         | ['top', 'right', 'bottom', 'left'] |
+| placement          | The default placement of the component     | [TooltipPlacement](../../composables/useTooltipPlacement)         | ['auto'\|'top'\|'bottom'\|'left'\|'right'] | 'top'                              |
+| trigger            | The trigger on which to toggle the trigger | [Trigger](../../composables/useTrigger)                           | ['click'\|'hover'\|'focus'\|'manual']      | ['hover', 'focus']                 |
+
+<!-- TODO Auto-generate based on type? -->
+## Events
+
+| Name     | Args | Description                                                                                             |
+| -------- | ---- | ------------------------------------------------------------------------------------------------------- |
+| show     |      | This event fires immediately when the `show` instance method is called                                  |
+| shown    |      | This event is fired when the popover has been made visible to the user                                  |
+| hide     |      | This event is fired immediately when the `hide` instance method has been called                         |
+| hidden   |      | This event is fired when the popover has finished being hidden from the user                            |
+| inserted |      | This event is fired after the show.bs.tooltip event when the tooltip template has been added to the DOM |
+</docs>

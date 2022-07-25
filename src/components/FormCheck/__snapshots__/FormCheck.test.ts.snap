@@ -6,4 +6,8 @@ exports[`template renders default 1`] = `
 </div>"
 `;
 
-exports[`template renders label 1`] = `"<div class=\\"form-check\\"><input id=\\"dont-change-please\\" class=\\"form-check-input\\" type=\\"checkbox\\"><label class=\\"form-check-label\\" for=\\"dont-change-please\\">I am a label</label></div>"`;
+exports[`template renders label 1`] = `
+"<div class=\\"form-check\\"><input id=\\"dont-change-please\\" class=\\"form-check-input\\" type=\\"checkbox\\"><label class=\\"form-check-label\\" for=\\"dont-change-please\\">
+    <!-- @slot Displays content inside the label -->I am a label
+  </label></div>"
+`;

@@ -7,6 +7,7 @@
         v-bind="propsDropdown"
     >
         <template #dropdownToggle>
+            <!-- @slot Displays the dropdown toggle -->
             <slot name="dropdownToggle">
                 <FormControl
                     ref="formControl"
@@ -32,6 +33,7 @@
         </template> -->
 
         <template #noOptions="slotScope">
+            <!-- @slot *Forwarded to child* -->
             <slot
                 name="noOptions"
                 v-bind="slotScope"
@@ -39,6 +41,7 @@
         </template>
 
         <template #prepend="slotScope">
+            <!-- @slot *Forwarded to child* -->
             <slot
                 name="prepend"
                 v-bind="slotScope"
@@ -46,6 +49,7 @@
         </template>
 
         <template #items="slotScope">
+            <!-- @slot *Forwarded to child* -->
             <slot
                 name="items"
                 v-bind="slotScope"
@@ -53,6 +57,7 @@
         </template>
 
         <template #item="slotScope">
+            <!-- @slot *Forwarded to child* -->
             <slot
                 name="item"
                 v-bind="slotScope"
@@ -60,6 +65,7 @@
         </template>
 
         <template #append="slotScope">
+            <!-- @slot *Forwarded to child* -->
             <slot
                 name="append"
                 v-bind="slotScope"
@@ -80,33 +86,62 @@ import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
 const props = defineProps({
     ...formControlProps,
+    /**
+     * Automatically search through the items
+     */
     autoSearch: {
         type: Boolean,
         default: true,
     },
+    /**
+     * The items of the dropdown menu
+     */
     items: {
         type: Array as PropType<Item[]>,
         default: () => [],
     },
+    /**
+     * The key that is used to get the label from a given item
+     */
     labelKey: {
         type: String,
         default: 'label',
     },
+    /**
+     * The model value
+     */
     modelValue: {
         type: Object as PropType<Item>,
         default: undefined,
     },
+    /**
+     * The placeholder of the form input
+     */
     placeholder: {
         type: String,
         default: '',
     },
+    /**
+     * The current search string
+     */
     search: {
         type: String,
         default: '',
     },
 });
 
-const emit = defineEmits(['update:modelValue', 'update:search']);
+const emit = defineEmits([
+    /**
+     * Fired when the model value is updated
+     * @param {any} value The new value
+     */
+    'update:modelValue',
+    /**
+     * Fired when the search value is updated
+     * @param {string} search The new search value
+     */
+    'update:search',
+]);
 
 const propsFormControl = extractKeysFrom(
     Object.keys(formControlProps)
@@ -247,3 +282,23 @@ const formDropdownSlots = [
 
 defineExpose({bsDropdown, formControl});
 </script>
+
+<docs>
+```vue
+<FormDropdownSearch
+    :items=""
+/>
+```
+
+## Imported Props
+
+| Prop name   | Description                                  | Type                                              | Values | Default |
+| ----------- | -------------------------------------------- | ------------------------------------------------- | ------ | ------- |
+| autofocus   | Automatically focus on the input when loaded | boolean                                           | -      | false   |
+| disabled    | Disables the component                       | boolean                                           | -      | false   |
+| modelValue  | The model value                              | string                                            | -      | ''      |
+| plainText   | Adds the `form-control-plaintext` class      | boolean                                           | -      | false   |
+| readonly    | Makes the component readonly                 | boolean                                           | -      | false   |
+| size        | The size of the component                    | [Size](../../composables/useSize) (string)        | -      | 'md'    |
+| type        | The type of the component                    | [Type](../../composables/useFormControl) (string) | -      | 'text'  |
+</docs>

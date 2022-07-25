@@ -1,31 +1,32 @@
 # ButtonState
 
-A button that can display certain states wich are usually paired with asynchronous events.
-
-```html
-<ButtonState
-    :error="error"
-    :loading="loading"
-    :success="success"
->
+```vue
+<ButtonState :error="error" :loading="loading" :success="success">
     Submit
 </ButtonState>
 ```
 
+## Imported Props
+
+| Prop name      | Description                                       | Type                                             | Values | Default   |
+| -------------- | ------------------------------------------------- | ------------------------------------------------ | ------ | --------- |
+| errorVariant   | The variant of the component in the error state   | [Variant](../../composables/useVariant) (string) | -      | 'danger'  |
+| successVariant | The variant of the component in the success state | [Variant](../../composables/useVariant) (string) | -      | 'success' |
+| variant        | The variant of the component                      | [Variant](../../composables/useVariant) (string) | -      | 'primary' |
+
 ## Props
 
-| Name | Type | Description |
-| - | - | - |
-| error | boolean | Controls the error state of the button. |
-| errorVariant | [Variant](#link-to-variant-definition) (string) | The variant of the button in the error state. |
-| loading | boolean | Controls the loading state of the button. |
-| loadingVariant | [Variant](#link-to-variant-definition) (string) | The variant of the button in the loading state. |
-| success | boolean | Controls the success state of the button. |
-| successVariant | [Variant](#link-to-variant-definition) (string) | The variant of the button in the success state. |
-| variant | [Variant](#link-to-variant-definition) (string) | The variant of the button in idle state. |
+| Prop name      | Description                              | Type                   | Values | Default |
+| -------------- | ---------------------------------------- | ---------------------- | ------ | ------- |
+| error          | Controls the error state of the button   | boolean                | -      | false   |
+| errorVariant   |                                          | variantProp('danger')  | -      |         |
+| loading        | Controls the loading state of the button | boolean                | -      | false   |
+| success        | Controls the success state of the button | boolean                | -      | false   |
+| successVariant |                                          | variantProp('success') | -      |         |
+| variant        |                                          | variantProp()          | -      |         |
 
 ## Slots
 
-| Name | Description |
-| - | - |
-| default | Displays content inside the button. |
+| Name    | Description                        | Bindings |
+| ------- | ---------------------------------- | -------- |
+| default | Displays content inside the button |          |

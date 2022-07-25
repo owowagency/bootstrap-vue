@@ -10,6 +10,7 @@
         "build": "yarn rollup -c rollup.config.js",
         "build-storybook": "build-storybook",
         "deploy-storybook": "gh-pages -d storybook-static",
+        "generate-docs": "vue-docgen",
         "lint": "eslint src --ext .ts,.vue",
         "postversion": "cp package.json ..",
         "predeploy": "build-storybook",
@@ -58,6 +59,7 @@
         "tsconfig-paths-webpack-plugin": "^3.5.2",
         "typescript": "^4.4.4",
         "vue": "^3.2.20",
+        "vue-docgen-cli": "^4.45.0",
         "vue-eslint-parser": "^8.0.1",
         "vue-loader": "^16.8.3"
     },
