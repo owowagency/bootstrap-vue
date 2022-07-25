@@ -1,7 +1,14 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     addons: [
+        {
+            name: '@storybook/addon-docs',
+            options: {
+                vueDocgenOptions: {},
+            }
+        },
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/preset-scss',
