@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`template renders default 1`] = `
-"<div class=\\"dropdown form-dropdown\\">
+"<div class=\\"dropdown form-dropdown form-dropdown-search\\">
   <!-- @slot Displays the dropdown toggle -->
   <!-- @slot Displays the dropdown toggle -->
   <!-- @slot Displays the dropdown toggle --><input class=\\"form-control form-control-md form-select\\" placeholder=\\"\\" type=\\"text\\" data-bs-toggle=\\"dropdown\\">
