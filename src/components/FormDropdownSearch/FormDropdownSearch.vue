@@ -2,6 +2,7 @@
     <FormDropdown
         ref="formDropdown"
         v-model="modelValue"
+        class="form-dropdown-search"
         :items="filteredItems"
         :label-key="labelKey"
         v-bind="propsDropdown"
