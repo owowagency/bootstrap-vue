@@ -75,9 +75,9 @@ describe('style', () => {
     });
 
     it('has background styling when there is a preview', () => {
-        const wrapper = shallowMount(FormImage);
-
-        wrapper.vm.preview = 'some-preview';
+        const wrapper = shallowMount(FormImage, {
+            props: {preview: 'some-preview'},
+        });
 
         expect(wrapper.vm.style).toEqual({
             'background-color': 'transparent',
