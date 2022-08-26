@@ -74,9 +74,11 @@ const emit = defineEmits<{
 // Rollup cannot handle HTMLInputElement as ref, cannot
 const input = ref();
 
-const preview = ref<string|undefined>(props.preview);
-
 const file = ref<File|undefined>();
+
+const readerResult = ref<string|undefined>();
+
+const preview = computed(() => readerResult.value || props.preview);
 
 const style = computed(() => {
     if (!preview.value) {
@@ -129,7 +131,7 @@ const readFile = (file: File) => {
     const reader = new FileReader();
 
     reader.onload = () => {
-        preview.value = reader.result as string;
+        readerResult.value = reader.result as string;
 
         if (props.dataType === 'base64') {
             value.value = reader.result as string;
