@@ -67,34 +67,69 @@
         </div>
 
         <div v-if="!hideControls">
-            <button
-                class="carousel-control-prev"
-                :data-bs-target="`#${id}`"
-                data-bs-slide="prev"
+            <!--
+            @slot Renders a previous control button
+            @binding {Object} dataset Bootstrap data attributes required for controlling the carousel
+            -->
+            <slot
+                name="control-prev"
+                :dataset="{
+                    'data-bs-target': `#${id}`,
+                    'data-bs-slide': 'prev'
+                }"
             >
-                <span class="carousel-control-prev-icon" />
-            </button>
+                <button
+                    class="carousel-control-prev"
+                    :data-bs-target="`#${id}`"
+                    data-bs-slide="prev"
+                >
+                    <span class="carousel-control-prev-icon" />
+                </button>
+            </slot>
 
-            <button
-                class="carousel-control-next"
-                :data-bs-target="`#${id}`"
-                data-bs-slide="next"
+            <!--
+            @slot Renders a next control button
+            @binding {Object} dataset Bootstrap data attributes required for controlling the carousel
+            -->
+            <slot
+                name="control-next"
+                :dataset="{
+                    'data-bs-target': `#${id}`,
+                    'data-bs-slide': 'next'
+                }"
             >
-                <span class="carousel-control-next-icon" />
-            </button>
+                <button
+                    class="carousel-control-next"
+                    :data-bs-target="`#${id}`"
+                    data-bs-slide="next"
+                >
+                    <span class="carousel-control-next-icon" />
+                </button>
+            </slot>
         </div>
 
         <div
             v-if="!hideIndicators"
             class="carousel-indicators"
         >
-            <button
-                v-for="(_, index) in slides"
-                :key="`slide-indicator-${index}`"
-                :class="{active: index === activeIndex}"
-                :data-bs-target="`#${id}`"
-                :data-bs-slide-to="index"
-            />
+            <slot
+                v-for="(slide, index) in slides"
+                name="indicator"
+                :index="index"
+                :slide="slide"
+                :active-index="activeIndex"
+                :dataset="{
+                    'data-bs-target': `#${id}`,
+                    'data-bs-slide-to': index
+                }"
+            >
+                <button
+                    :key="`slide-indicator-${index}`"
+                    :class="{active: index === activeIndex}"
+                    :data-bs-target="`#${id}`"
+                    :data-bs-slide-to="index"
+                />
+            </slot>
         </div>
     </div>
 </template>
