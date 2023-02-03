@@ -41,6 +41,12 @@ describe('template', () => {
 
     componentSlotRenderTest(Carousel, 'caption', {props});
 
+    componentSlotRenderTest(Carousel, 'control-prev', {props});
+
+    componentSlotRenderTest(Carousel, 'control-next', {props});
+
+    componentSlotRenderTest(Carousel, 'indicator', {props});
+
     componentWrapperAttributeTest(Carousel, {props}, 'data-bs-interval', '5000');
 
     componentWrapperClassTest(Carousel, {dark: true}, 'carousel-dark');

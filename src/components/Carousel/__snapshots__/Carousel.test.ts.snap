@@ -56,7 +56,16 @@ exports[`template renders default 1`] = `
       </div>
     </div>
   </div>
-  <div><button class=\\"carousel-control-prev\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide=\\"prev\\"><span class=\\"carousel-control-prev-icon\\"></span></button><button class=\\"carousel-control-next\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide=\\"next\\"><span class=\\"carousel-control-next-icon\\"></span></button></div>
+  <div>
+    <!--
+            @slot Renders a previous control button
+            @binding {Object} dataset Bootstrap data attributes required for controlling the carousel
+            --><button class=\\"carousel-control-prev\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide=\\"prev\\"><span class=\\"carousel-control-prev-icon\\"></span></button>
+    <!--
+            @slot Renders a next control button
+            @binding {Object} dataset Bootstrap data attributes required for controlling the carousel
+            --><button class=\\"carousel-control-next\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide=\\"next\\"><span class=\\"carousel-control-next-icon\\"></span></button>
+  </div>
   <div class=\\"carousel-indicators\\"><button class=\\"\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide-to=\\"0\\"></button><button class=\\"active\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide-to=\\"1\\"></button><button class=\\"\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide-to=\\"2\\"></button></div>
 </div>"
 `;
