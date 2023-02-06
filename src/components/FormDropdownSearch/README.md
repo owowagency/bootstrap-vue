@@ -18,14 +18,14 @@
 
 ## Props
 
-| Prop name   | Description                                             | Type    | Values | Default   |
-| ----------- | ------------------------------------------------------- | ------- | ------ | --------- |
-| autoSearch  | Automatically search through the items                  | boolean | -      | true      |
-| items       | The items of the dropdown menu                          | Item[]  | -      | () => []  |
-| labelKey    | The key that is used to get the label from a given item | string  | -      | 'label'   |
-| modelValue  | The model value                                         | Item    | -      | undefined |
-| placeholder | The placeholder of the form input                       | string  | -      | ''        |
-| search      | The current search string                               | string  | -      | ''        |
+| Prop name   | Description                                             | Type    | Values | Default     |
+| ----------- | ------------------------------------------------------- | ------- | ------ | ----------- |
+| autoSearch  | Automatically search through the items                  | boolean | -      | true        |
+| items       | The items of the dropdown menu                          | Item[]  | -      | () =&gt; [] |
+| labelKey    | The key that is used to get the label from a given item | string  | -      | 'label'     |
+| modelValue  | The model value                                         | Item    | -      | undefined   |
+| placeholder | The placeholder of the form input                       | string  | -      | ''          |
+| search      | The current search string                               | string  | -      | ''          |
 
 ## Slots
 

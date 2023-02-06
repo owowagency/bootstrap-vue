@@ -20,14 +20,14 @@
 
 ## Props
 
-| Prop name       | Description                                                                       | Type                  | Values | Default   |
-| --------------- | --------------------------------------------------------------------------------- | --------------------- | ------ | --------- |
-| description     | The description of the form group<br/>_Displayed between label and input_         | string                | -      | undefined |
-| helpText        | The help text of the form group<br/>_Displayed under input_                       | string                | -      | undefined |
-| invalidFeedback | The invalid feedback of the form group<br/>_Displayed between input and helpText_ | array\|string         | -      | () => []  |
-| label           | The label to display                                                              | string                | -      | undefined |
-| labelClass      | The classes that will be forwarded to the label                                   | string\|array\|object | -      | undefined |
-| validFeedback   | The valid feedback of the form group<br/>_Displayed between input and helpText_   | array\|string         | -      | () => []  |
+| Prop name       | Description                                                                       | Type                  | Values | Default     |
+| --------------- | --------------------------------------------------------------------------------- | --------------------- | ------ | ----------- |
+| description     | The description of the form group<br/>_Displayed between label and input_         | string                | -      | undefined   |
+| helpText        | The help text of the form group<br/>_Displayed under input_                       | string                | -      | undefined   |
+| invalidFeedback | The invalid feedback of the form group<br/>_Displayed between input and helpText_ | array\|string         | -      | () =&gt; [] |
+| label           | The label to display                                                              | string                | -      | undefined   |
+| labelClass      | The classes that will be forwarded to the label                                   | string\|array\|object | -      | undefined   |
+| validFeedback   | The valid feedback of the form group<br/>_Displayed between input and helpText_   | array\|string         | -      | () =&gt; [] |
 
 ## Slots
 

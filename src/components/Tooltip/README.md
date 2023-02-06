@@ -35,8 +35,8 @@
 | customClass  | The classes that will be forwarded to the tooltip    | string\|array\|object            | -      | ''                |
 | delay        | Delay showing and hiding the tooltip in milliseconds | number\|object                   | -      | 0                 |
 | html         | Defines if HTML is allowed in the tooltip            | boolean                          | -      | false             |
-| offset       | The x, y offset of the tooltip                       | string \| number[]               | -      | () => [0, 0]      |
-| popperConfig | Change Bootstrap's default Popper config             | object\|func                     | -      | () => ({})        |
+| offset       | The x, y offset of the tooltip                       | string \| number[]               | -      | () =&gt; [0, 0]   |
+| popperConfig | Change Bootstrap's default Popper config             | object\|func                     | -      | () =&gt; ({})     |
 | tag          | The tag to be used for the list group item           | string                           | -      | 'div'             |
 | title        | The text to display in the tooltip                   | string                           | -      | ''                |
 

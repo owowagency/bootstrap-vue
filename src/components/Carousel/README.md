@@ -21,14 +21,14 @@
 
 ## Props
 
-| Prop name      | Description                                  | Type            | Values | Default  |
-| -------------- | -------------------------------------------- | --------------- | ------ | -------- |
-| dark           | Use dark mode for the controls               | boolean         | -      | false    |
-| fade           | Use a fade transition for the slides         | boolean         | -      | false    |
-| hideControls   | Hide the controls                            | boolean         | -      | false    |
-| hideIndicators | Hide the indicators                          | boolean         | -      | false    |
-| interval       | The interval of the carousel in milliseconds | number          | -      | 5000     |
-| slides         | The slides of the carousel                   | CarouselSlide[] | -      | () => [] |
+| Prop name      | Description                                  | Type            | Values | Default     |
+| -------------- | -------------------------------------------- | --------------- | ------ | ----------- |
+| dark           | Use dark mode for the controls               | boolean         | -      | false       |
+| fade           | Use a fade transition for the slides         | boolean         | -      | false       |
+| hideControls   | Hide the controls                            | boolean         | -      | false       |
+| hideIndicators | Hide the indicators                          | boolean         | -      | false       |
+| interval       | The interval of the carousel in milliseconds | number          | -      | 5000        |
+| slides         | The slides of the carousel                   | CarouselSlide[] | -      | () =&gt; [] |
 
 ## Slots
 
