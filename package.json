@@ -6,6 +6,10 @@
     "entry": "bootstrap-vue",
     "main": "bootstrap-vue.js",
     "module": "bootstrap-vue.mjs",
+    "engines": {
+        "node": "18.14.0",
+        "npm": "9.3.1"
+    },
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",
         "build-storybook": "build-storybook",
