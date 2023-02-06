@@ -32,8 +32,11 @@
 
 ## Slots
 
-| Name    | Description                          | Bindings                                                                                                |
-| ------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| slides  | Displays content inside the carousel | **slides** `array` - The `CarouselSlide` list                                                           |
-| default | Displays content inside the slide    | **index** `int` - The index of the slide<br/>**slide** `object` - The `CarouselSlide` object            |
-| caption | Display the caption of the carousel  | **description** `string` - The description of the slide<br/>**title** `string` - The title of the slide |
+| Name         | Description                                | Bindings                                                                                                |
+| ------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| slides       | Displays content inside the carousel       | **slides** `array` - The `CarouselSlide` list                                                           |
+| default      | Displays content inside the slide          | **index** `int` - The index of the slide<br/>**slide** `object` - The `CarouselSlide` object            |
+| caption      | Display the caption of the carousel        | **description** `string` - The description of the slide<br/>**title** `string` - The title of the slide |
+| control-prev | Displays previous control button           | **dataset** `{ data-*: string }` - Data attributes required for bootstrap                               |
+| control-next | Displays next control button               | **dataset** `{ data-*: string }` - Data attributes required for bootstrap                               |
+| indicator    | Displays an indicator for the active slide | **dataset** `{ data-*: string }` - Data attributes required for bootstrap                               |
