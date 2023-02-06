@@ -7,12 +7,12 @@
     "main": "bootstrap-vue.js",
     "module": "bootstrap-vue.mjs",
     "engines": {
-        "node": "16.19.0",
-        "npm": "8.19.3"
+        "node": ">=18.14.0",
+        "npm": ">=9.3.1"
     },
     "scripts": {
         "build": "yarn rollup -c rollup.config.js",
-        "build-storybook": "build-storybook",
+        "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
         "deploy-storybook": "gh-pages -d storybook-static",
         "generate-docs": "vue-docgen",
         "lint": "eslint src --ext .ts,.vue",
