@@ -27,14 +27,15 @@
 
 ## Slots
 
-| Name           | Description                                | Bindings |
-| -------------- | ------------------------------------------ | -------- |
-| dropdownToggle | Displays the dropdown toggle               |          |
-| noOptions      | Displays content when there are no options |          |
-| prepend        | Prepends the dropdown options              |          |
-| items          | _Forwarded to child_                       |          |
-| item           | _Forwarded to child_                       |          |
-| append         | _Forwarded to child_                       |          |
+| Name                | Description                                | Bindings |
+| ------------------- | ------------------------------------------ | -------- |
+| dropdownToggle      | Displays the dropdown toggle               |          |
+| dropdownToggleLabel | Displays the dropdown toggle label         | <br/>    |
+| noOptions           | Displays content when there are no options |          |
+| prepend             | Prepends the dropdown options              |          |
+| items               | _Forwarded to child_                       |          |
+| item                | _Forwarded to child_                       |          |
+| append              | _Forwarded to child_                       |          |
 
 ## Events
 

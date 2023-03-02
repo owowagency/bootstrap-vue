@@ -4,7 +4,10 @@ exports[`template renders default 1`] = `
 "<div class=\\"dropdown form-dropdown\\">
   <!-- @slot Displays the dropdown toggle -->
   <!-- @slot Displays the dropdown toggle -->
-  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">Select</div>
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">
+    <!-- @slot Displays the dropdown toggle label -->
+    <!-- @binding {{label: string, modelValue: Object}} dataset Bootstrap data attributes required for controlling the carousel -->Select
+  </div>
   <!--
         @slot Displays the dropdown menu
         @binding {array} items The \`Item\` list
@@ -42,7 +45,10 @@ exports[`template renders input 1`] = `
 "<div class=\\"dropdown form-dropdown\\" searchable=\\"true\\">
   <!-- @slot Displays the dropdown toggle -->
   <!-- @slot Displays the dropdown toggle -->
-  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">Select</div>
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">
+    <!-- @slot Displays the dropdown toggle label -->
+    <!-- @binding {{label: string, modelValue: Object}} dataset Bootstrap data attributes required for controlling the carousel -->Select
+  </div>
   <!--
         @slot Displays the dropdown menu
         @binding {array} items The \`Item\` list
@@ -66,7 +72,10 @@ exports[`template renders no options 1`] = `
 "<div class=\\"dropdown form-dropdown\\">
   <!-- @slot Displays the dropdown toggle -->
   <!-- @slot Displays the dropdown toggle -->
-  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">Select</div>
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">
+    <!-- @slot Displays the dropdown toggle label -->
+    <!-- @binding {{label: string, modelValue: Object}} dataset Bootstrap data attributes required for controlling the carousel -->Select
+  </div>
   <!--
         @slot Displays the dropdown menu
         @binding {array} items The \`Item\` list
