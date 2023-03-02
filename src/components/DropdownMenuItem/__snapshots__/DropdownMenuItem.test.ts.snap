@@ -10,7 +10,9 @@ exports[`template renders divider 1`] = `
 
 exports[`template renders header 1`] = `
 "<li>
-  <h6 class=\\"dropdown-header\\">general kenobi</h6>
+  <h6 class=\\"dropdown-header\\">
+    <!-- @slot Displays content inside the dropdown menu item. -->general kenobi
+  </h6>
 </li>"
 `;
 

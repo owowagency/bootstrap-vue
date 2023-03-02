@@ -39,4 +39,4 @@
 | caption      | Display the caption of the carousel  | **description** `string` - The description of the slide<br/>**title** `string` - The title of the slide |
 | control-prev | Renders a previous control button    | **dataset** `Object` - Bootstrap data attributes required for controlling the carousel                  |
 | control-next | Renders a next control button        | **dataset** `Object` - Bootstrap data attributes required for controlling the carousel                  |
-| indicator    | Renders a active/inactive indicator  | **dataset** `Object` - Bootstrap data attributes required for controlling the carousel<br/>**index** `number` - Slide index<br/>**activeIndex** `number` Active slide index |
+| indicator    | Renders a next control button        | <br/><br/><br/>**dataset** `Object` - Bootstrap data attributes required for controlling the carousel   |

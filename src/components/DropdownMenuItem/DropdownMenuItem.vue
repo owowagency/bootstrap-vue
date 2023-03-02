@@ -9,7 +9,10 @@
             v-else-if="header"
             class="dropdown-header"
         >
-            {{ label }}
+            <!-- @slot Displays content inside the dropdown menu item. -->
+            <slot name="default">
+                {{ label }}
+            </slot>
         </h6>
 
         <a
@@ -19,7 +22,9 @@
             href="#"
             @click.prevent
         >
-            {{ label }}
+            <slot name="default">
+                {{ label }}
+            </slot>
         </a>
     </li>
 </template>

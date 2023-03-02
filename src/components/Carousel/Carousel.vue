@@ -112,6 +112,10 @@
             v-if="!hideIndicators"
             class="carousel-indicators"
         >
+            <!--
+            @slot Renders a next control button
+            @binding {Object} dataset Bootstrap data attributes required for controlling the carousel
+            -->
             <slot
                 v-for="(slide, index) in slides"
                 name="indicator"
