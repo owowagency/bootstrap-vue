@@ -1,6 +1,14 @@
 import DropdownMenuItem from '@/components/DropdownMenuItem';
 
 describe('template', () => {
+    componentSlotRenderTest(DropdownMenuItem);
+
+    componentSlotRenderTest(
+        DropdownMenuItem,
+        'default',
+        {props: {header: true}},
+    );
+
     componentRenderTest(
         DropdownMenuItem,
         {props: {label: 'Hello'}},

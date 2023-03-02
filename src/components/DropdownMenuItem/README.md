@@ -12,3 +12,9 @@
 | divider   | Displays a divider       | boolean | -      | false     |
 | header    | Displays label as header | boolean | -      | false     |
 | label     | The label to display     | string  | -      | undefined |
+
+## Slots
+
+| Name    | Description                                     | Bindings |
+| ------- | ----------------------------------------------- | -------- |
+| default | Displays content inside the dropdown menu item. |          |
