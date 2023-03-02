@@ -25,6 +25,10 @@ describe('template', () => {
         'renders input',
     );
 
+    componentSlotRenderTest(FormDropdown, 'dropdownToggle', {shallow: false});
+
+    componentSlotRenderTest(FormDropdown, 'dropdownToggleLabel', {shallow: false});
+
     componentSlotRenderTest(FormDropdown, 'prepend', {shallow: false});
 
     componentSlotRenderTest(FormDropdown, 'items', {shallow: false});

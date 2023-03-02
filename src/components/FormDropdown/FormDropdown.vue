@@ -12,7 +12,14 @@
                     data-bs-toggle="dropdown"
                     :class="classes"
                 >
-                    {{ label }}
+                    <!-- @slot Displays the dropdown toggle label -->
+                    <!-- @binding {{label: string, modelValue: Object}} dataset Bootstrap data attributes required for controlling the carousel -->
+                    <slot
+                        name="dropdownToggleLabel"
+                        v-bind="{label, modelValue}"
+                    >
+                        {{ label }}
+                    </slot>
                 </div>
             </slot>
         </template>
