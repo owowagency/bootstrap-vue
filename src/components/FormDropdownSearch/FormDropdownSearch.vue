@@ -11,11 +11,10 @@
             <!-- @slot Displays the dropdown toggle -->
             <slot
                 name="dropdownToggle"
-                :model-value="modelValue"
+                :value="modelValue"
                 :search-value-displayed="searchValueDisplayed"
                 :placeholder="searchValueCached || placeholder"
                 :props-form-control="propsFormControl"
-                :show-menu="showMenu"
             >
                 <FormControl
                     ref="formControl"
