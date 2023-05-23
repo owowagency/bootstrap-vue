@@ -29,14 +29,14 @@
 
 ## Slots
 
-| Name           | Description                  | Bindings |
-| -------------- | ---------------------------- | -------- |
-| dropdownToggle | Displays the dropdown toggle |          |
-| noOptions      | _Forwarded to child_         |          |
-| prepend        | _Forwarded to child_         |          |
-| items          | _Forwarded to child_         |          |
-| item           | _Forwarded to child_         |          |
-| append         | _Forwarded to child_         |          |
+| Name           | Description                  | Bindings             |
+| -------------- | ---------------------------- | -------------------- |
+| dropdownToggle | Displays the dropdown toggle | <br/><br/><br/><br/> |
+| noOptions      | _Forwarded to child_         |                      |
+| prepend        | _Forwarded to child_         |                      |
+| items          | _Forwarded to child_         |                      |
+| item           | _Forwarded to child_         |                      |
+| append         | _Forwarded to child_         |                      |
 
 ## Events
 
