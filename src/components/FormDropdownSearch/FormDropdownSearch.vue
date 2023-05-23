@@ -12,9 +12,10 @@
             <slot
                 name="dropdownToggle"
                 :value="modelValue"
-                :search-value-displayed="searchValueDisplayed"
+                :search="searchValueDisplayed"
                 :placeholder="searchValueCached || placeholder"
                 :props-form-control="propsFormControl"
+                @update:search="s => searchValueDisplayed = s"
             >
                 <FormControl
                     ref="formControl"
