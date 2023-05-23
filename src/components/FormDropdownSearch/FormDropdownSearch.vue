@@ -9,7 +9,14 @@
     >
         <template #dropdownToggle>
             <!-- @slot Displays the dropdown toggle -->
-            <slot name="dropdownToggle">
+            <slot
+                name="dropdownToggle"
+                :model-value="modelValue"
+                :search-value-displayed="searchValueDisplayed"
+                :placeholder="searchValueCached || placeholder"
+                :props-form-control="propsFormControl"
+                :show-menu="showMenu"
+            >
                 <FormControl
                     ref="formControl"
                     v-model="searchValueDisplayed"
