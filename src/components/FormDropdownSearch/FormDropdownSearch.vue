@@ -83,7 +83,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ComponentPublicInstance, PropType, computed, nextTick, onMounted, ref, watch} from 'vue';
+import {ComponentPublicInstance, PropType, computed, onMounted, ref, watch} from 'vue';
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
