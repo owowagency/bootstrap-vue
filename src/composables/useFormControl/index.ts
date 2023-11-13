@@ -28,6 +28,10 @@ export const formControlProps = {
         type: Boolean,
         default: false,
     },
+    required: {
+        type: Boolean,
+        default: false,
+    },
     ...sizeProps,
     type: {
         type: String as PropType<Type>,
