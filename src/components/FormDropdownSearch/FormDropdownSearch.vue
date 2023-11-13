@@ -83,7 +83,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ComponentPublicInstance, PropType, computed, onMounted, ref, watch, nextTick} from 'vue';
+import {ComponentPublicInstance, PropType, computed, onMounted, ref, watch} from 'vue';
 import FormControl from '@/components/FormControl';
 import FormDropdown from '@/components/FormDropdown';
 import {Item} from '@/composables/useFormSelect';
@@ -205,9 +205,9 @@ const searchValue = ref<string>(modelValueLabel.value || props.search);
 const searchValueCached = ref<string>('');
 
 const searchValueDisplayed = computed({
-    get: () => {
-        return searchValue.value;
-    },
+    get: () => searchValueCached.value !== ''
+        ? ''
+        : searchValue.value,
     set: s => {
         searchValue.value = s;
 
