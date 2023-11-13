@@ -8,7 +8,7 @@ exports[`template renders default 1`] = `
         @binding {boolean} is-invalid Describes if the input is invalid
         @binding {boolean} is-valid Describes if the input is valid
         -->
-  <form-control-stub autofocus=\\"false\\" disabled=\\"false\\" modelvalue=\\"\\" placeholder=\\"\\" plaintext=\\"false\\" size=\\"md\\" type=\\"text\\" id=\\"dont-change-please\\" class=\\"\\"></form-control-stub>
+  <form-control-stub autofocus=\\"false\\" disabled=\\"false\\" modelvalue=\\"\\" placeholder=\\"\\" plaintext=\\"false\\" required=\\"false\\" size=\\"md\\" type=\\"text\\" id=\\"dont-change-please\\" class=\\"\\"></form-control-stub>
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->

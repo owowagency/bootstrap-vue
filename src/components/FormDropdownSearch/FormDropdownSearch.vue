@@ -205,9 +205,9 @@ const searchValue = ref<string>(modelValueLabel.value || props.search);
 const searchValueCached = ref<string>('');
 
 const searchValueDisplayed = computed({
-    get: () => {
-        return searchValue.value;
-    },
+    get: () => searchValueCached.value !== ''
+        ? ''
+        : searchValue.value,
     set: s => {
         searchValue.value = s;
 
