@@ -4,6 +4,12 @@ import {shallowMount} from '@vue/test-utils';
 describe('template', () => {
     componentRenderTest(Button);
 
+    componentRenderTest(Button, {props: {href: 'https://github.com/owowagency/bootstrap-vue'}});
+
+    componentRenderTest(Button, {props: {is: 'div'}});
+
+    componentRenderTest(Button, {props: {to: {name: 'home'}}});
+
     componentSlotRenderTest(Button);
 
     it('adds disabled property', () => {
