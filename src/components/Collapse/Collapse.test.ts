@@ -42,5 +42,5 @@ describe('onMounted', () => {
         });
 
         expect((await import('bootstrap')).Collapse.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.collapse, {toggle: true});
-    })
+    });
 });

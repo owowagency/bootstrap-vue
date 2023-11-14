@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import {idProps} from '@/composables/useId';
-import {nextTick, onMounted, ref} from 'vue';
+import {ref} from 'vue';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
 import useBootstrapInstance from '@/composables/useBootstrapInstance';
 
