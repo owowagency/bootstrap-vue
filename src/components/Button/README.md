@@ -16,9 +16,12 @@
 
 ## Props
 
-| Prop name | Description                              | Type    | Values | Default |
-| --------- | ---------------------------------------- | ------- | ------ | ------- |
-| outline   | Changes the button to an outline variant | boolean | -      | false   |
+| Prop name | Description                              | Type                                  | Values | Default   |
+| --------- | ---------------------------------------- | ------------------------------------- | ------ | --------- |
+| href      |                                          | string                                | -      | undefined |
+| is        |                                          | string                                | -      | undefined |
+| outline   | Changes the button to an outline variant | boolean                               | -      | false     |
+| to        |                                          | string\|Record&lt;string, unknown&gt; | -      | undefined |
 
 ## Slots
 
