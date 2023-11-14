@@ -50,7 +50,7 @@ type CollapseEvent = typeof collapseEvents[number];
 </script>
 
 <script lang="ts" setup>
-defineProps({
+const props = defineProps({
     ...idProps,
     /**
      * The selector of the parent element
@@ -59,6 +59,13 @@ defineProps({
     parentSelector: {
         type: String,
         default: null,
+    },
+    /**
+     * Whether the collapse is visible
+     */
+    visible: {
+        type: Boolean,
+        default: false,
     },
 });
 
@@ -76,7 +83,7 @@ useBootstrapEmits(
 const {bsInstance: bsCollapse} = useBootstrapInstance(
     'Collapse',
     collapse,
-    {toggle: false},
+    {toggle: props.visible},
 );
 
 defineExpose({bsCollapse});
