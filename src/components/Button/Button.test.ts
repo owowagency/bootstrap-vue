@@ -4,6 +4,16 @@ import {shallowMount} from '@vue/test-utils';
 describe('template', () => {
     componentRenderTest(Button);
 
+    // it('wrapper has a tag with href', () => {
+    //     const wrapper = shallowMount(Button)
+    // });
+
+    componentRenderTest(Button, {props: {href: 'https://github.com/owowagency/bootstrap-vue'}});
+
+    componentRenderTest(Button, {props: {is: 'div'}});
+
+    componentRenderTest(Button, {props: {to: {name: 'home'}}});
+
     componentSlotRenderTest(Button);
 
     it('adds disabled property', () => {

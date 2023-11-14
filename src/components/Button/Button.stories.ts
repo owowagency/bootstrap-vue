@@ -12,12 +12,21 @@ export default {
         outline: {
             control: {type: 'boolean'},
         },
+        href: {
+            control: {type: 'text'},
+        },
+        is: {
+            control: {type: 'text'},
+        },
         text: {
             control: {type: 'text'},
         },
         size: {
             control: {type: 'select'},
             options: sizes,
+        },
+        to: {
+            control: {type: 'text'},
         },
         variant: {
             control: {type: 'select'},
@@ -61,4 +70,12 @@ export const Disabled = template.bind({});
 Disabled.args = {
     disabled: true,
     text: 'Disabled',
+};
+
+export const Anchor = template.bind({});
+
+Anchor.args = {
+    href: 'https://github.com/owowagency/bootstrap-vue',
+    target: '_blank',
+    text: 'Anchor',
 };
