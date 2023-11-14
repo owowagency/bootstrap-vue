@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
+import {PropType, computed} from 'vue';
 import useDisabled, {disabledProps} from '@/composables/useDisabled';
 import useSize, {sizeProps} from '@/composables/useSize';
 import useVariant, {variantProps} from '@/composables/useVariant';
-import {PropType, computed} from 'vue';
 import useClasses from '@/composables/useClasses';
 </script>
 
