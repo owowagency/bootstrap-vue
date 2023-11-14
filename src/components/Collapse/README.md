@@ -28,9 +28,10 @@
 
 ## Props
 
-| Prop name      | Description                                                                    | Type   | Values | Default |
-| -------------- | ------------------------------------------------------------------------------ | ------ | ------ | ------- |
-| parentSelector | The selector of the parent element<br/>_This should be a valid query selector_ | string | -      | null    |
+| Prop name      | Description                                                                    | Type    | Values | Default |
+| -------------- | ------------------------------------------------------------------------------ | ------- | ------ | ------- |
+| parentSelector | The selector of the parent element<br/>_This should be a valid query selector_ | string  | -      | null    |
+| visible        | Whether the collapse is visible                                                | boolean | -      | false   |
 
 ## Slots
 
