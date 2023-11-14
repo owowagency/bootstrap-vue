@@ -35,4 +35,12 @@ describe('onMounted', () => {
 
         // TODO: Unable to assert bsCollapse value.
     });
+
+    it('sets bsCollapse with toggle', async() => {
+        const wrapper = await shallowMount(Collapse, {
+            props: {visible: true},
+        });
+
+        expect((await import('bootstrap')).Collapse.getOrCreateInstance).toBeCalledWith(wrapper.vm.$refs.collapse, {toggle: true});
+    })
 });

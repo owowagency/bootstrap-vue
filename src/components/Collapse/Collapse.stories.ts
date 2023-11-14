@@ -12,7 +12,7 @@ const template = (args) => ({
     setup: () => ({args}),
     template: `
         <Collapse v-bind="args">
-            <template #toggle-content="{id}">
+            <template #toggleContent="{id}">
                 <Btn
                     class="mb-2"
                     data-bs-toggle="collapse"
@@ -28,4 +28,10 @@ const template = (args) => ({
 });
 
 export const Default = template.bind({});
+
+export const Visible = template.bind({});
+
+Visible.args = {
+    visible: true,
+};
 
