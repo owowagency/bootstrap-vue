@@ -16,14 +16,15 @@
 
 ## Slots
 
-| Name                   | Description                                 | Bindings                                                                                                                                                                             |
-| ---------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `header-${header.key}` | Displays the header of the table            | **key** `string` - The key of the header<br/>**header** `object` - The header object<br/>**name** `string` - The header name                                                         |
-| top-row                | Displays as the top row of the table        |                                                                                                                                                                                      |
-| no-items               | Displays if there are no items in the table |                                                                                                                                                                                      |
-| row                    | Displays the row of the table               | **item** `object` - The item object<br/>**index** `int` - The index of the item                                                                                                      |
-| header.key             | Displays the content of the table row       | **key** `any` - The key of the header<br/>**name** `any` - The name of the header<br/>**item** `object` - The item of the row<br/>**index** `int` - The index of the item of the row |
-| bottom-row             | Displays as the bottom row of the table     |                                                                                                                                                                                      |
+| Name                           | Description                                 | Bindings                                                                                                                                      |
+| ------------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `header-${header.key}`         | Displays the header of the table            | **key** `string` - The key of the header<br/>**header** `object` - The header object<br/>                                                     |
+| `header-${header.key}-content` | Displays the content of the table header    | **item** `object` - The item of the row<br/>**index** `int` - The index of the item of the row<br/>                                           |
+| top-row                        | Displays as the top row of the table        |                                                                                                                                               |
+| no-items                       | Displays if there are no items in the table |                                                                                                                                               |
+| row                            | Displays the row of the table               | **item** `object` - The item object<br/>**index** `int` - The index of the item                                                               |
+| header.key                     | Displays the content of the table row       | **key** `any` - The key of the header<br/><br/>**item** `object` - The item of the row<br/>**index** `int` - The index of the item of the row |
+| bottom-row                     | Displays as the bottom row of the table     |                                                                                                                                               |
 
 ## Events
 
