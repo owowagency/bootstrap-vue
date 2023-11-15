@@ -9,7 +9,6 @@
                 @slot Displays the header of the table
                 @binding {string} key The key of the header
                 @binding {object} header The header object
-                @binding {string} name The header name
                 -->
                 <slot
                     v-for="header in headers"
@@ -26,7 +25,16 @@
                         }"
                         @click="sort(header)"
                     >
-                        {{ header.label || header.key }}
+                        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->
+                        <slot
+                            :header="header"
+                            :name="`header-${header.key}-content`"
+                        >
+                            {{ header.label || header.key }}
+                        </slot>
                     </th>
                 </slot>
             </tr>
@@ -61,7 +69,6 @@
                         <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
@@ -73,7 +80,18 @@
                             :index="index"
                         >
                             <td :key="`item-${index}-${header}`">
-                                {{ item[header.key] }}
+                                <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->
+                                <slot
+                                    :item="item"
+                                    :index="index"
+                                    :name="`header-${header.key}-content`"
+                                >
+                                    {{ item[header.key] }}
+                                </slot>
                             </td>
                         </slot>
                     </tr>
