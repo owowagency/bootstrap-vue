@@ -41,13 +41,23 @@
         </thead>
 
         <tbody>
-            <!-- @slot Displays as the top row of the table -->
-            <slot name="top-row" />
+            <!--
+            @slot Displays as the top row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+            <slot
+                name="top-row"
+                :headers="headers"
+             />
 
-            <!-- @slot Displays if there are no items in the table -->
+            <!--
+            @slot Displays if there are no items in the table
+            @binding {object[]} headers The headers of the table
+            -->
             <slot
                 v-if="!items.length"
                 name="no-items"
+                :headers="headers"
             />
 
             <template
@@ -104,8 +114,14 @@
                 </slot>
             </template>
 
-            <!-- @slot Displays as the bottom row of the table -->
-            <slot name="bottom-row" />
+            <!--
+            @slot Displays as the bottom row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+            <slot
+                name="bottom-row"
+                :headers="headers"
+            />
         </tbody>
     </table>
 </template>
