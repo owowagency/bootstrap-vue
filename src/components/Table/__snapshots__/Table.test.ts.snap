@@ -19,11 +19,25 @@ exports[`template renders with fields and items 1`] = `
                 @slot Displays the header of the table
                 @binding {string} key The key of the header
                 @binding {object} header The header object
-                @binding {string} name The header name
                 -->
-      <th class=\\"table-heading-sortable table-heading-sortable-asc\\">ajdie</th>
-      <th class=\\"table-heading-sortable\\">neem</th>
-      <th class=\\"\\">type</th>
+      <th class=\\"table-heading-sortable table-heading-sortable-asc\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->ajdie
+      </th>
+      <th class=\\"table-heading-sortable\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->neem
+      </th>
+      <th class=\\"\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->type
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -38,13 +52,30 @@ exports[`template renders with fields and items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
-      <td>1</td>
-      <td>Word</td>
-      <td></td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->1
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->Word
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->
+      </td>
     </tr>
     <!--
                 @slot Displays the row of the table
@@ -55,13 +86,30 @@ exports[`template renders with fields and items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
-      <td>2</td>
-      <td>Press</td>
-      <td></td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->2
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->Press
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->
+      </td>
     </tr>
     <!--
                 @slot Displays the row of the table
@@ -72,13 +120,30 @@ exports[`template renders with fields and items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
-      <td>3</td>
-      <td>ISDABEST</td>
-      <td></td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->3
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->ISDABEST
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->
+      </td>
     </tr>
     <!--
                 @slot Displays the row of the table
@@ -89,13 +154,30 @@ exports[`template renders with fields and items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
-      <td>4</td>
-      <td>#prank</td>
-      <td></td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->4
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->#prank
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->
+      </td>
     </tr><!-- @slot Displays as the bottom row of the table -->
   </tbody>
 </table>"
@@ -109,10 +191,19 @@ exports[`template renders with items 1`] = `
                 @slot Displays the header of the table
                 @binding {string} key The key of the header
                 @binding {object} header The header object
-                @binding {string} name The header name
                 -->
-      <th class=\\"\\">id</th>
-      <th class=\\"\\">name</th>
+      <th class=\\"\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->id
+      </th>
+      <th class=\\"\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->name
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -127,12 +218,23 @@ exports[`template renders with items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
-      <td>1</td>
-      <td>Word</td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->1
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->Word
+      </td>
     </tr>
     <!--
                 @slot Displays the row of the table
@@ -143,12 +245,23 @@ exports[`template renders with items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
-      <td>2</td>
-      <td>Press</td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->2
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->Press
+      </td>
     </tr>
     <!--
                 @slot Displays the row of the table
@@ -159,12 +272,23 @@ exports[`template renders with items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
-      <td>3</td>
-      <td>ISDABEST</td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->3
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->ISDABEST
+      </td>
     </tr>
     <!--
                 @slot Displays the row of the table
@@ -175,12 +299,23 @@ exports[`template renders with items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
-                        @binding {any} name The name of the header
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
-      <td>4</td>
-      <td>#prank</td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->4
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                -->#prank
+      </td>
     </tr><!-- @slot Displays as the bottom row of the table -->
   </tbody>
 </table>"

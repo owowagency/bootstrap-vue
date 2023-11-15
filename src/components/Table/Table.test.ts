@@ -35,6 +35,8 @@ describe('template', () => {
 
     componentSlotRenderTest(Table, 'header-id', {props});
 
+    componentSlotRenderTest(Table, 'header-id-content', {props});
+
     componentSlotRenderTest(Table, 'row', {props});
 
     componentSlotRenderTest(Table, 'top-row', {props});
@@ -42,6 +44,8 @@ describe('template', () => {
     componentSlotRenderTest(Table, 'bottom-row', {props});
 
     componentSlotRenderTest(Table, 'id', {props});
+
+    componentSlotRenderTest(Table, 'id-content', {props});
 
     componentSlotRenderTest(Table, 'no-items', {
         props: {
