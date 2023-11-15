@@ -60,6 +60,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->1
       </td>
       <td>
@@ -67,6 +68,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->Word
       </td>
       <td>
@@ -74,6 +76,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->
       </td>
     </tr>
@@ -94,6 +97,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->2
       </td>
       <td>
@@ -101,6 +105,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->Press
       </td>
       <td>
@@ -108,6 +113,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->
       </td>
     </tr>
@@ -128,6 +134,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->3
       </td>
       <td>
@@ -135,6 +142,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->ISDABEST
       </td>
       <td>
@@ -142,6 +150,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->
       </td>
     </tr>
@@ -162,6 +171,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->4
       </td>
       <td>
@@ -169,6 +179,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->#prank
       </td>
       <td>
@@ -176,6 +187,7 @@ exports[`template renders with fields and items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->
       </td>
     </tr><!-- @slot Displays as the bottom row of the table -->
@@ -226,6 +238,7 @@ exports[`template renders with items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->1
       </td>
       <td>
@@ -233,6 +246,7 @@ exports[`template renders with items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->Word
       </td>
     </tr>
@@ -253,6 +267,7 @@ exports[`template renders with items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->2
       </td>
       <td>
@@ -260,6 +275,7 @@ exports[`template renders with items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->Press
       </td>
     </tr>
@@ -280,6 +296,7 @@ exports[`template renders with items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->3
       </td>
       <td>
@@ -287,6 +304,7 @@ exports[`template renders with items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->ISDABEST
       </td>
     </tr>
@@ -307,6 +325,7 @@ exports[`template renders with items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->4
       </td>
       <td>
@@ -314,6 +333,7 @@ exports[`template renders with items 1`] = `
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->#prank
       </td>
     </tr><!-- @slot Displays as the bottom row of the table -->
