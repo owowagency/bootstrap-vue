@@ -4,9 +4,18 @@ exports[`template renders default 1`] = `
 "<table class=\\"table\\">
   <!--v-if-->
   <tbody>
-    <!-- @slot Displays as the top row of the table -->
-    <!-- @slot Displays if there are no items in the table -->
-    <!-- @slot Displays as the bottom row of the table -->
+    <!--
+            @slot Displays as the top row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+            @slot Displays if there are no items in the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+            @slot Displays as the bottom row of the table
+            @binding {object[]} headers The headers of the table
+            -->
   </tbody>
 </table>"
 `;
@@ -41,8 +50,14 @@ exports[`template renders with fields and items 1`] = `
     </tr>
   </thead>
   <tbody>
-    <!-- @slot Displays as the top row of the table -->
-    <!-- @slot Displays if there are no items in the table -->
+    <!--
+            @slot Displays as the top row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+            @slot Displays if there are no items in the table
+            @binding {object[]} headers The headers of the table
+            -->
     <!--
                 @slot Displays the row of the table
                 @binding {object} item The item object
@@ -206,7 +221,11 @@ exports[`template renders with fields and items 1`] = `
                                 @binding {any} value The value that should be displayed
                                 -->
       </td>
-    </tr><!-- @slot Displays as the bottom row of the table -->
+    </tr>
+    <!--
+            @slot Displays as the bottom row of the table
+            @binding {object[]} headers The headers of the table
+            -->
   </tbody>
 </table>"
 `;
@@ -235,8 +254,14 @@ exports[`template renders with items 1`] = `
     </tr>
   </thead>
   <tbody>
-    <!-- @slot Displays as the top row of the table -->
-    <!-- @slot Displays if there are no items in the table -->
+    <!--
+            @slot Displays as the top row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+            @slot Displays if there are no items in the table
+            @binding {object[]} headers The headers of the table
+            -->
     <!--
                 @slot Displays the row of the table
                 @binding {object} item The item object
@@ -364,7 +389,11 @@ exports[`template renders with items 1`] = `
                                 @binding {any} value The value that should be displayed
                                 -->#prank
       </td>
-    </tr><!-- @slot Displays as the bottom row of the table -->
+    </tr>
+    <!--
+            @slot Displays as the bottom row of the table
+            @binding {object[]} headers The headers of the table
+            -->
   </tbody>
 </table>"
 `;
