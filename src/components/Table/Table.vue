@@ -88,7 +88,7 @@
                                 <slot
                                     :item="item"
                                     :index="index"
-                                    :name="`header-${header.key}-content`"
+                                    :name="`${header.key}-content`"
                                 >
                                     {{ item[header.key] }}
                                 </slot>
