@@ -84,10 +84,12 @@
                                 @slot Displays the content of the table row
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
                                 -->
                                 <slot
                                     :item="item"
                                     :index="index"
+                                    :value="item[header.key]"
                                     :name="`${header.key}-content`"
                                 >
                                     {{ item[header.key] }}
