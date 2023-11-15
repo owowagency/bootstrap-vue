@@ -52,12 +52,14 @@ exports[`template renders with fields and items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -66,6 +68,7 @@ exports[`template renders with fields and items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -74,6 +77,7 @@ exports[`template renders with fields and items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -89,12 +93,14 @@ exports[`template renders with fields and items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -103,6 +109,7 @@ exports[`template renders with fields and items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -111,6 +118,7 @@ exports[`template renders with fields and items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -126,12 +134,14 @@ exports[`template renders with fields and items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -140,6 +150,7 @@ exports[`template renders with fields and items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -148,6 +159,7 @@ exports[`template renders with fields and items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -163,12 +175,14 @@ exports[`template renders with fields and items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -177,6 +191,7 @@ exports[`template renders with fields and items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -185,6 +200,7 @@ exports[`template renders with fields and items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -230,12 +246,14 @@ exports[`template renders with items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -244,6 +262,7 @@ exports[`template renders with items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -259,12 +278,14 @@ exports[`template renders with items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -273,6 +294,7 @@ exports[`template renders with items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -288,12 +310,14 @@ exports[`template renders with items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -302,6 +326,7 @@ exports[`template renders with items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -317,12 +342,14 @@ exports[`template renders with items 1`] = `
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
@@ -331,6 +358,7 @@ exports[`template renders with items 1`] = `
       <td>
         <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed

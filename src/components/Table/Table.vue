@@ -69,6 +69,7 @@
                         <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
+                        @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
                         -->
@@ -76,17 +77,20 @@
                             v-for="header in headers"
                             :key="header.key"
                             :name="header.key"
+                            :field="header"
                             :item="item"
                             :index="index"
                         >
                             <td :key="`item-${index}-${header}`">
                                 <!--
                                 @slot Displays the content of the table row
+                                @binding {any} field The header object
                                 @binding {object} item The item of the row
                                 @binding {int} index The index of the item of the row
                                 @binding {any} value The value that should be displayed
                                 -->
                                 <slot
+                                    :field="header"
                                     :item="item"
                                     :index="index"
                                     :value="item[header.key]"
