@@ -234,4 +234,5 @@ const {classes} = useClasses(computed(() => [
     hover
 />
 ```
+
 </docs>
