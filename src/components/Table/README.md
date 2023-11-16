@@ -6,13 +6,15 @@
 
 ## Props
 
-| Prop name   | Description                                       | Type                            | Values | Default     |
-| ----------- | ------------------------------------------------- | ------------------------------- | ------ | ----------- |
-| fields      | The fields of the table                           | Field[]                         | -      | undefined   |
-| items       | The items that are shown in the table             | Record&lt;string, unknown&gt;[] | -      | () =&gt; [] |
-| multiSort   | Defines if multiple items can be sorted at once   | boolean                         | -      | false       |
-| hover       | Defines if the `table-hover` class should be used | boolean                         | -      | false       |
-| onClick:row | Defines if the `table-click` class should be used | func                            | -      | undefined   |
+| Prop name    | Description                                        | Type                            | Values | Default     |
+| ------------ | -------------------------------------------------- | ------------------------------- | ------ | ----------- |
+| fields       | The fields of the table                            | Field[]                         | -      | undefined   |
+| items        | The items that are shown in the table              | Record&lt;string, unknown&gt;[] | -      | () =&gt; [] |
+| multiSort    | Defines if multiple items can be sorted at once    | boolean                         | -      | false       |
+| hover        | Defines if the `table-hover` class should be used  | boolean                         | -      | false       |
+| onClick:row  | Defines if the `table-click` class should be used  | func                            | -      | undefined   |
+| tbodyTrClass | The classes that will be forwarded to the tbody tr | string\|array\|object           | -      | undefined   |
+| theadTrClass | The classes that will be forwarded to the tbody tr | string\|array\|object           | -      | undefined   |
 
 ## Slots
 

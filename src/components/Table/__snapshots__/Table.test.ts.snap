@@ -23,7 +23,7 @@ exports[`template renders default 1`] = `
 exports[`template renders with fields and items 1`] = `
 "<table class=\\"table\\">
   <thead>
-    <tr>
+    <tr class=\\"\\">
       <!--
                 @slot Displays the header of the table
                 @binding {string} key The key of the header
@@ -63,7 +63,7 @@ exports[`template renders with fields and items 1`] = `
                 @binding {object} item The item object
                 @binding {int} index The index of the item
                 -->
-    <tr>
+    <tr class=\\"\\">
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
@@ -104,7 +104,7 @@ exports[`template renders with fields and items 1`] = `
                 @binding {object} item The item object
                 @binding {int} index The index of the item
                 -->
-    <tr>
+    <tr class=\\"\\">
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
@@ -145,7 +145,7 @@ exports[`template renders with fields and items 1`] = `
                 @binding {object} item The item object
                 @binding {int} index The index of the item
                 -->
-    <tr>
+    <tr class=\\"\\">
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
@@ -186,7 +186,7 @@ exports[`template renders with fields and items 1`] = `
                 @binding {object} item The item object
                 @binding {int} index The index of the item
                 -->
-    <tr>
+    <tr class=\\"\\">
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
@@ -233,7 +233,7 @@ exports[`template renders with fields and items 1`] = `
 exports[`template renders with items 1`] = `
 "<table class=\\"table\\">
   <thead>
-    <tr>
+    <tr class=\\"\\">
       <!--
                 @slot Displays the header of the table
                 @binding {string} key The key of the header
@@ -267,7 +267,7 @@ exports[`template renders with items 1`] = `
                 @binding {object} item The item object
                 @binding {int} index The index of the item
                 -->
-    <tr>
+    <tr class=\\"\\">
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
@@ -299,7 +299,7 @@ exports[`template renders with items 1`] = `
                 @binding {object} item The item object
                 @binding {int} index The index of the item
                 -->
-    <tr>
+    <tr class=\\"\\">
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
@@ -331,7 +331,7 @@ exports[`template renders with items 1`] = `
                 @binding {object} item The item object
                 @binding {int} index The index of the item
                 -->
-    <tr>
+    <tr class=\\"\\">
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
@@ -363,7 +363,7 @@ exports[`template renders with items 1`] = `
                 @binding {object} item The item object
                 @binding {int} index The index of the item
                 -->
-    <tr>
+    <tr class=\\"\\">
       <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
