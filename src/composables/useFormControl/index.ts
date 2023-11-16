@@ -2,7 +2,30 @@ import {PropType} from 'vue';
 import {disabledProps} from '@/composables/useDisabled';
 import {sizeProps} from '@/composables/useSize';
 
-export const types = ['date', 'email', 'number', 'password', 'text'] as const;
+export const types = [
+    "button",
+    "checkbox",
+    "color",
+    "date",
+    "datetime-local",
+    "email",
+    "file",
+    "hidden",
+    "image",
+    "month",
+    "number",
+    "password",
+    "radio",
+    "range",
+    "reset",
+    "search",
+    "submit",
+    "tel",
+    "text",
+    "time",
+    "url",
+    "week",
+] as const;
 
 export type Type = typeof types[number];
 
