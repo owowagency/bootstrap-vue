@@ -4,7 +4,7 @@
         :class="classes"
     >
         <thead v-if="headers.length">
-            <tr>
+            <tr :class="theadTrClass">
                 <!--
                 @slot Displays the header of the table
                 @binding {string} key The key of the header
@@ -48,7 +48,7 @@
             <slot
                 name="top-row"
                 :headers="headers"
-             />
+            />
 
             <!--
             @slot Displays if there are no items in the table
@@ -75,7 +75,10 @@
                     :item="item"
                     :index="index"
                 >
-                    <tr @click="$emit('click:row', item)">
+                    <tr
+                        :class="tbodyTrClass"
+                        @click="$emit('click:row', item)"
+                    >
                         <!--
                         @slot Displays the content of the table row
                         @binding {any} key The key of the header
@@ -177,6 +180,20 @@ const props = defineProps({
     // eslint-disable-next-line vue/prop-name-casing
     'onClick:row': {
         type: Function,
+        default: undefined,
+    },
+    /**
+     * The classes that will be forwarded to the tbody tr
+     */
+    tbodyTrClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
+    /**
+     * The classes that will be forwarded to the tbody tr
+     */
+    theadTrClass: {
+        type: [String, Array, Object],
         default: undefined,
     },
 });
