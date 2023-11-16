@@ -48,7 +48,7 @@
             <slot
                 name="top-row"
                 :headers="headers"
-             />
+            />
 
             <!--
             @slot Displays if there are no items in the table
