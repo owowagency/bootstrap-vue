@@ -10,8 +10,8 @@ describe('formControlProps', () => {
             });
         });
 
-        it('fails validation with submit', () => {
-            const result = formControlProps.type.validator('submit');
+        it('fails validation with invalid', () => {
+            const result = formControlProps.type.validator('invalid');
 
             expect(result).toBe(false);
         });
