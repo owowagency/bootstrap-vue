@@ -30,6 +30,7 @@
             <DropdownMenu
                 :items="items"
                 :class="menuClass"
+                :item-class="itemClass"
                 v-bind="{'onClick:item': $attrs['onClick:item']}"
             >
                 <!-- Rollup does not dynamically overriding child slots. See issue #35
@@ -82,6 +83,7 @@
 <script lang="ts">
 import Btn from '@/components/Button';
 import DropdownMenu from '@/components/DropdownMenu';
+import {dropdownItemProps} from '@/composables/useDropdownItem';
 import {dropdownProps} from '@/composables/useDropdown';
 import {ref} from 'vue';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
@@ -94,7 +96,10 @@ type DropdownEvent = typeof dropdownEvents[number];
 
 <script lang="ts" setup>
 
-defineProps(dropdownProps);
+defineProps({
+    ...dropdownItemProps,
+    ...dropdownProps,
+});
 
 const emit = defineEmits<{(event: DropdownEvent): void}>();
 

@@ -1,4 +1,5 @@
 import DropdownMenuItem from '@/components/DropdownMenuItem';
+import {shallowMount} from '@vue/test-utils';
 
 describe('template', () => {
     componentSlotRenderTest(DropdownMenuItem);
@@ -36,4 +37,14 @@ describe('template', () => {
         true,
         'renders header',
     );
+
+    it('adds item class to link', () => {
+        const wrapper = shallowMount(DropdownMenuItem, {
+            props: {
+                itemClass: ['hello-there'],
+            },
+        });
+
+        expect(wrapper.find('a').classes()).toContain('hello-there');
+    });
 });

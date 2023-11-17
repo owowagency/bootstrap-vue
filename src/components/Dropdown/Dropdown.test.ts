@@ -53,6 +53,19 @@ describe('template', () => {
 
         expect(dropdownMenu.attributes('class')).toBe('hello-there');
     });
+
+    it('forwards item class to DropdownMenu', () => {
+        const wrapper = shallowMount(Dropdown, {
+            props: {
+                itemClass: 'hello-there',
+                items,
+            },
+        });
+
+        const dropdownMenu = wrapper.findComponent(DropdownMenu);
+
+        expect(dropdownMenu.vm.itemClass).toBe('hello-there');
+    });
 });
 
 describe('onMounted', () => {
