@@ -7,6 +7,7 @@
         <slot name="dropdownToggle">
             <Btn
                 class="dropdown-toggle"
+                :class="toggleClass"
                 data-bs-toggle="dropdown"
                 :size="size"
                 :variant="variant"

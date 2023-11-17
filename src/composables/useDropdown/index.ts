@@ -9,5 +9,12 @@ export const dropdownProps = {
         default: undefined,
     },
     ...sizeProps,
+    /**
+     * The classes that will be forwarded to the toggle
+     */
+    toggleClass: {
+        type: [String, Array, Object],
+        default: undefined,
+    },
     ...variantProps,
 };
