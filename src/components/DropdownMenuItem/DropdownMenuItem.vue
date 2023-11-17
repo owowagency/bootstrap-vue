@@ -3,11 +3,13 @@
         <hr
             v-if="divider"
             class="dropdown-divider"
+            :class="itemClass"
         >
 
         <h6
             v-else-if="header"
             class="dropdown-header"
+            :class="itemClass"
         >
             <!-- @slot Displays content inside the dropdown menu item. -->
             <slot name="default">
@@ -18,7 +20,7 @@
         <a
             v-else
             class="dropdown-item"
-            :class="{active: active}"
+            :class="[{active: active}, itemClass]"
             href="#"
             @click.prevent
         >
@@ -30,6 +32,8 @@
 </template>
 
 <script lang="ts" setup>
+import {dropdownItemProps} from '@/composables/useDropdownItem';
+
 defineProps({
     /**
      * Adds the `active` class
@@ -45,6 +49,7 @@ defineProps({
         type: Boolean,
         default: false,
     },
+    ...dropdownItemProps,
     /**
      * Displays label as header
      */

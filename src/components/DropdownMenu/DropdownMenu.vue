@@ -29,6 +29,7 @@
                 >
                     <DropdownMenuItem
                         v-bind="item"
+                        :item-class="itemClass"
                         @click="clickItem(item)"
                     />
                 </slot>
@@ -43,10 +44,14 @@
 <script lang="ts">
 import {Item, dropdownItemsProps} from '@/composables/useDropdownItems';
 import DropdownMenuItem from '@/components/DropdownMenuItem';
+import {dropdownItemProps} from '@/composables/useDropdownItem';
 </script>
 
 <script lang="ts" setup>
-defineProps(dropdownItemsProps);
+defineProps({
+    ...dropdownItemProps,
+    ...dropdownItemsProps,
+});
 
 const emit = defineEmits([
     /**
