@@ -2,6 +2,20 @@
 
 exports[`template renders active 1`] = `"<li><a class=\\"dropdown-item active\\" href=\\"#\\">there</a></li>"`;
 
+exports[`template renders default 1`] = `"<li><a class=\\"dropdown-item\\" href=\\"https://github.com/owowagency/bootstrap-vue\\"></a></li>"`;
+
+exports[`template renders default 2`] = `
+"<li>
+  <div class=\\"dropdown-item\\" href=\\"#\\"></div>
+</li>"
+`;
+
+exports[`template renders default 3`] = `
+"<li>
+  <routerlink class=\\"dropdown-item\\" href=\\"#\\" to=\\"[object Object]\\"></routerlink>
+</li>"
+`;
+
 exports[`template renders divider 1`] = `
 "<li>
   <hr class=\\"dropdown-divider\\">

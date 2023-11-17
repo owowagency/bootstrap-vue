@@ -70,6 +70,7 @@ exports[`template renders with fields and items 1`] = `
                         @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
                         -->
       <td>
         <!--
@@ -111,6 +112,7 @@ exports[`template renders with fields and items 1`] = `
                         @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
                         -->
       <td>
         <!--
@@ -152,6 +154,7 @@ exports[`template renders with fields and items 1`] = `
                         @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
                         -->
       <td>
         <!--
@@ -193,6 +196,7 @@ exports[`template renders with fields and items 1`] = `
                         @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
                         -->
       <td>
         <!--
@@ -274,6 +278,7 @@ exports[`template renders with items 1`] = `
                         @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
                         -->
       <td>
         <!--
@@ -306,6 +311,7 @@ exports[`template renders with items 1`] = `
                         @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
                         -->
       <td>
         <!--
@@ -338,6 +344,7 @@ exports[`template renders with items 1`] = `
                         @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
                         -->
       <td>
         <!--
@@ -370,6 +377,7 @@ exports[`template renders with items 1`] = `
                         @binding {object} field The header object
                         @binding {object} item The item of the row
                         @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
                         -->
       <td>
         <!--

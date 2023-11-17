@@ -17,24 +17,27 @@
             </slot>
         </h6>
 
-        <a
+        <Component
             v-else
+            :is="is"
             class="dropdown-item"
             :class="[{active: active}, itemClass]"
-            href="#"
+            :href="href"
+            :to="to"
             @click.prevent
         >
             <slot name="default">
                 {{ label }}
             </slot>
-        </a>
+        </Component>
     </li>
 </template>
 
 <script lang="ts" setup>
 import {dropdownItemProps} from '@/composables/useDropdownItem';
+import { PropType, computed } from 'vue';
 
-defineProps({
+const props = defineProps({
     /**
      * Adds the `active` class
      */
@@ -57,6 +60,14 @@ defineProps({
         type: Boolean,
         default: false,
     },
+    href: {
+        type: String,
+        default: '#',
+    },
+    is: {
+        type: String,
+        default: undefined,
+    },
     /**
      * The label to display
      */
@@ -64,6 +75,22 @@ defineProps({
         type: String,
         default: undefined,
     },
+    to: {
+        type: [Object, String] as PropType<string|Record<string, unknown>>,
+        default: undefined,
+    },
+});
+
+const is = computed(() => {
+    if (props.is) {
+        return props.is;
+    }
+
+    if (props.to) {
+        return 'RouterLink';
+    }
+
+    return 'a';
 });
 </script>
 

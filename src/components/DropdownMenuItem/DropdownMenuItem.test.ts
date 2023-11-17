@@ -4,6 +4,12 @@ import {shallowMount} from '@vue/test-utils';
 describe('template', () => {
     componentSlotRenderTest(DropdownMenuItem);
 
+    componentRenderTest(DropdownMenuItem, {props: {href: 'https://github.com/owowagency/bootstrap-vue'}});
+
+    componentRenderTest(DropdownMenuItem, {props: {is: 'div'}});
+
+    componentRenderTest(DropdownMenuItem, {props: {to: {name: 'home'}}});
+
     componentSlotRenderTest(
         DropdownMenuItem,
         'default',
