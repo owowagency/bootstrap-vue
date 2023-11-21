@@ -70,6 +70,19 @@ describe('template', () => {
         expect(wrapper.emitted('click:row')[0]).toEqual([props.items[0]]);
     });
 
+    it('emits event on hover table row', async() => {
+        const wrapper = shallowMount(Table, {
+            props: {
+                ...props,
+                'onHover:row': () => 'test',
+            },
+        });
+
+        await wrapper.find('tbody tr').trigger('mouseenter');
+
+        expect(wrapper.emitted('hover:row')[0]).toEqual([props.items[0], expect.any(MouseEvent)]);
+    });
+
     it('renders labelClass when given', () => {
         const wrapper = shallowMount(Table, {
             props: {
