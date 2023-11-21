@@ -33,14 +33,15 @@
 
 ## Props
 
-| Prop name     | Description                                         | Type                  | Values | Default   |
-| ------------- | --------------------------------------------------- | --------------------- | ------ | --------- |
-| body          | The body text of the modal                          | string                | -      | undefined |
-| headerClass   | The classes that will be forwarded to the header    | string\|array\|object | -      | undefined |
-| hideCloseBtn  | Defines if the close button should be hidden        | boolean               | -      | false     |
-| modalCentered | Defines if the modal should be vertically centered  | boolean               | -      | false     |
-| noBody        | Defines if the `modal-body` class should be omitted | boolean               | -      | false     |
-| title         | The title text of the modal                         | string                | -      | undefined |
+| Prop name       | Description                                         | Type                  | Values | Default   |
+| --------------- | --------------------------------------------------- | --------------------- | ------ | --------- |
+| body            | The body text of the modal                          | string                | -      | undefined |
+| headerClass     | The classes that will be forwarded to the header    | string\|array\|object | -      | undefined |
+| hideCloseBtn    | Defines if the close button should be hidden        | boolean               | -      | false     |
+| modalCentered   | Defines if the modal should be vertically centered  | boolean               | -      | false     |
+| modalScrollable | Defines if the modal should scrollable              | boolean               | -      | false     |
+| noBody          | Defines if the `modal-body` class should be omitted | boolean               | -      | false     |
+| title           | The title text of the modal                         | string                | -      | undefined |
 
 ## Slots
 

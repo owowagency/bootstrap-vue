@@ -101,6 +101,13 @@ const props = defineProps({
         default: false,
     },
     /**
+     * Defines if the modal should scrollable
+     */
+    modalScrollable: {
+        type: Boolean,
+        default: false,
+    },
+    /**
      * Defines if the `modal-body` class should be omitted
      */
     noBody: {
@@ -135,6 +142,7 @@ const {bsInstance: bsModal} = useBootstrapInstance(
 
 const {classes} = useClasses(computed(() => [
     props.modalCentered ? 'modal-dialog-centered' : null,
+    props.modalScrollable ? 'modal-dialog-scrollable' : null,
     props.size ? useSize(props.size, 'modal-{0}').sizeClass.value : null,
 ]));
 
