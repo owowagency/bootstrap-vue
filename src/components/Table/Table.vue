@@ -78,6 +78,7 @@
                     <tr
                         :class="tbodyTrClass"
                         @click="$emit('click:row', item)"
+                        @mouseenter="$emit('hover:row', item, $event)"
                     >
                         <!--
                         @slot Displays the content of the table row
@@ -206,6 +207,12 @@ const emit = defineEmits<{
      * @param {object} item The row that was clicked
      */
     (event: 'click:row', item: Record<string, unknown>): void
+    /**
+     * Fired when a row is hovered
+     * @param {object} item The row that was hovered
+     * @param {unknown} e The event
+     */
+    (event: 'hover:row', item: Record<string, unknown>, e: unknown): void
     /**
      * Fired when the sorting of a column is changed
      * @param {object} sorted The sort object
