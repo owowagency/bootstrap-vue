@@ -36,6 +36,14 @@ describe('template', () => {
         expect((wrapper.element as HTMLInputElement).readOnly).toBe(true);
     });
 
+    it('adds required property', () => {
+        const wrapper = shallowMount(FormControl, {
+            props: {required: true},
+        });
+
+        expect((wrapper.element as HTMLInputElement).required).toBe(true);
+    });
+
     componentWrapperClassTest(FormControl, {disabled: true}, 'disabled');
 
     componentWrapperClassTest(FormControl, {plainText: true}, 'form-control-plaintext');

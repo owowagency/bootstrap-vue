@@ -7,6 +7,7 @@
         :disabled="disabled"
         :placeholder="placeholder"
         :readonly="readonly"
+        :required="required"
         :type="type"
         :value="modelValue"
         @input="emit('update:modelValue', $event.target.value)"
