@@ -76,7 +76,7 @@
                     :index="index"
                 >
                     <tr
-                        :class="tbodyTrClass"
+                        :class="typeof tbodyTrClass === 'function' ? tbodyTrClass(item) : tbodyTrClass"
                         @click="$emit('click:row', item)"
                         @mouseenter="$emit('hover:row', item, $event)"
                     >
@@ -189,7 +189,7 @@ const props = defineProps({
      * The classes that will be forwarded to the tbody tr
      */
     tbodyTrClass: {
-        type: [String, Array, Object],
+        type: [String, Array, Object, Function],
         default: undefined,
     },
     /**
