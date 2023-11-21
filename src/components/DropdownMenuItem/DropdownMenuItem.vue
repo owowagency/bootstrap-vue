@@ -18,8 +18,8 @@
         </h6>
 
         <Component
-            v-else
             :is="is"
+            v-else
             class="dropdown-item"
             :class="[{active: active}, itemClass]"
             :href="href"
@@ -34,8 +34,8 @@
 </template>
 
 <script lang="ts" setup>
+import {PropType, computed} from 'vue';
 import {dropdownItemProps} from '@/composables/useDropdownItem';
-import { PropType, computed } from 'vue';
 
 const props = defineProps({
     /**

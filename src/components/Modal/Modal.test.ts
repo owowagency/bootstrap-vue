@@ -65,6 +65,22 @@ describe('template', () => {
 
         expect(wrapper.html()).toMatchSnapshot();
     });
+
+    it('adds centered class when modalCentered prop set', () => {
+        const wrapper = shallowMount(Modal, {
+            props: {modalCentered: true},
+        });
+
+        expect(wrapper.find('.modal-dialog').classes()).toContain('modal-dialog-centered');
+    });
+
+    it('adds scrollable class when modalScrollable prop set', () => {
+        const wrapper = shallowMount(Modal, {
+            props: {modalScrollable: true},
+        });
+
+        expect(wrapper.find('.modal-dialog').classes()).toContain('modal-dialog-scrollable');
+    });
 });
 
 describe('onMounted', () => {
