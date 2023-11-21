@@ -31,7 +31,8 @@
 
 ## Events
 
-| Event name | Properties                                   | Description                                   |
-| ---------- | -------------------------------------------- | --------------------------------------------- |
-| click:row  | **item** `object` - The row that was clicked | Fired when a row is clicked                   |
-| sort       | **sorted** `object` - The sort object        | Fired when the sorting of a column is changed |
+| Event name | Properties                                                                             | Description                                   |
+| ---------- | -------------------------------------------------------------------------------------- | --------------------------------------------- |
+| click:row  | **item** `object` - The row that was clicked                                           | Fired when a row is clicked                   |
+| hover:row  | **item** `object` - The row that was hovered<br/>**undefined** `unknown` - e The event | Fired when a row is hovered                   |
+| sort       | **sorted** `object` - The sort object                                                  | Fired when the sorting of a column is changed |
