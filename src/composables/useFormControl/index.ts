@@ -36,7 +36,7 @@ export const formControlProps = {
     },
     ...disabledProps,
     modelValue: {
-        type: String,
+        type: [String, Number],
         default: '',
     },
     placeholder: {
