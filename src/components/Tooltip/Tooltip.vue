@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import {PropType, computed, ref} from 'vue';
+import {PropType, computed, onBeforeUnmount, ref} from 'vue';
 import {tooltipFallbackPlacementProps, tooltipPlacementProps} from '@/composables/useTooltipPlacement';
 import {triggerProps} from '@/composables/useTrigger';
 import useBootstrapEmits from '@/composables/useBootstrapEmits';
@@ -132,6 +132,10 @@ const {bsInstance: bsTooltip} = useBootstrapInstance(
         trigger: tooltipTriggers.value,
     },
 );
+
+onBeforeUnmount(() => {
+    bsTooltip.value?.dispose();
+});
 
 defineExpose({bsTooltip});
 </script>

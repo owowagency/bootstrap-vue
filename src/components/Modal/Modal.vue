@@ -147,9 +147,7 @@ const {classes} = useClasses(computed(() => [
 ]));
 
 onBeforeUnmount(() => {
-    if (bsModal.value) {
-        bsModal.value.hide();
-    }
+    bsModal.value?.hide();
 });
 
 defineExpose({bsModal});
