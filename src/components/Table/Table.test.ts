@@ -98,6 +98,20 @@ describe('template', () => {
         expect(headTr.classes()).toContain('bg-gray-100');
         expect(bodyTr.classes()).toContain('bg-gray-200');
     });
+
+    it('renders tbody trClass when given as function', () => {
+        const wrapper = shallowMount(Table, {
+            props: {
+                ...props,
+                tbodyTrClass: (item: typeof props['items'][number]) => (item.id === 1 ? 'bg-gray-200' : 'bg-gray-100'),
+            },
+        });
+
+        const bodyTr = wrapper.findAll('tbody tr');
+
+        expect(bodyTr[0].classes()).toContain('bg-gray-200');
+        expect(bodyTr[1].classes()).toContain('bg-gray-100');
+    });
 });
 
 describe('headers', () => {
