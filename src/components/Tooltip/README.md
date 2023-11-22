@@ -38,7 +38,7 @@
 | offset       | The x, y offset of the tooltip                       | string \| number[]               | -      | () =&gt; [0, 0]   |
 | popperConfig | Change Bootstrap's default Popper config             | object\|func                     | -      | () =&gt; ({})     |
 | tag          | The tag to be used for the list group item           | string                           | -      | 'div'             |
-| title        | The text to display in the tooltip                   | string                           | -      | ''                |
+| title        | The text to display in the tooltip                   | string\|number                   | -      | ''                |
 
 ## Slots
 
