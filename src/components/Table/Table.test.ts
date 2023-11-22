@@ -103,7 +103,7 @@ describe('template', () => {
         const wrapper = shallowMount(Table, {
             props: {
                 ...props,
-                tbodyTrClass: (item: any) => (item.id === 1 ? 'bg-gray-200' : 'bg-gray-100'),
+                tbodyTrClass: (item: typeof props['items'][number]) => (item.id === 1 ? 'bg-gray-200' : 'bg-gray-100'),
             },
         });
 
