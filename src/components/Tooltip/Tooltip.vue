@@ -82,7 +82,7 @@ const props = defineProps({
      * The text to display in the tooltip
      */
     title: {
-        type: String,
+        type: [String, Number],
         default: '',
     },
     ...tooltipFallbackPlacementProps,
