@@ -1,4 +1,4 @@
-import useVariant, {variantProp, variantProps, variants} from '.';
+import useVariant, {variantProp} from '.';
 
 describe('variantProp', () => {
     it('sets the default value', () => {
