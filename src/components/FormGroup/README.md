@@ -31,10 +31,10 @@
 
 ## Slots
 
-| Name    | Description                       | Bindings                                                                                                                  |
-| ------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| label   | Displays content inside the label | **label** `string` - The text of the label                                                                                |
-| default | Displays the input                | **is-invalid** `boolean` - Describes if the input is invalid<br/>**is-valid** `boolean` - Describes if the input is valid |
+| Name    | Description                       | Bindings                                                                                                                                                            |
+| ------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| label   | Displays content inside the label | **label** `string` - The text of the label                                                                                                                          |
+| default | Displays the input                | **id** `string` - The id of the input<br/>**is-invalid** `boolean` - Describes if the input is invalid<br/>**is-valid** `boolean` - Describes if the input is valid |
 
 ## Events
 

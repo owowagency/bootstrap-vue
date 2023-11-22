@@ -27,10 +27,12 @@
 
         <!--
         @slot Displays the input
+        @binding {string} id The id of the input
         @binding {boolean} is-invalid Describes if the input is invalid
         @binding {boolean} is-valid Describes if the input is valid
         -->
         <slot
+            :id="id"
             :is-invalid="isInvalid"
             :is-valid="isValid"
         >
