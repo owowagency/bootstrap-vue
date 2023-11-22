@@ -13,7 +13,7 @@
 | multiSort    | Defines if multiple items can be sorted at once    | boolean                         | -      | false       |
 | hover        | Defines if the `table-hover` class should be used  | boolean                         | -      | false       |
 | onClick:row  | Defines if the `table-click` class should be used  | func                            | -      | undefined   |
-| tbodyTrClass | The classes that will be forwarded to the tbody tr | string\|array\|object           | -      | undefined   |
+| tbodyTrClass | The classes that will be forwarded to the tbody tr | string\|array\|object\|func     | -      | undefined   |
 | theadTrClass | The classes that will be forwarded to the tbody tr | string\|array\|object           | -      | undefined   |
 
 ## Slots
