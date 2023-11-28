@@ -32,6 +32,13 @@ describe('template', () => {
 
     componentRenderTest(
         DropdownMenuItem,
+        {props: {disabled: true, label: 'there'}},
+        true,
+        'renders disabled',
+    );
+
+    componentRenderTest(
+        DropdownMenuItem,
         {props: {divider: true}},
         true,
         'renders divider',

@@ -21,7 +21,7 @@
             :is="is"
             v-else
             class="dropdown-item"
-            :class="[{active: active}, itemClass]"
+            :class="[{active, disabled}, itemClass]"
             :href="href"
             :to="to"
             @click.prevent
@@ -42,6 +42,13 @@ const props = defineProps({
      * Adds the `active` class
      */
     active: {
+        type: Boolean,
+        default: false,
+    },
+    /**
+     * Adds the `disabled` class
+     */
+    disabled: {
         type: Boolean,
         default: false,
     },
