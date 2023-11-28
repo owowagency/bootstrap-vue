@@ -13,24 +13,24 @@ exports[`template renders default 1`] = `
                 @binding {object} item The \`Item\` object
                 @binding {function} click-item The function to call when an item is clicked
                 -->
-  <dropdown-menu-item-stub active=\\"false\\" divider=\\"false\\" header=\\"true\\" href=\\"#\\" label=\\"Item 1\\"></dropdown-menu-item-stub>
+  <dropdown-menu-item-stub active=\\"false\\" disabled=\\"false\\" divider=\\"false\\" header=\\"true\\" href=\\"#\\" label=\\"Item 1\\"></dropdown-menu-item-stub>
   <!--
                 @slot Displays the dropdown menu item
                 @binding {object} item The \`Item\` object
                 @binding {function} click-item The function to call when an item is clicked
                 -->
-  <dropdown-menu-item-stub active=\\"false\\" divider=\\"false\\" header=\\"false\\" href=\\"#\\" label=\\"Item 3\\"></dropdown-menu-item-stub>
+  <dropdown-menu-item-stub active=\\"false\\" disabled=\\"false\\" divider=\\"false\\" header=\\"false\\" href=\\"#\\" label=\\"Item 3\\"></dropdown-menu-item-stub>
   <!--
                 @slot Displays the dropdown menu item
                 @binding {object} item The \`Item\` object
                 @binding {function} click-item The function to call when an item is clicked
                 -->
-  <dropdown-menu-item-stub active=\\"false\\" divider=\\"true\\" header=\\"false\\" href=\\"#\\"></dropdown-menu-item-stub>
+  <dropdown-menu-item-stub active=\\"false\\" disabled=\\"false\\" divider=\\"true\\" header=\\"false\\" href=\\"#\\"></dropdown-menu-item-stub>
   <!--
                 @slot Displays the dropdown menu item
                 @binding {object} item The \`Item\` object
                 @binding {function} click-item The function to call when an item is clicked
                 -->
-  <dropdown-menu-item-stub active=\\"true\\" divider=\\"false\\" header=\\"false\\" href=\\"#\\" label=\\"Item 4\\"></dropdown-menu-item-stub><!-- @slot Appends the dropdown menu -->
+  <dropdown-menu-item-stub active=\\"true\\" disabled=\\"false\\" divider=\\"false\\" header=\\"false\\" href=\\"#\\" label=\\"Item 4\\"></dropdown-menu-item-stub><!-- @slot Appends the dropdown menu -->
 </ul>"
 `;

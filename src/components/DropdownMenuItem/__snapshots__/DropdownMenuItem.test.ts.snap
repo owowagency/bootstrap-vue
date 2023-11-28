@@ -16,6 +16,8 @@ exports[`template renders default 3`] = `
 </li>"
 `;
 
+exports[`template renders disabled 1`] = `"<li><a class=\\"dropdown-item disabled\\" href=\\"#\\">there</a></li>"`;
+
 exports[`template renders divider 1`] = `
 "<li>
   <hr class=\\"dropdown-divider\\">
