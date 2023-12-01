@@ -6,28 +6,30 @@ import Vue from '@vitejs/plugin-vue'
 import { viteStaticCopy as Copy } from 'vite-plugin-static-copy'
 import DTS from "vite-plugin-dts";
 
-const vueDocgenPlugin: Plugin = {
-    name: 'vue-docgen',
-    transform(_, id) {
-        // If vue file doesn't have a <docs> block, don't transform
-        if (!/vue&type=docs/.test(id)) {
-          return;
-        }
+function VueDocgen(): Plugin {
+    return {
+        name: 'vue-docgen',
+        transform(_, id) {
+            // If vue file doesn't have a <docs> block, don't transform
+            if (!/vue&type=docs/.test(id)) {
+              return;
+            }
 
-        // If vue file has a <docs> block, ignore it in the output
-        return {
-          code: 'export default Comp',
-          map: {
-            mappings: '',
-          },
-        };
-    },
+            // If vue file has a <docs> block, ignore it in the output
+            return {
+              code: 'export default Comp',
+              map: {
+                mappings: '',
+              },
+            };
+        },
+    }
 }
 
 export default defineConfig({
     plugins: [
         Vue(),
-        vueDocgenPlugin,
+        VueDocgen(),
         DTS({
           exclude: [
             'src/**/*test.ts',
@@ -55,6 +57,7 @@ export default defineConfig({
     },
     build: {
         emptyOutDir: true,
+        sourcemap: true,
         lib: {
             name: 'BootstrapVue',
             entry: 'src/index.ts',

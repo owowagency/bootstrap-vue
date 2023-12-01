@@ -4,7 +4,7 @@ module.exports = {
     componentsRoot: 'src/components',
     components: '**/*.vue',
     defaultExamples: true,
-    docsBranch: 'main',
+    docsBranch: 'master',
     docsRepo: 'owowagency/bootstrap-vue',
     editLinkLabel: 'Edit on GitHub',
     getDestFile: (file, config) => {
