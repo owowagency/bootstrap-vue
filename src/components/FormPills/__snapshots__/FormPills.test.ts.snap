@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`template renders default 1`] = `
+exports[`template > renders default 1`] = `
 "<label class=\\"form-control\\" for=\\"dont-change-please\\">
   <ul class=\\"list-unstyled d-flex align-content-start flex-wrap mb-0\\">
     <li class=\\"form-pill d-inline-flex align-items-center mw-100\\">

@@ -17,7 +17,7 @@ function VueDocgen(): Plugin {
 
             // If vue file has a <docs> block, ignore it in the output
             return {
-              code: 'export default Comp',
+              code: 'export default Comp => {Comp}',
               map: {
                 mappings: '',
               },

@@ -1,6 +1,6 @@
 <template>
     <div class="accordion-item">
-        <component
+        <Component
             :is="headerTag"
             class="accordion-header"
             :class="headerClass"
@@ -16,7 +16,7 @@
                     {{ header }}
                 </slot>
             </button>
-        </component>
+        </Component>
 
         <div
             :id="`${id}`"

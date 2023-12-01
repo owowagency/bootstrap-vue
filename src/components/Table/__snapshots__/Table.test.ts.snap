@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`template renders default 1`] = `
+exports[`template > renders default 1`] = `
 "<table class=\\"table\\">
   <!--v-if-->
   <tbody>
@@ -20,7 +20,7 @@ exports[`template renders default 1`] = `
 </table>"
 `;
 
-exports[`template renders with fields and items 1`] = `
+exports[`template > renders with fields and items 1`] = `
 "<table class=\\"table\\">
   <thead>
     <tr class=\\"\\">
@@ -234,7 +234,7 @@ exports[`template renders with fields and items 1`] = `
 </table>"
 `;
 
-exports[`template renders with items 1`] = `
+exports[`template > renders with items 1`] = `
 "<table class=\\"table\\">
   <thead>
     <tr class=\\"\\">

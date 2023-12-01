@@ -1,4 +1,4 @@
-import {describe, expect, it} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 import FormPills from '.';
 import {nextTick} from 'vue';
 import {shallowMount} from '@vue/test-utils';
@@ -15,7 +15,7 @@ describe('template', () => {
     it('removes an item on click', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
-        wrapper.vm.removeItem = jest.fn();
+        wrapper.vm.removeItem = vi.fn();
 
         await wrapper.find('.form-pill-remove').trigger('click');
 
@@ -25,7 +25,7 @@ describe('template', () => {
     it('tries to add item on blur', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
-        wrapper.vm.blur = jest.fn();
+        wrapper.vm.blur = vi.fn();
 
         await wrapper.find('input').trigger('blur');
 
@@ -35,7 +35,7 @@ describe('template', () => {
     it('tries to add item on keydown', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
-        wrapper.vm.keydown = jest.fn();
+        wrapper.vm.keydown = vi.fn();
 
         const event = {code: 'Enter'};
 
@@ -49,7 +49,7 @@ describe('template', () => {
     it('tries to add item on paste', async() => {
         const wrapper = shallowMount(FormPills, {props: {modelValue: ['aa']}});
 
-        wrapper.vm.paste = jest.fn();
+        wrapper.vm.paste = vi.fn();
 
         const event = {clipboardData: {getData: () => 'something nsfw'}};
 
@@ -150,7 +150,7 @@ describe('removeItem', () => {
         // Cannot mock splice of `items` computed property.
         const modelValue = [];
 
-        modelValue.splice = jest.fn();
+        modelValue.splice = vi.fn();
 
         const wrapper = shallowMount(FormPills, {props: {modelValue}});
 
@@ -208,7 +208,7 @@ describe('addItem', () => {
         // Cannot mock concat of `items` computed property.
         const modelValue = [];
 
-        modelValue.concat = jest.fn();
+        modelValue.concat = vi.fn();
 
         const wrapper = shallowMount(FormPills, {props: {modelValue}});
 
@@ -236,7 +236,7 @@ describe('addItem', () => {
         // Cannot mock concat of `items` computed property.
         const modelValue = [];
 
-        modelValue.concat = jest.fn();
+        modelValue.concat = vi.fn();
 
         const wrapper = shallowMount(FormPills, {props: {
             modelValue,
@@ -258,7 +258,7 @@ describe('addItem', () => {
         // Cannot mock concat of `items` computed property.
         const modelValue = [];
 
-        modelValue.concat = jest.fn();
+        modelValue.concat = vi.fn();
 
         const wrapper = shallowMount(FormPills, {props: {
             modelValue,
@@ -305,13 +305,13 @@ describe('paste', () => {
         // Cannot mock concat of `items` computed property.
         const modelValue = [];
 
-        modelValue.concat = jest.fn();
+        modelValue.concat = vi.fn();
 
         const wrapper = shallowMount(FormPills, {props: {modelValue}});
 
         const event = {
-            clipboardData: {getData: jest.fn().mockReturnValue('something nsfw')},
-            preventDefault: jest.fn(),
+            clipboardData: {getData: vi.fn().mockReturnValue('something nsfw')},
+            preventDefault: vi.fn(),
         };
 
         wrapper.vm.paste(event);
@@ -327,13 +327,13 @@ describe('paste', () => {
         // Cannot mock concat of `items` computed property.
         const modelValue = [];
 
-        modelValue.concat = jest.fn();
+        modelValue.concat = vi.fn();
 
         const wrapper = shallowMount(FormPills, {props: {modelValue}});
 
         const event = {
-            clipboardData: {getData: jest.fn().mockReturnValue('')},
-            preventDefault: jest.fn(),
+            clipboardData: {getData: vi.fn().mockReturnValue('')},
+            preventDefault: vi.fn(),
         };
 
         wrapper.vm.paste(event);
@@ -345,7 +345,7 @@ describe('paste', () => {
         // Cannot mock concat of `items` computed property.
         const modelValue = [];
 
-        modelValue.concat = jest.fn();
+        modelValue.concat = vi.fn();
 
         const wrapper = shallowMount(FormPills, {
             props: {
@@ -355,8 +355,8 @@ describe('paste', () => {
         });
 
         const event = {
-            clipboardData: {getData: jest.fn().mockReturnValue('abcd abc abcd')},
-            preventDefault: jest.fn(),
+            clipboardData: {getData: vi.fn().mockReturnValue('abcd abc abcd')},
+            preventDefault: vi.fn(),
         };
 
         wrapper.vm.paste(event);

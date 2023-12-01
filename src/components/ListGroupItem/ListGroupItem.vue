@@ -1,12 +1,12 @@
 <template>
-    <component
+    <Component
         :is="tag"
         class="list-group-item"
         :class="classes"
     >
         <!-- @slot Displays the content of the list group item -->
         <slot />
-    </component>
+    </Component>
 </template>
 
 <script lang="ts">

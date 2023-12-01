@@ -6,6 +6,7 @@ vi.mock('bootstrap', () => ({
     Offcanvas: {
         getOrCreateInstance: vi.fn(),
     },
+    __v_isShallow: true,
 }));
 
 describe('template', () => {

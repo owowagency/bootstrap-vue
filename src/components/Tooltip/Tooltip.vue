@@ -1,11 +1,11 @@
 <template>
-    <component
+    <Component
         :is="tag"
         ref="tooltip"
     >
         <!-- @slot Displays the content of the tooltip -->
         <slot />
-    </component>
+    </Component>
 </template>
 
 <script lang="ts">

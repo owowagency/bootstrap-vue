@@ -1,11 +1,11 @@
-import {describe, expect, it} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 import {FormCheck} from '@/components';
 import FormCheckGroup from '.';
 import {shallowMount} from '@vue/test-utils';
 
 // Mock uuid module because it is used as `id` in `FormCheck` and we are unable
 // to reach that property directly.
-jest.mock('uuid', () => ({
+vi.mock('uuid', () => ({
     v4: () => 'wordpres-sist-hebe-stwe-bsolution!!!',
 }));
 

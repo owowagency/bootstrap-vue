@@ -1,5 +1,5 @@
 <template>
-    <component
+    <Component
         :is="is"
         class="btn"
         :class="classes"
@@ -9,7 +9,7 @@
     >
         <!-- @slot Displays content inside the button -->
         <slot />
-    </component>
+    </Component>
 </template>
 
 <script lang="ts">

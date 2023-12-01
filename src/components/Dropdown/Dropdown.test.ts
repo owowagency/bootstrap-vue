@@ -8,6 +8,7 @@ vi.mock('bootstrap', () => ({
     Dropdown: {
         getOrCreateInstance: vi.fn(),
     },
+    __v_isShallow: true,
 }));
 
 const items = [

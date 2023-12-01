@@ -6,6 +6,7 @@ vi.mock('bootstrap', () => ({
     Carousel: {
         getOrCreateInstance: vi.fn(),
     },
+    __v_isShallow: true,
 }));
 
 const props = {

@@ -6,6 +6,7 @@ vi.mock('bootstrap', () => ({
     Modal: {
         getOrCreateInstance: vi.fn(),
     },
+    __v_isShallow: true,
 }));
 
 const textPropTest = (propName: string) => {

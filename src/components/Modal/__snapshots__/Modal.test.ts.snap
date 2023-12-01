@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`template renders default 1`] = `
+exports[`template > renders default 1`] = `
 "<div id=\\"dont-change-please\\" class=\\"modal\\">
   <div class=\\"modal-dialog modal-md\\">
     <div class=\\"modal-content\\">
@@ -15,7 +15,7 @@ exports[`template renders default 1`] = `
 </div>"
 `;
 
-exports[`template renders given custom classes 1`] = `
+exports[`template > renders given custom classes 1`] = `
 "<div id=\\"owow-modal\\" class=\\"modal custom-class\\">
   <div class=\\"modal-dialog modal-md\\">
     <div class=\\"modal-content\\">

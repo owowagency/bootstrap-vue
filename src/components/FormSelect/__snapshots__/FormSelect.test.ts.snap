@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`template renders default 1`] = `
+exports[`template > renders default 1`] = `
 "<select class=\\"form-select form-select-md\\">
   <option value=\\"Item 1\\">Item 1</option>
   <option value=\\"Item 2\\">Item 2</option>
