@@ -20,7 +20,7 @@
 | placeholder         | The placeholder for the input                                              | string         | -      | ''                 |
 | separator           | The separator that checks if an item should be separated from the next one | string\|RegExp | -      | /[\s\n]+/          |
 | submitKeys          | The key to press to submit an item                                         | string[]       | -      | () =&gt; ['Enter'] |
-| valueMatcher        | The matcher to check if an item is valid                                   | string\|RegExp | -      | /^.+\$/            |
+| valueMatcher        | The matcher to check if an item is valid                                   | string\|RegExp | -      | /^.+$/             |
 
 ## Events
 
