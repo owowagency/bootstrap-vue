@@ -1,9 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
-import path from 'node:path'
 
 import { defineConfig, Plugin } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import { viteStaticCopy as Copy } from 'vite-plugin-static-copy'
 import DTS from "vite-plugin-dts";
 
 function VueDocgen(): Plugin {
@@ -39,13 +37,6 @@ export default defineConfig({
             'vitest.config.ts',
           ],
         }),
-        Copy({
-            targets: [
-                {src: 'src/**/*.scss', dest: './scss', rename: (name, extension, fullPath) => fullPath.replace(/^src\//, '')},
-                {src: 'package.json', dest: '.'},
-                {src: 'README.md', dest: '.'},
-            ],
-        }),
     ],
     resolve: {
         alias: {
@@ -73,9 +64,6 @@ export default defineConfig({
             }
         },
         rollupOptions: {
-            input: {
-                index: path.resolve(__dirname, "src/index.ts")
-            },
             external: [
                 'bootstrap',
                 'uuid',
@@ -83,16 +71,10 @@ export default defineConfig({
             ],
             output: {
                 preserveModules: true,
-                assetFileNames: (assetInfo) => {
-                    if (assetInfo.name === 'main.css') {
-                      return 'bootstrap-vue.css';
-                    }
-
-                    return assetInfo.name;
-                },
                 exports: "named",
                 globals: {
                     vue: 'Vue',
+                    uuid: 'uuid',
                 },
             },
         },

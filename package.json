@@ -4,15 +4,14 @@
     "license": "MIT",
     "homepage": "https://owowagency.github.io/bootstrap-vue",
     "type": "module",
-    "entry": "bootstrap-vue",
-    "main": "bootstrap-vue.cjs",
-    "module": "bootstrap-vue.js",
-    "types": "index.d.ts",
+    "main": "./dist/bootstrap-vue.cjs",
+    "module": "./dist/bootstrap-vue.js",
+    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
-            "types": "./index.d.ts",
-            "import": "./bootstrap-vue.js",
-            "require": "./bootstrap-vue.cjs"
+            "types": "./dist/index.d.ts",
+            "import": "./dist/bootstrap-vue.js",
+            "require": "./dist/bootstrap-vue.cjs"
         }
     },
     "engines": {},
@@ -58,7 +57,6 @@
         "typescript": "^4.4.4",
         "vite": "^5.0.4",
         "vite-plugin-dts": "^3.6.4",
-        "vite-plugin-static-copy": "^1.0.0",
         "vitest": "^0.34.6",
         "vue": "^3.2.26",
         "vue-docgen-cli": "^4.67.0",
