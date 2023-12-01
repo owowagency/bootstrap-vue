@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<div class=\\"card\\">
+  <!--v-if-->
+  <div class=\\"card-body\\">
+    <!-- @slot Displays content inside the body of the card -->
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</div>"
+`;

@@ -1,0 +1,31 @@
+.form-image {
+    position: relative;
+    display: block;
+    @include border-radius($form-image-border-radius);
+    border: $form-image-border-width solid $form-image-border-color;
+    width: $form-image-width;
+    height: $form-image-height;
+    cursor: pointer;
+    background-color: $form-image-background-color;
+    background-image: escape-svg($form-image-upload-icon);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: $form-image-upload-icon-size;
+
+    .form-image-btn-edit {
+        position: absolute;
+        top: $form-image-btn-edit-top;
+        right: $form-image-btn-edit-right;
+    }
+}
+
+.form-image-btn-edit {
+    @include border-radius($form-image-btn-edit-border-radius);
+    width: $form-image-btn-edit-width;
+    height: $form-image-btn-edit-height;
+    background-color: $form-image-btn-edit-bg-color;
+    background-image: escape-svg($form-image-btn-edit-icon);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: $form-image-btn-edit-icon-size;
+}

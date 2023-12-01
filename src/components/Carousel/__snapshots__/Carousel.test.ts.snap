@@ -1,0 +1,76 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<div id=\\"dont-change-please\\" class=\\"carousel slide\\" data-bs-interval=\\"5000\\" data-bs-ride=\\"carousel\\">
+  <div class=\\"carousel-inner\\">
+    <!--
+            @slot Displays content inside the carousel
+            @binding {array} slides The \`CarouselSlide\` list
+             -->
+    <div class=\\"carousel-item\\">
+      <!--
+                    @slot Displays content inside the slide
+                    @binding {int} index The index of the slide
+                    @binding {object} slide The \`CarouselSlide\` object
+                    --><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+      <!--
+                        @slot Display the caption of the carousel
+                        @binding {string} description The description of the slide
+                        @binding {string} title The title of the slide
+                        -->
+      <div class=\\"carousel-caption d-none d-md-block\\">
+        <h5>Kitten #1</h5>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class=\\"carousel-item active\\">
+      <!--
+                    @slot Displays content inside the slide
+                    @binding {int} index The index of the slide
+                    @binding {object} slide The \`CarouselSlide\` object
+                    --><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+      <!--
+                        @slot Display the caption of the carousel
+                        @binding {string} description The description of the slide
+                        @binding {string} title The title of the slide
+                        -->
+      <div class=\\"carousel-caption d-none d-md-block\\">
+        <h5>Kitten #2</h5>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class=\\"carousel-item\\" data-bs-interval=\\"1000\\">
+      <!--
+                    @slot Displays content inside the slide
+                    @binding {int} index The index of the slide
+                    @binding {object} slide The \`CarouselSlide\` object
+                    --><img src=\\"https://placekitten.com/200/200\\" class=\\"d-block w-100\\">
+      <!--
+                        @slot Display the caption of the carousel
+                        @binding {string} description The description of the slide
+                        @binding {string} title The title of the slide
+                        -->
+      <div class=\\"carousel-caption d-none d-md-block\\">
+        <h5>Kitten #3</h5>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div>
+    <!--
+            @slot Renders a previous control button
+            @binding {Object} dataset Bootstrap data attributes required for controlling the carousel
+            --><button class=\\"carousel-control-prev\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide=\\"prev\\"><span class=\\"carousel-control-prev-icon\\"></span></button>
+    <!--
+            @slot Renders a next control button
+            @binding {Object} dataset Bootstrap data attributes required for controlling the carousel
+            --><button class=\\"carousel-control-next\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide=\\"next\\"><span class=\\"carousel-control-next-icon\\"></span></button>
+  </div>
+  <div class=\\"carousel-indicators\\">
+    <!--
+            @slot Renders a next control button
+            @binding {Object} dataset Bootstrap data attributes required for controlling the carousel
+            --><button class=\\"\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide-to=\\"0\\"></button><button class=\\"active\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide-to=\\"1\\"></button><button class=\\"\\" data-bs-target=\\"#dont-change-please\\" data-bs-slide-to=\\"2\\"></button>
+  </div>
+</div>"
+`;

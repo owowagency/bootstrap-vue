@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<nav>
+  <ol class=\\"breadcrumb\\">
+    <!-- @slot Displays content inside the breadcrumb -->
+  </ol>
+</nav>"
+`;

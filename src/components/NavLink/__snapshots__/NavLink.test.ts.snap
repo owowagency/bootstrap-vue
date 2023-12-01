@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<a class=\\"nav-link\\" href=\\"#\\">
+  <!-- @slot Displays the content of the nav link -->
+</a>"
+`;

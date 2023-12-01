@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<div class=\\"dropdown\\">
+  <!-- @slot Displays the dropdown toggle -->
+  <button-stub disabled=\\"false\\" outline=\\"false\\" size=\\"md\\" variant=\\"primary\\" class=\\"dropdown-toggle\\" data-bs-toggle=\\"dropdown\\"></button-stub>
+  <!--
+        @slot Displays the dropdown menu
+        @binding {array} items The \`Item\` list
+        -->
+  <dropdown-menu-stub items=\\"[object Object],[object Object],[object Object]\\"></dropdown-menu-stub>
+</div>"
+`;

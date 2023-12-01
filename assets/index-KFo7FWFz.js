@@ -1,0 +1,1 @@
+import{o as onMounted}from"./vue.esm-bundler-9Sp9mUIa.js";const useBootstrapEmits=(element,events,emit,typeName)=>{onMounted(()=>{events.forEach(event=>{const eventCallback=()=>emit(event);element.value.addEventListener(`${event}.bs.${typeName}`,eventCallback)})})};export{useBootstrapEmits as u};

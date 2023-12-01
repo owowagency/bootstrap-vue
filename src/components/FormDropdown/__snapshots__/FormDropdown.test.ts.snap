@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<div class=\\"dropdown form-dropdown\\">
+  <!-- @slot Displays the dropdown toggle -->
+  <!-- @slot Displays the dropdown toggle -->
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">
+    <!-- @slot Displays the dropdown toggle label -->
+    <!-- @binding {{label: string, modelValue: Object}} dataset Bootstrap data attributes required for controlling the carousel -->Select
+  </div>
+  <!--
+        @slot Displays the dropdown menu
+        @binding {array} items The \`Item\` list
+        -->
+  <ul class=\\"dropdown-menu w-100\\">
+    <!-- @slot Prepends the dropdown menu -->
+    <!--
+        @slot Displays content inside the dropdown menu
+        @binding {array} items The \`Item\` list
+        @binding {function} click-item The function to call when an item is clicked
+        -->
+    <!--
+                @slot Displays the dropdown menu item
+                @binding {object} item The \`Item\` object
+                @binding {function} click-item The function to call when an item is clicked
+                -->
+    <li><a class=\\"dropdown-item\\" href=\\"#\\">Item 1</a></li>
+    <!--
+                @slot Displays the dropdown menu item
+                @binding {object} item The \`Item\` object
+                @binding {function} click-item The function to call when an item is clicked
+                -->
+    <li><a class=\\"dropdown-item\\" href=\\"#\\">Item 2</a></li>
+    <!--
+                @slot Displays the dropdown menu item
+                @binding {object} item The \`Item\` object
+                @binding {function} click-item The function to call when an item is clicked
+                -->
+    <li><a class=\\"dropdown-item\\" href=\\"#\\">Item 3</a></li><!-- @slot Appends the dropdown menu -->
+  </ul>
+</div>"
+`;
+
+exports[`template > renders input 1`] = `
+"<div class=\\"dropdown form-dropdown\\" searchable=\\"true\\">
+  <!-- @slot Displays the dropdown toggle -->
+  <!-- @slot Displays the dropdown toggle -->
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">
+    <!-- @slot Displays the dropdown toggle label -->
+    <!-- @binding {{label: string, modelValue: Object}} dataset Bootstrap data attributes required for controlling the carousel -->Select
+  </div>
+  <!--
+        @slot Displays the dropdown menu
+        @binding {array} items The \`Item\` list
+        -->
+  <ul class=\\"dropdown-menu w-100\\">
+    <!-- @slot Prepends the dropdown menu -->
+    <!-- @slot *Forwarded to child* -->
+    <!-- @slot Displays content when there are no options -->
+    <li class=\\"pe-none\\"><a class=\\"dropdown-item\\" href=\\"#\\">No options</a></li><!-- @slot Prepends the dropdown options -->
+    <!--
+        @slot Displays content inside the dropdown menu
+        @binding {array} items The \`Item\` list
+        @binding {function} click-item The function to call when an item is clicked
+        -->
+    <!-- @slot Appends the dropdown menu -->
+  </ul>
+</div>"
+`;
+
+exports[`template > renders no options 1`] = `
+"<div class=\\"dropdown form-dropdown\\">
+  <!-- @slot Displays the dropdown toggle -->
+  <!-- @slot Displays the dropdown toggle -->
+  <div class=\\"form-select form-select-md\\" data-bs-toggle=\\"dropdown\\">
+    <!-- @slot Displays the dropdown toggle label -->
+    <!-- @binding {{label: string, modelValue: Object}} dataset Bootstrap data attributes required for controlling the carousel -->Select
+  </div>
+  <!--
+        @slot Displays the dropdown menu
+        @binding {array} items The \`Item\` list
+        -->
+  <ul class=\\"dropdown-menu w-100\\">
+    <!-- @slot Prepends the dropdown menu -->
+    <!-- @slot *Forwarded to child* -->
+    <!-- @slot Displays content when there are no options -->
+    <li class=\\"pe-none\\"><a class=\\"dropdown-item\\" href=\\"#\\">No options</a></li><!-- @slot Prepends the dropdown options -->
+    <!--
+        @slot Displays content inside the dropdown menu
+        @binding {array} items The \`Item\` list
+        @binding {function} click-item The function to call when an item is clicked
+        -->
+    <!-- @slot Appends the dropdown menu -->
+  </ul>
+</div>"
+`;

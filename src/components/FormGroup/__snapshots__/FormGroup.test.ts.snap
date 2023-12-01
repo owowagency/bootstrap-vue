@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<div>
+  <!--v-if-->
+  <!--
+        @slot Displays the input
+        @binding {string} id The id of the input
+        @binding {boolean} is-invalid Describes if the input is invalid
+        @binding {boolean} is-valid Describes if the input is valid
+        -->
+  <form-control-stub autofocus=\\"false\\" disabled=\\"false\\" modelvalue=\\"\\" placeholder=\\"\\" plaintext=\\"false\\" required=\\"false\\" size=\\"md\\" type=\\"text\\" id=\\"dont-change-please\\" class=\\"\\"></form-control-stub>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;

@@ -1,0 +1,21 @@
+import{e as defineComponent,r as ref,c as computed,y as watch,f as openBlock,g as createElementBlock,m as createBaseVNode,j as renderSlot,n as normalizeClass,G as normalizeStyle,H as withModifiers}from"./vue.esm-bundler-9Sp9mUIa.js";import{i as idProps}from"./index-AceVrLog.js";const _hoisted_1=["for"],_hoisted_2=["id"],_hoisted_3={key:0,class:"form-image-btn-edit"},_sfc_main=defineComponent({__name:"FormImage",props:{dataType:{type:String,default:"base64"},...idProps,modelValue:{type:[Object,String],default:void 0},preview:{type:String,default:void 0}},emits:["update:modelValue"],setup(__props,{emit:__emit}){const props=__props,emit=__emit,input=ref(),file=ref(),readerResult=ref(),preview=computed(()=>readerResult.value||props.preview),style=computed(()=>preview.value?{"background-color":"transparent","background-image":`url(${preview.value})`,"background-size":"cover"}:{}),value=computed({get:()=>props.modelValue,set:v=>emit("update:modelValue",v)});watch(file,f=>readFile(f));const onChange=e=>{const newFile=e.target.files.item(0);return newFile!=null&&newFile.type.match("image.*")?(file.value=newFile,!0):!1},onDrop=e=>{e.preventDefault(),input.value.files=e.dataTransfer.files,onChange({target:input.value})},readFile=file2=>{if(!file2)return value.value=void 0;props.dataType==="file"&&(value.value=file2);const reader=new FileReader;return reader.onload=()=>{readerResult.value=reader.result,props.dataType==="base64"&&(value.value=reader.result)},reader.readAsDataURL(file2),reader};return(_ctx,_cache)=>(openBlock(),createElementBlock("label",{class:normalizeClass(["form-image",{"form-image-has-preview":!!preview.value}]),for:_ctx.id,style:normalizeStyle(style.value),onDrop,onDragenter:_cache[0]||(_cache[0]=withModifiers(()=>{},["prevent"])),onDragover:_cache[1]||(_cache[1]=withModifiers(()=>{},["prevent"]))},[createBaseVNode("input",{id:_ctx.id,ref_key:"input",ref:input,accept:"image/*",hidden:"",type:"file",onChange},null,40,_hoisted_2),preview.value?(openBlock(),createElementBlock("div",_hoisted_3)):renderSlot(_ctx.$slots,"placeholder",{key:1})],46,_hoisted_1))}});_sfc_main.__docgenInfo={exportName:"default",displayName:"FormImage",docsBlocks:[`\`\`\`vue
+<FormImage
+    v-model="b64"
+    type="base64"
+/>
+\`\`\`
+
+## Imported Props
+
+| Prop name | Description                   | Type   | Values | Default |
+| --------- | ----------------------------- | ------ | ------ | ------- |
+| id        | The id used for the component | string | -      | \`uuid\`  |`],description:"",tags:{},props:[{name:"dataType",description:"The data type of the model",tags:{},values:["'file'|'base64'"],type:{name:"DataType"},defaultValue:{func:!1,value:"'base64'"}},{name:"modelValue",description:"The model value",type:{name:"File|string"},defaultValue:{func:!1,value:"undefined"}},{name:"preview",description:"The preview",type:{name:"string"},defaultValue:{func:!1,value:"undefined"}}],events:[{name:"update:modelValue",type:{names:["union"],elements:[{name:"string"},{name:"File"}]},description:"Fired when the model value is updated",properties:[{type:{names:["union"]},name:"value",description:"The new value"}],tags:[{title:"param",type:{name:"union",elements:[{name:"string"},{name:"File"}]},name:"value",description:"The new value"}]}],slots:[{name:"placeholder",description:"Displays the placeholder"}],sourceFiles:["/home/runner/work/bootstrap-vue/bootstrap-vue/src/components/FormImage/FormImage.vue"]};const FormImage_stories={title:"Forms/Form image",component:_sfc_main,argTypes:{}},template=args=>({components:{FormImage:_sfc_main},setup:()=>({args,value:ref()}),template:'<FormImage v-model="value" :preview="preview" v-bind="args" />'}),Default=template.bind({});var _a,_b,_c;Default.parameters={...Default.parameters,docs:{...(_a=Default.parameters)==null?void 0:_a.docs,source:{originalSource:`args => ({
+  components: {
+    FormImage
+  },
+  setup: () => ({
+    args,
+    value: ref<string>()
+  }),
+  template: '<FormImage v-model="value" :preview="preview" v-bind="args" />'
+})`,...(_c=(_b=Default.parameters)==null?void 0:_b.docs)==null?void 0:_c.source}}};const __namedExportsOrder=["Default"];export{Default,__namedExportsOrder,FormImage_stories as default};

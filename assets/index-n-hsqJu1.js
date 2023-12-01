@@ -1,0 +1,1 @@
+import{c as computed,u as unref}from"./vue.esm-bundler-9Sp9mUIa.js";const useDisabled=value=>({disabledClass:computed(()=>unref(value)?"disabled":void 0)}),disabledProps={disabled:{type:Boolean,default:!1}};export{disabledProps as d,useDisabled as u};

@@ -1,0 +1,407 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<table class=\\"table\\">
+  <!--v-if-->
+  <tbody>
+    <!--
+            @slot Displays as the top row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+            @slot Displays if there are no items in the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+            @slot Displays as the bottom row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+  </tbody>
+</table>"
+`;
+
+exports[`template > renders with fields and items 1`] = `
+"<table class=\\"table\\">
+  <thead>
+    <tr class=\\"\\">
+      <!--
+                @slot Displays the header of the table
+                @binding {string} key The key of the header
+                @binding {object} header The header object
+                -->
+      <th class=\\"table-heading-sortable table-heading-sortable-asc\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->ajdie
+      </th>
+      <th class=\\"table-heading-sortable\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->neem
+      </th>
+      <th class=\\"\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->type
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--
+            @slot Displays as the top row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+            @slot Displays if there are no items in the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+                @slot Displays the row of the table
+                @binding {object} item The item object
+                @binding {int} index The index of the item
+                -->
+    <tr class=\\"\\">
+      <!--
+                        @slot Displays the content of the table row
+                        @binding {any} key The key of the header
+                        @binding {object} field The header object
+                        @binding {object} item The item of the row
+                        @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
+                        -->
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->1
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->Word
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->
+      </td>
+    </tr>
+    <!--
+                @slot Displays the row of the table
+                @binding {object} item The item object
+                @binding {int} index The index of the item
+                -->
+    <tr class=\\"\\">
+      <!--
+                        @slot Displays the content of the table row
+                        @binding {any} key The key of the header
+                        @binding {object} field The header object
+                        @binding {object} item The item of the row
+                        @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
+                        -->
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->2
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->Press
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->
+      </td>
+    </tr>
+    <!--
+                @slot Displays the row of the table
+                @binding {object} item The item object
+                @binding {int} index The index of the item
+                -->
+    <tr class=\\"\\">
+      <!--
+                        @slot Displays the content of the table row
+                        @binding {any} key The key of the header
+                        @binding {object} field The header object
+                        @binding {object} item The item of the row
+                        @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
+                        -->
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->3
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->ISDABEST
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->
+      </td>
+    </tr>
+    <!--
+                @slot Displays the row of the table
+                @binding {object} item The item object
+                @binding {int} index The index of the item
+                -->
+    <tr class=\\"\\">
+      <!--
+                        @slot Displays the content of the table row
+                        @binding {any} key The key of the header
+                        @binding {object} field The header object
+                        @binding {object} item The item of the row
+                        @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
+                        -->
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->4
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->#prank
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->
+      </td>
+    </tr>
+    <!--
+            @slot Displays as the bottom row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+  </tbody>
+</table>"
+`;
+
+exports[`template > renders with items 1`] = `
+"<table class=\\"table\\">
+  <thead>
+    <tr class=\\"\\">
+      <!--
+                @slot Displays the header of the table
+                @binding {string} key The key of the header
+                @binding {object} header The header object
+                -->
+      <th class=\\"\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->id
+      </th>
+      <th class=\\"\\">
+        <!--
+                        @slot Displays the content of the table header
+                        @binding {object} header The header object
+                        -->name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--
+            @slot Displays as the top row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+            @slot Displays if there are no items in the table
+            @binding {object[]} headers The headers of the table
+            -->
+    <!--
+                @slot Displays the row of the table
+                @binding {object} item The item object
+                @binding {int} index The index of the item
+                -->
+    <tr class=\\"\\">
+      <!--
+                        @slot Displays the content of the table row
+                        @binding {any} key The key of the header
+                        @binding {object} field The header object
+                        @binding {object} item The item of the row
+                        @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
+                        -->
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->1
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->Word
+      </td>
+    </tr>
+    <!--
+                @slot Displays the row of the table
+                @binding {object} item The item object
+                @binding {int} index The index of the item
+                -->
+    <tr class=\\"\\">
+      <!--
+                        @slot Displays the content of the table row
+                        @binding {any} key The key of the header
+                        @binding {object} field The header object
+                        @binding {object} item The item of the row
+                        @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
+                        -->
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->2
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->Press
+      </td>
+    </tr>
+    <!--
+                @slot Displays the row of the table
+                @binding {object} item The item object
+                @binding {int} index The index of the item
+                -->
+    <tr class=\\"\\">
+      <!--
+                        @slot Displays the content of the table row
+                        @binding {any} key The key of the header
+                        @binding {object} field The header object
+                        @binding {object} item The item of the row
+                        @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
+                        -->
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->3
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->ISDABEST
+      </td>
+    </tr>
+    <!--
+                @slot Displays the row of the table
+                @binding {object} item The item object
+                @binding {int} index The index of the item
+                -->
+    <tr class=\\"\\">
+      <!--
+                        @slot Displays the content of the table row
+                        @binding {any} key The key of the header
+                        @binding {object} field The header object
+                        @binding {object} item The item of the row
+                        @binding {int} index The index of the item of the row
+                        @binding {any} value The value that should be displayed
+                        -->
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->4
+      </td>
+      <td>
+        <!--
+                                @slot Displays the content of the table row
+                                @binding {any} field The header object
+                                @binding {object} item The item of the row
+                                @binding {int} index The index of the item of the row
+                                @binding {any} value The value that should be displayed
+                                -->#prank
+      </td>
+    </tr>
+    <!--
+            @slot Displays as the bottom row of the table
+            @binding {object[]} headers The headers of the table
+            -->
+  </tbody>
+</table>"
+`;

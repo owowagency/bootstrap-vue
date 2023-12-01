@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`template > renders default 1`] = `
+"<div id=\\"dont-change-please\\" class=\\"accordion\\">
+  <!--
+        @slot Displays the content of the accordion
+        @binding {string} parent-id The id of the parent accordion
+        -->
+</div>"
+`;
