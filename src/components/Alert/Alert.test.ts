@@ -1,4 +1,4 @@
-import {describe, expect, it, vi} from 'vitest'
+import {describe, it, vi} from 'vitest';
 import Alert from '.';
 import {shallowMount} from '@vue/test-utils';
 

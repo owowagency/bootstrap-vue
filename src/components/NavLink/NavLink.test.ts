@@ -1,5 +1,5 @@
 import NavLink from '.';
-import {describe} from 'vitest'
+import {describe} from 'vitest';
 
 describe('template', () => {
     componentRenderTest(NavLink);

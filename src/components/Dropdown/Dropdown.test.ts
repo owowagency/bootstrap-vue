@@ -1,4 +1,4 @@
-import {describe, expect, it, vi} from 'vitest'
+import {describe, expect, it, vi} from 'vitest';
 import Button from '@/components/Button';
 import Dropdown from '.';
 import DropdownMenu from '@/components/DropdownMenu';

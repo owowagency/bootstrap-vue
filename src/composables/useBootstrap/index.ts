@@ -5,7 +5,7 @@ const useBootstrap = () => {
     const bootstrap = ref<typeof Bootstrap|undefined>();
 
     onMounted(async() => {
-        document && (bootstrap.value = await import('bootstrap'))
+        document && (bootstrap.value = await import('bootstrap'));
     });
 
     return bootstrap;

@@ -1,4 +1,4 @@
-import {describe, expect, it, vi} from 'vitest'
+import {describe, expect, it, vi} from 'vitest';
 import Modal from '.';
 import {shallowMount} from '@vue/test-utils';
 

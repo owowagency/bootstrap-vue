@@ -1,4 +1,4 @@
-import {expect, it} from 'vitest'
+import {expect, it} from 'vitest';
 import extractKeysFrom from '.';
 
 it('extracts keys from object', () => {

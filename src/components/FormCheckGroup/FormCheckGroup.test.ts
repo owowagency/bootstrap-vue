@@ -1,4 +1,4 @@
-import {describe, expect, it, vi} from 'vitest'
+import {describe, expect, it, vi} from 'vitest';
 import {FormCheck} from '@/components';
 import FormCheckGroup from '.';
 import {shallowMount} from '@vue/test-utils';

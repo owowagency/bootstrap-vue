@@ -1,4 +1,4 @@
-import {describe, expect, it, vi} from 'vitest'
+import {describe, expect, it, vi} from 'vitest';
 import FormPills from '.';
 import {nextTick} from 'vue';
 import {shallowMount} from '@vue/test-utils';
