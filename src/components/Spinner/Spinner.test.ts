@@ -1,4 +1,5 @@
 import Spinner from '.';
+import {describe} from 'vitest'
 
 describe('template', () => {
     componentRenderTest(Spinner);

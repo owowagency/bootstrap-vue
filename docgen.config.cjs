@@ -1,11 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 
 module.exports = {
     componentsRoot: 'src/components',
     components: '**/*.vue',
     defaultExamples: true,
-    docsBranch: 'master',
+    docsBranch: 'main',
     docsRepo: 'owowagency/bootstrap-vue',
     editLinkLabel: 'Edit on GitHub',
     getDestFile: (file, config) => {

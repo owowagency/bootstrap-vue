@@ -30,6 +30,7 @@ const {classes} = useClasses(computed(() => [
 ]));
 </script>
 
+<!--
 <docs>
 ```vue
 <Accordion>
@@ -46,3 +47,4 @@ const {classes} = useClasses(computed(() => [
 | flush     | Use the flush variant of the component | boolean | -      | false   |
 | id        | The id used for the component          | string  | -      | `uuid`  |
 </docs>
+-->

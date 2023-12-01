@@ -1,3 +1,4 @@
+import {describe, expect, it} from 'vitest'
 import {tooltipFallbackPlacementProps, tooltipFallbackPlacements, tooltipPlacementProps, tooltipPlacements} from '.';
 
 describe('tooltipFallbackPlacementProps', () => {

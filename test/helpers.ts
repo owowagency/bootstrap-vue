@@ -1,4 +1,5 @@
 import {mount, shallowMount} from '@vue/test-utils';
+import {expect, it} from 'vitest'
 
 export const componentBootstrapEventTest = (component: any, target: string, eventType: string, componentType: string) => {
     const eventName = `${eventType}.bs.${componentType}`;

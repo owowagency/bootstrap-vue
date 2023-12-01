@@ -1,11 +1,12 @@
+import {describe, expect, it, vi} from 'vitest'
 import Button from '@/components/Button';
 import Dropdown from '.';
 import DropdownMenu from '@/components/DropdownMenu';
 import {shallowMount} from '@vue/test-utils';
 
-jest.mock('bootstrap', () => ({
+vi.mock('bootstrap', () => ({
     Dropdown: {
-        getOrCreateInstance: jest.fn(),
+        getOrCreateInstance: vi.fn(),
     },
 }));
 

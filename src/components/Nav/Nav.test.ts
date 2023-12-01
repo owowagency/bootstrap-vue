@@ -1,4 +1,5 @@
 import Nav from '.';
+import {describe} from 'vitest'
 
 describe('template', () => {
     componentRenderTest(Nav);

@@ -1,3 +1,4 @@
+import {describe, expect, it} from 'vitest'
 import Card from '.';
 import {shallowMount} from '@vue/test-utils';
 

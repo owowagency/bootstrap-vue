@@ -1,4 +1,5 @@
 import BreadcrumbItem from '.';
+import {describe} from 'vitest'
 
 describe('template', () => {
     componentRenderTest(BreadcrumbItem);

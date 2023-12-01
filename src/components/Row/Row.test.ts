@@ -1,4 +1,5 @@
 import Row from '.';
+import {describe} from 'vitest'
 
 describe('template', () => {
     componentRenderTest(Row);
