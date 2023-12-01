@@ -1,41 +1,35 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig, Plugin } from 'vite'
+import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import DTS from "vite-plugin-dts";
-
-function VueDocgen(): Plugin {
-    return {
-        name: 'vue-docgen',
-        transform(_, id) {
-            // If vue file doesn't have a <docs> block, don't transform
-            if (!/vue&type=docs/.test(id)) {
-              return;
-            }
-
-            // If vue file has a <docs> block, ignore it in the output
-            return {
-              code: 'export default Comp => {Comp}',
-              map: {
-                mappings: '',
-              },
-            };
-        },
-    }
-}
+import { viteStaticCopy as Copy } from 'vite-plugin-static-copy'
+import VueDocgen from './vite/plugin-docgen';
+import Delete from './vite/plugin-delete';
 
 export default defineConfig({
     plugins: [
+        Delete(),
         Vue(),
         VueDocgen(),
         DTS({
-          exclude: [
-            'src/**/*test.ts',
-            'src/**/*stories.ts',
-            'test',
-            'vite.config.ts',
-            'vitest.config.ts',
-          ],
+            exclude: [
+                'src/**/*test.ts',
+                'src/**/*stories.ts',
+                'test',
+                'vite.config.ts',
+                'vitest.config.ts',
+            ],
+        }),
+        Copy({
+            targets: [
+                {src: 'src', dest: '..'},
+                {src: 'src/**/*.scss', dest: '../scss', rename: (_name, _extension, fullPath) => fullPath.replace(/^src\//, '')},
+                {src: 'package.json', dest: '..'},
+                {src: 'README.md', dest: '..'},
+                {src: 'CONTRIBUTING.md', dest: '..'},
+                {src: 'LICENSE', dest: '..'},
+            ],
         }),
     ],
     resolve: {
@@ -44,10 +38,11 @@ export default defineConfig({
         },
     },
     esbuild: {
-      minifyIdentifiers: false,
+        minifyIdentifiers: false,
     },
     build: {
         emptyOutDir: true,
+        outDir: 'dist/lib',
         sourcemap: true,
         lib: {
             name: 'BootstrapVue',
@@ -61,7 +56,7 @@ export default defineConfig({
                 }
 
                 return `${entryName}.${ext}`;
-            }
+            },
         },
         rollupOptions: {
             external: [
