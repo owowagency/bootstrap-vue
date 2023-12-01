@@ -17,9 +17,11 @@ export default defineConfig({
                 'src/**/*test.ts',
                 'src/**/*stories.ts',
                 'test',
+                'vite',
                 'vite.config.ts',
                 'vitest.config.ts',
             ],
+            outDir: 'dist/lib',
         }),
         Copy({
             targets: [
