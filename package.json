@@ -23,9 +23,10 @@
         "lint": "eslint src --ext .ts,.vue",
         "generate-docs": "vue-docgen -c docgen.config.cjs",
         "postversion": "cp package.json ..",
-        "predeploy": "storybook build",
+        "predeploy": "yarn storybook:build",
         "storybook": "storybook dev -p 6006",
         "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider storybook build",
+        "poststorybook:build": "cp -r ./storybook-static/dist/** ./storybook-static && rm -rf ./storybook-static/dist",
         "storybook:deploy": "gh-pages -d storybook-static"
     },
     "devDependencies": {

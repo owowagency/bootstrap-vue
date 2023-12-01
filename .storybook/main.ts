@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/vue3-vite";
+import { mergeConfig } from "vite";
+import { viteStaticCopy as Copy } from 'vite-plugin-static-copy';
 
 const config: StorybookConfig = {
     stories: [
@@ -22,13 +24,13 @@ const config: StorybookConfig = {
         options: {},
     },
     viteFinal: (config, options) => {
-        config.plugins = config.plugins?.filter(async (plugin) => {
-            plugin = await plugin;
-
-            return typeof plugin === 'boolean' || Array.isArray(plugin) || plugin?.name !== 'vite-plugin-static-copy:build';
+        return mergeConfig(config, {
+            // This is needed because the copy plugin can't copy files outside of the root directory
+            // The files are copied back to the root by the post script
+            build: {
+                outDir: 'storybook-static/dist'
+            }
         });
-
-        return config;
     },
 };
 
