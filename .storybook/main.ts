@@ -21,6 +21,15 @@ const config: StorybookConfig = {
         name: "@storybook/vue3-vite",
         options: {},
     },
+    viteFinal: (config, options) => {
+        config.plugins = config.plugins?.filter(async (plugin) => {
+            plugin = await plugin;
+
+            return typeof plugin === 'boolean' || Array.isArray(plugin) || plugin?.name !== 'vite-plugin-static-copy:build';
+        });
+
+        return config;
+    },
 };
 
 export default config;
