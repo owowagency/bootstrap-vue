@@ -3,7 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import DTS from "vite-plugin-dts";
-import { viteStaticCopy as Copy } from 'vite-plugin-static-copy'
+import { viteStaticCopy as Copy } from 'vite-plugin-static-copy';
 import VueDocgen from './vite/plugin-docgen';
 import Delete from './vite/plugin-delete';
 
