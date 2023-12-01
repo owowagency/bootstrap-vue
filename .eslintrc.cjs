@@ -35,10 +35,4 @@ module.exports = {
         'vue/html-indent': ['error', 4],
         'vue/multi-word-component-names': 'off'
     },
-    overrides: [
-        {
-            files: ['**/*.test.ts'],
-            env: {jest: true},
-        },
-    ],
 };

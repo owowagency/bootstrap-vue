@@ -1,3 +1,4 @@
+import {describe, expect, it} from 'vitest';
 import AccordionItem from '.';
 import {shallowMount} from '@vue/test-utils';
 

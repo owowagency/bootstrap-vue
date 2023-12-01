@@ -1,24 +1,24 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`template renders default 1`] = `
+exports[`template > renders default 1`] = `
 "<button class=\\"btn btn-md btn-primary\\">
   <!-- @slot Displays content inside the button -->
 </button>"
 `;
 
-exports[`template renders default 2`] = `
+exports[`template > renders default 2`] = `
 "<a class=\\"btn btn-md btn-primary\\" disabled=\\"false\\" href=\\"https://github.com/owowagency/bootstrap-vue\\">
   <!-- @slot Displays content inside the button -->
 </a>"
 `;
 
-exports[`template renders default 3`] = `
+exports[`template > renders default 3`] = `
 "<div class=\\"btn btn-md btn-primary\\" disabled=\\"false\\">
   <!-- @slot Displays content inside the button -->
 </div>"
 `;
 
-exports[`template renders default 4`] = `
+exports[`template > renders default 4`] = `
 "<routerlink class=\\"btn btn-md btn-primary\\" disabled=\\"false\\" to=\\"[object Object]\\">
   <!-- @slot Displays content inside the button -->
 </routerlink>"

@@ -18,7 +18,7 @@ const template = (args) => ({
     setup() {
         return {args};
     },
-    template: '<Badge v-bind="args">I am an Badge</Badge>',
+    template: '<Badge v-bind="args">I am a Badge</Badge>',
 });
 
 export const Default = template.bind({});

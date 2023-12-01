@@ -15,7 +15,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         cache: yarn
-        node-version: 18.17.0
+        node-version: 18
         registry-url: https://registry.npmjs.org
 
     - run: yarn
@@ -31,7 +31,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         cache: yarn
-        node-version: 18.17.0
+        node-version: 18
         registry-url: https://npm.pkg.github.com/
 
     - env:
@@ -40,7 +40,7 @@ jobs:
         NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: yarn publish dist
 
-    - run: yarn build-storybook
+    - run: yarn storybook:build
 
     - uses: peaceiris/actions-gh-pages@v3
       with:

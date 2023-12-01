@@ -1,3 +1,4 @@
+import {describe, expect, it} from 'vitest';
 import FormControl from '@/components/FormControl';
 import FormGroup from '.';
 import {shallowMount} from '@vue/test-utils';

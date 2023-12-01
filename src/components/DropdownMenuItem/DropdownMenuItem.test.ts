@@ -1,3 +1,4 @@
+import {describe, expect, it} from 'vitest';
 import DropdownMenuItem from '@/components/DropdownMenuItem';
 import {shallowMount} from '@vue/test-utils';
 

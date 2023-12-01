@@ -1,4 +1,5 @@
 import Col from '.';
+import {describe} from 'vitest';
 
 describe('template', () => {
     componentRenderTest(Col);

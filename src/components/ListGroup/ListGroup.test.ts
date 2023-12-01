@@ -1,4 +1,5 @@
 import ListGroup from '.';
+import {describe} from 'vitest';
 
 describe('template', () => {
     componentRenderTest(ListGroup);

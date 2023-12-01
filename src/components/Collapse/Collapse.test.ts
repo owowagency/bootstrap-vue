@@ -1,10 +1,12 @@
+import {describe, expect, it, vi} from 'vitest';
 import Collapse from '.';
 import {shallowMount} from '@vue/test-utils';
 
-jest.mock('bootstrap', () => ({
+vi.mock('bootstrap', () => ({
     Collapse: {
-        getOrCreateInstance: jest.fn(),
+        getOrCreateInstance: vi.fn(),
     },
+    __v_isShallow: true,
 }));
 
 describe('template', () => {

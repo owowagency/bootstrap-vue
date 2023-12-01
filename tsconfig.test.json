@@ -1,6 +1,11 @@
 {
-    "extends": "./tsconfig.json",
+    "extends": "./tsconfig.lib.json",
     "files": [
         "./test/helpers.d.ts"
-    ]
+    ],
+    "exclude": [],
+    "compilerOptions": {
+        "composite": true,
+        "types": ["node", "jsdom"]
+    },
 }

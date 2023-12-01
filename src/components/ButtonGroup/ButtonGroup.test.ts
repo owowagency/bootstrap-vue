@@ -1,4 +1,5 @@
 import ButtonGroup from '.';
+import {describe} from 'vitest';
 
 describe('template', () => {
     componentRenderTest(ButtonGroup);

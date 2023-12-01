@@ -1,3 +1,4 @@
+import {describe, expect, it} from 'vitest';
 import ButtonClose from '.';
 import {shallowMount} from '@vue/test-utils';
 

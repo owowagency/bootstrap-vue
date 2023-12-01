@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`template renders default 1`] = `
+exports[`template > renders default 1`] = `
 "<div class=\\"dropdown form-dropdown\\">
   <!-- @slot Displays the dropdown toggle -->
   <!-- @slot Displays the dropdown toggle -->
@@ -41,7 +41,7 @@ exports[`template renders default 1`] = `
 </div>"
 `;
 
-exports[`template renders input 1`] = `
+exports[`template > renders input 1`] = `
 "<div class=\\"dropdown form-dropdown\\" searchable=\\"true\\">
   <!-- @slot Displays the dropdown toggle -->
   <!-- @slot Displays the dropdown toggle -->
@@ -68,7 +68,7 @@ exports[`template renders input 1`] = `
 </div>"
 `;
 
-exports[`template renders no options 1`] = `
+exports[`template > renders no options 1`] = `
 "<div class=\\"dropdown form-dropdown\\">
   <!-- @slot Displays the dropdown toggle -->
   <!-- @slot Displays the dropdown toggle -->

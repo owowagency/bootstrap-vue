@@ -30,7 +30,7 @@ Follow the commit message structure of [semantic-release](https://github.com/sem
 
 ## Testing
 
-All code of this package is tested using [Jest](https://jestjs.io/).
+All code of this package is tested using [Vitest](https://vitest.dev/).
 
 ```bash
 yarn test

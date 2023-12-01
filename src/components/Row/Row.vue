@@ -1,12 +1,12 @@
 <template>
-    <component
+    <Component
         :is="tag"
         class="row"
         :class="classes"
     >
         <!-- @slot Displays content inside the row -->
         <slot />
-    </component>
+    </Component>
 </template>
 
 <script lang="ts">

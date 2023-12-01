@@ -1,3 +1,4 @@
+import {describe, expect, it} from 'vitest';
 import InputGroup from '.';
 import {shallowMount} from '@vue/test-utils';
 

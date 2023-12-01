@@ -1,3 +1,4 @@
+import {describe, expect, it} from 'vitest';
 import Confirm from '.';
 import {mount} from '@vue/test-utils';
 

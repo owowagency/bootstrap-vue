@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`template renders default 1`] = `
+exports[`template > renders default 1`] = `
 "<div class=\\"accordion-item\\">
   <h2 class=\\"accordion-header\\"><button class=\\"accordion-button collapsed\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#dont-change-please\\">
       <!-- @slot Displays the header of the accordion -->
@@ -13,7 +13,7 @@ exports[`template renders default 1`] = `
 </div>"
 `;
 
-exports[`template renders given custom classes 1`] = `
+exports[`template > renders given custom classes 1`] = `
 "<div class=\\"accordion-item custom-class\\">
   <h2 class=\\"accordion-header header-class\\"><button class=\\"accordion-button collapsed button-class\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#owow-accordion-item\\">
       <!-- @slot Displays the header of the accordion -->
@@ -26,7 +26,7 @@ exports[`template renders given custom classes 1`] = `
 </div>"
 `;
 
-exports[`template renders header 1`] = `
+exports[`template > renders header 1`] = `
 "<div class=\\"accordion-item\\">
   <h5 class=\\"accordion-header\\"><button class=\\"accordion-button collapsed\\" data-bs-toggle=\\"collapse\\" data-bs-target=\\"#owow-accordion-item\\">
       <!-- @slot Displays the header of the accordion -->find-me

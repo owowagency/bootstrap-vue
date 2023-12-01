@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`template renders default 1`] = `
+exports[`template > renders default 1`] = `
 "<div id=\\"dont-change-please\\" class=\\"offcanvas offcanvas-start\\" data-bs-backdrop=\\"true\\" data-bs-scroll=\\"false\\">
   <!--v-if-->
   <div class=\\"offcanvas-body\\">

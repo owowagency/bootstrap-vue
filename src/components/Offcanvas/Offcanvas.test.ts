@@ -1,10 +1,12 @@
+import {describe, expect, it, vi} from 'vitest';
 import Offcanvas from '.';
 import {shallowMount} from '@vue/test-utils';
 
-jest.mock('bootstrap', () => ({
+vi.mock('bootstrap', () => ({
     Offcanvas: {
-        getOrCreateInstance: jest.fn(),
+        getOrCreateInstance: vi.fn(),
     },
+    __v_isShallow: true,
 }));
 
 describe('template', () => {

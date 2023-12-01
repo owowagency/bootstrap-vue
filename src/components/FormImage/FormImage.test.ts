@@ -1,3 +1,4 @@
+import {describe, expect, it, vi} from 'vitest';
 import FormImage from '.';
 import {nextTick} from 'vue';
 import {shallowMount} from '@vue/test-utils';
@@ -143,12 +144,12 @@ describe('onDrop', () => {
         const wrapper = shallowMount(FormImage);
 
         const event = {
-            preventDefault: jest.fn(),
+            preventDefault: vi.fn(),
             dataTransfer: {
                 files: {
                     // Mock this method to test that `onChange` is being
                     // called.
-                    item: jest.fn()
+                    item: vi.fn()
                         .mockImplementation(() => undefined),
                 },
             },
@@ -171,7 +172,7 @@ describe('readFile', () => {
     // is called.
 
     it('handles when dataType is file', async() => {
-        const readAsDataURLSpy = jest.spyOn(FileReader.prototype, 'readAsDataURL');
+        const readAsDataURLSpy = vi.spyOn(FileReader.prototype, 'readAsDataURL');
 
         const wrapper = shallowMount(FormImage, {props: {dataType: 'file'}});
 
@@ -193,7 +194,7 @@ describe('readFile', () => {
     });
 
     it('handles when dataType is base64', async() => {
-        const readAsDataURLSpy = jest.spyOn(FileReader.prototype, 'readAsDataURL');
+        const readAsDataURLSpy = vi.spyOn(FileReader.prototype, 'readAsDataURL');
 
         const wrapper = shallowMount(FormImage, {props: {dataType: 'base64'}});
 
